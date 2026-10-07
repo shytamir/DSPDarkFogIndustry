@@ -1,13 +1,14 @@
 # DSP Dark Fog Industry
 
-An industrial synthesis concept for the six existing Dark Fog materials in
-Dyson Sphere Program. Read the [supplied concept](docs/concept/CONCEPT.md) and
-its [evidence provenance](docs/concept/EVIDENCE.md) before planning changes.
+A BepInEx plugin adding native industrial recipes for the six existing Dark Fog
+materials in Dyson Sphere Program, without requiring enemy drops. Read the
+[recipes and installation notes](packaging/README.md), [supplied concept](docs/concept/CONCEPT.md)
+and its [evidence provenance](docs/concept/EVIDENCE.md).
 
 [Project steering](docs/PROJECT.md) is the authority for current work and readiness.
 The repository separates product source, development tools, packaging, planning,
-and implementation evidence. The build fixture exercises the delivery tooling;
-it has no BepInEx entry point or gameplay behavior and must not be installed.
+and implementation evidence. Gameplay acceptance and publication are separate
+from compilation and offline checks; consult project steering for current state.
 
 ## Start here
 
@@ -16,17 +17,17 @@ it has no BepInEx entry point or gameplay behavior and must not be installed.
 - [Roadmap entry point](docs/planning/ROADMAP.md)
 - [Build, packaging, and versioning](docs/BUILD-AND-PACKAGING.md)
 
-From PowerShell 7 on Windows, run `./build.ps1` to compile the fixture, create a
-Thunderstore-shaped scaffold ZIP, and validate it. First restore needs NuGet
+From PowerShell 7 on Windows, run `./build.ps1` to compile the plugin, run checks,
+and create a validated Thunderstore-layout candidate ZIP. First restore needs NuGet
 access and the .NET SDK version in `global.json`. Outputs stay in `artifacts/`.
 
 ## Layout
 
 | Path | Responsibility |
 | --- | --- |
-| `src/` | Future product source, organized when implementation is approved |
+| `src/` | BepInEx plugin and six native recipe definitions |
 | `tests/` | Focused checks for executable contracts |
-| `tools/` | Development fixtures, never product architecture |
+| `tools/` | Compile-only external shims, reference ledger and metadata checks |
 | `scripts/` | Shared local and CI commands |
 | `packaging/` | Explicit package inputs |
 | `docs/PROJECT.md` | Steering, decisions register, state, and acceptance |

@@ -1,85 +1,89 @@
 # Build and packaging contract
 
-[PROJECT.md](PROJECT.md) owns readiness, approvals, acceptance, and release state.
+[PROJECT.md](PROJECT.md) owns readiness, approvals, acceptance and release state.
 
-## What is built
+## Build and references
 
-`./build.ps1 [-BuildNumber N]` compiles `tools/ScaffoldFixture` against pinned public
-.NET Framework reference assemblies, then creates and inspects a scaffold ZIP.
-The fixture targets net472/C# 7.3 solely to exercise a conventional managed-library
-build. It is not a BepInEx plugin; it has no entry point, game/Unity references,
-Harmony patches, registration dependency, or product implementation. These fixture
-settings do not decide the future product's architecture or target framework.
+`./build.ps1 [-BuildNumber N]` compiles the net472 BepInEx plugin from `src/`, checks
+its external declaration ledger and compiled metadata, runs the mod-owned behavior
+checks, and packages only the actual plugin. All game, Unity, BepInEx and Harmony
+references are compile-only shims; CI needs no installed game or private binaries.
+The pinned framework reference pack and metadata tooling use locked NuGet restore.
+Local [real-reference verification](LOCAL-DEVELOPMENT.md#build-and-checks) additionally
+compiles against and checks metadata from the identified actual libraries.
 
-The build also compiles `src/DSPDarkFogIndustry` against the complete external
-shim surface and checks its ledger. Local development additionally compiles against
-real references and validates metadata; see [local development](LOCAL-DEVELOPMENT.md).
-The ZIP stage still contains only the labelled fixture until MVP-06 replaces it.
-Do not install that scaffold or ship shim/reference DLLs.
+`tools/ReferenceShims/reference-ledger.json` owns the declaration inventory;
+`patch-targets.json` records string-named Harmony targets and `reference-baseline.json`
+pins the real library identities/hashes. CI resolves every compiled external member
+against shims and checks plugin identity/version and declared hooks. Only local
+real-reference validation proves those hook signatures and declarations match the
+identified native metadata. Neither path executes upstream assemblies or the plugin.
 
 ## Identity and output
 
-`VERSION` supplies `MAJOR` and `MINOR`; a local build defaults to patch `0`, and
-GitHub Actions uses its workflow run number. Reruns retain that number and record
-the run attempt separately. Package version is `M.m.N`, assembly/file version is
-`M.m.N.0`, and diagnostic identity is `M.m.N.<12-character-commit>[.dirty]`.
-Keep this workflow's run-number sequence if it later supplies release versions.
-Owner-authorized version promotion changes VERSION, not generated manifests.
+Thunderstore name: `DSPDarkFogIndustry`. BepInEx GUID: `dark-fog-industry`.
+`VERSION` supplies MAJOR/MINOR; local builds default to patch 0, while GitHub Actions
+uses its workflow run number. Reruns retain the number and record their attempt.
+Package/plugin version is `M.m.N`, assembly/file version `M.m.N.0`, diagnostic
+identity `M.m.N.<12-character-commit>[.dirty]`. Preserve the workflow run sequence.
 
-Each invocation creates a unique folder under ignored `artifacts/runs/`. A final
-ZIP is named only after all checks pass. A failed run retains diagnostic files
-and possibly `package.pending.zip`; neither is a deliverable. Prior runs are never
-presented as the result of a failed invocation. Run one build at a time per checkout.
+Each invocation uses a unique ignored `artifacts/runs/` directory. Only a successful
+run produces a final `DSPDarkFogIndustry-<identity>.zip`; a pending ZIP or earlier
+run is never substituted for a failure. Run one build at a time per checkout.
 
-`build-info.json` identifies the source revision, dirty state, source-file hashes,
-SDK, version, run attempt, and compiled DLL hash. `package-inspection.json` records
-the actual ZIP entries and hashes. Source inventories include untracked source;
-a dirty build is local evidence, not a reproducible committed release identity.
+Separate maintainer evidence files are:
+
+- `build-info.json`: source revision, dirty state, every source-file hash, SDK,
+  version/attempt, reference mode, DLL hash and reference-report hash.
+- `reference-validation.json`: actual external types/members, assembly references,
+  plugin metadata, declared hooks and declaration-ledger hashes.
+- `package-inspection.json`: exact ZIP entries and ZIP/DLL hashes.
+
+Source inventories include untracked source. A dirty build is local evidence, not
+a reproducible committed candidate. These reports and all shim/reference DLLs stay
+outside the installable ZIP.
 
 ## Package contract
 
-The scaffold ZIP contains exactly these five files, with case-sensitive paths:
+The package contains exactly five case-sensitive paths:
 
 ```text
 manifest.json
 README.md
 icon.png
 LICENSE
-BepInEx/plugins/DSPDarkFogIndustry/DSPDarkFogIndustry.Scaffold.dll
+BepInEx/plugins/DSPDarkFogIndustry/DSPDarkFogIndustry.dll
 ```
 
-The manifest and README explicitly say scaffold only. Dependencies are empty
-because there is no plugin; this is not the future product dependency declaration.
-The 256x256 PNG is a deliberately plain tooling placeholder, not approved branding.
-The DLL retains its compiled timestamp. Tools, PDBs, references, private evidence,
-management documents, and build reports never enter this ZIP.
+The manifest declares only `xiaoye97-BepInEx-5.4.17`. The simple 256x256 PNG identifies
+the product. The DLL retains its build timestamp. No fixture, shim, dependency,
+PDB, source, cache, private evidence or management report is included.
 
-Validation checks exact layout, UTF-8 text, metadata/version, source text/icon
-identity, decoded PNG dimensions, payload hash, and timestamp. Failure fixtures
-exercise extra/missing/duplicate/unsafe paths, casing, version, text, icon, payload,
-timestamp and encoding. This implements the relevant
-[Thunderstore package rules](https://wiki.thunderstore.io/mods/creating-a-package)
-and [BepInEx folder routing](https://wiki.thunderstore.io/mods/packaging-your-mods);
-passing these checks does not establish moderation acceptance or a usable mod.
-
-Inspect a specific artifact with its adjacent build evidence:
+Validation checks exact layout, strict UTF-8 text, manifest identity/dependency/
+version, source README/icon/license hashes, decoded PNG dimensions, DLL hash and
+timestamp. Thirteen malformed-package cases cover extra/missing/duplicate/unsafe
+paths, casing, wrong name/version, missing dependency, text/icon/payload changes,
+timestamp and encoding. Three malformed version inputs are rejected as well.
+Rules follow [Thunderstore packaging](https://wiki.thunderstore.io/mods/creating-a-package)
+and [folder routing](https://wiki.thunderstore.io/mods/packaging-your-mods); passing
+does not establish moderation acceptance or gameplay behavior.
 
 ```powershell
 ./scripts/Test-Package.ps1 -Path '<ZIP>' -BuildInfoPath '<build-info.json>'
 ```
 
-## Hosted pipeline and release boundary
+## Hosted verification and publication boundary
 
-The [workflow](../.github/workflows/build.yml) runs on main pushes, pull requests to
-main, and manual dispatch. It uses read-only repository permissions, disables
-persisted checkout credentials, pins actions by commit, installs the pinned SDK,
-and calls the same local build entry point. No game binaries, installed paths, or
-private secrets are needed. The ZIP is uploaded directly using
-[upload-artifact](https://github.com/actions/upload-artifact); maintainer evidence
-is a separate artifact. It does not create tags, GitHub releases, or store uploads.
+The [workflow](../.github/workflows/build.yml) runs on main pushes, PRs to main and
+manual dispatch. It has read-only permissions, no persisted checkout credentials,
+commit-pinned actions, the pinned SDK and the same build entry point. The plugin ZIP
+is uploaded directly; the three evidence files form a separate artifact. Artifacts
+expire after 14 days, so retain the selected candidate locally for owner validation.
+No release tag, GitHub release or store publication is created.
 
-Remote execution can be verified only after authorized Git delivery. Record the
-run URL, source revision, downloaded artifact identity, and inspection results in
-PROJECT. A local success is not a remote success. Before any future publication,
-obtain the required owner acceptance and release authority and verify the exact
-public bytes against the accepted CI artifact.
+After main delivery, verify the actual hosted run, download package/evidence, compare
+GitHub artifact digests, inspect all package entries, compare every source hash with
+an export of that exact commit, and validate the downloaded DLL against real local
+metadata. Record source, run/attempt, hashes and limitations in the validation record;
+PROJECT owns disposition. A green run alone does not close this gate. Publication
+requires separate owner acceptance/authority and verification of the public bytes.

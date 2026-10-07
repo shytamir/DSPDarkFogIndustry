@@ -46,7 +46,7 @@ internal static class Program
     {
         try
         {
-            if (args.Length < 3) throw new ArgumentException("inventory <shims> <ledger> [--write], or validate <shims> <ledger> <plugin> <managed> <bepcore> <report>");
+            if (args.Length < 3) throw new ArgumentException("inventory <shims> <ledger> [--write], inspect <shims> <ledger> <plugin> <report>, or validate <shims> <ledger> <plugin> <managed> <bepcore> <report>");
             string inventory = JsonSerializer.Serialize(Inventory(args[1]), Json).Replace("\r\n", "\n") + "\n";
             if (args[0] == "inventory" && args.Length == 4 && args[3] == "--write")
             {
@@ -56,8 +56,9 @@ internal static class Program
             }
             Require(File.ReadAllText(args[2]).Replace("\r\n", "\n") == inventory, "Shim declarations differ from the reviewed external reference ledger.");
             if (args[0] == "inventory") { Console.WriteLine("Shim declaration ledger matches."); return 0; }
-            Require(args[0] == "validate" && args.Length == 7, "Invalid validation arguments.");
-            string plugin = args[3], managed = args[4], core = args[5];
+            bool realReferences = args[0] == "validate";
+            Require(realReferences && args.Length == 7 || args[0] == "inspect" && args.Length == 5, "Invalid validation arguments.");
+            string plugin = args[3], managed = realReferences ? args[4] : args[1], core = realReferences ? args[5] : args[1];
             var resolver = new DefaultAssemblyResolver();
             resolver.AddSearchDirectory(managed);
             resolver.AddSearchDirectory(core);
@@ -65,7 +66,7 @@ internal static class Program
             using var baseline = JsonDocument.Parse(File.ReadAllText(Path.Combine(Path.GetDirectoryName(args[2])!, "reference-baseline.json")));
             var identities = new List<object>();
             int declarations = 0;
-            foreach (string name in Libraries)
+            foreach (string name in realReferences ? Libraries : [])
             {
                 string actualPath = Path.Combine(name is "BepInEx" or "0Harmony" ? core : managed, name + ".dll");
                 using var actual = AssemblyDefinition.ReadAssembly(actualPath, parameters);
@@ -126,17 +127,24 @@ internal static class Program
                 Require(attribute.ConstructorArguments.Count == 2, "Unreviewed Harmony target declaration.");
                 var targetType = (TypeReference)attribute.ConstructorArguments[0].Value;
                 var targetName = (string)attribute.ConstructorArguments[1].Value;
-                var method = targetType.Resolve().Methods.Single(m => m.Name == targetName);
                 var expected = patchLedger.RootElement.EnumerateArray().Single(t => t.GetProperty("type").GetString() == targetType.FullName && t.GetProperty("method").GetString() == targetName);
-                Require(expected.GetProperty("assembly").GetString() == Scope(targetType) && expected.GetProperty("signature").GetString() == method.FullName
-                    && expected.GetProperty("visibility").GetString() == (method.IsPrivate ? "private" : Visibility(method)) && !method.IsStatic
-                    && expected.GetProperty("parameter_names").EnumerateArray().Select(p => p.GetString()).SequenceEqual(method.Parameters.Select(p => p.Name)), $"Unverified Harmony target: {method.FullName}");
-                targets.Add(method.FullName);
+                Require(expected.GetProperty("assembly").GetString() == Scope(targetType), "Wrong Harmony target assembly.");
+                if (realReferences)
+                {
+                    var method = targetType.Resolve().Methods.Single(m => m.Name == targetName);
+                    Require(expected.GetProperty("signature").GetString() == method.FullName
+                        && expected.GetProperty("visibility").GetString() == (method.IsPrivate ? "private" : Visibility(method)) && !method.IsStatic
+                        && expected.GetProperty("parameter_names").EnumerateArray().Select(p => p.GetString()).SequenceEqual(method.Parameters.Select(p => p.Name)), $"Unverified Harmony target: {method.FullName}");
+                }
+                targets.Add(expected.GetProperty("signature").GetString()!);
             }
-            Require(targets.Count == patchLedger.RootElement.GetArrayLength(), "Missing or duplicated Harmony target.");
-            File.WriteAllText(args[6], JsonSerializer.Serialize(new { kind = "static-real-reference-check", plugin_sha256 = Hash(plugin), references = identities, shim_member_count = declarations,
-                external_references = external.Distinct().Order().ToArray(), harmony_targets = targets.Order().ToArray(), limits = "Metadata only; no game or plugin execution, gameplay or owner acceptance." }, Json) + "\n");
-            Console.WriteLine($"Verified {declarations} shim members, {external.Distinct().Count()} external references, {targets.Count} Harmony targets against real metadata.");
+            Require(targets.Count == patchLedger.RootElement.GetArrayLength() && targets.Distinct().Count() == targets.Count, "Missing or duplicated Harmony target.");
+            File.WriteAllText(args[^1], JsonSerializer.Serialize(new { kind = realReferences ? "static-real-reference-check" : "static-shim-reference-check", plugin_sha256 = Hash(plugin),
+                plugin_guid = metadata.ConstructorArguments[0].Value, plugin_name = metadata.ConstructorArguments[1].Value, version = metadata.ConstructorArguments[2].Value,
+                ledger_sha256 = Hash(args[2]), patch_targets_sha256 = Hash(Path.Combine(Path.GetDirectoryName(args[2])!, "patch-targets.json")), references = identities, shim_member_count = declarations,
+                assembly_references = product.MainModule.AssemblyReferences.Select(a => a.FullName).Order().ToArray(),
+                external_references = external.Distinct().Order().ToArray(), harmony_targets = targets.Order().ToArray(), limits = realReferences ? "Metadata only; no game or plugin execution, gameplay or owner acceptance." : "Compile-only declarations; string-named hooks require separate local real-metadata validation. No runtime claim." }, Json) + "\n");
+            Console.WriteLine($"Verified {external.Distinct().Count()} external references and {targets.Count} declared Harmony targets against {(realReferences ? "real metadata" : "shims and target ledger")}.");
             return 0;
         }
         catch (Exception error) { Console.Error.WriteLine(error.Message); return 1; }

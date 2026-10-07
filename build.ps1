@@ -21,25 +21,21 @@ try {
     })
     $dirty = $status.Count -gt 0
     $label = "$version.$($revision.Substring(0,12))" + $(if ($dirty) { '.dirty' } else { '' })
-    # Compile the actual plugin against the reviewed external shims. Packaging
-    # remains explicitly scaffold-only until the owner-candidate story replaces it.
+    # The package receives only the plugin; all external declarations stay here.
     $productOutput = Join-Path $runRoot 'product'
     & (Join-Path $RepoRoot 'scripts/Build-Plugin.ps1') -ReferenceMode Shims -Version $version -BuildLabel $label -OutputPath $productOutput
     $productChecks = Join-Path $RepoRoot 'tests/ProductChecks/ProductChecks.csproj'
     Invoke-Checked dotnet @('restore',$productChecks,'--locked-mode','--nologo')
     Invoke-Checked dotnet @('run','--project',$productChecks,'--no-restore','-c','Release')
-    $project = Join-Path $RepoRoot 'tools/ScaffoldFixture/ScaffoldFixture.csproj'
-    Invoke-Checked dotnet @('restore',$project,'--locked-mode','--configfile',(Join-Path $RepoRoot 'NuGet.Config'),'--nologo')
-    $compiled = Join-Path $runRoot 'compiled'
-    Invoke-Checked dotnet @('build',$project,'--no-restore','-c','Release','--nologo','-o',$compiled,
-        "-p:Version=$version","-p:AssemblyVersion=$version.0","-p:FileVersion=$version.0","-p:InformationalVersion=$label")
-    $dll = Join-Path $compiled 'DSPDarkFogIndustry.Scaffold.dll'
-    if ([Reflection.AssemblyName]::GetAssemblyName($dll).Version.ToString() -ne "$version.0") { throw 'Fixture assembly version mismatch.' }
+    $dll = Join-Path $productOutput 'DSPDarkFogIndustry.dll'
+    if ([Reflection.AssemblyName]::GetAssemblyName($dll).Version.ToString() -ne "$version.0") { throw 'Plugin assembly version mismatch.' }
     $fileInfo = [Diagnostics.FileVersionInfo]::GetVersionInfo($dll)
-    if ($fileInfo.FileVersion -ne "$version.0" -or $fileInfo.ProductVersion -ne $label) { throw 'Fixture file/informational version mismatch.' }
-    $info = [ordered]@{ kind = 'scaffold-only'; version = $version; build_label = $label; source_commit = $revision
+    if ($fileInfo.FileVersion -ne "$version.0" -or $fileInfo.ProductVersion -ne $label) { throw 'Plugin file/informational version mismatch.' }
+    Copy-Item (Join-Path $productOutput 'reference-validation.json') (Join-Path $runRoot 'reference-validation.json')
+    $info = [ordered]@{ kind = 'plugin-candidate'; reference_mode = 'Shims'; plugin_guid = 'dark-fog-industry'; package_name = 'DSPDarkFogIndustry'; version = $version; build_label = $label; source_commit = $revision
         dirty = $dirty; sdk = $sdk; run_number = $BuildNumber; run_attempt = $env:GITHUB_RUN_ATTEMPT
-        created_utc = [DateTime]::UtcNow.ToString('o'); source_files = $inputs; dll_sha256 = Get-Sha256 $dll }
+        created_utc = [DateTime]::UtcNow.ToString('o'); source_files = $inputs; dll_sha256 = Get-Sha256 $dll
+        reference_report_sha256 = Get-Sha256 (Join-Path $runRoot 'reference-validation.json') }
     $infoPath = Join-Path $runRoot 'build-info.json'
     Write-Json $info $infoPath
     $stage = Join-Path $runRoot 'package-staging'
@@ -55,7 +51,7 @@ try {
     $inspection = & (Join-Path $RepoRoot 'scripts/Test-Package.ps1') -Path $pendingZip -BuildInfoPath $infoPath
     & (Join-Path $RepoRoot 'tests/Package.Tests.ps1') -Path $pendingZip -BuildInfoPath $infoPath
     & (Join-Path $RepoRoot 'scripts/Test-Repository.ps1')
-    $package = Join-Path $runRoot "DSPDarkFogIndustry-SCAFFOLD-$label.zip"
+    $package = Join-Path $runRoot "DSPDarkFogIndustry-$label.zip"
     Move-Item -LiteralPath $pendingZip -Destination $package
     Write-Json $inspection (Join-Path $runRoot 'package-inspection.json')
     if ($env:GITHUB_OUTPUT) {
@@ -63,7 +59,7 @@ try {
         "evidence_path=$runRoot" >> $env:GITHUB_OUTPUT
         "version=$version" >> $env:GITHUB_OUTPUT
     }
-    Write-Host "Verified scaffold only: $package"
+    Write-Host "Verified plugin candidate: $package"
     Write-Host "ZIP SHA-256: $($inspection.sha256)"
     [pscustomobject]@{ PackagePath = $package; BuildInfoPath = $infoPath; InspectionPath = (Join-Path $runRoot 'package-inspection.json') }
 } finally { Pop-Location }

@@ -24,6 +24,7 @@ if ($ReferenceMode -eq 'Shims') {
     $arguments = @($checkerDll,'inventory',$shimPath,$ledger)
     if ($UpdateLedger) { $arguments += '--write' }
     Invoke-Checked dotnet $arguments
+    Invoke-Checked dotnet @($checkerDll,'inspect',$shimPath,$ledger,(Join-Path $OutputPath 'DSPDarkFogIndustry.dll'),(Join-Path $OutputPath 'reference-validation.json'))
 } else {
     if (!(Test-Path (Join-Path $shimPath 'BepInEx.dll'))) { throw 'Build Shims to artifacts/reference-shims before real-reference validation.' }
     Invoke-Checked dotnet @($checkerDll,'validate',$shimPath,$ledger,(Join-Path $OutputPath 'DSPDarkFogIndustry.dll'),$config.ManagedPath,$core,(Join-Path $OutputPath 'reference-validation.json'))

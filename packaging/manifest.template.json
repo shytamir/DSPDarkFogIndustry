@@ -1,7 +1,7 @@
 {
-  "name": "DSPDarkFogIndustry_Scaffold",
+  "name": "DSPDarkFogIndustry",
   "version_number": "0.0.0",
   "website_url": "https://github.com/shytamir/DSPDarkFogIndustry",
-  "description": "Repository pipeline scaffold only. No gameplay functionality. Do not install or publish.",
-  "dependencies": []
+  "description": "Synthesize all six Dark Fog materials through native industry and combat-component research, without enemy drops.",
+  "dependencies": ["xiaoye97-BepInEx-5.4.17"]
 }

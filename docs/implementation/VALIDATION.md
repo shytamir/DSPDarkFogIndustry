@@ -108,3 +108,23 @@ without execution data. The [removal boundary](NATIVE-INTEGRATION.md#save-and-re
 therefore requires keeping the plugin for synthesis saves, or restoring an untouched
 pre-mod checkpoint after removal. Real save/reload and rollback are unrun owner
 observations; these tests neither execute Import nor simulate the native save engine.
+
+[Hosted run 37698846759](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/37698846759)
+passed for MVP-05 source `5a8e01f24197ccf9468a004e7e4a7a3ffc28c259`.
+
+## MVP-06 — Candidate packaging
+
+2026-10-08 local pipeline: zero build warnings/errors, 487 product assertions,
+compiled external-reference/identity inspection, valid package plus 13 malformed
+package rejections and three version rejections, repository checks. The actual
+shim-built DLL also passed the real-library metadata validator (60 external
+references, 62 declared members, both Harmony targets). Previous real-reference
+compilation remains applicable: product sources are unchanged since MVP-05.
+
+Local dirty candidate evidence is under
+`artifacts/runs/f4e9061c86964de8866f11f8dd05e8d6/`. It proves local packaging only,
+not the final handoff identity. The package has exactly five files and the sole
+dependency `xiaoye97-BepInEx-5.4.17`; no scaffold/shim/reference DLL enters it.
+The replacement icon is a simple original six-node industrial-chain mark.
+Hosted execution and downloaded-byte verification follow the source push; this
+local evidence does not close that gate.

@@ -23,13 +23,27 @@ $cases = @(
         param($zip) $zip.GetEntry('README.md').Delete(); $writer = [IO.StreamWriter]::new($zip.CreateEntry('README.md').Open())
         try { $writer.Write('Different package text') } finally { $writer.Dispose() }
     } },
+    @{ Name = 'missing-dependency'; Expected = 'manifest'; Edit = {
+        param($zip) $entry = $zip.GetEntry('manifest.json'); $reader = [IO.StreamReader]::new($entry.Open())
+        try { $manifest = $reader.ReadToEnd() | ConvertFrom-Json } finally { $reader.Dispose() }
+        $entry.Delete(); $manifest.dependencies = @()
+        $writer = [IO.StreamWriter]::new($zip.CreateEntry('manifest.json').Open())
+        try { $writer.Write(($manifest | ConvertTo-Json)) } finally { $writer.Dispose() }
+    } },
+    @{ Name = 'wrong-name'; Expected = 'manifest'; Edit = {
+        param($zip) $entry = $zip.GetEntry('manifest.json'); $reader = [IO.StreamReader]::new($entry.Open())
+        try { $manifest = $reader.ReadToEnd() | ConvertFrom-Json } finally { $reader.Dispose() }
+        $entry.Delete(); $manifest.name = 'DSPDarkFogIndustry_Scaffold'
+        $writer = [IO.StreamWriter]::new($zip.CreateEntry('manifest.json').Open())
+        try { $writer.Write(($manifest | ConvertTo-Json)) } finally { $writer.Dispose() }
+    } },
     @{ Name = 'bad-icon'; Expected = 'source mismatch'; Edit = { param($zip) $zip.GetEntry('icon.png').Delete(); $null = $zip.CreateEntry('icon.png') } },
     @{ Name = 'bad-payload'; Expected = 'Payload'; Edit = {
-        param($zip) $name = 'BepInEx/plugins/DSPDarkFogIndustry/DSPDarkFogIndustry.Scaffold.dll'
+        param($zip) $name = 'BepInEx/plugins/DSPDarkFogIndustry/DSPDarkFogIndustry.dll'
         $zip.GetEntry($name).Delete(); $null = $zip.CreateEntry($name)
     } },
     @{ Name = 'stale-timestamp'; Expected = 'timestamp'; Edit = {
-        param($zip) $zip.GetEntry('BepInEx/plugins/DSPDarkFogIndustry/DSPDarkFogIndustry.Scaffold.dll').LastWriteTime = [DateTimeOffset]::new(1980,1,1,0,0,0,[TimeSpan]::Zero)
+        param($zip) $zip.GetEntry('BepInEx/plugins/DSPDarkFogIndustry/DSPDarkFogIndustry.dll').LastWriteTime = [DateTimeOffset]::new(1980,1,1,0,0,0,[TimeSpan]::Zero)
     } },
     @{ Name = 'invalid-utf8'; Expected = 'translate'; Edit = {
         param($zip) $zip.GetEntry('README.md').Delete(); $stream = $zip.CreateEntry('README.md').Open()

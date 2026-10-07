@@ -13,11 +13,12 @@ and publication. Other documents define contracts or evidence and link here.
 - Product implementation: MVP-01 through MVP-05 technically closed; MVP-06 active.
 - Planning: [recipe decisions](planning/MVP-RECIPES.md) and
   [roadmap](planning/ROADMAP.md) approved for implementation.
-- Owner acceptance: no MVP exists yet; gameplay validation and acceptance remain later.
+- Owner acceptance: gameplay validation and acceptance remain pending; the local
+  candidate has passed offline checks, with hosted artifact verification in progress.
 - Publication: none. No package is approved for installation or release.
 - Git delivery: preparation and its evidence closeout are on main through
   `db3d8ed85df251a57e817881a30d61bdad7938e0`; MVP-01 is `89d40d5`, MVP-02 is `2ebab16`,
-  MVP-03 is `bfac10d`, MVP-04 is `0be4006`.
+  MVP-03 is `bfac10d`, MVP-04 is `0be4006`, MVP-05 is `5a8e01f`.
   Each story commit includes its management update and is pushed to main at closeout.
   The final product candidate requires separate downloaded-artifact verification.
 
@@ -107,7 +108,7 @@ separates inspected facts from investigations and final owner observations.
 | MVP-03: Six-recipe registration | Technically closed, 2026-10-08 | [Validation](implementation/VALIDATION.md#mvp-03--registration); 50 product assertions, real/shim compilation and metadata checks; UI remains owner-observed |
 | MVP-04: Native production/progression | Technically closed, 2026-10-08 | [Validation](implementation/VALIDATION.md#mvp-04--native-production-and-progression); 99 assertions and static dependency/native behavior evidence |
 | MVP-05: Existing saves/removal | Technically closed, 2026-10-08; M2 satisfied | [Validation](implementation/VALIDATION.md#mvp-05--save-reconciliation); 487 assertions; real/shim bindings; runtime persistence/removal observations remain owner work |
-| MVP-06: Actual CI candidate | Active | Main delivery and downloaded artifact verification |
+| MVP-06: Actual CI candidate | Local checks passed; source push for hosted verification | [Validation](implementation/VALIDATION.md#mvp-06--candidate-packaging); remains open until the downloaded artifact passes |
 | MVP-07: Owner validation handoff | Authorized; waiting on MVP-06 | M3 |
 
 ### Planning review record

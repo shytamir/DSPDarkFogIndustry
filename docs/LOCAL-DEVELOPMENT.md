@@ -17,8 +17,8 @@ This checks required commands and the exact SDK, reads the identities and SHA-25
 of three selected game/Unity assemblies, and installs pinned ILSpyCmd 11.1.0.9782
 under ignored `.local/tools/` if missing. Installation uses NuGet; there is no
 automatic retry. Machine paths and baseline hashes remain in `.local/environment.json`.
-It does not copy game assemblies. BepInEx source may be consulted read-only when
-needed; compiling a future plugin requires an explicit dependency/reference design.
+It does not copy game assemblies. BepInEx source and binaries are read-only inputs
+to the [adopted reference design](implementation/NATIVE-INTEGRATION.md#references-and-hosted-compilation).
 
 In later sessions:
 
@@ -61,8 +61,8 @@ retained source records and optional catalogue-reproduction procedure.
 
 The same entry point runs locally and in GitHub Actions. It does not need the game,
 ILSpy, or the private evidence bundle. It compiles the actual plugin against the
-reviewed external shims, checks their ledger, then still packages the explicitly
-labelled fixture until the candidate-packaging story replaces that stage.
+reviewed external shims, checks their ledger and actual product references, runs
+the behavior checks, then packages and inspects the actual plugin candidate.
 See [build/package contract](BUILD-AND-PACKAGING.md) for identity and output details.
 
 For product development, compile both reference modes (no game execution):
