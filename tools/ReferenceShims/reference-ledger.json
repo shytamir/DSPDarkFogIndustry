@@ -1,7 +1,173 @@
 [
   {
     "assembly": "Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-    "types": [],
+    "types": [
+      {
+        "type": "ERecipeType",
+        "kind": "enum",
+        "abstract_type": false,
+        "base_type": "System.Enum",
+        "interfaces": [],
+        "fields": [
+          "public instance System.Byte ERecipeType::value__",
+          "public static ERecipeType ERecipeType::Assemble",
+          "public static ERecipeType ERecipeType::Chemical",
+          "public static ERecipeType ERecipeType::None",
+          "public static ERecipeType ERecipeType::Smelt"
+        ],
+        "methods": []
+      },
+      {
+        "type": "ItemProto",
+        "kind": "class",
+        "abstract_type": false,
+        "base_type": "Proto",
+        "interfaces": [],
+        "fields": [],
+        "methods": [
+          "public instance System.Void ItemProto::.ctor()"
+        ]
+      },
+      {
+        "type": "ItemProtoSet",
+        "kind": "class",
+        "abstract_type": false,
+        "base_type": "ProtoSet\u00601\u003CItemProto\u003E",
+        "interfaces": [],
+        "fields": [],
+        "methods": [
+          "public instance System.Void ItemProtoSet::.ctor()"
+        ]
+      },
+      {
+        "type": "LDB",
+        "kind": "class",
+        "abstract_type": true,
+        "base_type": "System.Object",
+        "interfaces": [],
+        "fields": [],
+        "methods": [
+          "public static ItemProtoSet LDB::get_items()",
+          "public static RecipeProtoSet LDB::get_recipes()",
+          "public static TechProtoSet LDB::get_techs()"
+        ]
+      },
+      {
+        "type": "Proto",
+        "kind": "class",
+        "abstract_type": true,
+        "base_type": "System.Object",
+        "interfaces": [],
+        "fields": [
+          "public instance System.Int32 Proto::ID",
+          "public instance System.String Proto::Name",
+          "public instance System.String Proto::SID"
+        ],
+        "methods": [
+          "protected instance System.Void Proto::.ctor()"
+        ]
+      },
+      {
+        "type": "ProtoSet\u00601",
+        "kind": "class",
+        "abstract_type": false,
+        "base_type": "ProtoTable",
+        "interfaces": [
+          "UnityEngine.ISerializationCallbackReceiver"
+        ],
+        "fields": [
+          "public instance T[] ProtoSet\u00601::dataArray"
+        ],
+        "methods": [
+          "public instance System.Void ProtoSet\u00601::.ctor()",
+          "public instance System.Void ProtoSet\u00601::OnAfterDeserialize()",
+          "public instance System.Void ProtoSet\u00601::OnBeforeSerialize()",
+          "public instance T ProtoSet\u00601::Select(System.Int32)"
+        ]
+      },
+      {
+        "type": "ProtoTable",
+        "kind": "class",
+        "abstract_type": true,
+        "base_type": "UnityEngine.ScriptableObject",
+        "interfaces": [],
+        "fields": [],
+        "methods": [
+          "protected instance System.Void ProtoTable::.ctor()"
+        ]
+      },
+      {
+        "type": "RecipeProto",
+        "kind": "class",
+        "abstract_type": false,
+        "base_type": "Proto",
+        "interfaces": [],
+        "fields": [
+          "public instance ERecipeType RecipeProto::Type",
+          "public instance System.Boolean RecipeProto::Explicit",
+          "public instance System.Boolean RecipeProto::Handcraft",
+          "public instance System.Boolean RecipeProto::NonProductive",
+          "public instance System.Int32 RecipeProto::GridIndex",
+          "public instance System.Int32 RecipeProto::TimeSpend",
+          "public instance System.Int32[] RecipeProto::ItemCounts",
+          "public instance System.Int32[] RecipeProto::Items",
+          "public instance System.Int32[] RecipeProto::ResultCounts",
+          "public instance System.Int32[] RecipeProto::Results",
+          "public instance System.String RecipeProto::Description",
+          "public instance System.String RecipeProto::IconPath",
+          "public instance System.String RecipeProto::IconTag"
+        ],
+        "methods": [
+          "public instance System.Void RecipeProto::.ctor()"
+        ]
+      },
+      {
+        "type": "RecipeProtoSet",
+        "kind": "class",
+        "abstract_type": false,
+        "base_type": "ProtoSet\u00601\u003CRecipeProto\u003E",
+        "interfaces": [],
+        "fields": [],
+        "methods": [
+          "public instance System.Void RecipeProtoSet::.ctor()"
+        ]
+      },
+      {
+        "type": "TechProto",
+        "kind": "class",
+        "abstract_type": false,
+        "base_type": "Proto",
+        "interfaces": [],
+        "fields": [
+          "public instance System.Int32[] TechProto::UnlockRecipes"
+        ],
+        "methods": [
+          "public instance System.Void TechProto::.ctor()"
+        ]
+      },
+      {
+        "type": "TechProtoSet",
+        "kind": "class",
+        "abstract_type": false,
+        "base_type": "ProtoSet\u00601\u003CTechProto\u003E",
+        "interfaces": [],
+        "fields": [],
+        "methods": [
+          "public instance System.Void TechProtoSet::.ctor()"
+        ]
+      },
+      {
+        "type": "VFPreload",
+        "kind": "class",
+        "abstract_type": false,
+        "base_type": "UnityEngine.MonoBehaviour",
+        "interfaces": [],
+        "fields": [],
+        "methods": [
+          "public instance System.Void VFPreload::.ctor()"
+        ]
+      }
+    ],
     "forwards": []
   },
   {
@@ -68,6 +234,39 @@
         "methods": [
           "public instance System.Void HarmonyLib.Harmony::.ctor(System.String)",
           "public instance System.Void HarmonyLib.Harmony::PatchAll(System.Reflection.Assembly)"
+        ]
+      },
+      {
+        "type": "HarmonyLib.HarmonyAttribute",
+        "kind": "class",
+        "abstract_type": false,
+        "base_type": "System.Attribute",
+        "interfaces": [],
+        "fields": [],
+        "methods": [
+          "public instance System.Void HarmonyLib.HarmonyAttribute::.ctor()"
+        ]
+      },
+      {
+        "type": "HarmonyLib.HarmonyPatch",
+        "kind": "class",
+        "abstract_type": false,
+        "base_type": "HarmonyLib.HarmonyAttribute",
+        "interfaces": [],
+        "fields": [],
+        "methods": [
+          "public instance System.Void HarmonyLib.HarmonyPatch::.ctor(System.Type,System.String)"
+        ]
+      },
+      {
+        "type": "HarmonyLib.HarmonyPrefix",
+        "kind": "class",
+        "abstract_type": false,
+        "base_type": "System.Attribute",
+        "interfaces": [],
+        "fields": [],
+        "methods": [
+          "public instance System.Void HarmonyLib.HarmonyPrefix::.ctor()"
         ]
       }
     ],

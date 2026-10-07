@@ -25,6 +25,9 @@ try {
     # remains explicitly scaffold-only until the owner-candidate story replaces it.
     $productOutput = Join-Path $runRoot 'product'
     & (Join-Path $RepoRoot 'scripts/Build-Plugin.ps1') -ReferenceMode Shims -Version $version -BuildLabel $label -OutputPath $productOutput
+    $productChecks = Join-Path $RepoRoot 'tests/ProductChecks/ProductChecks.csproj'
+    Invoke-Checked dotnet @('restore',$productChecks,'--locked-mode','--nologo')
+    Invoke-Checked dotnet @('run','--project',$productChecks,'--no-restore','-c','Release')
     $project = Join-Path $RepoRoot 'tools/ScaffoldFixture/ScaffoldFixture.csproj'
     Invoke-Checked dotnet @('restore',$project,'--locked-mode','--configfile',(Join-Path $RepoRoot 'NuGet.Config'),'--nologo')
     $compiled = Join-Path $runRoot 'compiled'

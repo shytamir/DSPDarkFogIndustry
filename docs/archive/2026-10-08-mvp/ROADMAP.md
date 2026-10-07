@@ -54,3 +54,26 @@ binding issue or return the changed integration decision to MVP-01.
 
 **Exclusions:** New panels, configuration systems, runtime harnesses, installation,
 and speculative compatibility layers.
+
+### MVP-03 — Register and expose the six recipes
+
+**Depends on:** MVP-02.
+
+**Outcome:** Expose the exact recipe contract through native crafting and machine UIs.
+
+**Scope:** Register six records once, link native items and technology unlocks,
+initialize the affected caches, retain icons, and use the agreed grid positions.
+
+**Definition of done:** Offline checks compare all six production records with the
+owner's contract, detect duplicates/collisions, and exercise registration ordering
+and repeat calls. Inspect the registration path for catalogue lookup, item links,
+execution data, icon indices, and technology recipe links. Only researched gates
+grant the recipes; machine filtering and handcraft flags match the contract.
+
+**Evidence / stop:** Check the mod's emitted records and mutations rather than a
+second manually maintained recipe table. Retain a native source trace for derived
+links and explicit owner observations for actual UI/cache behavior. Stop on ID/grid
+conflicts or stale-link risk; do not silently renumber, relocate, or broaden patches.
+
+**Exclusions:** Native item reordering, new items/technologies, custom recipe picker,
+automatic downstream research awards, and extra ingredient requirements.

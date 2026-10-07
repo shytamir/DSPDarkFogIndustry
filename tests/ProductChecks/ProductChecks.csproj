@@ -1,0 +1,7 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><OutputType>Exe</OutputType><TargetFramework>net10.0</TargetFramework><ImplicitUsings>enable</ImplicitUsings><TreatWarningsAsErrors>true</TreatWarningsAsErrors><RestorePackagesWithLockFile>true</RestorePackagesWithLockFile></PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../../src/DSPDarkFogIndustry/SynthesisRecipes.cs" Link="Product/SynthesisRecipes.cs" />
+    <Compile Include="../../src/DSPDarkFogIndustry/RecipeRegistration.cs" Link="Product/RecipeRegistration.cs" />
+  </ItemGroup>
+</Project>

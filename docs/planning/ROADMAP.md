@@ -26,37 +26,14 @@ combat/drops, existing recipes, technology costs, and downstream building resear
 
 | Epic | Outcome | Stories | Exit gate |
 | --- | --- | --- | --- |
-| MVP-B: Complete synthesis route | Six correctly placed/gated recipes with native behavior and save continuity | MVP-03, MVP-04, MVP-05 | M2: Feature contracts pass offline checks; runtime observations are explicit |
+| MVP-B: Complete synthesis route | Six correctly placed/gated recipes with native behavior and save continuity | MVP-04, MVP-05 | M2: Feature contracts pass offline checks; runtime observations are explicit |
 | MVP-C: Owner handoff | The actual CI artifact and a bounded validation procedure | MVP-06, MVP-07 | M3: Owner-validation-ready MVP |
 
-Sequence: MVP-03; MVP-04 and MVP-05 then complete M2;
+Sequence: MVP-04 and MVP-05 then complete M2;
 MVP-06 → MVP-07 completes M3. Each story includes its own checks. These are bounded
 work definitions, not time estimates or automatic activation of every story.
 
 Historical work definitions: [archive](../archive/2026-10-08-mvp/ROADMAP.md).
-
-### MVP-03 — Register and expose the six recipes
-
-**Depends on:** MVP-02.
-
-**Outcome:** Expose the exact recipe contract through native crafting and machine UIs.
-
-**Scope:** Register six records once, link native items and technology unlocks,
-initialize the affected caches, retain icons, and use the agreed grid positions.
-
-**Definition of done:** Offline checks compare all six production records with the
-owner's contract, detect duplicates/collisions, and exercise registration ordering
-and repeat calls. Inspect the registration path for catalogue lookup, item links,
-execution data, icon indices, and technology recipe links. Only researched gates
-grant the recipes; machine filtering and handcraft flags match the contract.
-
-**Evidence / stop:** Check the mod's emitted records and mutations rather than a
-second manually maintained recipe table. Retain a native source trace for derived
-links and explicit owner observations for actual UI/cache behavior. Stop on ID/grid
-conflicts or stale-link risk; do not silently renumber, relocate, or broaden patches.
-
-**Exclusions:** Native item reordering, new items/technologies, custom recipe picker,
-automatic downstream research awards, and extra ingredient requirements.
 
 ### MVP-04 — Preserve native production and progression
 
