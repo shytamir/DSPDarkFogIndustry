@@ -1,0 +1,53 @@
+name: Build and check scaffold
+run-name: Scaffold build ${{ github.run_number }} from ${{ github.sha }}
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  scaffold:
+    runs-on: windows-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - name: Check out source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - name: Set up pinned SDK
+        uses: actions/setup-dotnet@a98b56852c35b8e3190ac28c8c2271da59106c68 # v6.0.0
+        with:
+          global-json-file: global.json
+      - name: Compile and validate scaffold
+        id: build
+        run: |
+          if ((git rev-parse HEAD).Trim() -ne $env:GITHUB_SHA) { throw 'Unexpected checkout revision.' }
+          ./build.ps1 -BuildNumber ([int]$env:GITHUB_RUN_NUMBER)
+      - name: Upload scaffold ZIP directly
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        with:
+          path: ${{ steps.build.outputs.package_path }}
+          archive: false
+          if-no-files-found: error
+          retention-days: 14
+      - name: Upload maintainer evidence
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        with:
+          name: scaffold-evidence-${{ github.run_number }}-${{ github.run_attempt }}
+          path: |
+            ${{ steps.build.outputs.evidence_path }}/build-info.json
+            ${{ steps.build.outputs.evidence_path }}/package-inspection.json
+          if-no-files-found: error
+          retention-days: 14
+      - name: Describe validation boundary
+        run: |
+          'Scaffold compilation and package checks passed. This is not a plugin and must not be installed or published. No game compatibility, gameplay, owner acceptance, or release publication is claimed.' >> $env:GITHUB_STEP_SUMMARY

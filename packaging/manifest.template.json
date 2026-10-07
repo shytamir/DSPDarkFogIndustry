@@ -1,0 +1,7 @@
+{
+  "name": "DSPDarkFogIndustry_Scaffold",
+  "version_number": "0.0.0",
+  "website_url": "https://github.com/shytamir/DSPDarkFogIndustry",
+  "description": "Repository pipeline scaffold only. No gameplay functionality. Do not install or publish.",
+  "dependencies": []
+}

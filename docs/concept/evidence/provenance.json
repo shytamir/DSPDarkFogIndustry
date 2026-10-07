@@ -1,0 +1,287 @@
+{
+  "investigation_date": "2026-10-07",
+  "timezone": "Europe/Madrid",
+  "game_version": "0.10.35.29104",
+  "version_basis": "Installed assembly SHA-256 matches retained 29104 identity evidence.",
+  "assembly_sha256": "6C122E5443E6843979B4064050DFCB5E0D75577A0B64F6AE4111290238B33C12",
+  "resources_assets_sha256": "2839EA86D64C742539410C5E7BE005B65FF871212E9D7957C5B015ECFF2FD7D2",
+  "decompiler": "ILSpyCmd 11.1.0.9782",
+  "catalogue_extraction": "UnityPy with TypeTreeGenerator 2022.3.62f3 and installed Managed folder",
+  "full_extracted_catalogue_hashes": {
+    "ItemProtoSet.json": "CA61A5837AE079AE4876A249DE5D30DB05A5AFE51335DCC0FB691D26AE09C49E",
+    "RecipeProtoSet.json": "8B948F7B5C62C0341F3C8F11C5C74BCA401E2296353E65ED672E91351B33CF66",
+    "TechProtoSet.json": "4C269E262D71A64761B7EB7F31B15A45936B52D882D992C705B60EECFE844711"
+  },
+  "ldbtool_reference": {
+    "repository": "https://github.com/xiaoye97/DSP_LDBTool",
+    "commit": "6b84a5539d4f4bb06d0e840cc8203655e313da4e",
+    "meaning": "Inspected extension example, not installed-game compatibility certification."
+  },
+  "rarity_evidence": {
+    "runtime_version": "0.10.35.29057",
+    "stars": 64,
+    "resource_multiplier": 1,
+    "clusters": 8,
+    "sampling": "Deliberately selected test seeds, not a representative random cohort.",
+    "source_sha256": "9C6787F6B5A71ADED409D736A4BE7F070CFFF4E48CE863E1E8DD11732E3AD1AD"
+  },
+  "sources": [
+    {
+      "excerpt": "evidence/source/research-and-discovery.txt",
+      "source_file": "GameHistoryData.cs",
+      "source_sha256": "9E58BFC844CC9D4C7451A29A6D4914FAC777A6540149044F6D7DAD1E11E3C2D5",
+      "line_ranges": [
+        [
+          564,
+          606
+        ],
+        [
+          941,
+          1010
+        ],
+        [
+          1399,
+          1457
+        ],
+        [
+          1511,
+          1545
+        ],
+        [
+          1725,
+          1783
+        ],
+        [
+          1823,
+          1857
+        ],
+        [
+          2575,
+          2600
+        ]
+      ],
+      "origin": "ILSpy decompilation of installed Assembly-CSharp.dll"
+    },
+    {
+      "excerpt": "evidence/source/technology-visibility.txt",
+      "source_file": "UITechNode.cs",
+      "source_sha256": "059157C81731B6D3B369C332E5E8BBC150BC8E5EF87DC2D100796D53AC92A2BB",
+      "line_ranges": [
+        [
+          2368,
+          2409
+        ]
+      ],
+      "origin": "ILSpy decompilation of installed Assembly-CSharp.dll"
+    },
+    {
+      "excerpt": "evidence/source/technology-tree-and-peace-mode.txt",
+      "source_file": "UITechTree.cs",
+      "source_sha256": "C41F40A7C9EE2079396BA2D59CF2AE8CFFA3E31FF2130972410B4DAFC696DDE5",
+      "line_ranges": [
+        [
+          529,
+          546
+        ],
+        [
+          1619,
+          1642
+        ]
+      ],
+      "origin": "ILSpy decompilation of installed Assembly-CSharp.dll"
+    },
+    {
+      "excerpt": "evidence/source/recipe-definition-and-preload.txt",
+      "source_file": "RecipeProto.cs",
+      "source_sha256": "506C2DEC8CA5A10D5E5DFFC9D46CEFD8169720E2359D152037DF607C92D62FD2",
+      "line_ranges": [
+        [
+          1,
+          160
+        ]
+      ],
+      "origin": "ILSpy decompilation of installed Assembly-CSharp.dll"
+    },
+    {
+      "excerpt": "evidence/source/technology-definition-and-links.txt",
+      "source_file": "TechProto.cs",
+      "source_sha256": "B324ECD12C1F50C02252AE09C38B35997BEB5A99B3BBFE5B7FFC9E402B4491CE",
+      "line_ranges": [
+        [
+          7,
+          65
+        ],
+        [
+          494,
+          554
+        ]
+      ],
+      "origin": "ILSpy decompilation of installed Assembly-CSharp.dll"
+    },
+    {
+      "excerpt": "evidence/source/item-recipe-links.txt",
+      "source_file": "ItemProto.cs",
+      "source_sha256": "75EE9ED21534C37AB9F565A08A337754C92F0B4B3B40E91A8FC60417723354BC",
+      "line_ranges": [
+        [
+          557,
+          570
+        ],
+        [
+          735,
+          787
+        ]
+      ],
+      "origin": "ILSpy decompilation of installed Assembly-CSharp.dll"
+    },
+    {
+      "excerpt": "evidence/source/recipe-picker.txt",
+      "source_file": "UIRecipePicker.cs",
+      "source_sha256": "C6E8CEE528C1F2DB021425531BF0890860D3DD414E439CF9351AA38C52C8EF0D",
+      "line_ranges": [
+        [
+          301,
+          338
+        ]
+      ],
+      "origin": "ILSpy decompilation of installed Assembly-CSharp.dll"
+    },
+    {
+      "excerpt": "evidence/source/replicator-menu.txt",
+      "source_file": "UIReplicatorWindow.cs",
+      "source_sha256": "31B818CA743F8D569A0A13BE458048D58A37B7C5CD5CF2F634F2D9D970FDDC33",
+      "line_ranges": [
+        [
+          790,
+          830
+        ]
+      ],
+      "origin": "ILSpy decompilation of installed Assembly-CSharp.dll"
+    },
+    {
+      "excerpt": "evidence/source/native-preload-order.txt",
+      "source_file": "VFPreload.cs",
+      "source_sha256": "8798F8C7B8E21CCA7EC3DE08187329A11F1C82F63C317024DFDFE3B68A78CBA4",
+      "line_ranges": [
+        [
+          435,
+          498
+        ]
+      ],
+      "origin": "ILSpy decompilation of installed Assembly-CSharp.dll"
+    },
+    {
+      "excerpt": "evidence/source/generator-product-assignment.txt",
+      "source_file": "PlanetAlgorithm.cs",
+      "source_sha256": "4690C4791859A46C72F02BF578146A1E9486A29C09107E1D7D4ABFD403A67CD8",
+      "line_ranges": [
+        [
+          40,
+          64
+        ],
+        [
+          407,
+          440
+        ]
+      ],
+      "origin": "ILSpy decompilation of installed Assembly-CSharp.dll"
+    },
+    {
+      "excerpt": "evidence/source/generator-product-cache.txt",
+      "source_file": "PlanetModelingManager.cs",
+      "source_sha256": "FA4603C5EBD2DBED7F78B59AC23118A1F8855AD440A2B637E772644E346BF553",
+      "line_ranges": [
+        [
+          588,
+          619
+        ]
+      ],
+      "origin": "ILSpy decompilation of installed Assembly-CSharp.dll"
+    },
+    {
+      "excerpt": "evidence/source/miner-product-buffer.txt",
+      "source_file": "MinerComponent.cs",
+      "source_sha256": "56ACC31FF591E1E4917A1C3E81FA8E43F5ABB1F699CD46542C858B34637E45A3",
+      "line_ranges": [
+        [
+          380,
+          451
+        ],
+        [
+          548,
+          570
+        ]
+      ],
+      "origin": "ILSpy decompilation of installed Assembly-CSharp.dll"
+    },
+    {
+      "excerpt": "evidence/source/miner-product-icons.txt",
+      "source_file": "UIMinerWindow.cs",
+      "source_sha256": "85D92177C550CA86DE5DE23629B8B574E7611E9066C559F92C557A2C3DD2116E",
+      "line_ranges": [
+        [
+          282,
+          315
+        ]
+      ],
+      "origin": "ILSpy decompilation of installed Assembly-CSharp.dll"
+    },
+    {
+      "excerpt": "evidence/source/advanced-miner-storage.txt",
+      "source_file": "PlanetFactory.decompiled.cs",
+      "source_sha256": "A30E2884FB88D9B479F2DFD9F787E74A8DAC1D3419B308800185EC77CC0EA1C8",
+      "line_ranges": [
+        [
+          1374,
+          1387
+        ]
+      ],
+      "origin": "ILSpy decompilation of installed Assembly-CSharp.dll"
+    },
+    {
+      "excerpt": "evidence/source/vein-save-fields.txt",
+      "source_file": "VeinData.cs",
+      "source_sha256": "97A4B36CCB4B5DB886CE75794A502870DA0B27C312DBC8D81886DF3EDF3ABE7E",
+      "line_ranges": [
+        [
+          77,
+          107
+        ]
+      ],
+      "origin": "ILSpy decompilation of installed Assembly-CSharp.dll"
+    },
+    {
+      "excerpt": "evidence/source/ldbtool-registration.txt",
+      "source_file": "LDBTool.cs",
+      "source_sha256": "22A34B64BF054F8DC97AE988B8E162945C46B5C82C9F59C2A8454088004ABA5B",
+      "line_ranges": [
+        [
+          69,
+          81
+        ],
+        [
+          96,
+          108
+        ],
+        [
+          269,
+          317
+        ]
+      ],
+      "origin": "third-party LDBTool source"
+    },
+    {
+      "excerpt": "evidence/source/ldbtool-save-unlock-reconciliation.txt",
+      "source_file": "GameHistoryData_Patch.cs",
+      "source_sha256": "78FE2ED2AB0C86A8F92DDAE7FACA2EB61BAAB8F8B021AE3EC23FEF6F850BE3A3",
+      "line_ranges": [
+        [
+          1,
+          34
+        ]
+      ],
+      "origin": "third-party LDBTool source"
+    }
+  ],
+  "validation_boundary": "Static native-code inspection, current asset extraction and catalogue dependency assertions. No candidate plugin build, game launch, research, manufacturing, save loading or multiplayer validation."
+}

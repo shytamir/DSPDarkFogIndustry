@@ -1,0 +1,86 @@
+{
+  "combat_techs_checked": 77,
+  "distinct_ancestors_including_gates": 116,
+  "fog_dependent_ancestors": [],
+  "fog_consuming_recipes": [
+    153,
+    154,
+    155,
+    156,
+    162
+  ],
+  "fog_dependent_techs": [
+    1509,
+    1901,
+    1902,
+    1903,
+    1904
+  ],
+  "combat_gate_candidates": [
+    {
+      "ID": 1807,
+      "Name": "T聚爆加农炮",
+      "Items": [
+        6001,
+        6002
+      ],
+      "PreTechs": [
+        1806
+      ],
+      "PreTechsImplicit": [
+        1702
+      ],
+      "IsHiddenTech": 0
+    },
+    {
+      "ID": 1815,
+      "Name": "T超音速导弹组",
+      "Items": [
+        6001,
+        6002,
+        6003
+      ],
+      "PreTechs": [
+        1814
+      ],
+      "PreTechsImplicit": [
+        1113
+      ],
+      "IsHiddenTech": 0
+    },
+    {
+      "ID": 1811,
+      "Name": "T磁化电浆炮",
+      "Items": [
+        6001,
+        6002,
+        6003,
+        6004
+      ],
+      "PreTechs": [
+        1809
+      ],
+      "PreTechsImplicit": [
+        1126
+      ],
+      "IsHiddenTech": 0
+    },
+    {
+      "ID": 1818,
+      "Name": "T反物质胶囊",
+      "Items": [
+        6001,
+        6002,
+        6003,
+        6004,
+        6005
+      ],
+      "PreTechs": [
+        1145,
+        1811
+      ],
+      "PreTechsImplicit": [],
+      "IsHiddenTech": 0
+    }
+  ]
+}

@@ -1,0 +1,8910 @@
+{
+  "selection": "Exact records from installed resources.assets; selected combat branches, prerequisite closure, Fog-related techs, Fog-consuming recipes and matrix recipes.",
+  "combat_ids": [
+    1801,
+    1802,
+    1803,
+    1804,
+    1805,
+    1806,
+    1807,
+    1808,
+    1809,
+    1810,
+    1811,
+    1812,
+    1813,
+    1814,
+    1815,
+    1816,
+    1817,
+    1818,
+    1819,
+    1820,
+    1821,
+    1822,
+    1823,
+    1824,
+    1826,
+    5001,
+    5002,
+    5003,
+    5004,
+    5005,
+    5006,
+    5101,
+    5102,
+    5103,
+    5104,
+    5105,
+    5106,
+    5201,
+    5202,
+    5203,
+    5204,
+    5205,
+    5206,
+    5301,
+    5302,
+    5303,
+    5304,
+    5305,
+    5401,
+    5402,
+    5403,
+    5404,
+    5405,
+    5601,
+    5602,
+    5603,
+    5604,
+    5605,
+    5701,
+    5702,
+    5703,
+    5704,
+    5705,
+    5801,
+    5802,
+    5803,
+    5804,
+    5805,
+    5806,
+    5807,
+    5901,
+    5902,
+    5903,
+    5904,
+    5905,
+    5906,
+    5907
+  ],
+  "combat_closure_ids": [
+    1,
+    1001,
+    1002,
+    1101,
+    1102,
+    1111,
+    1112,
+    1113,
+    1120,
+    1121,
+    1122,
+    1123,
+    1124,
+    1125,
+    1126,
+    1131,
+    1132,
+    1142,
+    1143,
+    1145,
+    1201,
+    1302,
+    1311,
+    1401,
+    1402,
+    1411,
+    1413,
+    1414,
+    1501,
+    1502,
+    1503,
+    1504,
+    1505,
+    1506,
+    1701,
+    1702,
+    1703,
+    1704,
+    1711,
+    1801,
+    1802,
+    1803,
+    1804,
+    1805,
+    1806,
+    1807,
+    1808,
+    1809,
+    1810,
+    1811,
+    1812,
+    1813,
+    1814,
+    1815,
+    1816,
+    1817,
+    1818,
+    1819,
+    1820,
+    1821,
+    1822,
+    1823,
+    1824,
+    1826,
+    5001,
+    5002,
+    5003,
+    5004,
+    5005,
+    5006,
+    5101,
+    5102,
+    5103,
+    5104,
+    5105,
+    5106,
+    5201,
+    5202,
+    5203,
+    5204,
+    5205,
+    5206,
+    5301,
+    5302,
+    5303,
+    5304,
+    5305,
+    5401,
+    5402,
+    5403,
+    5404,
+    5405,
+    5601,
+    5602,
+    5603,
+    5604,
+    5605,
+    5701,
+    5702,
+    5703,
+    5704,
+    5705,
+    5801,
+    5802,
+    5803,
+    5804,
+    5805,
+    5806,
+    5807,
+    5901,
+    5902,
+    5903,
+    5904,
+    5905,
+    5906,
+    5907
+  ],
+  "items": [
+    {
+      "Name": "高能石墨",
+      "ID": 1109,
+      "SID": "",
+      "Type": 2,
+      "SubID": 0,
+      "MiningFrom": "",
+      "ProduceFrom": "",
+      "StackSize": 100,
+      "Grade": 0,
+      "Upgrades": [],
+      "IsFluid": 0,
+      "IsEntity": 0,
+      "CanBuild": 0,
+      "BuildInGas": 0,
+      "IconPath": "Icons/ItemRecipe/graphite",
+      "IconTag": "gnsm",
+      "ModelIndex": 0,
+      "ModelCount": 0,
+      "HpMax": 1,
+      "Ability": 0,
+      "HeatValue": 6750000,
+      "Potential": 0,
+      "ReactorInc": 0.5,
+      "FuelType": 1,
+      "CatalystType": 0,
+      "AmmoType": 0,
+      "BombType": 0,
+      "CraftType": 0,
+      "BuildIndex": 0,
+      "BuildMode": 0,
+      "GridIndex": 1204,
+      "UnlockKey": 0,
+      "PreTechOverride": 0,
+      "Productive": 1,
+      "MechaMaterialID": 10,
+      "DropRate": 0.0,
+      "EnemyDropLevel": 1,
+      "EnemyDropRange": {
+        "x": 0.057999998331069946,
+        "y": 0.005499999970197678
+      },
+      "EnemyDropCount": 1.600000023841858,
+      "EnemyDropMask": 2097798226,
+      "EnemyDropMaskRatio": 0.699999988079071,
+      "DescFields": [
+        2,
+        3,
+        31,
+        1,
+        40
+      ],
+      "Description": "I高能石墨",
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "金刚石",
+      "ID": 1112,
+      "SID": "",
+      "Type": 2,
+      "SubID": 0,
+      "MiningFrom": "",
+      "ProduceFrom": "",
+      "StackSize": 100,
+      "Grade": 0,
+      "Upgrades": [],
+      "IsFluid": 0,
+      "IsEntity": 0,
+      "CanBuild": 0,
+      "BuildInGas": 0,
+      "IconPath": "Icons/ItemRecipe/diamond",
+      "IconTag": "jgs",
+      "ModelIndex": 0,
+      "ModelCount": 0,
+      "HpMax": 1,
+      "Ability": 0,
+      "HeatValue": 900000,
+      "Potential": 0,
+      "ReactorInc": -0.5,
+      "FuelType": 1,
+      "CatalystType": 0,
+      "AmmoType": 0,
+      "BombType": 0,
+      "CraftType": 0,
+      "BuildIndex": 0,
+      "BuildMode": 0,
+      "GridIndex": 1304,
+      "UnlockKey": 0,
+      "PreTechOverride": 0,
+      "Productive": 1,
+      "MechaMaterialID": 15,
+      "DropRate": 0.0,
+      "EnemyDropLevel": 2,
+      "EnemyDropRange": {
+        "x": 0.09099999815225601,
+        "y": 0.004000000189989805
+      },
+      "EnemyDropCount": 1.0,
+      "EnemyDropMask": 2147483647,
+      "EnemyDropMaskRatio": 0.0,
+      "DescFields": [
+        2,
+        3,
+        31,
+        1,
+        40
+      ],
+      "Description": "I金刚石",
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "钛晶石",
+      "ID": 1118,
+      "SID": "",
+      "Type": 2,
+      "SubID": 0,
+      "MiningFrom": "",
+      "ProduceFrom": "",
+      "StackSize": 100,
+      "Grade": 0,
+      "Upgrades": [],
+      "IsFluid": 0,
+      "IsEntity": 0,
+      "CanBuild": 0,
+      "BuildInGas": 0,
+      "IconPath": "Icons/ItemRecipe/titan-crystal",
+      "IconTag": "taijs",
+      "ModelIndex": 0,
+      "ModelCount": 0,
+      "HpMax": 1,
+      "Ability": 0,
+      "HeatValue": 0,
+      "Potential": 0,
+      "ReactorInc": 0.0,
+      "FuelType": 0,
+      "CatalystType": 0,
+      "AmmoType": 0,
+      "BombType": 0,
+      "CraftType": 0,
+      "BuildIndex": 0,
+      "BuildMode": 0,
+      "GridIndex": 1409,
+      "UnlockKey": 0,
+      "PreTechOverride": 0,
+      "Productive": 1,
+      "MechaMaterialID": 20,
+      "DropRate": 0.0,
+      "EnemyDropLevel": 3,
+      "EnemyDropRange": {
+        "x": 0.20499999821186066,
+        "y": 0.003000000026077032
+      },
+      "EnemyDropCount": 0.800000011920929,
+      "EnemyDropMask": 2131733228,
+      "EnemyDropMaskRatio": 0.5,
+      "DescFields": [
+        1,
+        40
+      ],
+      "Description": "I钛晶石",
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "氢",
+      "ID": 1120,
+      "SID": "",
+      "Type": 2,
+      "SubID": 0,
+      "MiningFrom": "气态巨星轨道",
+      "ProduceFrom": "",
+      "StackSize": 20,
+      "Grade": 0,
+      "Upgrades": [],
+      "IsFluid": 1,
+      "IsEntity": 0,
+      "CanBuild": 0,
+      "BuildInGas": 0,
+      "IconPath": "Icons/ItemRecipe/hydrogen",
+      "IconTag": "qing",
+      "ModelIndex": 0,
+      "ModelCount": 0,
+      "HpMax": 1,
+      "Ability": 0,
+      "HeatValue": 9000000,
+      "Potential": 0,
+      "ReactorInc": 1.0,
+      "FuelType": 1,
+      "CatalystType": 0,
+      "AmmoType": 0,
+      "BombType": 0,
+      "CraftType": 0,
+      "BuildIndex": 0,
+      "BuildMode": 0,
+      "GridIndex": 1109,
+      "UnlockKey": 0,
+      "PreTechOverride": 0,
+      "Productive": 1,
+      "MechaMaterialID": 0,
+      "DropRate": 0.0,
+      "EnemyDropLevel": 3,
+      "EnemyDropRange": {
+        "x": 0.1850000023841858,
+        "y": 0.004000000189989805
+      },
+      "EnemyDropCount": 1.5,
+      "EnemyDropMask": 2147483647,
+      "EnemyDropMaskRatio": 0.0,
+      "DescFields": [
+        2,
+        3,
+        31,
+        1,
+        0,
+        40
+      ],
+      "Description": "I氢",
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "反物质",
+      "ID": 1122,
+      "SID": "",
+      "Type": 2,
+      "SubID": 0,
+      "MiningFrom": "",
+      "ProduceFrom": "",
+      "StackSize": 20,
+      "Grade": 0,
+      "Upgrades": [],
+      "IsFluid": 0,
+      "IsEntity": 0,
+      "CanBuild": 0,
+      "BuildInGas": 0,
+      "IconPath": "Icons/ItemRecipe/anti-matter",
+      "IconTag": "fwz",
+      "ModelIndex": 0,
+      "ModelCount": 0,
+      "HpMax": 1,
+      "Ability": 0,
+      "HeatValue": 0,
+      "Potential": 600000000,
+      "ReactorInc": 0.0,
+      "FuelType": 0,
+      "CatalystType": 0,
+      "AmmoType": 0,
+      "BombType": 0,
+      "CraftType": 0,
+      "BuildIndex": 0,
+      "BuildMode": 0,
+      "GridIndex": 1111,
+      "UnlockKey": 0,
+      "PreTechOverride": 0,
+      "Productive": 1,
+      "MechaMaterialID": 0,
+      "DropRate": 0.0,
+      "EnemyDropLevel": 7,
+      "EnemyDropRange": {
+        "x": 0.19099999964237213,
+        "y": 0.0020000000949949026
+      },
+      "EnemyDropCount": 0.30000001192092896,
+      "EnemyDropMask": 2147483647,
+      "EnemyDropMaskRatio": 0.0,
+      "DescFields": [
+        37,
+        1,
+        40
+      ],
+      "Description": "I反物质",
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "框架材料",
+      "ID": 1125,
+      "SID": "",
+      "Type": 2,
+      "SubID": 0,
+      "MiningFrom": "",
+      "ProduceFrom": "",
+      "StackSize": 100,
+      "Grade": 0,
+      "Upgrades": [],
+      "IsFluid": 0,
+      "IsEntity": 0,
+      "CanBuild": 0,
+      "BuildInGas": 0,
+      "IconPath": "Icons/ItemRecipe/frame-material",
+      "IconTag": "kjcl",
+      "ModelIndex": 0,
+      "ModelCount": 0,
+      "HpMax": 1,
+      "Ability": 0,
+      "HeatValue": 0,
+      "Potential": 0,
+      "ReactorInc": 0.0,
+      "FuelType": 0,
+      "CatalystType": 0,
+      "AmmoType": 0,
+      "BombType": 0,
+      "CraftType": 0,
+      "BuildIndex": 0,
+      "BuildMode": 0,
+      "GridIndex": 1709,
+      "UnlockKey": 0,
+      "PreTechOverride": 0,
+      "Productive": 1,
+      "MechaMaterialID": 24,
+      "DropRate": 0.0,
+      "EnemyDropLevel": 0,
+      "EnemyDropRange": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "EnemyDropCount": 0.0,
+      "EnemyDropMask": 0,
+      "EnemyDropMaskRatio": 0.0,
+      "DescFields": [
+        1,
+        40
+      ],
+      "Description": "I框架材料",
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "奇异物质",
+      "ID": 1127,
+      "SID": "",
+      "Type": 2,
+      "SubID": 0,
+      "MiningFrom": "",
+      "ProduceFrom": "",
+      "StackSize": 100,
+      "Grade": 0,
+      "Upgrades": [],
+      "IsFluid": 0,
+      "IsEntity": 0,
+      "CanBuild": 0,
+      "BuildInGas": 0,
+      "IconPath": "Icons/ItemRecipe/strange-matter-generator",
+      "IconTag": "qywz",
+      "ModelIndex": 0,
+      "ModelCount": 0,
+      "HpMax": 1,
+      "Ability": 0,
+      "HeatValue": 0,
+      "Potential": 0,
+      "ReactorInc": 0.0,
+      "FuelType": 0,
+      "CatalystType": 0,
+      "AmmoType": 0,
+      "BombType": 0,
+      "CraftType": 0,
+      "BuildIndex": 0,
+      "BuildMode": 0,
+      "GridIndex": 1408,
+      "UnlockKey": 0,
+      "PreTechOverride": 0,
+      "Productive": 1,
+      "MechaMaterialID": 0,
+      "DropRate": 0.0,
+      "EnemyDropLevel": 6,
+      "EnemyDropRange": {
+        "x": 0.14350000023841858,
+        "y": 0.0035000001080334187
+      },
+      "EnemyDropCount": 0.4000000059604645,
+      "EnemyDropMask": 2147483647,
+      "EnemyDropMaskRatio": 0.0,
+      "DescFields": [
+        1,
+        40
+      ],
+      "Description": "I奇异物质",
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "磁线圈",
+      "ID": 1202,
+      "SID": "",
+      "Type": 3,
+      "SubID": 0,
+      "MiningFrom": "",
+      "ProduceFrom": "",
+      "StackSize": 200,
+      "Grade": 0,
+      "Upgrades": [],
+      "IsFluid": 0,
+      "IsEntity": 0,
+      "CanBuild": 0,
+      "BuildInGas": 0,
+      "IconPath": "Icons/ItemRecipe/magnetism-wire",
+      "IconTag": "cxq",
+      "ModelIndex": 0,
+      "ModelCount": 0,
+      "HpMax": 1,
+      "Ability": 0,
+      "HeatValue": 0,
+      "Potential": 0,
+      "ReactorInc": 0.0,
+      "FuelType": 0,
+      "CatalystType": 0,
+      "AmmoType": 0,
+      "BombType": 0,
+      "CraftType": 0,
+      "BuildIndex": 0,
+      "BuildMode": 0,
+      "GridIndex": 1302,
+      "UnlockKey": 0,
+      "PreTechOverride": 0,
+      "Productive": 1,
+      "MechaMaterialID": 0,
+      "DropRate": 0.0,
+      "EnemyDropLevel": 1,
+      "EnemyDropRange": {
+        "x": 0.11599999666213989,
+        "y": 0.007000000216066837
+      },
+      "EnemyDropCount": 2.0,
+      "EnemyDropMask": 2147483647,
+      "EnemyDropMaskRatio": 0.0,
+      "DescFields": [
+        1,
+        40
+      ],
+      "Description": "I磁线圈",
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "引力透镜",
+      "ID": 1209,
+      "SID": "",
+      "Type": 3,
+      "SubID": 0,
+      "MiningFrom": "",
+      "ProduceFrom": "",
+      "StackSize": 100,
+      "Grade": 0,
+      "Upgrades": [],
+      "IsFluid": 0,
+      "IsEntity": 0,
+      "CanBuild": 0,
+      "BuildInGas": 0,
+      "IconPath": "Icons/ItemRecipe/gravity-lens",
+      "IconTag": "yltj",
+      "ModelIndex": 0,
+      "ModelCount": 0,
+      "HpMax": 1,
+      "Ability": 200,
+      "HeatValue": 0,
+      "Potential": 0,
+      "ReactorInc": 0.0,
+      "FuelType": 0,
+      "CatalystType": 1,
+      "AmmoType": 0,
+      "BombType": 0,
+      "CraftType": 0,
+      "BuildIndex": 0,
+      "BuildMode": 0,
+      "GridIndex": 1705,
+      "UnlockKey": 0,
+      "PreTechOverride": 0,
+      "Productive": 1,
+      "MechaMaterialID": 21,
+      "DropRate": 0.0,
+      "EnemyDropLevel": 7,
+      "EnemyDropRange": {
+        "x": 0.2199999988079071,
+        "y": 0.0020000000949949026
+      },
+      "EnemyDropCount": 0.4000000059604645,
+      "EnemyDropMask": 2147483647,
+      "EnemyDropMaskRatio": 0.0,
+      "DescFields": [
+        1,
+        40
+      ],
+      "Description": "I引力透镜",
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "黑雾引力透镜",
+      "ID": 1211,
+      "SID": "",
+      "Type": 3,
+      "SubID": 0,
+      "MiningFrom": "",
+      "ProduceFrom": "",
+      "StackSize": 100,
+      "Grade": 0,
+      "Upgrades": [],
+      "IsFluid": 0,
+      "IsEntity": 0,
+      "CanBuild": 0,
+      "BuildInGas": 0,
+      "IconPath": "Icons/ItemRecipe/darkfog-lens",
+      "IconTag": "hyltj",
+      "ModelIndex": 0,
+      "ModelCount": 0,
+      "HpMax": 1,
+      "Ability": 400,
+      "HeatValue": 0,
+      "Potential": 0,
+      "ReactorInc": 0.0,
+      "FuelType": 0,
+      "CatalystType": 1,
+      "AmmoType": 0,
+      "BombType": 0,
+      "CraftType": 0,
+      "BuildIndex": 0,
+      "BuildMode": 0,
+      "GridIndex": 1706,
+      "UnlockKey": 0,
+      "PreTechOverride": 0,
+      "Productive": 1,
+      "MechaMaterialID": 0,
+      "DropRate": 0.0,
+      "EnemyDropLevel": 0,
+      "EnemyDropRange": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "EnemyDropCount": 0.0,
+      "EnemyDropMask": 0,
+      "EnemyDropMaskRatio": 0.0,
+      "DescFields": [
+        1,
+        40
+      ],
+      "Description": "I黑雾引力透镜",
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "电路板",
+      "ID": 1301,
+      "SID": "",
+      "Type": 3,
+      "SubID": 0,
+      "MiningFrom": "",
+      "ProduceFrom": "",
+      "StackSize": 200,
+      "Grade": 0,
+      "Upgrades": [],
+      "IsFluid": 0,
+      "IsEntity": 0,
+      "CanBuild": 0,
+      "BuildInGas": 0,
+      "IconPath": "Icons/ItemRecipe/circuit-board",
+      "IconTag": "dlb",
+      "ModelIndex": 0,
+      "ModelCount": 0,
+      "HpMax": 1,
+      "Ability": 0,
+      "HeatValue": 0,
+      "Potential": 0,
+      "ReactorInc": 0.0,
+      "FuelType": 0,
+      "CatalystType": 0,
+      "AmmoType": 0,
+      "BombType": 0,
+      "CraftType": 0,
+      "BuildIndex": 0,
+      "BuildMode": 0,
+      "GridIndex": 1402,
+      "UnlockKey": 0,
+      "PreTechOverride": 0,
+      "Productive": 1,
+      "MechaMaterialID": 0,
+      "DropRate": 0.0,
+      "EnemyDropLevel": 1,
+      "EnemyDropRange": {
+        "x": 0.1469999998807907,
+        "y": 0.007000000216066837
+      },
+      "EnemyDropCount": 2.0,
+      "EnemyDropMask": 2147483647,
+      "EnemyDropMaskRatio": 0.0,
+      "DescFields": [
+        1,
+        40
+      ],
+      "Description": "I电路板",
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "处理器",
+      "ID": 1303,
+      "SID": "",
+      "Type": 3,
+      "SubID": 0,
+      "MiningFrom": "",
+      "ProduceFrom": "",
+      "StackSize": 200,
+      "Grade": 0,
+      "Upgrades": [],
+      "IsFluid": 0,
+      "IsEntity": 0,
+      "CanBuild": 0,
+      "BuildInGas": 0,
+      "IconPath": "Icons/ItemRecipe/processor",
+      "IconTag": "clq",
+      "ModelIndex": 0,
+      "ModelCount": 0,
+      "HpMax": 1,
+      "Ability": 0,
+      "HeatValue": 0,
+      "Potential": 0,
+      "ReactorInc": 0.0,
+      "FuelType": 0,
+      "CatalystType": 0,
+      "AmmoType": 0,
+      "BombType": 0,
+      "CraftType": 0,
+      "BuildIndex": 0,
+      "BuildMode": 0,
+      "GridIndex": 1505,
+      "UnlockKey": 0,
+      "PreTechOverride": 0,
+      "Productive": 1,
+      "MechaMaterialID": 0,
+      "DropRate": 0.0,
+      "EnemyDropLevel": 3,
+      "EnemyDropRange": {
+        "x": 0.15399999916553497,
+        "y": 0.004000000189989805
+      },
+      "EnemyDropCount": 0.75,
+      "EnemyDropMask": 2147483647,
+      "EnemyDropMaskRatio": 0.0,
+      "DescFields": [
+        1,
+        40
+      ],
+      "Description": "I处理器",
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "量子芯片",
+      "ID": 1305,
+      "SID": "",
+      "Type": 3,
+      "SubID": 0,
+      "MiningFrom": "",
+      "ProduceFrom": "",
+      "StackSize": 200,
+      "Grade": 0,
+      "Upgrades": [],
+      "IsFluid": 0,
+      "IsEntity": 0,
+      "CanBuild": 0,
+      "BuildInGas": 0,
+      "IconPath": "Icons/ItemRecipe/quantum-processor",
+      "IconTag": "lzxp",
+      "ModelIndex": 0,
+      "ModelCount": 0,
+      "HpMax": 1,
+      "Ability": 0,
+      "HeatValue": 0,
+      "Potential": 0,
+      "ReactorInc": 0.0,
+      "FuelType": 0,
+      "CatalystType": 0,
+      "AmmoType": 0,
+      "BombType": 0,
+      "CraftType": 0,
+      "BuildIndex": 0,
+      "BuildMode": 0,
+      "GridIndex": 1511,
+      "UnlockKey": 0,
+      "PreTechOverride": 0,
+      "Productive": 1,
+      "MechaMaterialID": 0,
+      "DropRate": 0.0,
+      "EnemyDropLevel": 7,
+      "EnemyDropRange": {
+        "x": 0.15800000727176666,
+        "y": 0.003000000026077032
+      },
+      "EnemyDropCount": 0.25,
+      "EnemyDropMask": 2147483647,
+      "EnemyDropMaskRatio": 0.0,
+      "DescFields": [
+        1,
+        40
+      ],
+      "Description": "I量子芯片",
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "粒子宽带",
+      "ID": 1402,
+      "SID": "",
+      "Type": 3,
+      "SubID": 0,
+      "MiningFrom": "",
+      "ProduceFrom": "",
+      "StackSize": 200,
+      "Grade": 0,
+      "Upgrades": [],
+      "IsFluid": 0,
+      "IsEntity": 0,
+      "CanBuild": 0,
+      "BuildInGas": 0,
+      "IconPath": "Icons/ItemRecipe/particle-wide-band",
+      "IconTag": "lzkd",
+      "ModelIndex": 0,
+      "ModelCount": 0,
+      "HpMax": 1,
+      "Ability": 0,
+      "HeatValue": 0,
+      "Potential": 0,
+      "ReactorInc": 0.0,
+      "FuelType": 0,
+      "CatalystType": 0,
+      "AmmoType": 0,
+      "BombType": 0,
+      "CraftType": 0,
+      "BuildIndex": 0,
+      "BuildMode": 0,
+      "GridIndex": 1411,
+      "UnlockKey": 0,
+      "PreTechOverride": 0,
+      "Productive": 1,
+      "MechaMaterialID": 0,
+      "DropRate": 0.0,
+      "EnemyDropLevel": 5,
+      "EnemyDropRange": {
+        "x": 0.1720000058412552,
+        "y": 0.004000000189989805
+      },
+      "EnemyDropCount": 0.25,
+      "EnemyDropMask": 2147483647,
+      "EnemyDropMaskRatio": 0.0,
+      "DescFields": [
+        1,
+        40
+      ],
+      "Description": "I粒子宽带",
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "反物质燃料棒",
+      "ID": 1803,
+      "SID": "",
+      "Type": 4,
+      "SubID": 0,
+      "MiningFrom": "",
+      "ProduceFrom": "",
+      "StackSize": 30,
+      "Grade": 0,
+      "Upgrades": [],
+      "IsFluid": 0,
+      "IsEntity": 0,
+      "CanBuild": 0,
+      "BuildInGas": 0,
+      "IconPath": "Icons/ItemRecipe/antimatter-energy-fuel",
+      "IconTag": "heib",
+      "ModelIndex": 0,
+      "ModelCount": 0,
+      "HpMax": 1,
+      "Ability": 0,
+      "HeatValue": 7200000000,
+      "Potential": 0,
+      "ReactorInc": 5.0,
+      "FuelType": 4,
+      "CatalystType": 0,
+      "AmmoType": 0,
+      "BombType": 0,
+      "CraftType": 0,
+      "BuildIndex": 0,
+      "BuildMode": 0,
+      "GridIndex": 1211,
+      "UnlockKey": 0,
+      "PreTechOverride": 0,
+      "Productive": 0,
+      "MechaMaterialID": 0,
+      "DropRate": 0.0,
+      "EnemyDropLevel": 8,
+      "EnemyDropRange": {
+        "x": 0.19599999487400055,
+        "y": 0.0010000000474974513
+      },
+      "EnemyDropCount": 0.30000001192092896,
+      "EnemyDropMask": 2147483647,
+      "EnemyDropMaskRatio": 0.0,
+      "DescFields": [
+        2,
+        3,
+        31,
+        1,
+        40
+      ],
+      "Description": "I反物质燃料棒",
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "金色燃料棒",
+      "ID": 1804,
+      "SID": "",
+      "Type": 4,
+      "SubID": 0,
+      "MiningFrom": "",
+      "ProduceFrom": "",
+      "StackSize": 50,
+      "Grade": 0,
+      "Upgrades": [],
+      "IsFluid": 0,
+      "IsEntity": 0,
+      "CanBuild": 0,
+      "BuildInGas": 0,
+      "IconPath": "Icons/ItemRecipe/virtual-energy-fuel",
+      "IconTag": "huangb",
+      "ModelIndex": 0,
+      "ModelCount": 0,
+      "HpMax": 1,
+      "Ability": 0,
+      "HeatValue": 72000000000,
+      "Potential": 0,
+      "ReactorInc": 11.0,
+      "FuelType": 4,
+      "CatalystType": 0,
+      "AmmoType": 0,
+      "BombType": 0,
+      "CraftType": 0,
+      "BuildIndex": 0,
+      "BuildMode": 0,
+      "GridIndex": 1212,
+      "UnlockKey": 0,
+      "PreTechOverride": 0,
+      "Productive": 0,
+      "MechaMaterialID": 0,
+      "DropRate": 0.0,
+      "EnemyDropLevel": 0,
+      "EnemyDropRange": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "EnemyDropCount": 0.0,
+      "EnemyDropMask": 0,
+      "EnemyDropMaskRatio": 0.0,
+      "DescFields": [
+        2,
+        3,
+        31,
+        1,
+        40
+      ],
+      "Description": "I金色燃料棒",
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "制造台 Mk.III",
+      "ID": 2305,
+      "SID": "",
+      "Type": 6,
+      "SubID": 0,
+      "MiningFrom": "",
+      "ProduceFrom": "",
+      "StackSize": 50,
+      "Grade": 3,
+      "Upgrades": [
+        2303,
+        2304,
+        2305,
+        2318
+      ],
+      "IsFluid": 0,
+      "IsEntity": 1,
+      "CanBuild": 1,
+      "BuildInGas": 0,
+      "IconPath": "Icons/ItemRecipe/assembler-3",
+      "IconTag": "zzt3",
+      "ModelIndex": 67,
+      "ModelCount": 1,
+      "HpMax": 1000,
+      "Ability": 0,
+      "HeatValue": 0,
+      "Potential": 0,
+      "ReactorInc": 0.0,
+      "FuelType": 0,
+      "CatalystType": 0,
+      "AmmoType": 0,
+      "BombType": 0,
+      "CraftType": 0,
+      "BuildIndex": 505,
+      "BuildMode": 1,
+      "GridIndex": 2406,
+      "UnlockKey": 0,
+      "PreTechOverride": 0,
+      "Productive": 0,
+      "MechaMaterialID": 0,
+      "DropRate": 0.0,
+      "EnemyDropLevel": 0,
+      "EnemyDropRange": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "EnemyDropCount": 0.0,
+      "EnemyDropMask": 0,
+      "EnemyDropMaskRatio": 0.0,
+      "DescFields": [
+        53,
+        22,
+        11,
+        12,
+        1,
+        40
+      ],
+      "Description": "I制造台 Mk.III",
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "位面熔炉",
+      "ID": 2315,
+      "SID": "",
+      "Type": 6,
+      "SubID": 0,
+      "MiningFrom": "",
+      "ProduceFrom": "",
+      "StackSize": 50,
+      "Grade": 2,
+      "Upgrades": [
+        2302,
+        2315,
+        2319
+      ],
+      "IsFluid": 0,
+      "IsEntity": 1,
+      "CanBuild": 1,
+      "BuildInGas": 0,
+      "IconPath": "Icons/ItemRecipe/smelter-2",
+      "IconTag": "rongl2",
+      "ModelIndex": 194,
+      "ModelCount": 1,
+      "HpMax": 1500,
+      "Ability": 0,
+      "HeatValue": 0,
+      "Potential": 0,
+      "ReactorInc": 0.0,
+      "FuelType": 0,
+      "CatalystType": 0,
+      "AmmoType": 0,
+      "BombType": 0,
+      "CraftType": 0,
+      "BuildIndex": 502,
+      "BuildMode": 1,
+      "GridIndex": 2402,
+      "UnlockKey": 0,
+      "PreTechOverride": 0,
+      "Productive": 0,
+      "MechaMaterialID": 0,
+      "DropRate": 0.0,
+      "EnemyDropLevel": 0,
+      "EnemyDropRange": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "EnemyDropCount": 0.0,
+      "EnemyDropMask": 0,
+      "EnemyDropMaskRatio": 0.0,
+      "DescFields": [
+        53,
+        22,
+        11,
+        12,
+        1,
+        40
+      ],
+      "Description": "I位面熔炉",
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "制造台 Mk.IV",
+      "ID": 2318,
+      "SID": "",
+      "Type": 6,
+      "SubID": 0,
+      "MiningFrom": "",
+      "ProduceFrom": "",
+      "StackSize": 50,
+      "Grade": 4,
+      "Upgrades": [
+        2303,
+        2304,
+        2305,
+        2318
+      ],
+      "IsFluid": 0,
+      "IsEntity": 1,
+      "CanBuild": 1,
+      "BuildInGas": 0,
+      "IconPath": "Icons/ItemRecipe/assembler-4",
+      "IconTag": "zzt4",
+      "ModelIndex": 456,
+      "ModelCount": 1,
+      "HpMax": 3000,
+      "Ability": 0,
+      "HeatValue": 0,
+      "Potential": 0,
+      "ReactorInc": 0.0,
+      "FuelType": 0,
+      "CatalystType": 0,
+      "AmmoType": 0,
+      "BombType": 0,
+      "CraftType": 0,
+      "BuildIndex": 808,
+      "BuildMode": 1,
+      "GridIndex": 2407,
+      "UnlockKey": 0,
+      "PreTechOverride": 0,
+      "Productive": 0,
+      "MechaMaterialID": 0,
+      "DropRate": 0.0,
+      "EnemyDropLevel": 0,
+      "EnemyDropRange": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "EnemyDropCount": 0.0,
+      "EnemyDropMask": 0,
+      "EnemyDropMaskRatio": 0.0,
+      "DescFields": [
+        53,
+        22,
+        11,
+        12,
+        1,
+        40
+      ],
+      "Description": "I制造台 Mk.IV",
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "熔炉 Mk.III",
+      "ID": 2319,
+      "SID": "",
+      "Type": 6,
+      "SubID": 0,
+      "MiningFrom": "",
+      "ProduceFrom": "",
+      "StackSize": 50,
+      "Grade": 3,
+      "Upgrades": [
+        2302,
+        2315,
+        2319
+      ],
+      "IsFluid": 0,
+      "IsEntity": 1,
+      "CanBuild": 1,
+      "BuildInGas": 0,
+      "IconPath": "Icons/ItemRecipe/smelter-3",
+      "IconTag": "rongl3",
+      "ModelIndex": 457,
+      "ModelCount": 1,
+      "HpMax": 3000,
+      "Ability": 0,
+      "HeatValue": 0,
+      "Potential": 0,
+      "ReactorInc": 0.0,
+      "FuelType": 0,
+      "CatalystType": 0,
+      "AmmoType": 0,
+      "BombType": 0,
+      "CraftType": 0,
+      "BuildIndex": 807,
+      "BuildMode": 1,
+      "GridIndex": 2403,
+      "UnlockKey": 0,
+      "PreTechOverride": 0,
+      "Productive": 0,
+      "MechaMaterialID": 0,
+      "DropRate": 0.0,
+      "EnemyDropLevel": 0,
+      "EnemyDropRange": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "EnemyDropCount": 0.0,
+      "EnemyDropMask": 0,
+      "EnemyDropMaskRatio": 0.0,
+      "DescFields": [
+        53,
+        22,
+        11,
+        12,
+        1,
+        40
+      ],
+      "Description": "I熔炉 Mk.III",
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "矩阵研究站",
+      "ID": 2901,
+      "SID": "",
+      "Type": 6,
+      "SubID": 0,
+      "MiningFrom": "",
+      "ProduceFrom": "",
+      "StackSize": 50,
+      "Grade": 1,
+      "Upgrades": [
+        2901,
+        2902
+      ],
+      "IsFluid": 0,
+      "IsEntity": 1,
+      "CanBuild": 1,
+      "BuildInGas": 0,
+      "IconPath": "Icons/ItemRecipe/lab",
+      "IconTag": "jzyjz1",
+      "ModelIndex": 70,
+      "ModelCount": 1,
+      "HpMax": 1200,
+      "Ability": 0,
+      "HeatValue": 0,
+      "Potential": 0,
+      "ReactorInc": 0.0,
+      "FuelType": 0,
+      "CatalystType": 0,
+      "AmmoType": 0,
+      "BombType": 0,
+      "CraftType": 0,
+      "BuildIndex": 801,
+      "BuildMode": 1,
+      "GridIndex": 2408,
+      "UnlockKey": 0,
+      "PreTechOverride": 0,
+      "Productive": 0,
+      "MechaMaterialID": 0,
+      "DropRate": 0.0,
+      "EnemyDropLevel": 0,
+      "EnemyDropRange": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "EnemyDropCount": 0.0,
+      "EnemyDropMask": 0,
+      "EnemyDropMaskRatio": 0.0,
+      "DescFields": [
+        53,
+        22,
+        33,
+        11,
+        12,
+        1,
+        40
+      ],
+      "Description": "I矩阵研究站",
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "矩阵研究站 Mk.II",
+      "ID": 2902,
+      "SID": "",
+      "Type": 6,
+      "SubID": 0,
+      "MiningFrom": "",
+      "ProduceFrom": "",
+      "StackSize": 50,
+      "Grade": 2,
+      "Upgrades": [
+        2901,
+        2902
+      ],
+      "IsFluid": 0,
+      "IsEntity": 1,
+      "CanBuild": 1,
+      "BuildInGas": 0,
+      "IconPath": "Icons/ItemRecipe/lab-2",
+      "IconTag": "jzyjz2",
+      "ModelIndex": 455,
+      "ModelCount": 1,
+      "HpMax": 3000,
+      "Ability": 0,
+      "HeatValue": 0,
+      "Potential": 0,
+      "ReactorInc": 0.0,
+      "FuelType": 0,
+      "CatalystType": 0,
+      "AmmoType": 0,
+      "BombType": 0,
+      "CraftType": 0,
+      "BuildIndex": 806,
+      "BuildMode": 1,
+      "GridIndex": 2409,
+      "UnlockKey": 0,
+      "PreTechOverride": 0,
+      "Productive": 0,
+      "MechaMaterialID": 0,
+      "DropRate": 0.0,
+      "EnemyDropLevel": 0,
+      "EnemyDropRange": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "EnemyDropCount": 0.0,
+      "EnemyDropMask": 0,
+      "EnemyDropMaskRatio": 0.0,
+      "DescFields": [
+        53,
+        22,
+        33,
+        11,
+        12,
+        1,
+        40
+      ],
+      "Description": "I矩阵研究站 Mk.II",
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "存储单元",
+      "ID": 5201,
+      "SID": "",
+      "Type": 10,
+      "SubID": 0,
+      "MiningFrom": "黑雾残骸",
+      "ProduceFrom": "",
+      "StackSize": 1000,
+      "Grade": 0,
+      "Upgrades": [],
+      "IsFluid": 0,
+      "IsEntity": 0,
+      "CanBuild": 0,
+      "BuildInGas": 0,
+      "IconPath": "Icons/ItemRecipe/memory",
+      "IconTag": "heit",
+      "ModelIndex": 0,
+      "ModelCount": 0,
+      "HpMax": 1,
+      "Ability": 0,
+      "HeatValue": 0,
+      "Potential": 0,
+      "ReactorInc": 0.0,
+      "FuelType": 0,
+      "CatalystType": 0,
+      "AmmoType": 0,
+      "BombType": 0,
+      "CraftType": 0,
+      "BuildIndex": 0,
+      "BuildMode": 0,
+      "GridIndex": 1807,
+      "UnlockKey": -2,
+      "PreTechOverride": 0,
+      "Productive": 1,
+      "MechaMaterialID": 0,
+      "DropRate": 0.0,
+      "EnemyDropLevel": 4,
+      "EnemyDropRange": {
+        "x": 0.2485000044107437,
+        "y": 0.009999999776482582
+      },
+      "EnemyDropCount": 2.5,
+      "EnemyDropMask": 2147483647,
+      "EnemyDropMaskRatio": 0.0,
+      "DescFields": [
+        0,
+        40
+      ],
+      "Description": "I存储单元",
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "硅基神经元",
+      "ID": 5202,
+      "SID": "",
+      "Type": 10,
+      "SubID": 0,
+      "MiningFrom": "黑雾残骸",
+      "ProduceFrom": "",
+      "StackSize": 500,
+      "Grade": 0,
+      "Upgrades": [],
+      "IsFluid": 0,
+      "IsEntity": 0,
+      "CanBuild": 0,
+      "BuildInGas": 0,
+      "IconPath": "Icons/ItemRecipe/silicon-neuron",
+      "IconTag": "gjsjy",
+      "ModelIndex": 0,
+      "ModelCount": 0,
+      "HpMax": 1,
+      "Ability": 0,
+      "HeatValue": 0,
+      "Potential": 0,
+      "ReactorInc": 0.0,
+      "FuelType": 0,
+      "CatalystType": 0,
+      "AmmoType": 0,
+      "BombType": 0,
+      "CraftType": 0,
+      "BuildIndex": 0,
+      "BuildMode": 0,
+      "GridIndex": 1809,
+      "UnlockKey": -2,
+      "PreTechOverride": 0,
+      "Productive": 1,
+      "MechaMaterialID": 0,
+      "DropRate": 0.0,
+      "EnemyDropLevel": 6,
+      "EnemyDropRange": {
+        "x": 0.25850000977516174,
+        "y": 0.008999999612569809
+      },
+      "EnemyDropCount": 1.5,
+      "EnemyDropMask": 2147483647,
+      "EnemyDropMaskRatio": 0.0,
+      "DescFields": [
+        0,
+        40
+      ],
+      "Description": "I硅基神经元",
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "物质重组器",
+      "ID": 5203,
+      "SID": "",
+      "Type": 10,
+      "SubID": 0,
+      "MiningFrom": "黑雾残骸",
+      "ProduceFrom": "",
+      "StackSize": 500,
+      "Grade": 0,
+      "Upgrades": [],
+      "IsFluid": 0,
+      "IsEntity": 0,
+      "CanBuild": 0,
+      "BuildInGas": 0,
+      "IconPath": "Icons/ItemRecipe/reassembler",
+      "IconTag": "wzczq",
+      "ModelIndex": 0,
+      "ModelCount": 0,
+      "HpMax": 1,
+      "Ability": 0,
+      "HeatValue": 0,
+      "Potential": 0,
+      "ReactorInc": 0.0,
+      "FuelType": 0,
+      "CatalystType": 0,
+      "AmmoType": 0,
+      "BombType": 0,
+      "CraftType": 0,
+      "BuildIndex": 0,
+      "BuildMode": 0,
+      "GridIndex": 1811,
+      "UnlockKey": -2,
+      "PreTechOverride": 0,
+      "Productive": 1,
+      "MechaMaterialID": 0,
+      "DropRate": 0.0,
+      "EnemyDropLevel": 5,
+      "EnemyDropRange": {
+        "x": 0.26750001311302185,
+        "y": 0.00800000037997961
+      },
+      "EnemyDropCount": 1.5,
+      "EnemyDropMask": 2147483647,
+      "EnemyDropMaskRatio": 0.0,
+      "DescFields": [
+        0,
+        40
+      ],
+      "Description": "I物质重组器",
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "负熵奇点",
+      "ID": 5204,
+      "SID": "",
+      "Type": 10,
+      "SubID": 0,
+      "MiningFrom": "黑雾残骸",
+      "ProduceFrom": "",
+      "StackSize": 500,
+      "Grade": 0,
+      "Upgrades": [],
+      "IsFluid": 0,
+      "IsEntity": 0,
+      "CanBuild": 0,
+      "BuildInGas": 0,
+      "IconPath": "Icons/ItemRecipe/negentropy",
+      "IconTag": "fsqd",
+      "ModelIndex": 0,
+      "ModelCount": 0,
+      "HpMax": 1,
+      "Ability": 0,
+      "HeatValue": 0,
+      "Potential": 0,
+      "ReactorInc": 0.0,
+      "FuelType": 0,
+      "CatalystType": 0,
+      "AmmoType": 0,
+      "BombType": 0,
+      "CraftType": 0,
+      "BuildIndex": 0,
+      "BuildMode": 0,
+      "GridIndex": 1810,
+      "UnlockKey": -2,
+      "PreTechOverride": 0,
+      "Productive": 1,
+      "MechaMaterialID": 0,
+      "DropRate": 0.0,
+      "EnemyDropLevel": 7,
+      "EnemyDropRange": {
+        "x": 0.27549999952316284,
+        "y": 0.006000000052154064
+      },
+      "EnemyDropCount": 1.399999976158142,
+      "EnemyDropMask": 2147483647,
+      "EnemyDropMaskRatio": 0.0,
+      "DescFields": [
+        0,
+        40
+      ],
+      "Description": "I负熵奇点",
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "虚粒子",
+      "ID": 5205,
+      "SID": "",
+      "Type": 10,
+      "SubID": 0,
+      "MiningFrom": "黑雾残骸",
+      "ProduceFrom": "",
+      "StackSize": 500,
+      "Grade": 0,
+      "Upgrades": [],
+      "IsFluid": 0,
+      "IsEntity": 0,
+      "CanBuild": 0,
+      "BuildInGas": 0,
+      "IconPath": "Icons/ItemRecipe/virtual-particle",
+      "IconTag": "hxs",
+      "ModelIndex": 0,
+      "ModelCount": 0,
+      "HpMax": 1,
+      "Ability": 0,
+      "HeatValue": 0,
+      "Potential": 0,
+      "ReactorInc": 0.0,
+      "FuelType": 0,
+      "CatalystType": 0,
+      "AmmoType": 0,
+      "BombType": 0,
+      "CraftType": 0,
+      "BuildIndex": 0,
+      "BuildMode": 0,
+      "GridIndex": 1112,
+      "UnlockKey": -2,
+      "PreTechOverride": 0,
+      "Productive": 1,
+      "MechaMaterialID": 0,
+      "DropRate": 0.0,
+      "EnemyDropLevel": 8,
+      "EnemyDropRange": {
+        "x": 0.2815000116825104,
+        "y": 0.006500000134110451
+      },
+      "EnemyDropCount": 1.5,
+      "EnemyDropMask": 2147483647,
+      "EnemyDropMaskRatio": 0.0,
+      "DescFields": [
+        0,
+        40
+      ],
+      "Description": "I共振粒子",
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "能量碎片",
+      "ID": 5206,
+      "SID": "",
+      "Type": 10,
+      "SubID": 0,
+      "MiningFrom": "黑雾残骸",
+      "ProduceFrom": "",
+      "StackSize": 2000,
+      "Grade": 0,
+      "Upgrades": [],
+      "IsFluid": 0,
+      "IsEntity": 0,
+      "CanBuild": 0,
+      "BuildInGas": 0,
+      "IconPath": "Icons/ItemRecipe/energy-fragment",
+      "IconTag": "nlsp",
+      "ModelIndex": 0,
+      "ModelCount": 0,
+      "HpMax": 1,
+      "Ability": 50,
+      "HeatValue": 3600000,
+      "Potential": 0,
+      "ReactorInc": 0.20000000298023224,
+      "FuelType": 1,
+      "CatalystType": 0,
+      "AmmoType": 0,
+      "BombType": 0,
+      "CraftType": 0,
+      "BuildIndex": 0,
+      "BuildMode": 0,
+      "GridIndex": 1808,
+      "UnlockKey": -2,
+      "PreTechOverride": 0,
+      "Productive": 1,
+      "MechaMaterialID": 0,
+      "DropRate": 0.0,
+      "EnemyDropLevel": 1,
+      "EnemyDropRange": {
+        "x": 0.2879999876022339,
+        "y": 0.012000000104308128
+      },
+      "EnemyDropCount": 2.5,
+      "EnemyDropMask": 2147483647,
+      "EnemyDropMaskRatio": 0.0,
+      "DescFields": [
+        2,
+        3,
+        31,
+        54,
+        0,
+        40
+      ],
+      "Description": "I能量碎片",
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "电磁矩阵",
+      "ID": 6001,
+      "SID": "",
+      "Type": 11,
+      "SubID": 0,
+      "MiningFrom": "",
+      "ProduceFrom": "",
+      "StackSize": 200,
+      "Grade": 0,
+      "Upgrades": [],
+      "IsFluid": 0,
+      "IsEntity": 0,
+      "CanBuild": 0,
+      "BuildInGas": 0,
+      "IconPath": "Icons/ItemRecipe/t-matrix",
+      "IconTag": "lant",
+      "ModelIndex": 0,
+      "ModelCount": 0,
+      "HpMax": 1,
+      "Ability": 0,
+      "HeatValue": 0,
+      "Potential": 0,
+      "ReactorInc": 0.0,
+      "FuelType": 0,
+      "CatalystType": 0,
+      "AmmoType": 0,
+      "BombType": 0,
+      "CraftType": 0,
+      "BuildIndex": 0,
+      "BuildMode": 0,
+      "GridIndex": 1801,
+      "UnlockKey": 0,
+      "PreTechOverride": 0,
+      "Productive": 1,
+      "MechaMaterialID": 25,
+      "DropRate": 0.0,
+      "EnemyDropLevel": 0,
+      "EnemyDropRange": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "EnemyDropCount": 0.0,
+      "EnemyDropMask": 0,
+      "EnemyDropMaskRatio": 0.0,
+      "DescFields": [
+        1,
+        40
+      ],
+      "Description": "I电磁矩阵",
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "能量矩阵",
+      "ID": 6002,
+      "SID": "",
+      "Type": 11,
+      "SubID": 0,
+      "MiningFrom": "",
+      "ProduceFrom": "",
+      "StackSize": 200,
+      "Grade": 0,
+      "Upgrades": [],
+      "IsFluid": 0,
+      "IsEntity": 0,
+      "CanBuild": 0,
+      "BuildInGas": 0,
+      "IconPath": "Icons/ItemRecipe/e-matrix",
+      "IconTag": "hongt",
+      "ModelIndex": 0,
+      "ModelCount": 0,
+      "HpMax": 1,
+      "Ability": 0,
+      "HeatValue": 0,
+      "Potential": 0,
+      "ReactorInc": 0.0,
+      "FuelType": 0,
+      "CatalystType": 0,
+      "AmmoType": 0,
+      "BombType": 0,
+      "CraftType": 0,
+      "BuildIndex": 0,
+      "BuildMode": 0,
+      "GridIndex": 1802,
+      "UnlockKey": 0,
+      "PreTechOverride": 0,
+      "Productive": 1,
+      "MechaMaterialID": 26,
+      "DropRate": 0.0,
+      "EnemyDropLevel": 0,
+      "EnemyDropRange": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "EnemyDropCount": 0.0,
+      "EnemyDropMask": 0,
+      "EnemyDropMaskRatio": 0.0,
+      "DescFields": [
+        1,
+        40
+      ],
+      "Description": "I能量矩阵",
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "结构矩阵",
+      "ID": 6003,
+      "SID": "",
+      "Type": 11,
+      "SubID": 0,
+      "MiningFrom": "",
+      "ProduceFrom": "",
+      "StackSize": 200,
+      "Grade": 0,
+      "Upgrades": [],
+      "IsFluid": 0,
+      "IsEntity": 0,
+      "CanBuild": 0,
+      "BuildInGas": 0,
+      "IconPath": "Icons/ItemRecipe/c-matrix",
+      "IconTag": "huangt",
+      "ModelIndex": 0,
+      "ModelCount": 0,
+      "HpMax": 1,
+      "Ability": 0,
+      "HeatValue": 0,
+      "Potential": 0,
+      "ReactorInc": 0.0,
+      "FuelType": 0,
+      "CatalystType": 0,
+      "AmmoType": 0,
+      "BombType": 0,
+      "CraftType": 0,
+      "BuildIndex": 0,
+      "BuildMode": 0,
+      "GridIndex": 1803,
+      "UnlockKey": 0,
+      "PreTechOverride": 0,
+      "Productive": 1,
+      "MechaMaterialID": 27,
+      "DropRate": 0.0,
+      "EnemyDropLevel": 0,
+      "EnemyDropRange": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "EnemyDropCount": 0.0,
+      "EnemyDropMask": 0,
+      "EnemyDropMaskRatio": 0.0,
+      "DescFields": [
+        1,
+        40
+      ],
+      "Description": "I结构矩阵",
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "信息矩阵",
+      "ID": 6004,
+      "SID": "",
+      "Type": 11,
+      "SubID": 0,
+      "MiningFrom": "",
+      "ProduceFrom": "",
+      "StackSize": 200,
+      "Grade": 0,
+      "Upgrades": [],
+      "IsFluid": 0,
+      "IsEntity": 0,
+      "CanBuild": 0,
+      "BuildInGas": 0,
+      "IconPath": "Icons/ItemRecipe/i-matrix",
+      "IconTag": "zit",
+      "ModelIndex": 0,
+      "ModelCount": 0,
+      "HpMax": 1,
+      "Ability": 0,
+      "HeatValue": 0,
+      "Potential": 0,
+      "ReactorInc": 0.0,
+      "FuelType": 0,
+      "CatalystType": 0,
+      "AmmoType": 0,
+      "BombType": 0,
+      "CraftType": 0,
+      "BuildIndex": 0,
+      "BuildMode": 0,
+      "GridIndex": 1804,
+      "UnlockKey": 0,
+      "PreTechOverride": 0,
+      "Productive": 1,
+      "MechaMaterialID": 28,
+      "DropRate": 0.0,
+      "EnemyDropLevel": 0,
+      "EnemyDropRange": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "EnemyDropCount": 0.0,
+      "EnemyDropMask": 0,
+      "EnemyDropMaskRatio": 0.0,
+      "DescFields": [
+        1,
+        40
+      ],
+      "Description": "I信息矩阵",
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "引力矩阵",
+      "ID": 6005,
+      "SID": "",
+      "Type": 11,
+      "SubID": 0,
+      "MiningFrom": "",
+      "ProduceFrom": "",
+      "StackSize": 200,
+      "Grade": 0,
+      "Upgrades": [],
+      "IsFluid": 0,
+      "IsEntity": 0,
+      "CanBuild": 0,
+      "BuildInGas": 0,
+      "IconPath": "Icons/ItemRecipe/g-matrix",
+      "IconTag": "lvt",
+      "ModelIndex": 0,
+      "ModelCount": 0,
+      "HpMax": 1,
+      "Ability": 0,
+      "HeatValue": 0,
+      "Potential": 0,
+      "ReactorInc": 0.0,
+      "FuelType": 0,
+      "CatalystType": 0,
+      "AmmoType": 0,
+      "BombType": 0,
+      "CraftType": 0,
+      "BuildIndex": 0,
+      "BuildMode": 0,
+      "GridIndex": 1805,
+      "UnlockKey": 0,
+      "PreTechOverride": 0,
+      "Productive": 1,
+      "MechaMaterialID": 29,
+      "DropRate": 0.0,
+      "EnemyDropLevel": 0,
+      "EnemyDropRange": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "EnemyDropCount": 0.0,
+      "EnemyDropMask": 0,
+      "EnemyDropMaskRatio": 0.0,
+      "DescFields": [
+        1,
+        40
+      ],
+      "Description": "I引力矩阵",
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "宇宙矩阵",
+      "ID": 6006,
+      "SID": "",
+      "Type": 11,
+      "SubID": 0,
+      "MiningFrom": "",
+      "ProduceFrom": "",
+      "StackSize": 200,
+      "Grade": 0,
+      "Upgrades": [],
+      "IsFluid": 0,
+      "IsEntity": 0,
+      "CanBuild": 0,
+      "BuildInGas": 0,
+      "IconPath": "Icons/ItemRecipe/u-matrix",
+      "IconTag": "bait",
+      "ModelIndex": 0,
+      "ModelCount": 0,
+      "HpMax": 1,
+      "Ability": 0,
+      "HeatValue": 0,
+      "Potential": 0,
+      "ReactorInc": 0.0,
+      "FuelType": 0,
+      "CatalystType": 0,
+      "AmmoType": 0,
+      "BombType": 0,
+      "CraftType": 0,
+      "BuildIndex": 0,
+      "BuildMode": 0,
+      "GridIndex": 1806,
+      "UnlockKey": 0,
+      "PreTechOverride": 0,
+      "Productive": 1,
+      "MechaMaterialID": 30,
+      "DropRate": 0.0,
+      "EnemyDropLevel": 0,
+      "EnemyDropRange": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "EnemyDropCount": 0.0,
+      "EnemyDropMask": 0,
+      "EnemyDropMaskRatio": 0.0,
+      "DescFields": [
+        1,
+        40
+      ],
+      "Description": "I宇宙矩阵",
+      "iconTagString": "",
+      "iconNameTagString": ""
+    }
+  ],
+  "techs": [
+    {
+      "Name": "T戴森球计划",
+      "ID": 1,
+      "SID": "",
+      "Desc": "戴森球计划描述",
+      "Conclusion": "",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1",
+      "IconTag": "dsqjh",
+      "IsLabTech": 0,
+      "PreTechs": [],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [],
+      "ItemPoints": [],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 1,
+      "UnlockRecipes": [],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 5.0,
+        "y": 1.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T电磁学",
+      "ID": 1001,
+      "SID": "",
+      "Desc": "电磁学描述",
+      "Conclusion": "电磁学结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1001",
+      "IconTag": "dcx",
+      "IsLabTech": 0,
+      "PreTechs": [
+        1
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        1202
+      ],
+      "ItemPoints": [
+        30
+      ],
+      "PropertyOverrideItems": [
+        6001
+      ],
+      "PropertyItemCounts": [
+        10
+      ],
+      "HashNeeded": 1200,
+      "UnlockRecipes": [
+        7,
+        8,
+        48
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [
+        2203,
+        2201,
+        2301
+      ],
+      "AddItemCounts": [
+        1,
+        1,
+        1
+      ],
+      "Position": {
+        "x": 9.0,
+        "y": 1.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T电磁矩阵",
+      "ID": 1002,
+      "SID": "",
+      "Desc": "电磁矩阵描述",
+      "Conclusion": "电磁矩阵结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1002",
+      "IconTag": "tlant",
+      "IsLabTech": 0,
+      "PreTechs": [
+        1001
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        1202,
+        1301
+      ],
+      "ItemPoints": [
+        20,
+        20
+      ],
+      "PropertyOverrideItems": [
+        6001
+      ],
+      "PropertyItemCounts": [
+        40
+      ],
+      "HashNeeded": 1800,
+      "UnlockRecipes": [
+        9,
+        10
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [
+        2901
+      ],
+      "AddItemCounts": [
+        1
+      ],
+      "Position": {
+        "x": 13.0,
+        "y": 1.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T高效电浆控制",
+      "ID": 1101,
+      "SID": "",
+      "Desc": "高效电浆控制描述",
+      "Conclusion": "高效电浆控制结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1101",
+      "IconTag": "gxdjkz",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1001
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001
+      ],
+      "ItemPoints": [
+        20
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 9000,
+      "UnlockRecipes": [
+        11,
+        12,
+        13
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [
+        1401
+      ],
+      "AddItemCounts": [
+        10
+      ],
+      "Position": {
+        "x": 13.0,
+        "y": -27.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T等离子萃取精炼",
+      "ID": 1102,
+      "SID": "",
+      "Desc": "等离子萃取精炼描述",
+      "Conclusion": "等离子萃取精炼结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1102",
+      "IconTag": "cqjl",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1120,
+        1101
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001
+      ],
+      "ItemPoints": [
+        10
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 36000,
+      "UnlockRecipes": [
+        14,
+        15,
+        16
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 17.0,
+        "y": -27.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T能量矩阵",
+      "ID": 1111,
+      "SID": "",
+      "Desc": "能量矩阵描述",
+      "Conclusion": "能量矩阵结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1111",
+      "IconTag": "thongt",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1102
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001
+      ],
+      "ItemPoints": [
+        20
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 36000,
+      "UnlockRecipes": [
+        18
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 21.0,
+        "y": -31.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T氢燃料棒",
+      "ID": 1112,
+      "SID": "",
+      "Desc": "氢燃料棒描述",
+      "Conclusion": "氢燃料棒结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1112",
+      "IconTag": "tqrlb",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1111
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6002
+      ],
+      "ItemPoints": [
+        20
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 72000,
+      "UnlockRecipes": [
+        19
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 25.0,
+        "y": -31.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T推进器",
+      "ID": 1113,
+      "SID": "",
+      "Desc": "推进器描述",
+      "Conclusion": "推进器结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1113",
+      "IconTag": "ttjq",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1112
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6002
+      ],
+      "ItemPoints": [
+        20
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 180000,
+      "UnlockRecipes": [
+        20
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 29.0,
+        "y": -31.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T流体储存封装",
+      "ID": 1120,
+      "SID": "",
+      "Desc": "流体储存封装描述",
+      "Conclusion": "流体储存封装结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1120",
+      "IconTag": "ltccfz",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1001
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001
+      ],
+      "ItemPoints": [
+        20
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 9000,
+      "UnlockRecipes": [
+        114,
+        49
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [
+        2106
+      ],
+      "AddItemCounts": [
+        1
+      ],
+      "Position": {
+        "x": 13.0,
+        "y": -23.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T基础化工",
+      "ID": 1121,
+      "SID": "",
+      "Desc": "基础化工描述",
+      "Conclusion": "基础化工结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1121",
+      "IconTag": "jchg",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1120,
+        1102
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001
+      ],
+      "ItemPoints": [
+        10
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 72000,
+      "UnlockRecipes": [
+        22,
+        23,
+        24
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 21.0,
+        "y": -23.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T高分子化工",
+      "ID": 1122,
+      "SID": "",
+      "Desc": "高分子化工描述",
+      "Conclusion": "高分子化工结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1122",
+      "IconTag": "gfzhg",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1121
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002
+      ],
+      "ItemPoints": [
+        20,
+        20
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 72000,
+      "UnlockRecipes": [
+        25,
+        54
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 25.0,
+        "y": -23.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T高强度晶体",
+      "ID": 1123,
+      "SID": "",
+      "Desc": "高强度晶体描述",
+      "Conclusion": "高强度晶体结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1123",
+      "IconTag": "gqdjt",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1122
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002
+      ],
+      "ItemPoints": [
+        20,
+        20
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 108000,
+      "UnlockRecipes": [
+        26
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 29.0,
+        "y": -23.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T结构矩阵",
+      "ID": 1124,
+      "SID": "",
+      "Desc": "结构矩阵描述",
+      "Conclusion": "结构矩阵结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1124",
+      "IconTag": "thuant",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1123
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002
+      ],
+      "ItemPoints": [
+        12,
+        12
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 240000,
+      "UnlockRecipes": [
+        27
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 33.0,
+        "y": -23.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T卡西米尔晶体",
+      "ID": 1125,
+      "SID": "",
+      "Desc": "卡西米尔晶体描述",
+      "Conclusion": "卡西米尔晶体结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1125",
+      "IconTag": "tkxme",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1124
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002,
+        6003
+      ],
+      "ItemPoints": [
+        12,
+        12,
+        12
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 240000,
+      "UnlockRecipes": [
+        28,
+        29
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 37.0,
+        "y": -23.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T高强度玻璃",
+      "ID": 1126,
+      "SID": "",
+      "Desc": "高强度玻璃描述",
+      "Conclusion": "高强度玻璃结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1126",
+      "IconTag": "gqdbl",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1132
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6002,
+        6003
+      ],
+      "ItemPoints": [
+        12,
+        6
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 240000,
+      "UnlockRecipes": [
+        30
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 37.0,
+        "y": -19.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T应用型超导体",
+      "ID": 1131,
+      "SID": "",
+      "Desc": "应用型超导体描述",
+      "Conclusion": "应用型超导体结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1131",
+      "IconTag": "yyxcdt",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1121
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001
+      ],
+      "ItemPoints": [
+        20
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 72000,
+      "UnlockRecipes": [
+        31,
+        32
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 25.0,
+        "y": -19.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T高强度材料",
+      "ID": 1132,
+      "SID": "",
+      "Desc": "高强度材料描述",
+      "Conclusion": "高强度材料结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1132",
+      "IconTag": "gqdcl",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1131
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6002,
+        6003
+      ],
+      "ItemPoints": [
+        16,
+        4
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 135000,
+      "UnlockRecipes": [
+        33,
+        35
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 33.0,
+        "y": -19.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T粒子可控技术",
+      "ID": 1133,
+      "SID": "",
+      "Desc": "粒子可控技术描述",
+      "Conclusion": "粒子可控技术结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1133",
+      "IconTag": "lzkk",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1132
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002,
+        6003
+      ],
+      "ItemPoints": [
+        16,
+        16,
+        4
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 180000,
+      "UnlockRecipes": [
+        36,
+        62
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 37.0,
+        "y": -15.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T波函数干扰",
+      "ID": 1141,
+      "SID": "",
+      "Desc": "波函数干扰描述",
+      "Conclusion": "波函数干扰结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1141",
+      "IconTag": "bhsgr",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1126,
+        1125
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002,
+        6004
+      ],
+      "ItemPoints": [
+        12,
+        12,
+        2
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 360000,
+      "UnlockRecipes": [
+        38
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 41.0,
+        "y": -23.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T微型粒子对撞机",
+      "ID": 1142,
+      "SID": "",
+      "Desc": "微型粒子对撞机描述",
+      "Conclusion": "微型粒子对撞机结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1142",
+      "IconTag": "tlzdzj",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1124
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002,
+        6003
+      ],
+      "ItemPoints": [
+        12,
+        12,
+        12
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 240000,
+      "UnlockRecipes": [
+        39,
+        40
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 37.0,
+        "y": -31.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T奇异物质",
+      "ID": 1143,
+      "SID": "",
+      "Desc": "奇异物质描述",
+      "Conclusion": "奇异物质结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1143",
+      "IconTag": "tqywz",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1142
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002,
+        6003
+      ],
+      "ItemPoints": [
+        12,
+        12,
+        12
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 300000,
+      "UnlockRecipes": [
+        104
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 41.0,
+        "y": -31.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T可控湮灭反应",
+      "ID": 1145,
+      "SID": "",
+      "Desc": "可控湮灭反应描述",
+      "Conclusion": "可控湮灭反应结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1145",
+      "IconTag": "kkym",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1506
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6002,
+        6005
+      ],
+      "ItemPoints": [
+        24,
+        12
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 600000,
+      "UnlockRecipes": [
+        42,
+        44
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 57.0,
+        "y": -3.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T基础制造工艺",
+      "ID": 1201,
+      "SID": "",
+      "Desc": "基础制造工艺描述",
+      "Conclusion": "基础制造工艺结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1201",
+      "IconTag": "jczz",
+      "IsLabTech": 0,
+      "PreTechs": [
+        1001
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        1301,
+        1201
+      ],
+      "ItemPoints": [
+        20,
+        20
+      ],
+      "PropertyOverrideItems": [
+        6001
+      ],
+      "PropertyItemCounts": [
+        40
+      ],
+      "HashNeeded": 1800,
+      "UnlockRecipes": [
+        45
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [
+        2303
+      ],
+      "AddItemCounts": [
+        1
+      ],
+      "Position": {
+        "x": 13.0,
+        "y": -3.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T高速制造工艺",
+      "ID": 1202,
+      "SID": "",
+      "Desc": "高速制造工艺描述",
+      "Conclusion": "高速制造工艺结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1202",
+      "IconTag": "gszz",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1201,
+        1302
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002
+      ],
+      "ItemPoints": [
+        20,
+        10
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 108000,
+      "UnlockRecipes": [
+        46
+      ],
+      "UnlockFunctions": [
+        7
+      ],
+      "UnlockValues": [
+        0.5
+      ],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 29.0,
+        "y": -3.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T量子打印技术",
+      "ID": 1203,
+      "SID": "",
+      "Desc": "量子打印技术描述",
+      "Conclusion": "量子打印技术结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1203",
+      "IconTag": "lzdy",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1202,
+        1303
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002,
+        6003,
+        6004
+      ],
+      "ItemPoints": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 288000,
+      "UnlockRecipes": [
+        47
+      ],
+      "UnlockFunctions": [
+        7
+      ],
+      "UnlockValues": [
+        0.5
+      ],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 49.0,
+        "y": -3.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T处理器",
+      "ID": 1302,
+      "SID": "",
+      "Desc": "处理器描述",
+      "Conclusion": "处理器结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1302",
+      "IconTag": "tclq",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1311
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001
+      ],
+      "ItemPoints": [
+        20
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 144000,
+      "UnlockRecipes": [
+        51
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 25.0,
+        "y": -7.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T量子芯片",
+      "ID": 1303,
+      "SID": "",
+      "Desc": "量子芯片描述",
+      "Conclusion": "量子芯片结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1303",
+      "IconTag": "tlzxp",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1312,
+        1141
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002,
+        6004
+      ],
+      "ItemPoints": [
+        10,
+        10,
+        10
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 288000,
+      "UnlockRecipes": [
+        52
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 45.0,
+        "y": -19.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T半导体材料",
+      "ID": 1311,
+      "SID": "",
+      "Desc": "半导体材料描述",
+      "Conclusion": "半导体材料结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1311",
+      "IconTag": "bdtcl",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1201
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001
+      ],
+      "ItemPoints": [
+        40
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 18000,
+      "UnlockRecipes": [
+        53
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 17.0,
+        "y": -7.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T信息矩阵",
+      "ID": 1312,
+      "SID": "",
+      "Desc": "信息矩阵描述",
+      "Conclusion": "信息矩阵结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1312",
+      "IconTag": "tzit",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1302,
+        1133
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002
+      ],
+      "ItemPoints": [
+        10,
+        10
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 288000,
+      "UnlockRecipes": [
+        55
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 41.0,
+        "y": -7.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T自动化冶金",
+      "ID": 1401,
+      "SID": "",
+      "Desc": "自动化冶金描述",
+      "Conclusion": "自动化冶金结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1401",
+      "IconTag": "zdhyj",
+      "IsLabTech": 0,
+      "PreTechs": [
+        1001
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        1202,
+        1301
+      ],
+      "ItemPoints": [
+        20,
+        20
+      ],
+      "PropertyOverrideItems": [
+        6001
+      ],
+      "PropertyItemCounts": [
+        40
+      ],
+      "HashNeeded": 1800,
+      "UnlockRecipes": [
+        56,
+        57
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [
+        2302
+      ],
+      "AddItemCounts": [
+        3
+      ],
+      "Position": {
+        "x": 13.0,
+        "y": 5.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T冶炼提纯",
+      "ID": 1402,
+      "SID": "",
+      "Desc": "冶炼提纯描述",
+      "Conclusion": "冶炼提纯结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1402",
+      "IconTag": "yltc",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1401
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001
+      ],
+      "ItemPoints": [
+        20
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 18000,
+      "UnlockRecipes": [
+        34,
+        17,
+        59
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 17.0,
+        "y": 5.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T晶体冶炼",
+      "ID": 1403,
+      "SID": "",
+      "Desc": "晶体冶炼描述",
+      "Conclusion": "晶体冶炼结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1403",
+      "IconTag": "jtyl",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1402
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002
+      ],
+      "ItemPoints": [
+        20,
+        20
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 90000,
+      "UnlockRecipes": [
+        60,
+        61,
+        37
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 21.0,
+        "y": 5.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T钢材冶炼",
+      "ID": 1411,
+      "SID": "",
+      "Desc": "钢材冶炼描述",
+      "Conclusion": "钢材冶炼结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1411",
+      "IconTag": "gcyl",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1401
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001
+      ],
+      "ItemPoints": [
+        20
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 21600,
+      "UnlockRecipes": [
+        63
+      ],
+      "UnlockFunctions": [
+        37,
+        37
+      ],
+      "UnlockValues": [
+        2203.0,
+        2401.0
+      ],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 17.0,
+        "y": 13.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T钛矿冶炼",
+      "ID": 1413,
+      "SID": "",
+      "Desc": "钛矿冶炼描述",
+      "Conclusion": "钛矿冶炼结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1413",
+      "IconTag": "tkyl",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1411
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002
+      ],
+      "ItemPoints": [
+        20,
+        20
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 36000,
+      "UnlockRecipes": [
+        65
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 25.0,
+        "y": 13.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T高强度钛合金",
+      "ID": 1414,
+      "SID": "",
+      "Desc": "高强度钛合金描述",
+      "Conclusion": "高强度钛合金结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1414",
+      "IconTag": "gqdthj",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1413
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002,
+        6003
+      ],
+      "ItemPoints": [
+        20,
+        20,
+        2
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 144000,
+      "UnlockRecipes": [
+        66
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 33.0,
+        "y": 13.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T位面冶金",
+      "ID": 1417,
+      "SID": "",
+      "Desc": "位面冶金描述",
+      "Conclusion": "位面冶金结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1417",
+      "IconTag": "wmyj",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1141
+      ],
+      "PreTechsImplicit": [
+        1403
+      ],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002,
+        6003,
+        6004
+      ],
+      "ItemPoints": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 360000,
+      "UnlockRecipes": [
+        116
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 45.0,
+        "y": -23.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T太阳能收集",
+      "ID": 1501,
+      "SID": "",
+      "Desc": "太阳能收集描述",
+      "Conclusion": "太阳能收集结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1501",
+      "IconTag": "tynsj",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1402,
+        1002,
+        1201
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001
+      ],
+      "ItemPoints": [
+        40
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 18000,
+      "UnlockRecipes": [
+        67
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [
+        2205
+      ],
+      "AddItemCounts": [
+        1
+      ],
+      "Position": {
+        "x": 21.0,
+        "y": 1.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T光子变频",
+      "ID": 1502,
+      "SID": "",
+      "Desc": "光子变频描述",
+      "Conclusion": "光子变频结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1502",
+      "IconTag": "gzbp",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1501
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002
+      ],
+      "ItemPoints": [
+        20,
+        20
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 36000,
+      "UnlockRecipes": [
+        68,
+        69
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 25.0,
+        "y": 1.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T太阳帆轨道系统",
+      "ID": 1503,
+      "SID": "",
+      "Desc": "太阳帆轨道系统描述",
+      "Conclusion": "太阳帆轨道系统结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1503",
+      "IconTag": "tyfgd",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1502
+      ],
+      "PreTechsImplicit": [
+        1711
+      ],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002
+      ],
+      "ItemPoints": [
+        20,
+        20
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 54000,
+      "UnlockRecipes": [
+        70,
+        71
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 29.0,
+        "y": 1.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T射线接收站",
+      "ID": 1504,
+      "SID": "",
+      "Desc": "射线接收站描述",
+      "Conclusion": "射线接收站结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1504",
+      "IconTag": "tsxjsz",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1503
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002
+      ],
+      "ItemPoints": [
+        20,
+        20
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 108000,
+      "UnlockRecipes": [
+        72
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 33.0,
+        "y": 1.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T行星电离层利用",
+      "ID": 1505,
+      "SID": "",
+      "Desc": "行星电离层利用描述",
+      "Conclusion": "行星电离层利用结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1505",
+      "IconTag": "dlcly",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1504
+      ],
+      "PreTechsImplicit": [
+        1704
+      ],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002,
+        6003,
+        6005
+      ],
+      "ItemPoints": [
+        20,
+        20,
+        20,
+        20
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 360000,
+      "UnlockRecipes": [],
+      "UnlockFunctions": [
+        8
+      ],
+      "UnlockValues": [
+        1.0
+      ],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 49.0,
+        "y": 1.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T狄拉克逆变机制",
+      "ID": 1506,
+      "SID": "",
+      "Desc": "狄拉克逆变机制描述",
+      "Conclusion": "狄拉克逆变机制结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1506",
+      "IconTag": "dlknb",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1505
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002,
+        6003,
+        6004,
+        6005
+      ],
+      "ItemPoints": [
+        20,
+        20,
+        5,
+        5,
+        10
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 540000,
+      "UnlockRecipes": [
+        74
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 53.0,
+        "y": 1.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T黑雾引力透镜",
+      "ID": 1509,
+      "SID": "",
+      "Desc": "黑雾引力透镜描述",
+      "Conclusion": "黑雾引力透镜结果",
+      "Published": 1,
+      "IsHiddenTech": 1,
+      "IsObsolete": 0,
+      "PreItem": [
+        5201
+      ],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1509",
+      "IconTag": "thyltj",
+      "IsLabTech": 0,
+      "PreTechs": [
+        1505
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        5201
+      ],
+      "ItemPoints": [
+        120
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 30000,
+      "UnlockRecipes": [
+        162
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 53.0,
+        "y": -3.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T电磁驱动",
+      "ID": 1701,
+      "SID": "",
+      "Desc": "电磁驱动描述",
+      "Conclusion": "电磁驱动结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1701",
+      "IconTag": "thmd",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1001
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001
+      ],
+      "ItemPoints": [
+        20
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 9000,
+      "UnlockRecipes": [
+        97
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 13.0,
+        "y": -35.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T磁悬浮技术",
+      "ID": 1702,
+      "SID": "",
+      "Desc": "磁悬浮技术描述",
+      "Conclusion": "磁悬浮技术结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1702",
+      "IconTag": "tlvmd",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1701
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002
+      ],
+      "ItemPoints": [
+        20,
+        5
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 72000,
+      "UnlockRecipes": [
+        98
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 21.0,
+        "y": -35.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T粒子磁力阱",
+      "ID": 1703,
+      "SID": "",
+      "Desc": "粒子磁力阱描述",
+      "Conclusion": "粒子磁力阱结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1703",
+      "IconTag": "lzclj",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1702
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002
+      ],
+      "ItemPoints": [
+        20,
+        10
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 288000,
+      "UnlockRecipes": [
+        99,
+        100
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 29.0,
+        "y": -35.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T引力波折射",
+      "ID": 1704,
+      "SID": "",
+      "Desc": "引力波折射描述",
+      "Conclusion": "引力波折射结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1704",
+      "IconTag": "ylbzs",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1143,
+        1703
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002,
+        6003
+      ],
+      "ItemPoints": [
+        12,
+        12,
+        12
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 360000,
+      "UnlockRecipes": [
+        101,
+        78
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 45.0,
+        "y": -35.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T超级磁场发生器",
+      "ID": 1711,
+      "SID": "",
+      "Desc": "超级磁场发生器描述",
+      "Conclusion": "超级磁场发生器结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1711",
+      "IconTag": "tlanmd",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1702
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002
+      ],
+      "ItemPoints": [
+        20,
+        5
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 180000,
+      "UnlockRecipes": [
+        103
+      ],
+      "UnlockFunctions": [
+        42
+      ],
+      "UnlockValues": [
+        1.0
+      ],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 25.0,
+        "y": -39.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T武器系统",
+      "ID": 1801,
+      "SID": "",
+      "Desc": "武器系统描述",
+      "Conclusion": "武器系统结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1801",
+      "IconTag": "wqxt",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1001
+      ],
+      "PreTechsImplicit": [
+        1401
+      ],
+      "PreTechsMax": 0,
+      "Items": [
+        6001
+      ],
+      "ItemPoints": [
+        10
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 7200,
+      "UnlockRecipes": [
+        125,
+        136
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [
+        1601
+      ],
+      "AddItemCounts": [
+        10
+      ],
+      "Position": {
+        "x": 13.0,
+        "y": -47.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T燃烧单元",
+      "ID": 1802,
+      "SID": "",
+      "Desc": "燃烧单元描述",
+      "Conclusion": "燃烧单元结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1802",
+      "IconTag": "trsdy",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1401
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001
+      ],
+      "ItemPoints": [
+        20
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 21600,
+      "UnlockRecipes": [
+        133
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 17.0,
+        "y": 9.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T爆破单元",
+      "ID": 1803,
+      "SID": "",
+      "Desc": "爆破单元描述",
+      "Conclusion": "爆破单元结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1803",
+      "IconTag": "tbpdy",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1123
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002
+      ],
+      "ItemPoints": [
+        20,
+        10
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 72000,
+      "UnlockRecipes": [
+        134
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 33.0,
+        "y": -27.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T晶石爆破单元",
+      "ID": 1804,
+      "SID": "",
+      "Desc": "晶石爆破单元描述",
+      "Conclusion": "晶石爆破单元结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1804",
+      "IconTag": "tjsbp",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1125
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002,
+        6003,
+        6004
+      ],
+      "ItemPoints": [
+        10,
+        10,
+        10,
+        5
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 216000,
+      "UnlockRecipes": [
+        135
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 41.0,
+        "y": -27.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T动力引擎",
+      "ID": 1805,
+      "SID": "",
+      "Desc": "动力引擎描述",
+      "Conclusion": "动力引擎结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1805",
+      "IconTag": "tdlyq",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1001
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001
+      ],
+      "ItemPoints": [
+        10
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 7200,
+      "UnlockRecipes": [
+        105
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 13.0,
+        "y": -43.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T导弹防御塔",
+      "ID": 1806,
+      "SID": "",
+      "Desc": "导弹防御塔描述",
+      "Conclusion": "导弹防御塔结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1806",
+      "IconTag": "tdd",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1805,
+        1801
+      ],
+      "PreTechsImplicit": [
+        1802
+      ],
+      "PreTechsMax": 0,
+      "Items": [
+        6001
+      ],
+      "ItemPoints": [
+        10
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 54000,
+      "UnlockRecipes": [
+        129,
+        144
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 21.0,
+        "y": -47.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T聚爆加农炮",
+      "ID": 1807,
+      "SID": "",
+      "Desc": "聚爆加农炮描述",
+      "Conclusion": "聚爆加农炮结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1807",
+      "IconTag": "tjnp",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1806
+      ],
+      "PreTechsImplicit": [
+        1702
+      ],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002
+      ],
+      "ItemPoints": [
+        10,
+        10
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 108000,
+      "UnlockRecipes": [
+        127,
+        139
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 25.0,
+        "y": -47.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T信号塔",
+      "ID": 1808,
+      "SID": "",
+      "Desc": "信号塔描述",
+      "Conclusion": "信号塔结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1808",
+      "IconTag": "txht",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1806
+      ],
+      "PreTechsImplicit": [
+        1101
+      ],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002
+      ],
+      "ItemPoints": [
+        20,
+        20
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 72000,
+      "UnlockRecipes": [
+        131
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 25.0,
+        "y": -43.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T行星防御系统",
+      "ID": 1809,
+      "SID": "",
+      "Desc": "行星防御系统描述",
+      "Conclusion": "行星防御系统结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1809",
+      "IconTag": "xxfy",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1807
+      ],
+      "PreTechsImplicit": [
+        1703
+      ],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002
+      ],
+      "ItemPoints": [
+        12,
+        12
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 180000,
+      "UnlockRecipes": [
+        126,
+        132
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 33.0,
+        "y": -47.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T干扰塔",
+      "ID": 1810,
+      "SID": "",
+      "Desc": "干扰塔描述",
+      "Conclusion": "干扰塔结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1810",
+      "IconTag": "tgrt",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1806
+      ],
+      "PreTechsImplicit": [
+        1302
+      ],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002
+      ],
+      "ItemPoints": [
+        10,
+        20
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 144000,
+      "UnlockRecipes": [
+        130,
+        158
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 25.0,
+        "y": -51.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T磁化电浆炮",
+      "ID": 1811,
+      "SID": "",
+      "Desc": "磁化电浆炮描述",
+      "Conclusion": "磁化电浆炮结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1811",
+      "IconTag": "tdjp",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1809
+      ],
+      "PreTechsImplicit": [
+        1126
+      ],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002,
+        6003,
+        6004
+      ],
+      "ItemPoints": [
+        12,
+        12,
+        12,
+        6
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 300000,
+      "UnlockRecipes": [
+        128,
+        142,
+        157
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 41.0,
+        "y": -47.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T钛化弹箱",
+      "ID": 1812,
+      "SID": "",
+      "Desc": "钛化弹箱描述",
+      "Conclusion": "钛化弹箱结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1812",
+      "IconTag": "tzd2",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1801
+      ],
+      "PreTechsImplicit": [
+        1413
+      ],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002
+      ],
+      "ItemPoints": [
+        12,
+        12
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 180000,
+      "UnlockRecipes": [
+        137
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 29.0,
+        "y": -55.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T超合金弹箱",
+      "ID": 1813,
+      "SID": "",
+      "Desc": "超合金弹箱描述",
+      "Conclusion": "超合金弹箱结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1813",
+      "IconTag": "tzd3",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1812
+      ],
+      "PreTechsImplicit": [
+        1414
+      ],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002,
+        6003
+      ],
+      "ItemPoints": [
+        10,
+        10,
+        5
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 216000,
+      "UnlockRecipes": [
+        138
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 33.0,
+        "y": -55.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T高爆炮弹组",
+      "ID": 1814,
+      "SID": "",
+      "Desc": "高爆炮弹组描述",
+      "Conclusion": "高爆炮弹组结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1814",
+      "IconTag": "tpd2",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1807
+      ],
+      "PreTechsImplicit": [
+        1413
+      ],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002
+      ],
+      "ItemPoints": [
+        10,
+        10
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 144000,
+      "UnlockRecipes": [
+        140
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 33.0,
+        "y": -43.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T超音速导弹组",
+      "ID": 1815,
+      "SID": "",
+      "Desc": "超音速导弹组描述",
+      "Conclusion": "超音速导弹组结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1815",
+      "IconTag": "tdd2",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1814
+      ],
+      "PreTechsImplicit": [
+        1113
+      ],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002,
+        6003
+      ],
+      "ItemPoints": [
+        12,
+        12,
+        3
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 240000,
+      "UnlockRecipes": [
+        145
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 37.0,
+        "y": -43.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T晶石炮弹组",
+      "ID": 1816,
+      "SID": "",
+      "Desc": "晶石炮弹组描述",
+      "Conclusion": "晶石炮弹组结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1816",
+      "IconTag": "tpd3",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1815
+      ],
+      "PreTechsImplicit": [
+        1414
+      ],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002,
+        6003,
+        6004
+      ],
+      "ItemPoints": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 288000,
+      "UnlockRecipes": [
+        141
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 41.0,
+        "y": -43.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T引力导弹组",
+      "ID": 1817,
+      "SID": "",
+      "Desc": "引力导弹组描述",
+      "Conclusion": "引力导弹组结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1817",
+      "IconTag": "tdd3",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1816
+      ],
+      "PreTechsImplicit": [
+        1143
+      ],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002,
+        6003,
+        6004,
+        6005
+      ],
+      "ItemPoints": [
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 360000,
+      "UnlockRecipes": [
+        146
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 49.0,
+        "y": -43.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T反物质胶囊",
+      "ID": 1818,
+      "SID": "",
+      "Desc": "反物质胶囊描述",
+      "Conclusion": "反物质胶囊结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1818",
+      "IconTag": "tfwzjn",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1145,
+        1811
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002,
+        6003,
+        6004,
+        6005
+      ],
+      "ItemPoints": [
+        20,
+        20,
+        20,
+        20,
+        20
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 540000,
+      "UnlockRecipes": [
+        143
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 61.0,
+        "y": -47.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T地面战斗机-E型",
+      "ID": 1819,
+      "SID": "",
+      "Desc": "地面战斗机-E型描述",
+      "Conclusion": "地面战斗机-E型结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1819",
+      "IconTag": "tzdje",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1826
+      ],
+      "PreTechsImplicit": [
+        1101
+      ],
+      "PreTechsMax": 0,
+      "Items": [
+        6001
+      ],
+      "ItemPoints": [
+        10
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 72000,
+      "UnlockRecipes": [
+        147
+      ],
+      "UnlockFunctions": [
+        77,
+        78
+      ],
+      "UnlockValues": [
+        1.0,
+        4.0
+      ],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 21.0,
+        "y": -59.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T地面战斗机-A型",
+      "ID": 1820,
+      "SID": "",
+      "Desc": "地面战斗机-A型描述",
+      "Conclusion": "地面战斗机-A型结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1820",
+      "IconTag": "tzdja",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1819
+      ],
+      "PreTechsImplicit": [
+        1502
+      ],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002
+      ],
+      "ItemPoints": [
+        10,
+        10
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 144000,
+      "UnlockRecipes": [
+        148
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 25.0,
+        "y": -59.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T地面战斗机-F型",
+      "ID": 1821,
+      "SID": "",
+      "Desc": "地面战斗机-F型描述",
+      "Conclusion": "地面战斗机-F型结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1821",
+      "IconTag": "tzdjf",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1819
+      ],
+      "PreTechsImplicit": [
+        1703
+      ],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002,
+        6003
+      ],
+      "ItemPoints": [
+        10,
+        10,
+        10
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 180000,
+      "UnlockRecipes": [
+        149
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 33.0,
+        "y": -63.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T太空战斗机-A型",
+      "ID": 1822,
+      "SID": "",
+      "Desc": "太空战斗机-A型描述",
+      "Conclusion": "太空战斗机-A型结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1822",
+      "IconTag": "thwj",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1809,
+        1820
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002,
+        6003,
+        6004
+      ],
+      "ItemPoints": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 216000,
+      "UnlockRecipes": [
+        150
+      ],
+      "UnlockFunctions": [
+        79,
+        80
+      ],
+      "UnlockValues": [
+        1.0,
+        4.0
+      ],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 41.0,
+        "y": -59.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T太空战斗机-F型",
+      "ID": 1823,
+      "SID": "",
+      "Desc": "太空战斗机-F型描述",
+      "Conclusion": "太空战斗机-F型结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1823",
+      "IconTag": "tqzj",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1822,
+        1821
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002,
+        6003,
+        6004,
+        6005
+      ],
+      "ItemPoints": [
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 288000,
+      "UnlockRecipes": [
+        151
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 49.0,
+        "y": -63.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T电磁胶囊II",
+      "ID": 1824,
+      "SID": "",
+      "Desc": "电磁胶囊II描述",
+      "Conclusion": "电磁胶囊II结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1824",
+      "IconTag": "tgrjn2",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1810
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002,
+        6003
+      ],
+      "ItemPoints": [
+        10,
+        10,
+        10
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 216000,
+      "UnlockRecipes": [
+        159
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 41.0,
+        "y": -51.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T战场分析基站",
+      "ID": 1826,
+      "SID": "",
+      "Desc": "战场分析基站描述",
+      "Conclusion": "战场分析基站结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1826",
+      "IconTag": "tzcfx",
+      "IsLabTech": 1,
+      "PreTechs": [
+        1801,
+        1805
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001
+      ],
+      "ItemPoints": [
+        10
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 36000,
+      "UnlockRecipes": [
+        152
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 17.0,
+        "y": -59.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T数字模拟计算",
+      "ID": 1901,
+      "SID": "",
+      "Desc": "数字模拟计算描述",
+      "Conclusion": "数字模拟计算结果",
+      "Published": 1,
+      "IsHiddenTech": 1,
+      "IsObsolete": 0,
+      "PreItem": [
+        5202
+      ],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1901",
+      "IconTag": "szmnjs",
+      "IsLabTech": 0,
+      "PreTechs": [
+        1312
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        5201
+      ],
+      "ItemPoints": [
+        120
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 24000,
+      "UnlockRecipes": [
+        153
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 45.0,
+        "y": -7.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T物质重组技术",
+      "ID": 1902,
+      "SID": "",
+      "Desc": "物质重组技术描述",
+      "Conclusion": "物质重组技术结果",
+      "Published": 1,
+      "IsHiddenTech": 1,
+      "IsObsolete": 0,
+      "PreItem": [
+        5203
+      ],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1902",
+      "IconTag": "wzcz",
+      "IsLabTech": 0,
+      "PreTechs": [
+        1203
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        5201
+      ],
+      "ItemPoints": [
+        120
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 18000,
+      "UnlockRecipes": [
+        154
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 53.0,
+        "y": -7.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T负熵递归",
+      "ID": 1903,
+      "SID": "",
+      "Desc": "负熵递归描述",
+      "Conclusion": "负熵递归结果",
+      "Published": 1,
+      "IsHiddenTech": 1,
+      "IsObsolete": 0,
+      "PreItem": [
+        5204
+      ],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1903",
+      "IconTag": "fsdg",
+      "IsLabTech": 0,
+      "PreTechs": [
+        1417
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        5201
+      ],
+      "ItemPoints": [
+        120
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 36000,
+      "UnlockRecipes": [
+        155
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 49.0,
+        "y": -23.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T金色燃料棒",
+      "ID": 1904,
+      "SID": "",
+      "Desc": "金色燃料棒描述",
+      "Conclusion": "金色燃料棒结果",
+      "Published": 1,
+      "IsHiddenTech": 1,
+      "IsObsolete": 0,
+      "PreItem": [
+        5205
+      ],
+      "Level": 0,
+      "MaxLevel": 0,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/1904",
+      "IconTag": "thuanb",
+      "IsLabTech": 0,
+      "PreTechs": [
+        1145
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        5201
+      ],
+      "ItemPoints": [
+        120
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 60000,
+      "UnlockRecipes": [
+        156
+      ],
+      "UnlockFunctions": [],
+      "UnlockValues": [],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 61.0,
+        "y": -7.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T动能武器伤害",
+      "ID": 5001,
+      "SID": "",
+      "Desc": "动能武器伤害描述",
+      "Conclusion": "动能武器伤害结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 1,
+      "MaxLevel": 1,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/5001",
+      "IconTag": "dnwq1",
+      "IsLabTech": 1,
+      "PreTechs": [],
+      "PreTechsImplicit": [
+        1801
+      ],
+      "PreTechsMax": 0,
+      "Items": [
+        6001
+      ],
+      "ItemPoints": [
+        10
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 36000,
+      "UnlockRecipes": [],
+      "UnlockFunctions": [
+        61
+      ],
+      "UnlockValues": [
+        0.1
+      ],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 9.0,
+        "y": -59.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T动能武器伤害",
+      "ID": 5002,
+      "SID": "",
+      "Desc": "动能武器伤害描述",
+      "Conclusion": "动能武器伤害结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 2,
+      "MaxLevel": 2,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/5002",
+      "IconTag": "dnwq2",
+      "IsLabTech": 1,
+      "PreTechs": [
+        5001
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002
+      ],
+      "ItemPoints": [
+        10,
+        10
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 72000,
+      "UnlockRecipes": [],
+      "UnlockFunctions": [
+        61
+      ],
+      "UnlockValues": [
+        0.1
+      ],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 13.0,
+        "y": -59.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T动能武器伤害",
+      "ID": 5003,
+      "SID": "",
+      "Desc": "动能武器伤害描述",
+      "Conclusion": "动能武器伤害结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 3,
+      "MaxLevel": 3,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/5003",
+      "IconTag": "dnwq3",
+      "IsLabTech": 1,
+      "PreTechs": [
+        5002
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002,
+        6003
+      ],
+      "ItemPoints": [
+        10,
+        10,
+        10
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 144000,
+      "UnlockRecipes": [],
+      "UnlockFunctions": [
+        61
+      ],
+      "UnlockValues": [
+        0.2
+      ],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 17.0,
+        "y": -59.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T动能武器伤害",
+      "ID": 5004,
+      "SID": "",
+      "Desc": "动能武器伤害描述",
+      "Conclusion": "动能武器伤害结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 4,
+      "MaxLevel": 4,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/5004",
+      "IconTag": "dnwq4",
+      "IsLabTech": 1,
+      "PreTechs": [
+        5003
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002,
+        6003,
+        6004
+      ],
+      "ItemPoints": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 360000,
+      "UnlockRecipes": [],
+      "UnlockFunctions": [
+        61
+      ],
+      "UnlockValues": [
+        0.3
+      ],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 21.0,
+        "y": -59.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T动能武器伤害",
+      "ID": 5005,
+      "SID": "",
+      "Desc": "动能武器伤害描述",
+      "Conclusion": "动能武器伤害结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 5,
+      "MaxLevel": 5,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/5005",
+      "IconTag": "dnwq5",
+      "IsLabTech": 1,
+      "PreTechs": [
+        5004
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002,
+        6003,
+        6004,
+        6005
+      ],
+      "ItemPoints": [
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 720000,
+      "UnlockRecipes": [],
+      "UnlockFunctions": [
+        61
+      ],
+      "UnlockValues": [
+        0.3
+      ],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 25.0,
+        "y": -59.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T动能武器伤害",
+      "ID": 5006,
+      "SID": "",
+      "Desc": "动能武器伤害描述",
+      "Conclusion": "动能武器伤害结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 6,
+      "MaxLevel": 10000,
+      "LevelCoef1": -16200000,
+      "LevelCoef2": 1800000,
+      "IconPath": "Icons/Tech/5006",
+      "IconTag": "dnwq6",
+      "IsLabTech": 1,
+      "PreTechs": [
+        5005
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6006
+      ],
+      "ItemPoints": [
+        4
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 36000000,
+      "UnlockRecipes": [],
+      "UnlockFunctions": [
+        61
+      ],
+      "UnlockValues": [
+        0.2
+      ],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 29.0,
+        "y": -59.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T能量武器伤害",
+      "ID": 5101,
+      "SID": "",
+      "Desc": "能量武器伤害描述",
+      "Conclusion": "能量武器伤害结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 1,
+      "MaxLevel": 1,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/5101",
+      "IconTag": "nlwq1",
+      "IsLabTech": 1,
+      "PreTechs": [],
+      "PreTechsImplicit": [
+        1801
+      ],
+      "PreTechsMax": 0,
+      "Items": [
+        6001
+      ],
+      "ItemPoints": [
+        10
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 36000,
+      "UnlockRecipes": [],
+      "UnlockFunctions": [
+        62
+      ],
+      "UnlockValues": [
+        0.1
+      ],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 9.0,
+        "y": -63.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T能量武器伤害",
+      "ID": 5102,
+      "SID": "",
+      "Desc": "能量武器伤害描述",
+      "Conclusion": "能量武器伤害结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 2,
+      "MaxLevel": 2,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/5102",
+      "IconTag": "nlwq2",
+      "IsLabTech": 1,
+      "PreTechs": [
+        5101
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002
+      ],
+      "ItemPoints": [
+        10,
+        10
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 72000,
+      "UnlockRecipes": [],
+      "UnlockFunctions": [
+        62
+      ],
+      "UnlockValues": [
+        0.1
+      ],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 13.0,
+        "y": -63.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T能量武器伤害",
+      "ID": 5103,
+      "SID": "",
+      "Desc": "能量武器伤害描述",
+      "Conclusion": "能量武器伤害结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 3,
+      "MaxLevel": 3,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/5103",
+      "IconTag": "nlwq3",
+      "IsLabTech": 1,
+      "PreTechs": [
+        5102
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002,
+        6003
+      ],
+      "ItemPoints": [
+        10,
+        10,
+        10
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 144000,
+      "UnlockRecipes": [],
+      "UnlockFunctions": [
+        62
+      ],
+      "UnlockValues": [
+        0.2
+      ],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 17.0,
+        "y": -63.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T能量武器伤害",
+      "ID": 5104,
+      "SID": "",
+      "Desc": "能量武器伤害描述",
+      "Conclusion": "能量武器伤害结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 4,
+      "MaxLevel": 4,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/5104",
+      "IconTag": "nlwq4",
+      "IsLabTech": 1,
+      "PreTechs": [
+        5103
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002,
+        6003,
+        6004
+      ],
+      "ItemPoints": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 480000,
+      "UnlockRecipes": [],
+      "UnlockFunctions": [
+        62
+      ],
+      "UnlockValues": [
+        0.3
+      ],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 21.0,
+        "y": -63.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T能量武器伤害",
+      "ID": 5105,
+      "SID": "",
+      "Desc": "能量武器伤害描述",
+      "Conclusion": "能量武器伤害结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 5,
+      "MaxLevel": 5,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/5105",
+      "IconTag": "nlwq5",
+      "IsLabTech": 1,
+      "PreTechs": [
+        5104
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002,
+        6003,
+        6004,
+        6005
+      ],
+      "ItemPoints": [
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 1440000,
+      "UnlockRecipes": [],
+      "UnlockFunctions": [
+        62
+      ],
+      "UnlockValues": [
+        0.3
+      ],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 25.0,
+        "y": -63.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T能量武器伤害",
+      "ID": 5106,
+      "SID": "",
+      "Desc": "能量武器伤害描述",
+      "Conclusion": "能量武器伤害结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 6,
+      "MaxLevel": 10000,
+      "LevelCoef1": -54000000,
+      "LevelCoef2": 5400000,
+      "IconPath": "Icons/Tech/5106",
+      "IconTag": "nlwq6",
+      "IsLabTech": 1,
+      "PreTechs": [
+        5105
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6006
+      ],
+      "ItemPoints": [
+        4
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 135000000,
+      "UnlockRecipes": [],
+      "UnlockFunctions": [
+        62
+      ],
+      "UnlockValues": [
+        0.2
+      ],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 29.0,
+        "y": -63.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T爆炸武器伤害",
+      "ID": 5201,
+      "SID": "",
+      "Desc": "爆炸武器伤害描述",
+      "Conclusion": "爆炸武器伤害结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 1,
+      "MaxLevel": 1,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/5201",
+      "IconTag": "bpwq1",
+      "IsLabTech": 1,
+      "PreTechs": [],
+      "PreTechsImplicit": [
+        1802
+      ],
+      "PreTechsMax": 0,
+      "Items": [
+        6001
+      ],
+      "ItemPoints": [
+        10
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 36000,
+      "UnlockRecipes": [],
+      "UnlockFunctions": [
+        63
+      ],
+      "UnlockValues": [
+        0.1
+      ],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 9.0,
+        "y": -67.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T爆炸武器伤害",
+      "ID": 5202,
+      "SID": "",
+      "Desc": "爆炸武器伤害描述",
+      "Conclusion": "爆炸武器伤害结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 2,
+      "MaxLevel": 2,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/5202",
+      "IconTag": "bpwq2",
+      "IsLabTech": 1,
+      "PreTechs": [
+        5201
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002
+      ],
+      "ItemPoints": [
+        10,
+        10
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 72000,
+      "UnlockRecipes": [],
+      "UnlockFunctions": [
+        63
+      ],
+      "UnlockValues": [
+        0.1
+      ],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 13.0,
+        "y": -67.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T爆炸武器伤害",
+      "ID": 5203,
+      "SID": "",
+      "Desc": "爆炸武器伤害描述",
+      "Conclusion": "爆炸武器伤害结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 3,
+      "MaxLevel": 3,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/5203",
+      "IconTag": "bpwq3",
+      "IsLabTech": 1,
+      "PreTechs": [
+        5202
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002,
+        6003
+      ],
+      "ItemPoints": [
+        10,
+        10,
+        10
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 144000,
+      "UnlockRecipes": [],
+      "UnlockFunctions": [
+        63
+      ],
+      "UnlockValues": [
+        0.2
+      ],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 17.0,
+        "y": -67.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T爆炸武器伤害",
+      "ID": 5204,
+      "SID": "",
+      "Desc": "爆炸武器伤害描述",
+      "Conclusion": "爆炸武器伤害结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 4,
+      "MaxLevel": 4,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/5204",
+      "IconTag": "bpwq4",
+      "IsLabTech": 1,
+      "PreTechs": [
+        5203
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002,
+        6003,
+        6004
+      ],
+      "ItemPoints": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 360000,
+      "UnlockRecipes": [],
+      "UnlockFunctions": [
+        63
+      ],
+      "UnlockValues": [
+        0.3
+      ],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 21.0,
+        "y": -67.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T爆炸武器伤害",
+      "ID": 5205,
+      "SID": "",
+      "Desc": "爆炸武器伤害描述",
+      "Conclusion": "爆炸武器伤害结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 5,
+      "MaxLevel": 5,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/5205",
+      "IconTag": "bpwq5",
+      "IsLabTech": 1,
+      "PreTechs": [
+        5204
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002,
+        6003,
+        6004,
+        6005
+      ],
+      "ItemPoints": [
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 720000,
+      "UnlockRecipes": [],
+      "UnlockFunctions": [
+        63
+      ],
+      "UnlockValues": [
+        0.3
+      ],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 25.0,
+        "y": -67.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T爆炸武器伤害",
+      "ID": 5206,
+      "SID": "",
+      "Desc": "爆炸武器伤害描述",
+      "Conclusion": "爆炸武器伤害结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 6,
+      "MaxLevel": 10000,
+      "LevelCoef1": -16200000,
+      "LevelCoef2": 1800000,
+      "IconPath": "Icons/Tech/5206",
+      "IconTag": "bpwq6",
+      "IsLabTech": 1,
+      "PreTechs": [
+        5205
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6006
+      ],
+      "ItemPoints": [
+        4
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 36000000,
+      "UnlockRecipes": [],
+      "UnlockFunctions": [
+        63
+      ],
+      "UnlockValues": [
+        0.2
+      ],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 29.0,
+        "y": -67.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T战斗无人机伤害",
+      "ID": 5301,
+      "SID": "",
+      "Desc": "战斗无人机伤害描述",
+      "Conclusion": "战斗无人机伤害结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 1,
+      "MaxLevel": 1,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/5301",
+      "IconTag": "wrjsh1",
+      "IsLabTech": 1,
+      "PreTechs": [],
+      "PreTechsImplicit": [
+        1819
+      ],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002
+      ],
+      "ItemPoints": [
+        10,
+        10
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 108000,
+      "UnlockRecipes": [],
+      "UnlockFunctions": [
+        67
+      ],
+      "UnlockValues": [
+        0.1
+      ],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 9.0,
+        "y": -75.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T战斗无人机伤害",
+      "ID": 5302,
+      "SID": "",
+      "Desc": "战斗无人机伤害描述",
+      "Conclusion": "战斗无人机伤害结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 2,
+      "MaxLevel": 2,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/5302",
+      "IconTag": "wrjsh2",
+      "IsLabTech": 1,
+      "PreTechs": [
+        5301
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002,
+        6003
+      ],
+      "ItemPoints": [
+        10,
+        10,
+        10
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 180000,
+      "UnlockRecipes": [],
+      "UnlockFunctions": [
+        67
+      ],
+      "UnlockValues": [
+        0.1
+      ],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 13.0,
+        "y": -75.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T战斗无人机伤害",
+      "ID": 5303,
+      "SID": "",
+      "Desc": "战斗无人机伤害描述",
+      "Conclusion": "战斗无人机伤害结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 3,
+      "MaxLevel": 3,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/5303",
+      "IconTag": "wrjsh3",
+      "IsLabTech": 1,
+      "PreTechs": [
+        5302
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002,
+        6003,
+        6004
+      ],
+      "ItemPoints": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 480000,
+      "UnlockRecipes": [],
+      "UnlockFunctions": [
+        67,
+        71
+      ],
+      "UnlockValues": [
+        0.15,
+        0.25
+      ],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 17.0,
+        "y": -75.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T战斗无人机伤害",
+      "ID": 5304,
+      "SID": "",
+      "Desc": "战斗无人机伤害描述",
+      "Conclusion": "战斗无人机伤害结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 4,
+      "MaxLevel": 4,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/5304",
+      "IconTag": "wrjsh4",
+      "IsLabTech": 1,
+      "PreTechs": [
+        5303
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002,
+        6003,
+        6004,
+        6005
+      ],
+      "ItemPoints": [
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 720000,
+      "UnlockRecipes": [],
+      "UnlockFunctions": [
+        67,
+        71
+      ],
+      "UnlockValues": [
+        0.15,
+        0.25
+      ],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 21.0,
+        "y": -75.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T战斗无人机伤害",
+      "ID": 5305,
+      "SID": "",
+      "Desc": "战斗无人机伤害描述",
+      "Conclusion": "战斗无人机伤害结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 5,
+      "MaxLevel": 10000,
+      "LevelCoef1": -43200000,
+      "LevelCoef2": 5400000,
+      "IconPath": "Icons/Tech/5305",
+      "IconTag": "wrjsh5",
+      "IsLabTech": 1,
+      "PreTechs": [
+        5304
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6006
+      ],
+      "ItemPoints": [
+        4
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 84600000,
+      "UnlockRecipes": [],
+      "UnlockFunctions": [
+        67,
+        71
+      ],
+      "UnlockValues": [
+        0.2,
+        0.2
+      ],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 25.0,
+        "y": -75.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T战斗无人机攻击速度",
+      "ID": 5401,
+      "SID": "",
+      "Desc": "战斗无人机攻击速度描述",
+      "Conclusion": "战斗无人机攻击速度结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 1,
+      "MaxLevel": 1,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/5401",
+      "IconTag": "wrjss1",
+      "IsLabTech": 1,
+      "PreTechs": [],
+      "PreTechsImplicit": [
+        1819
+      ],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002
+      ],
+      "ItemPoints": [
+        10,
+        10
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 72000,
+      "UnlockRecipes": [],
+      "UnlockFunctions": [
+        68
+      ],
+      "UnlockValues": [
+        0.1
+      ],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 9.0,
+        "y": -79.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T战斗无人机攻击速度",
+      "ID": 5402,
+      "SID": "",
+      "Desc": "战斗无人机攻击速度描述",
+      "Conclusion": "战斗无人机攻击速度结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 2,
+      "MaxLevel": 2,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/5402",
+      "IconTag": "wrjss2",
+      "IsLabTech": 1,
+      "PreTechs": [
+        5401
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002,
+        6003
+      ],
+      "ItemPoints": [
+        10,
+        10,
+        10
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 144000,
+      "UnlockRecipes": [],
+      "UnlockFunctions": [
+        68
+      ],
+      "UnlockValues": [
+        0.1
+      ],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 13.0,
+        "y": -79.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T战斗无人机攻击速度",
+      "ID": 5403,
+      "SID": "",
+      "Desc": "战斗无人机攻击速度描述",
+      "Conclusion": "战斗无人机攻击速度结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 3,
+      "MaxLevel": 3,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/5403",
+      "IconTag": "wrjss3",
+      "IsLabTech": 1,
+      "PreTechs": [
+        5402
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002,
+        6003,
+        6004
+      ],
+      "ItemPoints": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 288000,
+      "UnlockRecipes": [],
+      "UnlockFunctions": [
+        68,
+        72
+      ],
+      "UnlockValues": [
+        0.2,
+        0.3
+      ],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 17.0,
+        "y": -79.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T战斗无人机攻击速度",
+      "ID": 5404,
+      "SID": "",
+      "Desc": "战斗无人机攻击速度描述",
+      "Conclusion": "战斗无人机攻击速度结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 4,
+      "MaxLevel": 4,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/5404",
+      "IconTag": "wrjss4",
+      "IsLabTech": 1,
+      "PreTechs": [
+        5403
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002,
+        6003,
+        6004,
+        6005
+      ],
+      "ItemPoints": [
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 360000,
+      "UnlockRecipes": [],
+      "UnlockFunctions": [
+        68,
+        72
+      ],
+      "UnlockValues": [
+        0.2,
+        0.3
+      ],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 21.0,
+        "y": -79.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T战斗无人机攻击速度",
+      "ID": 5405,
+      "SID": "",
+      "Desc": "战斗无人机攻击速度描述",
+      "Conclusion": "战斗无人机攻击速度结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 5,
+      "MaxLevel": 5,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/5405",
+      "IconTag": "wrjss5",
+      "IsLabTech": 1,
+      "PreTechs": [
+        5404
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6006
+      ],
+      "ItemPoints": [
+        4
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 1440000,
+      "UnlockRecipes": [],
+      "UnlockFunctions": [
+        68,
+        72
+      ],
+      "UnlockValues": [
+        0.4,
+        0.4
+      ],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 25.0,
+        "y": -79.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T战斗无人机耐久",
+      "ID": 5601,
+      "SID": "",
+      "Desc": "战斗无人机耐久描述",
+      "Conclusion": "战斗无人机耐久结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 1,
+      "MaxLevel": 1,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/5601",
+      "IconTag": "wrjnj1",
+      "IsLabTech": 1,
+      "PreTechs": [],
+      "PreTechsImplicit": [
+        1819
+      ],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002
+      ],
+      "ItemPoints": [
+        10,
+        10
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 72000,
+      "UnlockRecipes": [],
+      "UnlockFunctions": [
+        69
+      ],
+      "UnlockValues": [
+        0.1
+      ],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 9.0,
+        "y": -83.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T战斗无人机耐久",
+      "ID": 5602,
+      "SID": "",
+      "Desc": "战斗无人机耐久描述",
+      "Conclusion": "战斗无人机耐久结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 2,
+      "MaxLevel": 2,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/5602",
+      "IconTag": "wrjnj2",
+      "IsLabTech": 1,
+      "PreTechs": [
+        5601
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002,
+        6003
+      ],
+      "ItemPoints": [
+        10,
+        10,
+        10
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 144000,
+      "UnlockRecipes": [],
+      "UnlockFunctions": [
+        69
+      ],
+      "UnlockValues": [
+        0.1
+      ],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 13.0,
+        "y": -83.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T战斗无人机耐久",
+      "ID": 5603,
+      "SID": "",
+      "Desc": "战斗无人机耐久描述",
+      "Conclusion": "战斗无人机耐久结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 3,
+      "MaxLevel": 3,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/5603",
+      "IconTag": "wrjnj3",
+      "IsLabTech": 1,
+      "PreTechs": [
+        5602
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002,
+        6003,
+        6004
+      ],
+      "ItemPoints": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 360000,
+      "UnlockRecipes": [],
+      "UnlockFunctions": [
+        69,
+        73
+      ],
+      "UnlockValues": [
+        0.2,
+        0.3
+      ],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 17.0,
+        "y": -83.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T战斗无人机耐久",
+      "ID": 5604,
+      "SID": "",
+      "Desc": "战斗无人机耐久描述",
+      "Conclusion": "战斗无人机耐久结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 4,
+      "MaxLevel": 4,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/5604",
+      "IconTag": "wrjnj4",
+      "IsLabTech": 1,
+      "PreTechs": [
+        5603
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002,
+        6003,
+        6004,
+        6005
+      ],
+      "ItemPoints": [
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 360000,
+      "UnlockRecipes": [],
+      "UnlockFunctions": [
+        69,
+        73
+      ],
+      "UnlockValues": [
+        0.2,
+        0.3
+      ],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 21.0,
+        "y": -83.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T战斗无人机耐久",
+      "ID": 5605,
+      "SID": "",
+      "Desc": "战斗无人机耐久描述",
+      "Conclusion": "战斗无人机耐久结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 5,
+      "MaxLevel": 5,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/5605",
+      "IconTag": "wrjnj5",
+      "IsLabTech": 1,
+      "PreTechs": [
+        5604
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6006
+      ],
+      "ItemPoints": [
+        4
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 1800000,
+      "UnlockRecipes": [],
+      "UnlockFunctions": [
+        69,
+        73
+      ],
+      "UnlockValues": [
+        0.4,
+        0.4
+      ],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 25.0,
+        "y": -83.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T行星护盾",
+      "ID": 5701,
+      "SID": "",
+      "Desc": "行星护盾描述",
+      "Conclusion": "行星护盾结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 1,
+      "MaxLevel": 1,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/5701",
+      "IconTag": "xxhd1",
+      "IsLabTech": 1,
+      "PreTechs": [],
+      "PreTechsImplicit": [
+        1809
+      ],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002,
+        6003
+      ],
+      "ItemPoints": [
+        5,
+        5,
+        5
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 144000,
+      "UnlockRecipes": [],
+      "UnlockFunctions": [
+        74
+      ],
+      "UnlockValues": [
+        0.1
+      ],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 9.0,
+        "y": -99.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T行星护盾",
+      "ID": 5702,
+      "SID": "",
+      "Desc": "行星护盾描述",
+      "Conclusion": "行星护盾结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 2,
+      "MaxLevel": 2,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/5702",
+      "IconTag": "xxhd2",
+      "IsLabTech": 1,
+      "PreTechs": [
+        5701
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002,
+        6003
+      ],
+      "ItemPoints": [
+        5,
+        5,
+        5
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 288000,
+      "UnlockRecipes": [],
+      "UnlockFunctions": [
+        74
+      ],
+      "UnlockValues": [
+        0.15
+      ],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 13.0,
+        "y": -99.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T行星护盾",
+      "ID": 5703,
+      "SID": "",
+      "Desc": "行星护盾描述",
+      "Conclusion": "行星护盾结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 3,
+      "MaxLevel": 3,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/5703",
+      "IconTag": "xxhd3",
+      "IsLabTech": 1,
+      "PreTechs": [
+        5702
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002,
+        6003,
+        6004
+      ],
+      "ItemPoints": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 360000,
+      "UnlockRecipes": [],
+      "UnlockFunctions": [
+        74
+      ],
+      "UnlockValues": [
+        0.2
+      ],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 17.0,
+        "y": -99.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T行星护盾",
+      "ID": 5704,
+      "SID": "",
+      "Desc": "行星护盾描述",
+      "Conclusion": "行星护盾结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 4,
+      "MaxLevel": 4,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/5704",
+      "IconTag": "xxhd4",
+      "IsLabTech": 1,
+      "PreTechs": [
+        5703
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002,
+        6003,
+        6004,
+        6005
+      ],
+      "ItemPoints": [
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 360000,
+      "UnlockRecipes": [],
+      "UnlockFunctions": [
+        74
+      ],
+      "UnlockValues": [
+        0.25
+      ],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 21.0,
+        "y": -99.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T行星护盾",
+      "ID": 5705,
+      "SID": "",
+      "Desc": "行星护盾描述",
+      "Conclusion": "行星护盾结果",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 5,
+      "MaxLevel": 5,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/5705",
+      "IconTag": "xxhd5",
+      "IsLabTech": 1,
+      "PreTechs": [
+        5704
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6006
+      ],
+      "ItemPoints": [
+        4
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 1800000,
+      "UnlockRecipes": [],
+      "UnlockFunctions": [
+        74
+      ],
+      "UnlockValues": [
+        0.3
+      ],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 25.0,
+        "y": -99.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T地面编队扩容",
+      "ID": 5801,
+      "SID": "",
+      "Desc": "地面编队扩容描述2",
+      "Conclusion": "地面编队扩容结果2",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 1,
+      "MaxLevel": 1,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/5801",
+      "IconTag": "dmbd1",
+      "IsLabTech": 1,
+      "PreTechs": [],
+      "PreTechsImplicit": [
+        1819
+      ],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002
+      ],
+      "ItemPoints": [
+        20,
+        20
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 36000,
+      "UnlockRecipes": [],
+      "UnlockFunctions": [
+        78
+      ],
+      "UnlockValues": [
+        2.0
+      ],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 9.0,
+        "y": -87.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T地面编队扩容",
+      "ID": 5802,
+      "SID": "",
+      "Desc": "地面编队扩容描述2",
+      "Conclusion": "地面编队扩容结果2",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 2,
+      "MaxLevel": 2,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/5802",
+      "IconTag": "dmbd2",
+      "IsLabTech": 1,
+      "PreTechs": [
+        5801
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002,
+        6003
+      ],
+      "ItemPoints": [
+        20,
+        20,
+        20
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 108000,
+      "UnlockRecipes": [],
+      "UnlockFunctions": [
+        78
+      ],
+      "UnlockValues": [
+        2.0
+      ],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 13.0,
+        "y": -87.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T地面编队扩容",
+      "ID": 5803,
+      "SID": "",
+      "Desc": "地面编队扩容描述1",
+      "Conclusion": "地面编队扩容结果1",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 3,
+      "MaxLevel": 3,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/5803",
+      "IconTag": "dmbd3",
+      "IsLabTech": 1,
+      "PreTechs": [
+        5802
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002,
+        6003,
+        6004
+      ],
+      "ItemPoints": [
+        20,
+        20,
+        20,
+        20
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 288000,
+      "UnlockRecipes": [],
+      "UnlockFunctions": [
+        77
+      ],
+      "UnlockValues": [
+        1.0
+      ],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 17.0,
+        "y": -87.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T地面编队扩容",
+      "ID": 5804,
+      "SID": "",
+      "Desc": "地面编队扩容描述2",
+      "Conclusion": "地面编队扩容结果2",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 4,
+      "MaxLevel": 4,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/5804",
+      "IconTag": "dmbd4",
+      "IsLabTech": 1,
+      "PreTechs": [
+        5803
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002,
+        6003,
+        6004
+      ],
+      "ItemPoints": [
+        20,
+        20,
+        20,
+        20
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 432000,
+      "UnlockRecipes": [],
+      "UnlockFunctions": [
+        78
+      ],
+      "UnlockValues": [
+        4.0
+      ],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 21.0,
+        "y": -87.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T地面编队扩容",
+      "ID": 5805,
+      "SID": "",
+      "Desc": "地面编队扩容描述1",
+      "Conclusion": "地面编队扩容结果1",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 5,
+      "MaxLevel": 5,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/5805",
+      "IconTag": "dmbd5",
+      "IsLabTech": 1,
+      "PreTechs": [
+        5804
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002,
+        6003,
+        6004,
+        6005
+      ],
+      "ItemPoints": [
+        20,
+        20,
+        20,
+        20,
+        20
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 720000,
+      "UnlockRecipes": [],
+      "UnlockFunctions": [
+        77
+      ],
+      "UnlockValues": [
+        2.0
+      ],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 25.0,
+        "y": -87.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T地面编队扩容",
+      "ID": 5806,
+      "SID": "",
+      "Desc": "地面编队扩容描述1",
+      "Conclusion": "地面编队扩容结果1",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 6,
+      "MaxLevel": 6,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/5806",
+      "IconTag": "dmbd6",
+      "IsLabTech": 1,
+      "PreTechs": [
+        5805
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6006
+      ],
+      "ItemPoints": [
+        20
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 1080000,
+      "UnlockRecipes": [],
+      "UnlockFunctions": [
+        77
+      ],
+      "UnlockValues": [
+        2.0
+      ],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 29.0,
+        "y": -87.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T地面编队扩容",
+      "ID": 5807,
+      "SID": "",
+      "Desc": "地面编队扩容描述1",
+      "Conclusion": "地面编队扩容结果1",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 7,
+      "MaxLevel": 7,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/5807",
+      "IconTag": "dmbd7",
+      "IsLabTech": 1,
+      "PreTechs": [
+        5806
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6006
+      ],
+      "ItemPoints": [
+        20
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 1440000,
+      "UnlockRecipes": [],
+      "UnlockFunctions": [
+        77
+      ],
+      "UnlockValues": [
+        2.0
+      ],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 33.0,
+        "y": -87.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T太空编队扩容",
+      "ID": 5901,
+      "SID": "",
+      "Desc": "太空编队扩容描述2",
+      "Conclusion": "太空编队扩容结果2",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 1,
+      "MaxLevel": 1,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/5901",
+      "IconTag": "tkbd1",
+      "IsLabTech": 1,
+      "PreTechs": [],
+      "PreTechsImplicit": [
+        1822
+      ],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002,
+        6003,
+        6004
+      ],
+      "ItemPoints": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 144000,
+      "UnlockRecipes": [],
+      "UnlockFunctions": [
+        80
+      ],
+      "UnlockValues": [
+        4.0
+      ],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 9.0,
+        "y": -91.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T太空编队扩容",
+      "ID": 5902,
+      "SID": "",
+      "Desc": "太空编队扩容描述2",
+      "Conclusion": "太空编队扩容结果2",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 2,
+      "MaxLevel": 2,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/5902",
+      "IconTag": "tkbd2",
+      "IsLabTech": 1,
+      "PreTechs": [
+        5901
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002,
+        6003,
+        6004
+      ],
+      "ItemPoints": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 288000,
+      "UnlockRecipes": [],
+      "UnlockFunctions": [
+        80
+      ],
+      "UnlockValues": [
+        4.0
+      ],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 13.0,
+        "y": -91.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T太空编队扩容",
+      "ID": 5903,
+      "SID": "",
+      "Desc": "太空编队扩容描述1",
+      "Conclusion": "太空编队扩容结果1",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 3,
+      "MaxLevel": 3,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/5903",
+      "IconTag": "tkbd3",
+      "IsLabTech": 1,
+      "PreTechs": [
+        5902
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002,
+        6003,
+        6004
+      ],
+      "ItemPoints": [
+        15,
+        15,
+        15,
+        15
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 432000,
+      "UnlockRecipes": [],
+      "UnlockFunctions": [
+        79
+      ],
+      "UnlockValues": [
+        1.0
+      ],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 17.0,
+        "y": -91.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T太空编队扩容",
+      "ID": 5904,
+      "SID": "",
+      "Desc": "太空编队扩容描述1",
+      "Conclusion": "太空编队扩容结果1",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 4,
+      "MaxLevel": 4,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/5904",
+      "IconTag": "tkbd4",
+      "IsLabTech": 1,
+      "PreTechs": [
+        5903
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002,
+        6003,
+        6004,
+        6005
+      ],
+      "ItemPoints": [
+        20,
+        20,
+        20,
+        20,
+        20
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 720000,
+      "UnlockRecipes": [],
+      "UnlockFunctions": [
+        79
+      ],
+      "UnlockValues": [
+        1.0
+      ],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 21.0,
+        "y": -91.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T太空编队扩容",
+      "ID": 5905,
+      "SID": "",
+      "Desc": "太空编队扩容描述1",
+      "Conclusion": "太空编队扩容结果1",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 5,
+      "MaxLevel": 5,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/5905",
+      "IconTag": "tkbd5",
+      "IsLabTech": 1,
+      "PreTechs": [
+        5904
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6001,
+        6002,
+        6003,
+        6004,
+        6005
+      ],
+      "ItemPoints": [
+        20,
+        20,
+        20,
+        20,
+        20
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 1080000,
+      "UnlockRecipes": [],
+      "UnlockFunctions": [
+        79
+      ],
+      "UnlockValues": [
+        1.0
+      ],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 25.0,
+        "y": -91.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T太空编队扩容",
+      "ID": 5906,
+      "SID": "",
+      "Desc": "太空编队扩容描述1",
+      "Conclusion": "太空编队扩容结果1",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 6,
+      "MaxLevel": 6,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/5906",
+      "IconTag": "tkbd6",
+      "IsLabTech": 1,
+      "PreTechs": [
+        5905
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6006
+      ],
+      "ItemPoints": [
+        20
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 1440000,
+      "UnlockRecipes": [],
+      "UnlockFunctions": [
+        79
+      ],
+      "UnlockValues": [
+        2.0
+      ],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 29.0,
+        "y": -91.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "T太空编队扩容",
+      "ID": 5907,
+      "SID": "",
+      "Desc": "太空编队扩容描述1",
+      "Conclusion": "太空编队扩容结果1",
+      "Published": 1,
+      "IsHiddenTech": 0,
+      "IsObsolete": 0,
+      "PreItem": [],
+      "Level": 7,
+      "MaxLevel": 7,
+      "LevelCoef1": 0,
+      "LevelCoef2": 0,
+      "IconPath": "Icons/Tech/5907",
+      "IconTag": "tkbd7",
+      "IsLabTech": 1,
+      "PreTechs": [
+        5906
+      ],
+      "PreTechsImplicit": [],
+      "PreTechsMax": 0,
+      "Items": [
+        6006
+      ],
+      "ItemPoints": [
+        20
+      ],
+      "PropertyOverrideItems": [],
+      "PropertyItemCounts": [],
+      "HashNeeded": 2160000,
+      "UnlockRecipes": [],
+      "UnlockFunctions": [
+        79
+      ],
+      "UnlockValues": [
+        2.0
+      ],
+      "AddItems": [],
+      "AddItemCounts": [],
+      "Position": {
+        "x": 33.0,
+        "y": -91.0
+      },
+      "iconTagString": "",
+      "iconNameTagString": ""
+    }
+  ],
+  "recipes": [
+    {
+      "Name": "电磁矩阵",
+      "ID": 9,
+      "SID": "1801",
+      "Type": 15,
+      "Handcraft": 1,
+      "Explicit": 0,
+      "TimeSpend": 180,
+      "Items": [
+        1202,
+        1301
+      ],
+      "ItemCounts": [
+        1,
+        1
+      ],
+      "Results": [
+        6001
+      ],
+      "ResultCounts": [
+        1
+      ],
+      "GridIndex": 1801,
+      "IconPath": "",
+      "IconTag": "",
+      "Description": "",
+      "NonProductive": 0,
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "能量矩阵",
+      "ID": 18,
+      "SID": "1802",
+      "Type": 15,
+      "Handcraft": 1,
+      "Explicit": 0,
+      "TimeSpend": 360,
+      "Items": [
+        1109,
+        1120
+      ],
+      "ItemCounts": [
+        2,
+        2
+      ],
+      "Results": [
+        6002
+      ],
+      "ResultCounts": [
+        1
+      ],
+      "GridIndex": 1802,
+      "IconPath": "",
+      "IconTag": "",
+      "Description": "",
+      "NonProductive": 0,
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "结构矩阵",
+      "ID": 27,
+      "SID": "1803",
+      "Type": 15,
+      "Handcraft": 1,
+      "Explicit": 0,
+      "TimeSpend": 480,
+      "Items": [
+        1112,
+        1118
+      ],
+      "ItemCounts": [
+        1,
+        1
+      ],
+      "Results": [
+        6003
+      ],
+      "ResultCounts": [
+        1
+      ],
+      "GridIndex": 1803,
+      "IconPath": "",
+      "IconTag": "",
+      "Description": "",
+      "NonProductive": 0,
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "信息矩阵",
+      "ID": 55,
+      "SID": "1804",
+      "Type": 15,
+      "Handcraft": 1,
+      "Explicit": 0,
+      "TimeSpend": 600,
+      "Items": [
+        1303,
+        1402
+      ],
+      "ItemCounts": [
+        2,
+        1
+      ],
+      "Results": [
+        6004
+      ],
+      "ResultCounts": [
+        1
+      ],
+      "GridIndex": 1804,
+      "IconPath": "",
+      "IconTag": "",
+      "Description": "",
+      "NonProductive": 0,
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "宇宙矩阵",
+      "ID": 75,
+      "SID": "1806",
+      "Type": 15,
+      "Handcraft": 0,
+      "Explicit": 0,
+      "TimeSpend": 900,
+      "Items": [
+        6001,
+        6002,
+        6003,
+        6004,
+        6005,
+        1122
+      ],
+      "ItemCounts": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "Results": [
+        6006
+      ],
+      "ResultCounts": [
+        1
+      ],
+      "GridIndex": 1806,
+      "IconPath": "",
+      "IconTag": "",
+      "Description": "",
+      "NonProductive": 0,
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "引力矩阵",
+      "ID": 102,
+      "SID": "1805",
+      "Type": 15,
+      "Handcraft": 1,
+      "Explicit": 0,
+      "TimeSpend": 1440,
+      "Items": [
+        1209,
+        1305
+      ],
+      "ItemCounts": [
+        1,
+        1
+      ],
+      "Results": [
+        6005
+      ],
+      "ResultCounts": [
+        2
+      ],
+      "GridIndex": 1805,
+      "IconPath": "",
+      "IconTag": "",
+      "Description": "",
+      "NonProductive": 0,
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "矩阵研究站 Mk.II",
+      "ID": 153,
+      "SID": "2409",
+      "Type": 4,
+      "Handcraft": 1,
+      "Explicit": 0,
+      "TimeSpend": 240,
+      "Items": [
+        2901,
+        5202,
+        5201,
+        1305
+      ],
+      "ItemCounts": [
+        1,
+        10,
+        20,
+        4
+      ],
+      "Results": [
+        2902
+      ],
+      "ResultCounts": [
+        1
+      ],
+      "GridIndex": 2409,
+      "IconPath": "",
+      "IconTag": "",
+      "Description": "",
+      "NonProductive": 0,
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "制造台 Mk.IV",
+      "ID": 154,
+      "SID": "2407",
+      "Type": 4,
+      "Handcraft": 1,
+      "Explicit": 0,
+      "TimeSpend": 300,
+      "Items": [
+        2305,
+        5203,
+        5206,
+        1305
+      ],
+      "ItemCounts": [
+        1,
+        10,
+        30,
+        4
+      ],
+      "Results": [
+        2318
+      ],
+      "ResultCounts": [
+        1
+      ],
+      "GridIndex": 2407,
+      "IconPath": "",
+      "IconTag": "",
+      "Description": "",
+      "NonProductive": 0,
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "熔炉 Mk.III",
+      "ID": 155,
+      "SID": "2403",
+      "Type": 4,
+      "Handcraft": 1,
+      "Explicit": 0,
+      "TimeSpend": 360,
+      "Items": [
+        2315,
+        5204,
+        5206,
+        1305
+      ],
+      "ItemCounts": [
+        1,
+        10,
+        30,
+        4
+      ],
+      "Results": [
+        2319
+      ],
+      "ResultCounts": [
+        1
+      ],
+      "GridIndex": 2403,
+      "IconPath": "",
+      "IconTag": "",
+      "Description": "",
+      "NonProductive": 0,
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "金色燃料棒",
+      "ID": 156,
+      "SID": "1612",
+      "Type": 4,
+      "Handcraft": 0,
+      "Explicit": 0,
+      "TimeSpend": 1920,
+      "Items": [
+        1803,
+        5205,
+        1127,
+        1125
+      ],
+      "ItemCounts": [
+        8,
+        1,
+        2,
+        1
+      ],
+      "Results": [
+        1804
+      ],
+      "ResultCounts": [
+        1
+      ],
+      "GridIndex": 1612,
+      "IconPath": "",
+      "IconTag": "",
+      "Description": "",
+      "NonProductive": 0,
+      "iconTagString": "",
+      "iconNameTagString": ""
+    },
+    {
+      "Name": "黑雾引力透镜",
+      "ID": 162,
+      "SID": "1606",
+      "Type": 4,
+      "Handcraft": 1,
+      "Explicit": 0,
+      "TimeSpend": 360,
+      "Items": [
+        1209,
+        5201
+      ],
+      "ItemCounts": [
+        1,
+        12
+      ],
+      "Results": [
+        1211
+      ],
+      "ResultCounts": [
+        1
+      ],
+      "GridIndex": 1606,
+      "IconPath": "",
+      "IconTag": "",
+      "Description": "",
+      "NonProductive": 0,
+      "iconTagString": "",
+      "iconNameTagString": ""
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+* text=auto eol=lf
+*.cmd text eol=crlf
+*.png binary
+# Preserve supplied concept/data bytes and their original hashes.
+docs/concept/CONCEPT.md -text
+docs/concept/evidence/** -text whitespace=cr-at-eol

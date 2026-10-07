@@ -1,0 +1,28 @@
+{
+  "file_name": "DSP-DarkFog-Material-Synthesis-Concept-2026-10-07.zip",
+  "zip_root": "DSP-DarkFog-Material-Synthesis-Concept-2026-10-07",
+  "zip_sha256": "e56744b2780188e9ca641b57044161228060ad886c3aafe9c3bf239cd4203ca7",
+  "received_date": "2026-10-07",
+  "retained_files": [
+    {
+      "path": "CONCEPT.md",
+      "sha256": "6eff74c6931e3b39d35124e9408d1a753d6a277d31b8258b1baecd098cdac04a"
+    },
+    {
+      "path": "evidence/data/catalogue.json",
+      "sha256": "52fca86863ab8d9f4423106bf67e6476f662fcb259e48174d67b30a01c34361b"
+    },
+    {
+      "path": "evidence/data/dependency-summary.json",
+      "sha256": "8d48b18ba4f3bd4261249370cc719901fd878e6a974614c44f22dd78851e65e8"
+    },
+    {
+      "path": "evidence/data/rarity-selected-eight-clusters.tsv",
+      "sha256": "9c6787f6b5a71aded409d736a4be7f070cfff4e48ce863e1e8dd11732e3ad1ad"
+    },
+    {
+      "path": "evidence/provenance.json",
+      "sha256": "da3060e3680dd159101087b4c96ccfb7e80fe0dbe27ccbb5042d3c414deb2ca4"
+    }
+  ]
+}
