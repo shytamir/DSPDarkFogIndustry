@@ -26,40 +26,12 @@ combat/drops, existing recipes, technology costs, and downstream building resear
 
 | Epic | Outcome | Stories | Exit gate |
 | --- | --- | --- | --- |
-| MVP-B: Complete synthesis route | Six correctly placed/gated recipes with native behavior and save continuity | MVP-05 | M2: Feature contracts pass offline checks; runtime observations are explicit |
 | MVP-C: Owner handoff | The actual CI artifact and a bounded validation procedure | MVP-06, MVP-07 | M3: Owner-validation-ready MVP |
 
-Sequence: MVP-05 completes M2;
-MVP-06 → MVP-07 completes M3. Each story includes its own checks. These are bounded
+Sequence: MVP-06 → MVP-07 completes M3. Each story includes its own checks. These are bounded
 work definitions, not time estimates or automatic activation of every story.
 
 Historical work definitions: [archive](../archive/2026-10-08-mvp/ROADMAP.md).
-
-### MVP-05 — Reconcile existing saves and define removal
-
-**Depends on:** MVP-03; integrate with MVP-04 before M2.
-
-**Outcome:** Existing researched gates acquire only their rightful recipes and
-configured machines retain stable references across reloads.
-
-**Scope:** Reconcile the six recipes at the selected native lifecycle point and
-document the actual persistence/removal implications of the registration mechanism.
-
-**Definition of done:** Tests cover no/partial/all gates, already unlocked recipes,
-repeated reconciliation, save/session changes, and no unrelated awards. Unlocking
-never replays an entire technology. Use the chosen helper's correct behavior where
-it already provides reconciliation; add code only for an evidenced gap. Stable IDs
-and configured-machine persistence have explicit runtime observations to perform.
-A concrete removal procedure and limits are ready to validate on a disposable copy.
-
-**Evidence / stop:** Check the actual reconciliation owner and native import path,
-not a full simulated save engine. Record how unknown recipe references are handled
-and how the owner restores the test checkpoint. If safe removal is not supported,
-state the actual restriction and return any product-policy decision to the owner;
-never clear machine configurations or promise a lossless uninstall without evidence.
-
-**Exclusions:** Generic migrations, save editors, automatic backups, conversion of
-resources, uninstall services, or guaranteed support for arbitrary mod combinations.
 
 ### MVP-06 — Build and inspect the owner candidate
 

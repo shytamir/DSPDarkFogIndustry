@@ -6,165 +6,426 @@
         "type": "ERecipeType",
         "kind": "enum",
         "abstract_type": false,
+        "sealed_type": true,
         "base_type": "System.Enum",
+        "generic_parameters": [],
         "interfaces": [],
         "fields": [
-          "public instance System.Byte ERecipeType::value__",
-          "public static ERecipeType ERecipeType::Assemble",
-          "public static ERecipeType ERecipeType::Chemical",
-          "public static ERecipeType ERecipeType::None",
-          "public static ERecipeType ERecipeType::Smelt"
+          {
+            "signature": "public instance System.Byte ERecipeType::value__",
+            "read_only": false,
+            "literal": false,
+            "constant": null
+          },
+          {
+            "signature": "public static ERecipeType ERecipeType::Assemble",
+            "read_only": false,
+            "literal": true,
+            "constant": 4
+          },
+          {
+            "signature": "public static ERecipeType ERecipeType::Chemical",
+            "read_only": false,
+            "literal": true,
+            "constant": 2
+          },
+          {
+            "signature": "public static ERecipeType ERecipeType::None",
+            "read_only": false,
+            "literal": true,
+            "constant": 0
+          },
+          {
+            "signature": "public static ERecipeType ERecipeType::Smelt",
+            "read_only": false,
+            "literal": true,
+            "constant": 1
+          }
         ],
         "methods": []
+      },
+      {
+        "type": "GameHistoryData",
+        "kind": "class",
+        "abstract_type": false,
+        "sealed_type": false,
+        "base_type": "System.Object",
+        "generic_parameters": [],
+        "interfaces": [],
+        "fields": [],
+        "methods": [
+          {
+            "signature": "public instance System.Boolean GameHistoryData::RecipeUnlocked(System.Int32)",
+            "virtual_method": false,
+            "abstract_method": false
+          },
+          {
+            "signature": "public instance System.Void GameHistoryData::.ctor()",
+            "virtual_method": false,
+            "abstract_method": false
+          },
+          {
+            "signature": "public instance System.Void GameHistoryData::UnlockRecipe(System.Int32)",
+            "virtual_method": false,
+            "abstract_method": false
+          },
+          {
+            "signature": "public instance TechState GameHistoryData::TechState(System.Int32)",
+            "virtual_method": false,
+            "abstract_method": false
+          }
+        ]
       },
       {
         "type": "ItemProto",
         "kind": "class",
         "abstract_type": false,
+        "sealed_type": false,
         "base_type": "Proto",
+        "generic_parameters": [],
         "interfaces": [],
         "fields": [],
         "methods": [
-          "public instance System.Void ItemProto::.ctor()"
+          {
+            "signature": "public instance System.Void ItemProto::.ctor()",
+            "virtual_method": false,
+            "abstract_method": false
+          }
         ]
       },
       {
         "type": "ItemProtoSet",
         "kind": "class",
         "abstract_type": false,
+        "sealed_type": false,
         "base_type": "ProtoSet\u00601\u003CItemProto\u003E",
+        "generic_parameters": [],
         "interfaces": [],
         "fields": [],
         "methods": [
-          "public instance System.Void ItemProtoSet::.ctor()"
+          {
+            "signature": "public instance System.Void ItemProtoSet::.ctor()",
+            "virtual_method": false,
+            "abstract_method": false
+          }
         ]
       },
       {
         "type": "LDB",
         "kind": "class",
         "abstract_type": true,
+        "sealed_type": true,
         "base_type": "System.Object",
+        "generic_parameters": [],
         "interfaces": [],
         "fields": [],
         "methods": [
-          "public static ItemProtoSet LDB::get_items()",
-          "public static RecipeProtoSet LDB::get_recipes()",
-          "public static TechProtoSet LDB::get_techs()"
+          {
+            "signature": "public static ItemProtoSet LDB::get_items()",
+            "virtual_method": false,
+            "abstract_method": false
+          },
+          {
+            "signature": "public static RecipeProtoSet LDB::get_recipes()",
+            "virtual_method": false,
+            "abstract_method": false
+          },
+          {
+            "signature": "public static TechProtoSet LDB::get_techs()",
+            "virtual_method": false,
+            "abstract_method": false
+          }
         ]
       },
       {
         "type": "Proto",
         "kind": "class",
         "abstract_type": true,
+        "sealed_type": false,
         "base_type": "System.Object",
+        "generic_parameters": [],
         "interfaces": [],
         "fields": [
-          "public instance System.Int32 Proto::ID",
-          "public instance System.String Proto::Name",
-          "public instance System.String Proto::SID"
+          {
+            "signature": "public instance System.Int32 Proto::ID",
+            "read_only": false,
+            "literal": false,
+            "constant": null
+          },
+          {
+            "signature": "public instance System.String Proto::Name",
+            "read_only": false,
+            "literal": false,
+            "constant": null
+          },
+          {
+            "signature": "public instance System.String Proto::SID",
+            "read_only": false,
+            "literal": false,
+            "constant": null
+          }
         ],
         "methods": [
-          "protected instance System.Void Proto::.ctor()"
+          {
+            "signature": "protected instance System.Void Proto::.ctor()",
+            "virtual_method": false,
+            "abstract_method": false
+          }
         ]
       },
       {
         "type": "ProtoSet\u00601",
         "kind": "class",
         "abstract_type": false,
+        "sealed_type": false,
         "base_type": "ProtoTable",
+        "generic_parameters": [
+          {
+            "name": "T",
+            "attributes": "NonVariant",
+            "constraints": [
+              "Proto"
+            ]
+          }
+        ],
         "interfaces": [
           "UnityEngine.ISerializationCallbackReceiver"
         ],
         "fields": [
-          "public instance T[] ProtoSet\u00601::dataArray"
+          {
+            "signature": "public instance T[] ProtoSet\u00601::dataArray",
+            "read_only": false,
+            "literal": false,
+            "constant": null
+          }
         ],
         "methods": [
-          "public instance System.Void ProtoSet\u00601::.ctor()",
-          "public instance System.Void ProtoSet\u00601::OnAfterDeserialize()",
-          "public instance System.Void ProtoSet\u00601::OnBeforeSerialize()",
-          "public instance T ProtoSet\u00601::Select(System.Int32)"
+          {
+            "signature": "public instance System.Void ProtoSet\u00601::.ctor()",
+            "virtual_method": false,
+            "abstract_method": false
+          },
+          {
+            "signature": "public instance System.Void ProtoSet\u00601::OnAfterDeserialize()",
+            "virtual_method": true,
+            "abstract_method": false
+          },
+          {
+            "signature": "public instance System.Void ProtoSet\u00601::OnBeforeSerialize()",
+            "virtual_method": true,
+            "abstract_method": false
+          },
+          {
+            "signature": "public instance T ProtoSet\u00601::Select(System.Int32)",
+            "virtual_method": false,
+            "abstract_method": false
+          }
         ]
       },
       {
         "type": "ProtoTable",
         "kind": "class",
         "abstract_type": true,
+        "sealed_type": false,
         "base_type": "UnityEngine.ScriptableObject",
+        "generic_parameters": [],
         "interfaces": [],
         "fields": [],
         "methods": [
-          "protected instance System.Void ProtoTable::.ctor()"
+          {
+            "signature": "protected instance System.Void ProtoTable::.ctor()",
+            "virtual_method": false,
+            "abstract_method": false
+          }
         ]
       },
       {
         "type": "RecipeProto",
         "kind": "class",
         "abstract_type": false,
+        "sealed_type": false,
         "base_type": "Proto",
+        "generic_parameters": [],
         "interfaces": [],
         "fields": [
-          "public instance ERecipeType RecipeProto::Type",
-          "public instance System.Boolean RecipeProto::Explicit",
-          "public instance System.Boolean RecipeProto::Handcraft",
-          "public instance System.Boolean RecipeProto::NonProductive",
-          "public instance System.Int32 RecipeProto::GridIndex",
-          "public instance System.Int32 RecipeProto::TimeSpend",
-          "public instance System.Int32[] RecipeProto::ItemCounts",
-          "public instance System.Int32[] RecipeProto::Items",
-          "public instance System.Int32[] RecipeProto::ResultCounts",
-          "public instance System.Int32[] RecipeProto::Results",
-          "public instance System.String RecipeProto::Description",
-          "public instance System.String RecipeProto::IconPath",
-          "public instance System.String RecipeProto::IconTag"
+          {
+            "signature": "public instance ERecipeType RecipeProto::Type",
+            "read_only": false,
+            "literal": false,
+            "constant": null
+          },
+          {
+            "signature": "public instance System.Boolean RecipeProto::Explicit",
+            "read_only": false,
+            "literal": false,
+            "constant": null
+          },
+          {
+            "signature": "public instance System.Boolean RecipeProto::Handcraft",
+            "read_only": false,
+            "literal": false,
+            "constant": null
+          },
+          {
+            "signature": "public instance System.Boolean RecipeProto::NonProductive",
+            "read_only": false,
+            "literal": false,
+            "constant": null
+          },
+          {
+            "signature": "public instance System.Int32 RecipeProto::GridIndex",
+            "read_only": false,
+            "literal": false,
+            "constant": null
+          },
+          {
+            "signature": "public instance System.Int32 RecipeProto::TimeSpend",
+            "read_only": false,
+            "literal": false,
+            "constant": null
+          },
+          {
+            "signature": "public instance System.Int32[] RecipeProto::ItemCounts",
+            "read_only": false,
+            "literal": false,
+            "constant": null
+          },
+          {
+            "signature": "public instance System.Int32[] RecipeProto::Items",
+            "read_only": false,
+            "literal": false,
+            "constant": null
+          },
+          {
+            "signature": "public instance System.Int32[] RecipeProto::ResultCounts",
+            "read_only": false,
+            "literal": false,
+            "constant": null
+          },
+          {
+            "signature": "public instance System.Int32[] RecipeProto::Results",
+            "read_only": false,
+            "literal": false,
+            "constant": null
+          },
+          {
+            "signature": "public instance System.String RecipeProto::Description",
+            "read_only": false,
+            "literal": false,
+            "constant": null
+          },
+          {
+            "signature": "public instance System.String RecipeProto::IconPath",
+            "read_only": false,
+            "literal": false,
+            "constant": null
+          },
+          {
+            "signature": "public instance System.String RecipeProto::IconTag",
+            "read_only": false,
+            "literal": false,
+            "constant": null
+          }
         ],
         "methods": [
-          "public instance System.Void RecipeProto::.ctor()"
+          {
+            "signature": "public instance System.Void RecipeProto::.ctor()",
+            "virtual_method": false,
+            "abstract_method": false
+          }
         ]
       },
       {
         "type": "RecipeProtoSet",
         "kind": "class",
         "abstract_type": false,
+        "sealed_type": false,
         "base_type": "ProtoSet\u00601\u003CRecipeProto\u003E",
+        "generic_parameters": [],
         "interfaces": [],
         "fields": [],
         "methods": [
-          "public instance System.Void RecipeProtoSet::.ctor()"
+          {
+            "signature": "public instance System.Void RecipeProtoSet::.ctor()",
+            "virtual_method": false,
+            "abstract_method": false
+          }
         ]
       },
       {
         "type": "TechProto",
         "kind": "class",
         "abstract_type": false,
+        "sealed_type": false,
         "base_type": "Proto",
+        "generic_parameters": [],
         "interfaces": [],
         "fields": [
-          "public instance System.Int32[] TechProto::UnlockRecipes"
+          {
+            "signature": "public instance System.Int32[] TechProto::UnlockRecipes",
+            "read_only": false,
+            "literal": false,
+            "constant": null
+          }
         ],
         "methods": [
-          "public instance System.Void TechProto::.ctor()"
+          {
+            "signature": "public instance System.Void TechProto::.ctor()",
+            "virtual_method": false,
+            "abstract_method": false
+          }
         ]
       },
       {
         "type": "TechProtoSet",
         "kind": "class",
         "abstract_type": false,
+        "sealed_type": false,
         "base_type": "ProtoSet\u00601\u003CTechProto\u003E",
+        "generic_parameters": [],
         "interfaces": [],
         "fields": [],
         "methods": [
-          "public instance System.Void TechProtoSet::.ctor()"
+          {
+            "signature": "public instance System.Void TechProtoSet::.ctor()",
+            "virtual_method": false,
+            "abstract_method": false
+          }
         ]
+      },
+      {
+        "type": "TechState",
+        "kind": "struct",
+        "abstract_type": false,
+        "sealed_type": true,
+        "base_type": "System.ValueType",
+        "generic_parameters": [],
+        "interfaces": [],
+        "fields": [
+          {
+            "signature": "public instance System.Boolean TechState::unlocked",
+            "read_only": false,
+            "literal": false,
+            "constant": null
+          }
+        ],
+        "methods": []
       },
       {
         "type": "VFPreload",
         "kind": "class",
         "abstract_type": false,
+        "sealed_type": false,
         "base_type": "UnityEngine.MonoBehaviour",
+        "generic_parameters": [],
         "interfaces": [],
         "fields": [],
         "methods": [
-          "public instance System.Void VFPreload::.ctor()"
+          {
+            "signature": "public instance System.Void VFPreload::.ctor()",
+            "virtual_method": false,
+            "abstract_method": false
+          }
         ]
       }
     ],
@@ -177,45 +438,73 @@
         "type": "BepInEx.BaseUnityPlugin",
         "kind": "class",
         "abstract_type": true,
+        "sealed_type": false,
         "base_type": "UnityEngine.MonoBehaviour",
+        "generic_parameters": [],
         "interfaces": [],
         "fields": [],
         "methods": [
-          "protected instance BepInEx.Logging.ManualLogSource BepInEx.BaseUnityPlugin::get_Logger()",
-          "protected instance System.Void BepInEx.BaseUnityPlugin::.ctor()"
+          {
+            "signature": "protected instance BepInEx.Logging.ManualLogSource BepInEx.BaseUnityPlugin::get_Logger()",
+            "virtual_method": false,
+            "abstract_method": false
+          },
+          {
+            "signature": "protected instance System.Void BepInEx.BaseUnityPlugin::.ctor()",
+            "virtual_method": false,
+            "abstract_method": false
+          }
         ]
       },
       {
         "type": "BepInEx.BepInPlugin",
         "kind": "class",
         "abstract_type": false,
+        "sealed_type": false,
         "base_type": "System.Attribute",
+        "generic_parameters": [],
         "interfaces": [],
         "fields": [],
         "methods": [
-          "public instance System.Void BepInEx.BepInPlugin::.ctor(System.String,System.String,System.String)"
+          {
+            "signature": "public instance System.Void BepInEx.BepInPlugin::.ctor(System.String,System.String,System.String)",
+            "virtual_method": false,
+            "abstract_method": false
+          }
         ]
       },
       {
         "type": "BepInEx.BepInProcess",
         "kind": "class",
         "abstract_type": false,
+        "sealed_type": false,
         "base_type": "System.Attribute",
+        "generic_parameters": [],
         "interfaces": [],
         "fields": [],
         "methods": [
-          "public instance System.Void BepInEx.BepInProcess::.ctor(System.String)"
+          {
+            "signature": "public instance System.Void BepInEx.BepInProcess::.ctor(System.String)",
+            "virtual_method": false,
+            "abstract_method": false
+          }
         ]
       },
       {
         "type": "BepInEx.Logging.ManualLogSource",
         "kind": "class",
         "abstract_type": false,
+        "sealed_type": false,
         "base_type": "System.Object",
+        "generic_parameters": [],
         "interfaces": [],
         "fields": [],
         "methods": [
-          "public instance System.Void BepInEx.Logging.ManualLogSource::LogInfo(System.Object)"
+          {
+            "signature": "public instance System.Void BepInEx.Logging.ManualLogSource::LogInfo(System.Object)",
+            "virtual_method": false,
+            "abstract_method": false
+          }
         ]
       }
     ],
@@ -228,45 +517,90 @@
         "type": "HarmonyLib.Harmony",
         "kind": "class",
         "abstract_type": false,
+        "sealed_type": false,
         "base_type": "System.Object",
+        "generic_parameters": [],
         "interfaces": [],
         "fields": [],
         "methods": [
-          "public instance System.Void HarmonyLib.Harmony::.ctor(System.String)",
-          "public instance System.Void HarmonyLib.Harmony::PatchAll(System.Reflection.Assembly)"
+          {
+            "signature": "public instance System.Void HarmonyLib.Harmony::.ctor(System.String)",
+            "virtual_method": false,
+            "abstract_method": false
+          },
+          {
+            "signature": "public instance System.Void HarmonyLib.Harmony::PatchAll(System.Reflection.Assembly)",
+            "virtual_method": false,
+            "abstract_method": false
+          }
         ]
       },
       {
         "type": "HarmonyLib.HarmonyAttribute",
         "kind": "class",
         "abstract_type": false,
+        "sealed_type": false,
         "base_type": "System.Attribute",
+        "generic_parameters": [],
         "interfaces": [],
         "fields": [],
         "methods": [
-          "public instance System.Void HarmonyLib.HarmonyAttribute::.ctor()"
+          {
+            "signature": "public instance System.Void HarmonyLib.HarmonyAttribute::.ctor()",
+            "virtual_method": false,
+            "abstract_method": false
+          }
         ]
       },
       {
         "type": "HarmonyLib.HarmonyPatch",
         "kind": "class",
         "abstract_type": false,
+        "sealed_type": false,
         "base_type": "HarmonyLib.HarmonyAttribute",
+        "generic_parameters": [],
         "interfaces": [],
         "fields": [],
         "methods": [
-          "public instance System.Void HarmonyLib.HarmonyPatch::.ctor(System.Type,System.String)"
+          {
+            "signature": "public instance System.Void HarmonyLib.HarmonyPatch::.ctor(System.Type,System.String)",
+            "virtual_method": false,
+            "abstract_method": false
+          }
+        ]
+      },
+      {
+        "type": "HarmonyLib.HarmonyPostfix",
+        "kind": "class",
+        "abstract_type": false,
+        "sealed_type": false,
+        "base_type": "System.Attribute",
+        "generic_parameters": [],
+        "interfaces": [],
+        "fields": [],
+        "methods": [
+          {
+            "signature": "public instance System.Void HarmonyLib.HarmonyPostfix::.ctor()",
+            "virtual_method": false,
+            "abstract_method": false
+          }
         ]
       },
       {
         "type": "HarmonyLib.HarmonyPrefix",
         "kind": "class",
         "abstract_type": false,
+        "sealed_type": false,
         "base_type": "System.Attribute",
+        "generic_parameters": [],
         "interfaces": [],
         "fields": [],
         "methods": [
-          "public instance System.Void HarmonyLib.HarmonyPrefix::.ctor()"
+          {
+            "signature": "public instance System.Void HarmonyLib.HarmonyPrefix::.ctor()",
+            "virtual_method": false,
+            "abstract_method": false
+          }
         ]
       }
     ],
@@ -309,67 +643,107 @@
         "type": "UnityEngine.Behaviour",
         "kind": "class",
         "abstract_type": false,
+        "sealed_type": false,
         "base_type": "UnityEngine.Component",
+        "generic_parameters": [],
         "interfaces": [],
         "fields": [],
         "methods": [
-          "public instance System.Void UnityEngine.Behaviour::.ctor()"
+          {
+            "signature": "public instance System.Void UnityEngine.Behaviour::.ctor()",
+            "virtual_method": false,
+            "abstract_method": false
+          }
         ]
       },
       {
         "type": "UnityEngine.Component",
         "kind": "class",
         "abstract_type": false,
+        "sealed_type": false,
         "base_type": "UnityEngine.Object",
+        "generic_parameters": [],
         "interfaces": [],
         "fields": [],
         "methods": [
-          "public instance System.Void UnityEngine.Component::.ctor()"
+          {
+            "signature": "public instance System.Void UnityEngine.Component::.ctor()",
+            "virtual_method": false,
+            "abstract_method": false
+          }
         ]
       },
       {
         "type": "UnityEngine.ISerializationCallbackReceiver",
         "kind": "interface",
         "abstract_type": true,
+        "sealed_type": false,
         "base_type": null,
+        "generic_parameters": [],
         "interfaces": [],
         "fields": [],
         "methods": [
-          "public instance System.Void UnityEngine.ISerializationCallbackReceiver::OnAfterDeserialize()",
-          "public instance System.Void UnityEngine.ISerializationCallbackReceiver::OnBeforeSerialize()"
+          {
+            "signature": "public instance System.Void UnityEngine.ISerializationCallbackReceiver::OnAfterDeserialize()",
+            "virtual_method": true,
+            "abstract_method": true
+          },
+          {
+            "signature": "public instance System.Void UnityEngine.ISerializationCallbackReceiver::OnBeforeSerialize()",
+            "virtual_method": true,
+            "abstract_method": true
+          }
         ]
       },
       {
         "type": "UnityEngine.MonoBehaviour",
         "kind": "class",
         "abstract_type": false,
+        "sealed_type": false,
         "base_type": "UnityEngine.Behaviour",
+        "generic_parameters": [],
         "interfaces": [],
         "fields": [],
         "methods": [
-          "public instance System.Void UnityEngine.MonoBehaviour::.ctor()"
+          {
+            "signature": "public instance System.Void UnityEngine.MonoBehaviour::.ctor()",
+            "virtual_method": false,
+            "abstract_method": false
+          }
         ]
       },
       {
         "type": "UnityEngine.Object",
         "kind": "class",
         "abstract_type": false,
+        "sealed_type": false,
         "base_type": "System.Object",
+        "generic_parameters": [],
         "interfaces": [],
         "fields": [],
         "methods": [
-          "public instance System.Void UnityEngine.Object::.ctor()"
+          {
+            "signature": "public instance System.Void UnityEngine.Object::.ctor()",
+            "virtual_method": false,
+            "abstract_method": false
+          }
         ]
       },
       {
         "type": "UnityEngine.ScriptableObject",
         "kind": "class",
         "abstract_type": false,
+        "sealed_type": false,
         "base_type": "UnityEngine.Object",
+        "generic_parameters": [],
         "interfaces": [],
         "fields": [],
         "methods": [
-          "public instance System.Void UnityEngine.ScriptableObject::.ctor()"
+          {
+            "signature": "public instance System.Void UnityEngine.ScriptableObject::.ctor()",
+            "virtual_method": false,
+            "abstract_method": false
+          }
         ]
       }
     ],

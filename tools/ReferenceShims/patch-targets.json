@@ -1,0 +1,18 @@
+[
+  {
+    "assembly": "Assembly-CSharp",
+    "type": "VFPreload",
+    "method": "InvokeOnLoad",
+    "signature": "System.Void VFPreload::InvokeOnLoad()",
+    "visibility": "private",
+    "parameter_names": []
+  },
+  {
+    "assembly": "Assembly-CSharp",
+    "type": "GameHistoryData",
+    "method": "Import",
+    "signature": "System.Void GameHistoryData::Import(System.IO.BinaryReader,System.Boolean)",
+    "visibility": "public",
+    "parameter_names": ["r", "isPreview"]
+  }
+]

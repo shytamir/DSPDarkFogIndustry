@@ -31,6 +31,13 @@ public class RecipeProto : Proto
     public string IconPath, IconTag, Description;
 }
 public class VFPreload : UnityEngine.MonoBehaviour { }
+public struct TechState { public bool unlocked; }
+public class GameHistoryData
+{
+    public TechState TechState(int techId) { throw new NotSupportedException("Compile-only shim"); }
+    public bool RecipeUnlocked(int recipeId) { throw new NotSupportedException("Compile-only shim"); }
+    public void UnlockRecipe(int recipeId) { throw new NotSupportedException("Compile-only shim"); }
+}
 public static class LDB
 {
     public static RecipeProtoSet recipes { get { throw new NotSupportedException("Compile-only shim"); } }

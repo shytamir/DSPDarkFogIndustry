@@ -10,6 +10,9 @@ and forwarding relationships. The metadata checker compares it to each shim buil
 then validates it against identified real assemblies locally. It also verifies the
 product's actual external references, plugin attributes, and string-named Harmony
 targets. New references require both a matching declaration and ledger update.
+`patch-targets.json` records the private/public native methods named by Harmony,
+including complete signatures and parameter names used by patch injection. They
+are validated separately because string-named targets are not compiler member refs.
 
 Test fakes, where needed, live in tests. A successful shim build is not runtime
 compatibility evidence. No game assembly is executed by the metadata checker.

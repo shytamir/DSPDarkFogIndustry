@@ -10,14 +10,14 @@ and publication. Other documents define contracts or evidence and link here.
 - Authorized scope: on 2026-10-08 the owner approved the roadmap for implementation
   through completion and owner handoff, with management updates and a main push
   after each completed story.
-- Product implementation: MVP-01 through MVP-04 technically closed; MVP-05 active.
+- Product implementation: MVP-01 through MVP-05 technically closed; MVP-06 active.
 - Planning: [recipe decisions](planning/MVP-RECIPES.md) and
   [roadmap](planning/ROADMAP.md) approved for implementation.
 - Owner acceptance: no MVP exists yet; gameplay validation and acceptance remain later.
 - Publication: none. No package is approved for installation or release.
 - Git delivery: preparation and its evidence closeout are on main through
   `db3d8ed85df251a57e817881a30d61bdad7938e0`; MVP-01 is `89d40d5`, MVP-02 is `2ebab16`,
-  MVP-03 is `bfac10d`.
+  MVP-03 is `bfac10d`, MVP-04 is `0be4006`.
   Each story commit includes its management update and is pushed to main at closeout.
   The final product candidate requires separate downloaded-artifact verification.
 
@@ -85,6 +85,7 @@ recorded on 2026-10-08 from instructions and clarification answers in this task:
 | MVP-D08 | Owner-directed, 2026-10-08 | Use BepInEx's patching capabilities and established native/library mechanisms where useful. Avoid a custom loader or injection framework. |
 | MVP-D09 | Owner-directed, 2026-10-08 | Remote product builds use shims for all external game/mod library types, including BepInEx, Harmony, and Unity. Maintain a meticulous external type/member ledger and verify the shim surface and product references against real local metadata. |
 | MVP-D10 | Adopted under implementation authority, 2026-10-08 | Use BepInEx's bundled Harmony for early native-table registration and post-import reconciliation; no LDBTool dependency. IDs 401–406, durations 60/45/45/45/45/60 ticks, existing native preload/cache lifecycle. See [integration contract](implementation/NATIVE-INTEGRATION.md). |
+| MVP-D11 | Owner-directed, 2026-10-08 | Thunderstore package name `DSPDarkFogIndustry` (owner correction supersedes the spaced package name); BepInEx GUID `dark-fog-industry`. Human-readable plugin title remains DSP Dark Fog Industry. |
 
 The [integration contract](implementation/NATIVE-INTEGRATION.md) resolves registration,
 stable IDs, durations, shim-based hosted compilation, and the removal boundary.
@@ -105,8 +106,8 @@ separates inspected facts from investigations and final owner observations.
 | MVP-02: Actual plugin build | Technically closed, 2026-10-08; M1 satisfied | [Validation](implementation/VALIDATION.md#mvp-02--plugin-and-external-references); shim/real compilation, ledger/binding checks, negative cases, shared build |
 | MVP-03: Six-recipe registration | Technically closed, 2026-10-08 | [Validation](implementation/VALIDATION.md#mvp-03--registration); 50 product assertions, real/shim compilation and metadata checks; UI remains owner-observed |
 | MVP-04: Native production/progression | Technically closed, 2026-10-08 | [Validation](implementation/VALIDATION.md#mvp-04--native-production-and-progression); 99 assertions and static dependency/native behavior evidence |
-| MVP-05: Existing saves/removal | Active | M2 |
-| MVP-06: Actual CI candidate | Authorized; waiting on M2 | Main delivery and downloaded artifact verification |
+| MVP-05: Existing saves/removal | Technically closed, 2026-10-08; M2 satisfied | [Validation](implementation/VALIDATION.md#mvp-05--save-reconciliation); 487 assertions; real/shim bindings; runtime persistence/removal observations remain owner work |
+| MVP-06: Actual CI candidate | Active | Main delivery and downloaded artifact verification |
 | MVP-07: Owner validation handoff | Authorized; waiting on MVP-06 | M3 |
 
 ### Planning review record

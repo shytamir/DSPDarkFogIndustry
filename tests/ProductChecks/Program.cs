@@ -56,6 +56,7 @@ internal static class Program
         RejectBeforeMutation((_, items, _) => items.dataArray = items.dataArray.Where(i => i.ID != 5205).ToArray(), "missing native product");
         RejectBeforeMutation((_, _, techs) => techs.dataArray = techs.dataArray.Where(t => t.ID != 1818).ToArray(), "missing native gate");
         ProductionChecks.Run(f.recipes);
+        SaveChecks.Run();
         Console.WriteLine($"Product checks passed: {checks} assertions; mod-owned logic only, no game execution.");
     }
 }

@@ -24,3 +24,13 @@ public class RecipeProtoSet : ProtoSet<RecipeProto>
 }
 public class ItemProtoSet : ProtoSet<ItemProto> { }
 public class TechProtoSet : ProtoSet<TechProto> { }
+public struct TechState { public bool unlocked; }
+public class GameHistoryData
+{
+    public readonly HashSet<int> Researched = [];
+    public readonly HashSet<int> UnlockedRecipes = [];
+    public readonly List<int> UnlockCalls = [];
+    public TechState TechState(int techId) => new TechState { unlocked = Researched.Contains(techId) };
+    public bool RecipeUnlocked(int recipeId) => UnlockedRecipes.Contains(recipeId);
+    public void UnlockRecipe(int recipeId) { UnlockCalls.Add(recipeId); UnlockedRecipes.Add(recipeId); }
+}

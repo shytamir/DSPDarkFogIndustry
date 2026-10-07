@@ -7,7 +7,7 @@ namespace DSPDarkFogIndustry
     [BepInProcess("DSPGAME.exe")]
     public sealed class Plugin : BaseUnityPlugin
     {
-        public const string Id = "shytamir.dsp.darkfogindustry";
+        public const string Id = "dark-fog-industry";
 
         private void Awake()
         {

@@ -78,3 +78,33 @@ production, and no mod write changes item Productive flags, research costs, comb
 mining, production statistics, or machine execution. No additional production patch
 was needed. Runtime rates, proliferation effects/power, statistics, discovery,
 research, and combat coexistence remain owner observations.
+
+[Hosted run 37698031128](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/37698031128)
+passed for MVP-04 source `0be4006e58804244b3e0f773c3ac0869956dbc67`.
+
+## MVP-05 — Save reconciliation
+
+2026-10-08: 487 assertions passed, including all 64 combinations of the six gates,
+preview no-ops, no/partial/all unlocks, previously unlocked recipes, repeated import,
+session changes, later research, and preservation of unrelated research/recipes.
+Only the six missing rightful recipes are awarded; no whole technology is replayed.
+The native gate list still handles ordinary new research.
+
+Both real and shim builds passed without warnings/errors. Metadata validation of
+both DLLs passed for 62 shim members, 60 external references and two Harmony targets.
+The declaration ledger now includes generic constraints, type/method modifiers and
+enum constants; the separate patch-target ledger covers full signatures and argument
+names. Negative checks still reject changed ledgers/baselines and absent references.
+Evidence: `artifacts/mvp05-real/reference-validation.json` and
+`artifacts/reference-shims/reference-validation.json`.
+
+The first target check correctly rejected the assumed one-argument Import signature:
+the real method includes `bool isPreview`. The ledger was corrected from native
+metadata and the product explicitly skips previews. No baseline check was bypassed.
+The owner-specified GUID is `dark-fog-industry`.
+
+Native saved machine IDs remain stable; unknown recipe imports can retain buffers
+without execution data. The [removal boundary](NATIVE-INTEGRATION.md#save-and-removal-boundary)
+therefore requires keeping the plugin for synthesis saves, or restoring an untouched
+pre-mod checkpoint after removal. Real save/reload and rollback are unrun owner
+observations; these tests neither execute Import nor simulate the native save engine.

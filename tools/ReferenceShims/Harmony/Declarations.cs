@@ -11,6 +11,8 @@ namespace HarmonyLib
     }
     [AttributeUsage(AttributeTargets.Method)]
     public class HarmonyPrefix : Attribute { }
+    [AttributeUsage(AttributeTargets.Method)]
+    public class HarmonyPostfix : Attribute { }
     public class Harmony
     {
         public Harmony(string id) { throw new NotSupportedException("Compile-only shim"); }

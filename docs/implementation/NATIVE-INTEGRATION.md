@@ -105,7 +105,9 @@ while keeping CI useful and its limitations explicit.
 
 ## Save and removal boundary
 
-The Import postfix consults native TechState/RecipeUnlocked and calls UnlockRecipe
+The public native signature is `Import(BinaryReader r, bool isPreview = false)`.
+The postfix receives `isPreview` and skips previews entirely. For a full import it
+consults native TechState/RecipeUnlocked and calls UnlockRecipe
 only for a missing one of these six whose gate is already researched. Ordinary
 new research uses the appended native gate list. No whole-tech replay, save-format
 extension, global unlock scan, per-frame reconciliation, or duplicate helper patch.
@@ -116,7 +118,12 @@ path. Keep the mod installed for saves using synthesis. The dependable rollback
 procedure is to remove this plugin and restore an untouched pre-mod checkpoint;
 do not overwrite the working save during removal experiments. MVP-05 supplies the
 focused reconciliation tests and disposable-copy observation steps. No automatic
-clearing of machine recipes or editing of saves is included.
+clearing of machine recipes or editing of saves is included. For owner testing,
+retain an untouched pre-mod checkpoint outside the disposable test slot, install
+the candidate, configure the six recipes, save into a new slot, reload and check
+recipe IDs, buffers and continued production. For rollback, quit, remove this
+plugin, and load the untouched pre-mod checkpoint, never the synthesis save.
+Removing the plugin while retaining a synthesis save is unsupported.
 
 ## Evidence limits
 

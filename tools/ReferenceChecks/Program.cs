@@ -31,10 +31,12 @@ internal static class Program
                 type = t.FullName,
                 kind = t.IsInterface ? "interface" : t.IsEnum ? "enum" : t.IsValueType ? "struct" : "class",
                 abstract_type = t.IsAbstract,
+                sealed_type = t.IsSealed,
                 base_type = t.BaseType?.FullName,
+                generic_parameters = t.GenericParameters.Select(g => new { name = g.Name, attributes = g.Attributes.ToString(), constraints = g.Constraints.Select(c => c.ConstraintType.FullName).Order().ToArray() }).ToArray(),
                 interfaces = t.Interfaces.Select(i => i.InterfaceType.FullName).Order().ToArray(),
-                fields = t.Fields.Where(Exposed).Select(Signature).Order().ToArray(),
-                methods = t.Methods.Where(Exposed).Select(Signature).Order().ToArray()
+                fields = t.Fields.Where(Exposed).OrderBy(Signature).Select(f => new { signature = Signature(f), read_only = f.IsInitOnly, literal = f.IsLiteral, constant = f.HasConstant ? f.Constant : null }).ToArray(),
+                methods = t.Methods.Where(Exposed).OrderBy(Signature).Select(m => new { signature = Signature(m), virtual_method = m.IsVirtual, abstract_method = m.IsAbstract }).ToArray()
             }).ToArray(),
             forwards = module.ExportedTypes.Where(t => t.IsForwarder).Select(t => new { type = t.FullName, target = t.Scope.Name }).OrderBy(t => t.type).ToArray()
         };
@@ -75,17 +77,20 @@ internal static class Program
                 {
                     var real = actual.MainModule.GetType(type.FullName);
                     Require(real != null, $"Missing real type: {name}:{type.FullName}");
-                    Require(real!.BaseType?.FullName == type.BaseType?.FullName && real.IsValueType == type.IsValueType && real.IsInterface == type.IsInterface && real.IsAbstract == type.IsAbstract,
+                    Require(real!.BaseType?.FullName == type.BaseType?.FullName && real.IsValueType == type.IsValueType && real.IsInterface == type.IsInterface && real.IsAbstract == type.IsAbstract && real.IsSealed == type.IsSealed,
                         $"Type shape mismatch: {type.FullName}");
+                    Require(real.GenericParameters.Count == type.GenericParameters.Count, $"Generic arity mismatch: {type.FullName}");
+                    for (int i = 0; i < type.GenericParameters.Count; i++)
+                        Require(real.GenericParameters[i].Attributes == type.GenericParameters[i].Attributes && real.GenericParameters[i].Constraints.Select(c => c.ConstraintType.FullName).Order().SequenceEqual(type.GenericParameters[i].Constraints.Select(c => c.ConstraintType.FullName).Order()), $"Generic constraint mismatch: {type.FullName}");
                     foreach (var iface in type.Interfaces) Require(real.Interfaces.Any(i => i.InterfaceType.FullName == iface.InterfaceType.FullName), $"Missing interface: {type.FullName}:{iface.InterfaceType}");
                     foreach (var field in type.Fields.Where(Exposed))
                     {
-                        Require(real.Fields.Any(f => Signature(f) == Signature(field)), $"Field mismatch: {Signature(field)}");
+                        Require(real.Fields.Any(f => Signature(f) == Signature(field) && f.IsInitOnly == field.IsInitOnly && f.IsLiteral == field.IsLiteral && Equals(f.Constant, field.Constant)), $"Field mismatch: {Signature(field)}");
                         declarations++;
                     }
                     foreach (var method in type.Methods.Where(Exposed))
                     {
-                        Require(real.Methods.Any(m => Signature(m) == Signature(method)), $"Method mismatch: {Signature(method)}");
+                        Require(real.Methods.Any(m => Signature(m) == Signature(method) && m.IsVirtual == method.IsVirtual && m.IsAbstract == method.IsAbstract), $"Method mismatch: {Signature(method)}");
                         declarations++;
                     }
                 }
@@ -110,20 +115,25 @@ internal static class Program
             }
             var entry = product.MainModule.Types.Single(t => t.FullName == "DSPDarkFogIndustry.Plugin");
             var metadata = entry.CustomAttributes.Single(a => a.AttributeType.FullName == "BepInEx.BepInPlugin");
-            Require((string)metadata.ConstructorArguments[0].Value == "shytamir.dsp.darkfogindustry", "Wrong plugin GUID.");
+            Require((string)metadata.ConstructorArguments[0].Value == "dark-fog-industry", "Wrong plugin GUID.");
+            Require((string)metadata.ConstructorArguments[1].Value == "DSP Dark Fog Industry", "Wrong plugin display name.");
+            Require((string)entry.CustomAttributes.Single(a => a.AttributeType.FullName == "BepInEx.BepInProcess").ConstructorArguments[0].Value == "DSPGAME.exe", "Wrong game process filter.");
             Require((string)metadata.ConstructorArguments[2].Value == product.Name.Version.ToString(3), "Plugin/version mismatch.");
             var targets = new List<string>();
+            using var patchLedger = JsonDocument.Parse(File.ReadAllText(Path.Combine(Path.GetDirectoryName(args[2])!, "patch-targets.json")));
             foreach (var attribute in product.MainModule.Types.SelectMany(t => t.CustomAttributes).Where(a => a.AttributeType.FullName == "HarmonyLib.HarmonyPatch"))
             {
                 Require(attribute.ConstructorArguments.Count == 2, "Unreviewed Harmony target declaration.");
                 var targetType = (TypeReference)attribute.ConstructorArguments[0].Value;
                 var targetName = (string)attribute.ConstructorArguments[1].Value;
                 var method = targetType.Resolve().Methods.Single(m => m.Name == targetName);
-                bool expected = targetType.FullName == "VFPreload" && targetName == "InvokeOnLoad" && method.IsPrivate && method.Parameters.Count == 0
-                    || targetType.FullName == "GameHistoryData" && targetName == "Import" && method.IsPublic && method.Parameters.Count == 1 && method.Parameters[0].ParameterType.FullName == "System.IO.BinaryReader";
-                Require(expected && !method.IsStatic && method.ReturnType.FullName == "System.Void", $"Unverified Harmony target: {method.FullName}");
+                var expected = patchLedger.RootElement.EnumerateArray().Single(t => t.GetProperty("type").GetString() == targetType.FullName && t.GetProperty("method").GetString() == targetName);
+                Require(expected.GetProperty("assembly").GetString() == Scope(targetType) && expected.GetProperty("signature").GetString() == method.FullName
+                    && expected.GetProperty("visibility").GetString() == (method.IsPrivate ? "private" : Visibility(method)) && !method.IsStatic
+                    && expected.GetProperty("parameter_names").EnumerateArray().Select(p => p.GetString()).SequenceEqual(method.Parameters.Select(p => p.Name)), $"Unverified Harmony target: {method.FullName}");
                 targets.Add(method.FullName);
             }
+            Require(targets.Count == patchLedger.RootElement.GetArrayLength(), "Missing or duplicated Harmony target.");
             File.WriteAllText(args[6], JsonSerializer.Serialize(new { kind = "static-real-reference-check", plugin_sha256 = Hash(plugin), references = identities, shim_member_count = declarations,
                 external_references = external.Distinct().Order().ToArray(), harmony_targets = targets.Order().ToArray(), limits = "Metadata only; no game or plugin execution, gameplay or owner acceptance." }, Json) + "\n");
             Console.WriteLine($"Verified {declarations} shim members, {external.Distinct().Count()} external references, {targets.Count} Harmony targets against real metadata.");

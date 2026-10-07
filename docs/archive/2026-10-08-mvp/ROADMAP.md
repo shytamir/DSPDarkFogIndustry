@@ -103,3 +103,28 @@ eligibility on ship inputs or add a physical-production gate to discovery.
 
 **Exclusions:** Rate normalization for higher tiers, changes to item productivity,
 custom research/discovery logic, rebalance, and new execution loops.
+### MVP-05 — Reconcile existing saves and define removal
+
+**Depends on:** MVP-03; integrate with MVP-04 before M2.
+
+**Outcome:** Existing researched gates acquire only their rightful recipes and
+configured machines retain stable references across reloads.
+
+**Scope:** Reconcile the six recipes at the selected native lifecycle point and
+document the actual persistence/removal implications of the registration mechanism.
+
+**Definition of done:** Tests cover no/partial/all gates, already unlocked recipes,
+repeated reconciliation, save/session changes, and no unrelated awards. Unlocking
+never replays an entire technology. Use the chosen helper's correct behavior where
+it already provides reconciliation; add code only for an evidenced gap. Stable IDs
+and configured-machine persistence have explicit runtime observations to perform.
+A concrete removal procedure and limits are ready to validate on a disposable copy.
+
+**Evidence / stop:** Check the actual reconciliation owner and native import path,
+not a full simulated save engine. Record how unknown recipe references are handled
+and how the owner restores the test checkpoint. If safe removal is not supported,
+state the actual restriction and return any product-policy decision to the owner;
+never clear machine configurations or promise a lossless uninstall without evidence.
+
+**Exclusions:** Generic migrations, save editors, automatic backups, conversion of
+resources, uninstall services, or guaranteed support for arbitrary mod combinations.
