@@ -128,3 +128,34 @@ dependency `xiaoye97-BepInEx-5.4.17`; no scaffold/shim/reference DLL enters it.
 The replacement icon is a simple original six-node industrial-chain mark.
 Hosted execution and downloaded-byte verification follow the source push; this
 local evidence does not close that gate.
+
+### Hosted candidate and downloaded bytes
+
+[Run 37699427929, attempt 1](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/37699427929)
+passed on main source `1fabb2543d56d90d5707863c234c18c33ba93f02`, version `0.1.8`.
+Independent inspection on 2026-10-08 downloaded both uploaded artifacts, verified
+their provider SHA-256 digests, exported that exact Git revision, and matched all
+87 source-file paths/hashes. SDK, clean source state, run/attempt, package/assembly/
+file/informational versions and reference-report identity all agree.
+
+| Artifact | Identity | SHA-256 |
+| --- | --- | --- |
+| Plugin ZIP | `DSPDarkFogIndustry-0.1.8.1fabb2543d56.zip`, artifact 11517401197 | `e4074f0c8b20c7af9bcec50bf7e85c58acba1e8e62c7eab19802aa234ab9c9a1` |
+| Maintainer evidence ZIP | `plugin-evidence-8-1`, artifact 11517161768 | `ca5f415e748b2e44da7203f7cf63f1232f0a1e8f97a61fe7257130b63d67cd42` |
+| Packaged DLL | Assembly/file `0.1.8.0`; informational `0.1.8.1fabb2543d56` | `a0aba9ed6a86b08aca47a668b27632a3c2baf8c45dcb60907476a171495331f3` |
+
+The downloaded package passed its exact committed source's package inspector:
+five entries, matching README/license/icon, correct manifest name/dependency and
+version, decoded 256x256 PNG, compiled DLL hash and retained timestamp. Static real
+metadata validation of the downloaded DLL passed 62 declared members, 60 external
+references and both Harmony targets against the pinned baseline. Its external-use
+inventory exactly matches CI's shim-based report. GUID is `dark-fog-industry`;
+Thunderstore name is `DSPDarkFogIndustry`. No game/plugin assembly was executed.
+
+Local retained evidence and package: `artifacts/ci/37699427929/`, including provider
+metadata, source export, reports and `independent-verification.json`. The first
+sandboxed artifact download returned HTTP 401; credential diagnosis established
+that the host keyring was authenticated while the sandbox context was invalid.
+The supported host permission route completed verification without changing
+credentials or weakening checks. Hosted artifacts expire after 14 days; retain
+the downloaded local candidate. No installation or publication occurred.

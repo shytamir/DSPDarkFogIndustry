@@ -128,3 +128,30 @@ never clear machine configurations or promise a lossless uninstall without evide
 
 **Exclusions:** Generic migrations, save editors, automatic backups, conversion of
 resources, uninstall services, or guaranteed support for arbitrary mod combinations.
+
+### MVP-06 — Build and inspect the owner candidate
+
+**Depends on:** M2.
+
+**Outcome:** Produce one trustworthy MVP artifact through the real delivery pipeline.
+
+**Scope:** Replace scaffold packaging with the actual plugin/dependency declaration,
+appropriate README and simple icon, preserve identity/evidence conventions, and
+verify the selected source on main and its downloaded CI outputs.
+
+**Definition of done:** Local real-reference validation passes; the actual hosted
+run succeeds; downloaded package and evidence match source, references, version,
+loader identity, and hashes. Malformed-package checks reflect the product contract.
+No scaffold DLL, proprietary reference, cache, or maintainer report enters the ZIP.
+Statically check the downloaded plugin's referenced members against the identified
+real game/dependency assemblies, especially if CI uses a reduced compile surface.
+
+**Evidence / stop:** Record the exact main revision, run/attempt URL, dependency
+versions, downloaded package hash, and independent inspection result. Include the
+reference strategy's limits. Main delivery requires the applicable owner authority;
+a local build, configured workflow, or green run without artifact inspection cannot
+close this gate. Fix packaging failures and rerun only affected checks. Do not hand
+off an older successful artifact as the result of a failed candidate build.
+
+**Exclusions:** Store publication, release tags, marketing campaign, installer,
+auto-updater, or speculative build infrastructure.

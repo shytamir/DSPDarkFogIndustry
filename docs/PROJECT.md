@@ -10,17 +10,19 @@ and publication. Other documents define contracts or evidence and link here.
 - Authorized scope: on 2026-10-08 the owner approved the roadmap for implementation
   through completion and owner handoff, with management updates and a main push
   after each completed story.
-- Product implementation: MVP-01 through MVP-05 technically closed; MVP-06 active.
+- Product implementation: MVP-01 through MVP-06 technically closed; MVP-07 active.
 - Planning: [recipe decisions](planning/MVP-RECIPES.md) and
   [roadmap](planning/ROADMAP.md) approved for implementation.
-- Owner acceptance: gameplay validation and acceptance remain pending; the local
-  candidate has passed offline checks, with hosted artifact verification in progress.
+- Owner acceptance: gameplay validation and acceptance remain pending. Candidate
+  `0.1.8` passed local checks and independent hosted-artifact verification.
 - Publication: none. No package is approved for installation or release.
 - Git delivery: preparation and its evidence closeout are on main through
   `db3d8ed85df251a57e817881a30d61bdad7938e0`; MVP-01 is `89d40d5`, MVP-02 is `2ebab16`,
   MVP-03 is `bfac10d`, MVP-04 is `0be4006`, MVP-05 is `5a8e01f`.
   Each story commit includes its management update and is pushed to main at closeout.
-  The final product candidate requires separate downloaded-artifact verification.
+  Candidate source is `1fabb2543d56d90d5707863c234c18c33ba93f02`; downloaded package
+  `0.1.8` from [run 37699427929](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/37699427929)
+  passed independent verification. Later documentation commits retain this candidate.
 
 ## Product basis and boundaries
 
@@ -108,8 +110,8 @@ separates inspected facts from investigations and final owner observations.
 | MVP-03: Six-recipe registration | Technically closed, 2026-10-08 | [Validation](implementation/VALIDATION.md#mvp-03--registration); 50 product assertions, real/shim compilation and metadata checks; UI remains owner-observed |
 | MVP-04: Native production/progression | Technically closed, 2026-10-08 | [Validation](implementation/VALIDATION.md#mvp-04--native-production-and-progression); 99 assertions and static dependency/native behavior evidence |
 | MVP-05: Existing saves/removal | Technically closed, 2026-10-08; M2 satisfied | [Validation](implementation/VALIDATION.md#mvp-05--save-reconciliation); 487 assertions; real/shim bindings; runtime persistence/removal observations remain owner work |
-| MVP-06: Actual CI candidate | Local checks passed; source push for hosted verification | [Validation](implementation/VALIDATION.md#mvp-06--candidate-packaging); remains open until the downloaded artifact passes |
-| MVP-07: Owner validation handoff | Authorized; waiting on MVP-06 | M3 |
+| MVP-06: Actual CI candidate | Technically closed, 2026-10-08 | [Validation](implementation/VALIDATION.md#mvp-06--candidate-packaging); source `1fabb25`, hosted run success, both provider digests and 87 source hashes matched, downloaded DLL real bindings passed |
+| MVP-07: Owner validation handoff | Active | M3 |
 
 ### Planning review record
 
