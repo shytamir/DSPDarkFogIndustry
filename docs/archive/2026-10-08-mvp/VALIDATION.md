@@ -1,6 +1,6 @@
 # MVP technical validation
 
-[PROJECT](../PROJECT.md) owns story disposition, readiness, acceptance, and release.
+[PROJECT](../../PROJECT.md) owns story disposition, readiness, acceptance, and release.
 This record contains dated checks and their limits. Product runtime results belong
 to the eventual owner procedure, not inferred from these checks.
 
@@ -8,8 +8,8 @@ to the eventual owner procedure, not inferred from these checks.
 
 2026-10-08: net472 plugin compiled with zero warnings/errors against both the full
 external shim set and real local assemblies. The checked-in
-[declaration ledger](../../tools/ReferenceShims/reference-ledger.json) and
-[reference baseline](../../tools/ReferenceShims/reference-baseline.json) identify
+[declaration ledger](../../../tools/ReferenceShims/reference-ledger.json) and
+[reference baseline](../../../tools/ReferenceShims/reference-baseline.json) identify
 types, members, forwarding, assembly identities, hashes, and source versions.
 The metadata validator checked 14 shim members and 12 actual external references
 against the real baseline, including the shim-built DLL. BepInEx GUID, process
@@ -71,7 +71,7 @@ their Matrix research ingredient. `tests/ProductChecks/native-rules.json` retain
 the exact fact inputs and their source hashes, including unaltered downstream
 cost/prerequisite records. No native production simulation is claimed.
 
-The [dependency witness](progression-witness.json) retains the constructive native
+The [dependency witness](../../implementation/progression-witness.json) retains the constructive native
 route found in MVP-01. Static review confirmed ordinary recipe icon fallback matches
 native recipes, handcraft timing remains native, discovery can precede physical
 production, and no mod write changes item Productive flags, research costs, combat,
@@ -104,7 +104,7 @@ metadata and the product explicitly skips previews. No baseline check was bypass
 The owner-specified GUID is `dark-fog-industry`.
 
 Native saved machine IDs remain stable; unknown recipe imports can retain buffers
-without execution data. The [removal boundary](NATIVE-INTEGRATION.md#save-and-removal-boundary)
+without execution data. The [removal boundary](../../implementation/NATIVE-INTEGRATION.md#save-and-removal-boundary)
 therefore requires keeping the plugin for synthesis saves, or restoring an untouched
 pre-mod checkpoint after removal. Real save/reload and rollback are unrun owner
 observations; these tests neither execute Import nor simulate the native save engine.
@@ -159,3 +159,28 @@ that the host keyring was authenticated while the sandbox context was invalid.
 The supported host permission route completed verification without changing
 credentials or weakening checks. Hosted artifacts expire after 14 days; retain
 the downloaded local candidate. No installation or publication occurred.
+
+## MVP-07 — Owner handoff review
+
+2026-10-08: walked the owner procedure against the inspected 0.1.8 ZIP, declared
+BepInEx pack and fixed recipe contract. It identifies the exact candidate, setup,
+all six recipes/rates, all five downstream research relationships, preview/save
+boundaries, session isolation, combat coexistence and supported rollback. Result
+fields remain blank. Controlled setup is separated from normal progression evidence;
+no existing owner save is assumed and no game/save/deployment operation was performed.
+
+Additional static source check of Cargo and AssemblerComponent at the same pinned
+game hash confirms Mk.III spray is level 4: +25% extra products or +100% acceleration,
+with +150% operating energy. These values supply the handoff's expected rates and
+2.5x power requirement; they are not in-game observations. The high-tier unsprayed
+rates still use the verified prefab speeds from MVP-01.
+
+The candidate's source and build/package inputs are unchanged by subsequent
+documentation closeouts. The completed roadmap and superseded planning basis are
+archived together with this dated evidence; the integration/recipe contracts and
+owner procedure remain active. Owner acceptance and publication are unperformed.
+
+Final repository checks passed PowerShell syntax, 101 local documentation links,
+retained concept hashes, source hygiene and diff whitespace. The diff from candidate
+source to handoff contains no product, test, tool, dependency, package or workflow
+changes; no successful product check was needlessly repeated for documentation.

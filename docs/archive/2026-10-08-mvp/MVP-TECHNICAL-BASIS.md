@@ -1,10 +1,10 @@
 # MVP technical basis
 
-Planning evidence for [MVP-01 through MVP-07](../planning/ROADMAP.md), reviewed on
+Planning evidence for [MVP-01 through MVP-07](ROADMAP.md), reviewed on
 2026-10-08. This is a basis for implementation, not an implemented architecture or
-runtime certification. [PROJECT](../PROJECT.md) owns decisions and work state;
-the [recipe contract](../planning/MVP-RECIPES.md) owns the owner's required behavior.
-The later [integration contract](NATIVE-INTEGRATION.md) resolves the initial
+runtime certification. [PROJECT](../../PROJECT.md) owns decisions and work state;
+the [recipe contract](../../planning/MVP-RECIPES.md) owns the owner's required behavior.
+The later [integration contract](../../implementation/NATIVE-INTEGRATION.md) resolves the initial
 registration, timing, ID, reference, and removal questions below. Retain this dated
 planning evidence without treating its former unknowns as new blockers.
 
@@ -17,14 +17,14 @@ Read-only environment activation passed with SDK `10.0.302`, PowerShell `7.6.5`,
 and ILSpyCmd `11.1.0.9782`. This establishes inspection readiness only.
 
 The full local ItemProtoSet, RecipeProtoSet, and TechProtoSet JSONs were rehashed
-against the [supplied provenance](../concept/evidence/provenance.json); all three
+against the [supplied provenance](../../concept/evidence/provenance.json); all three
 matched. Catalogue statements below come from those arrays. Selected original
-records and source locators are indexed in [concept evidence](../concept/EVIDENCE.md).
+records and source locators are indexed in [concept evidence](../../concept/EVIDENCE.md).
 Native decompilations and full asset exports stay ignored/local.
 
 Additional static inspection used `RecipeProto`, `PrefabDesc`, `AssemblerComponent`,
 and `ERecipeType` from the identified assembly. Reproduce targeted reads through
-[Inspect-NativeType.ps1](../../scripts/Inspect-NativeType.ps1). References below name
+[Inspect-NativeType.ps1](../../../scripts/Inspect-NativeType.ps1). References below name
 types/methods rather than depending on machine-specific paths.
 
 No game assembly was executed, game launched, save accessed, or plugin installed.

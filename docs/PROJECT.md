@@ -6,19 +6,24 @@ and publication. Other documents define contracts or evidence and link here.
 
 ## Current state
 
-- Phase: MVP implementation.
+- Phase: awaiting final owner validation.
 - Authorized scope: on 2026-10-08 the owner approved the roadmap for implementation
   through completion and owner handoff, with management updates and a main push
   after each completed story.
-- Product implementation: MVP-01 through MVP-06 technically closed; MVP-07 active.
+- Product implementation: MVP-01 through MVP-07 technically closed; M3 satisfied.
+  The authorized endpoint is achieved: an identified, inspected MVP and
+  [owner handoff](implementation/OWNER-VALIDATION.md). No implementation story remains active.
 - Planning: [recipe decisions](planning/MVP-RECIPES.md) and
-  [roadmap](planning/ROADMAP.md) approved for implementation.
+  [completed roadmap](archive/2026-10-08-mvp/ROADMAP.md) retained; the live
+  [roadmap entry point](planning/ROADMAP.md) contains no new work.
 - Owner acceptance: gameplay validation and acceptance remain pending. Candidate
   `0.1.8` passed local checks and independent hosted-artifact verification.
-- Publication: none. No package is approved for installation or release.
+- Publication: none. The candidate is prepared for owner testing; no deployment,
+  game launch, owner acceptance, release tag or store publication was performed.
 - Git delivery: preparation and its evidence closeout are on main through
   `db3d8ed85df251a57e817881a30d61bdad7938e0`; MVP-01 is `89d40d5`, MVP-02 is `2ebab16`,
-  MVP-03 is `bfac10d`, MVP-04 is `0be4006`, MVP-05 is `5a8e01f`.
+  MVP-03 is `bfac10d`, MVP-04 is `0be4006`, MVP-05 is `5a8e01f`;
+  MVP-06 source/closeout are `1fabb25` / `05b1130`.
   Each story commit includes its management update and is pushed to main at closeout.
   Candidate source is `1fabb2543d56d90d5707863c234c18c33ba93f02`; downloaded package
   `0.1.8` from [run 37699427929](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/37699427929)
@@ -94,24 +99,26 @@ The [integration contract](implementation/NATIVE-INTEGRATION.md) resolves regist
 stable IDs, durations, shim-based hosted compilation, and the removal boundary.
 Keep synthesis saves with the mod installed; dependable rollback restores an
 untouched pre-mod checkpoint. This is a documented limitation, not a safe-uninstall
-claim. Product implementation and runtime observations remain to be validated.
+claim. Runtime observations remain for the owner; technical implementation evidence
+does not establish in-game acceptance.
 
 ## MVP work state
 
-The [roadmap](planning/ROADMAP.md) defines scope, sequence, completion criteria,
-evidence, and stop conditions. Its [technical basis](implementation/MVP-TECHNICAL-BASIS.md)
+The [archived roadmap](archive/2026-10-08-mvp/ROADMAP.md) defines scope, sequence, completion criteria,
+evidence, and stop conditions. Its [technical basis](archive/2026-10-08-mvp/MVP-TECHNICAL-BASIS.md)
 separates inspected facts from investigations and final owner observations.
 
 | Work | Disposition | Evidence / next gate |
 | --- | --- | --- |
 | MVP roadmap preparation | Approved for implementation, 2026-10-08 | Owner instruction in this task; review record below |
 | MVP-01: Integration seam | Technically closed, 2026-10-08 | [Integration contract](implementation/NATIVE-INTEGRATION.md); native/static asset/catalogue checks; no runtime claim |
-| MVP-02: Actual plugin build | Technically closed, 2026-10-08; M1 satisfied | [Validation](implementation/VALIDATION.md#mvp-02--plugin-and-external-references); shim/real compilation, ledger/binding checks, negative cases, shared build |
-| MVP-03: Six-recipe registration | Technically closed, 2026-10-08 | [Validation](implementation/VALIDATION.md#mvp-03--registration); 50 product assertions, real/shim compilation and metadata checks; UI remains owner-observed |
-| MVP-04: Native production/progression | Technically closed, 2026-10-08 | [Validation](implementation/VALIDATION.md#mvp-04--native-production-and-progression); 99 assertions and static dependency/native behavior evidence |
-| MVP-05: Existing saves/removal | Technically closed, 2026-10-08; M2 satisfied | [Validation](implementation/VALIDATION.md#mvp-05--save-reconciliation); 487 assertions; real/shim bindings; runtime persistence/removal observations remain owner work |
-| MVP-06: Actual CI candidate | Technically closed, 2026-10-08 | [Validation](implementation/VALIDATION.md#mvp-06--candidate-packaging); source `1fabb25`, hosted run success, both provider digests and 87 source hashes matched, downloaded DLL real bindings passed |
-| MVP-07: Owner validation handoff | Active | M3 |
+| MVP-02: Actual plugin build | Technically closed, 2026-10-08; M1 satisfied | [Validation](archive/2026-10-08-mvp/VALIDATION.md#mvp-02--plugin-and-external-references); shim/real compilation, ledger/binding checks, negative cases, shared build |
+| MVP-03: Six-recipe registration | Technically closed, 2026-10-08 | [Validation](archive/2026-10-08-mvp/VALIDATION.md#mvp-03--registration); 50 product assertions, real/shim compilation and metadata checks; UI remains owner-observed |
+| MVP-04: Native production/progression | Technically closed, 2026-10-08 | [Validation](archive/2026-10-08-mvp/VALIDATION.md#mvp-04--native-production-and-progression); 99 assertions and static dependency/native behavior evidence |
+| MVP-05: Existing saves/removal | Technically closed, 2026-10-08; M2 satisfied | [Validation](archive/2026-10-08-mvp/VALIDATION.md#mvp-05--save-reconciliation); 487 assertions; real/shim bindings; runtime persistence/removal observations remain owner work |
+| MVP-06: Actual CI candidate | Technically closed, 2026-10-08 | [Validation](archive/2026-10-08-mvp/VALIDATION.md#mvp-06--candidate-packaging); source `1fabb25`, hosted run success, both provider digests and 87 source hashes matched, downloaded DLL real bindings passed |
+| MVP-07: Owner validation handoff | Technically closed, 2026-10-08; M3 satisfied | [Procedure](implementation/OWNER-VALIDATION.md) and [review evidence](archive/2026-10-08-mvp/VALIDATION.md#mvp-07--owner-handoff-review); exact candidate identified, gameplay results blank |
+| Final owner validation and acceptance | Awaiting owner | Run the prepared observations and report pass/fail/not-run; no automatic acceptance |
 
 ### Planning review record
 
@@ -145,6 +152,9 @@ marker checks. No build was rerun for these documentation changes; prior scaffol
 pipeline results remain historical evidence only.
 
 Planning itself involved no product implementation, game launch, deployment, or save
-access. The owner's later implementation authorization is recorded above. Keep the live roadmap until its work is accepted,
-closed within the authorized boundary, or superseded; then archive under the
-[working methods](WORKING-METHODS.md#closeout-and-archives), retaining active contracts.
+access. The owner's later implementation authorization is recorded above. That work
+has reached its authorized owner-handoff endpoint. Completed definitions, superseded
+planning evidence and dated offline results are archived under the
+[working methods](WORKING-METHODS.md#closeout-and-archives); active recipe/integration
+contracts and the owner procedure remain available. Findings do not activate new
+work without owner steering.

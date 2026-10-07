@@ -70,5 +70,5 @@ and native manufacturing remain necessary. Both new games and pre-existing saves
 with gates already researched are in the MVP. Existing enemy drops remain native.
 
 Technical identities, evidence, and unresolved integration questions belong in
-[MVP technical basis](../implementation/MVP-TECHNICAL-BASIS.md). Work is defined in
+[MVP technical basis](../archive/2026-10-08-mvp/MVP-TECHNICAL-BASIS.md). Work is defined in
 the [roadmap](ROADMAP.md); this contract does not authorize implementation.

@@ -12,6 +12,7 @@ from compilation and offline checks; consult project steering for current state.
 
 ## Start here
 
+- [Owner validation procedure and exact candidate](docs/implementation/OWNER-VALIDATION.md)
 - [Agent instructions](AGENTS.md) and [working methods](docs/WORKING-METHODS.md)
 - [Local development and bootstrap](docs/LOCAL-DEVELOPMENT.md)
 - [Roadmap entry point](docs/planning/ROADMAP.md)
