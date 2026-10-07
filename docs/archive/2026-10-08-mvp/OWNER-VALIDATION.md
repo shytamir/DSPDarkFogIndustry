@@ -1,6 +1,10 @@
 # Owner validation: DSP Dark Fog Industry
 
-Use the candidate below for the first gameplay validation. [PROJECT](../PROJECT.md)
+Historical handoff prepared on 2026-10-08. Its instructions and blank results
+are preserved as issued, not active work. See [PROJECT](../../PROJECT.md#owner-acceptance-record--2026-10-08)
+for the subsequent owner report and acceptance decision.
+
+Use the candidate below for the first gameplay validation. [PROJECT](../../PROJECT.md)
 owns readiness and acceptance; all result fields here deliberately remain unfilled.
 
 ## Exact candidate
@@ -14,7 +18,7 @@ owns readiness and acceptance; all result fields here deliberately remain unfill
 - Baseline: DSP **0.10.35.29104**, DSP BepInEx pack **5.4.17**, this plugin only.
   GUID: `dark-fog-industry`. No LDBTool or other content mods.
 
-The [offline evidence](../archive/2026-10-08-mvp/VALIDATION.md#mvp-06--candidate-packaging) already covers
+The [offline evidence](VALIDATION.md#mvp-06--candidate-packaging) already covers
 487 assertions, real and shim compilation, reference ledgers, all downloaded bytes,
 source hashes and package contents. There is no need to repeat those build checks.
 **No game startup, UI, production, save or combat observation has yet been run.**
@@ -52,7 +56,7 @@ or use the labelled controlled setup to obtain the remaining ordinary gates and
 inputs. A fresh new game with the plugin must begin with the same native gates
 locked; it must not inherit another save's unlocks.
 
-Use the [six-recipe table](../../packaging/README.md#recipes). In the Replicator's
+Use the [six-recipe table](../../../packaging/README.md#recipes). In the Replicator's
 Items tab the bottom row's rightmost six positions should show the outputs in
 chain order, using native icons/names/tooltips. Cube recipes on the left and the
 intervening two positions stay unchanged. Facility pickers filter by native family.
@@ -106,7 +110,7 @@ research and confirm consumption/progress; complete the five technologies using
 that supply and check their native recipes. Use unlocked advanced facilities for
 the corresponding rate checks above. Controlled setup must not bypass these five
 research checks. The retained native cost/prerequisite facts are in the linked
-[validation evidence](../archive/2026-10-08-mvp/VALIDATION.md#mvp-04--native-production-and-progression).
+[validation evidence](VALIDATION.md#mvp-04--native-production-and-progression).
 
 Save the configured six-machine line into a new test slot. Quit/reload twice:
 recipes, inputs/output buffers, inventories, research and production must persist

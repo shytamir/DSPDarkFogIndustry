@@ -12,7 +12,8 @@ from compilation and offline checks; consult project steering for current state.
 
 ## Start here
 
-- [Owner validation procedure and exact candidate](docs/implementation/OWNER-VALIDATION.md)
+- [MVP acceptance and project phase](docs/PROJECT.md#current-state)
+- [Archived owner procedure and exact candidate](docs/archive/2026-10-08-mvp/OWNER-VALIDATION.md)
 - [Agent instructions](AGENTS.md) and [working methods](docs/WORKING-METHODS.md)
 - [Local development and bootstrap](docs/LOCAL-DEVELOPMENT.md)
 - [Roadmap entry point](docs/planning/ROADMAP.md)

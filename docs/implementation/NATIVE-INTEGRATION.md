@@ -128,7 +128,8 @@ Removing the plugin while retaining a synthesis save is unsupported.
 ## Evidence limits
 
 Assembly baseline and source provenance are in the [planning technical basis](../archive/2026-10-08-mvp/MVP-TECHNICAL-BASIS.md).
-All findings above are static metadata/source/asset/catalogue inspection. The
-registration and save patches are selected, not yet runtime-observed. Game startup,
-native UI, production, research, persistence, and removal require the final owner
-observations. No game execution, save access, installation, or publication occurred.
+The technical findings above derive from static metadata/source/asset/catalogue
+inspection. Agent verification involved no game execution, save access, installation
+or publication. Subsequent owner runtime observations and the acceptance decision
+are recorded in [PROJECT](../PROJECT.md#owner-acceptance-record--2026-10-08);
+unreported runtime paths are not certified by these static findings.
