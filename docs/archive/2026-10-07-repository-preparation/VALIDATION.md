@@ -86,5 +86,48 @@ was verified against the official release digest
 This was a local workflow check, not a GitHub-hosted run. The temporary validator
 is kept only in ignored `.local/actionlint/`.
 
-No product plugin was compiled or run. No game launch, save access, deployment,
-owner gameplay validation, commit/push, tag, or public release occurred.
+During those local checks, no product plugin was compiled or run, and no game
+launch, save access, deployment, owner gameplay validation, commit/push, tag, or
+public release occurred. The subsequent source delivery and hosted checks follow.
+
+## Hosted execution and download verification
+
+After the owner challenged the premature local-only closeout, preparation source
+`99232fdb91f637f8b34d0bfa50fcfd2b784e7ef8` was committed and pushed to main.
+The staged check required a path-specific `cr-at-eol` whitespace rule for the
+supplied evidence records; their exact bytes and hashes were preserved.
+
+[Run 37689808206](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/37689808206)
+was triggered by that main push on 2026-10-07. Run number `1`, attempt `1`, job
+`113026794517` completed successfully on the GitHub-hosted Windows runner. Its logs
+confirmed pinned SDK setup, locked restore, zero compiler warnings/errors, all
+11 malformed-package and three malformed-version rejection checks, repository
+checks, the direct ZIP upload, and the separate evidence upload.
+
+Downloaded artifacts:
+
+| Artifact | GitHub artifact ID | SHA-256 |
+| --- | --- | --- |
+| `DSPDarkFogIndustry-SCAFFOLD-0.1.1.99232fdb91f6.zip` | `11512587416` | `52c56ed97351391aca42a0d5744cd7ebc0d54b9a4ccbb747e07153e4968ad11e` |
+| `scaffold-evidence-1-1` | `11513105640` | `8671ff84b4d1481ec322ec895cc17a84d57596c7ae8a566581da216bd17c0450` |
+
+Both downloads matched GitHub's artifact digests. The package download was the
+five-entry scaffold ZIP itself, not a wrapper containing another ZIP. The evidence
+archive contained exactly `build-info.json` and `package-inspection.json`.
+
+Independent inspection against a `git archive` export of the exact source commit
+confirmed all 42 recorded source-file hashes, clean build identity, SDK `10.0.302`,
+run/attempt values, package metadata, source README/LICENSE/icon bytes, decoded PNG,
+payload timestamp and hash. Using committed source bytes also avoided confusing
+local line-ending differences with a CI artifact defect.
+
+- Package version: `0.1.1`.
+- Assembly and file versions: `0.1.1.0`.
+- Informational version: `0.1.1.99232fdb91f6`.
+- DLL SHA-256: `176b78351bd0426ef4da5387680ff7022c7cdbf92fcf8504f743bccb2b22036f`.
+
+Downloaded bytes, provider metadata, committed-source export, and the independent
+verification JSON are retained locally under `artifacts/ci/37689808206/`. GitHub
+artifacts use the workflow's 14-day retention; the identities above remain the
+historical record. This verifies source delivery and the hosted scaffold pipeline.
+It does not establish gameplay behavior, owner acceptance, or package publication.

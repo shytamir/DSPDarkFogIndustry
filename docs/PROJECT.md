@@ -6,7 +6,7 @@ and publication. Other documents define contracts or evidence and link here.
 
 ## Current state
 
-- Phase: repository preparation; main delivery and hosted verification in progress.
+- Phase: repository ready for owner-led planning.
 - Authorized scope: prepare this repository for planning, as requested on
   2026-10-07 (Europe/Madrid).
 - Product implementation: not started; no active implementation story.
@@ -14,8 +14,9 @@ and publication. Other documents define contracts or evidence and link here.
   approved or activated.
 - Owner acceptance: not yet reported for this preparation.
 - Publication: none. No package is approved for installation or release.
-- Git delivery: main push and actual CI artifact verification requested by the owner
-  on 2026-10-07 after the initial local-only completion claim.
+- Git delivery: preparation source `99232fdb91f637f8b34d0bfa50fcfd2b784e7ef8`
+  pushed to main; hosted run and downloaded artifacts verified. This document
+  records the subsequent evidence closeout.
 
 ## Product basis and boundaries
 
@@ -36,12 +37,19 @@ Reference repositories supplied conventions only, not product code or identities
 | Structure, governance, concept intake | Technically complete | [Preparation evidence](archive/2026-10-07-repository-preparation/VALIDATION.md) |
 | Local agent bootstrap | Verified | [Preparation evidence](archive/2026-10-07-repository-preparation/VALIDATION.md) |
 | Local compilation and package pipeline | Verified with scaffold only | [Preparation evidence](archive/2026-10-07-repository-preparation/VALIDATION.md) |
-| GitHub Actions workflow | Static validation passed; remote execution not performed | [Workflow](../.github/workflows/build.yml) and [evidence](archive/2026-10-07-repository-preparation/VALIDATION.md) |
+| GitHub Actions workflow | Hosted build and both artifact uploads passed; downloaded bytes independently verified | [Run 1](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/37689808206) and [evidence](archive/2026-10-07-repository-preparation/VALIDATION.md#hosted-execution-and-download-verification) |
 
 The initial local-only closeout was premature: workflow linting did not establish
-the requested remote pipeline. Main delivery, a successful hosted run, and inspection
-of its downloaded artifacts are the remaining preparation gate. No product
-implementation story is active.
+the requested remote pipeline. The owner corrected this on 2026-10-07. Main delivery,
+hosted execution, and independent artifact verification now satisfy that preparation
+gate. Repository preparation is technically complete; no implementation story or
+validation gate is active. Owner acceptance and product runtime work remain separate.
+
+Verified scaffold: `0.1.1`, source `99232fd`, workflow run `37689808206`, attempt `1`.
+All 42 source-file hashes matched the committed source export; the package and
+evidence archives matched GitHub's digests. Exact package/DLL identities and evidence
+limits are retained in the linked validation record. This is pipeline evidence,
+not an installable product or a release.
 
 Installed game files and reference repositories are read-only inputs. No game
 launch, save access, deployment, runtime test, tag, or store publication is part
