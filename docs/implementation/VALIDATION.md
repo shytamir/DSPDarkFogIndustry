@@ -56,3 +56,25 @@ ingredient recipe data even when an ingredient appears later in the item array;
 RecipeProto.Preload derives icons/productivity/preTech; technology and execution
 initialization follow. No late cache repair or private-field injection is added.
 Actual Unity display/cache behavior remains a final owner observation.
+
+[Hosted run 37697714260](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/37697714260)
+passed for MVP-03 source `bfac10d776675ee0fe2b22005f79802131fea8d6`.
+
+## MVP-04 — Native production and progression
+
+2026-10-08: product checks increased to 99 passing assertions. New checks derive
+all six baseline rates and every higher-tier family rate from the actual emitted
+recipes and independently captured native speed/time facts. They check machine
+families, positive durations, the two ship-input acceleration-only cases, the
+acyclic synthesis order, and supply of all five native discovery materials and
+their Matrix research ingredient. `tests/ProductChecks/native-rules.json` retains
+the exact fact inputs and their source hashes, including unaltered downstream
+cost/prerequisite records. No native production simulation is claimed.
+
+The [dependency witness](progression-witness.json) retains the constructive native
+route found in MVP-01. Static review confirmed ordinary recipe icon fallback matches
+native recipes, handcraft timing remains native, discovery can precede physical
+production, and no mod write changes item Productive flags, research costs, combat,
+mining, production statistics, or machine execution. No additional production patch
+was needed. Runtime rates, proliferation effects/power, statistics, discovery,
+research, and combat coexistence remain owner observations.

@@ -67,7 +67,9 @@ resources/gases and ray-receiver critical photons as source terms. Photons still
 need native solar collection/research; they are not free inputs or grants. The six
 new recipes then form a simple forward chain. This proves no Fog bootstrap cycle
 in that witness, not travel, research timing, power availability, or a playthrough.
-Private reproduction: `.local/planning/check-route.py` and its JSON output.
+The retained [dependency witness](progression-witness.json) identifies source terms,
+recipe IDs, gate closure, and limits. Private reproduction used
+`.local/planning/check-route.py` against the full catalogues identified in provenance.
 
 ## References and hosted compilation
 

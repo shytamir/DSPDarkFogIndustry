@@ -10,13 +10,14 @@ and publication. Other documents define contracts or evidence and link here.
 - Authorized scope: on 2026-10-08 the owner approved the roadmap for implementation
   through completion and owner handoff, with management updates and a main push
   after each completed story.
-- Product implementation: MVP-01 through MVP-03 technically closed; MVP-04 active.
+- Product implementation: MVP-01 through MVP-04 technically closed; MVP-05 active.
 - Planning: [recipe decisions](planning/MVP-RECIPES.md) and
   [roadmap](planning/ROADMAP.md) approved for implementation.
 - Owner acceptance: no MVP exists yet; gameplay validation and acceptance remain later.
 - Publication: none. No package is approved for installation or release.
 - Git delivery: preparation and its evidence closeout are on main through
-  `db3d8ed85df251a57e817881a30d61bdad7938e0`; MVP-01 is `89d40d5`, MVP-02 is `2ebab16`.
+  `db3d8ed85df251a57e817881a30d61bdad7938e0`; MVP-01 is `89d40d5`, MVP-02 is `2ebab16`,
+  MVP-03 is `bfac10d`.
   Each story commit includes its management update and is pushed to main at closeout.
   The final product candidate requires separate downloaded-artifact verification.
 
@@ -103,8 +104,8 @@ separates inspected facts from investigations and final owner observations.
 | MVP-01: Integration seam | Technically closed, 2026-10-08 | [Integration contract](implementation/NATIVE-INTEGRATION.md); native/static asset/catalogue checks; no runtime claim |
 | MVP-02: Actual plugin build | Technically closed, 2026-10-08; M1 satisfied | [Validation](implementation/VALIDATION.md#mvp-02--plugin-and-external-references); shim/real compilation, ledger/binding checks, negative cases, shared build |
 | MVP-03: Six-recipe registration | Technically closed, 2026-10-08 | [Validation](implementation/VALIDATION.md#mvp-03--registration); 50 product assertions, real/shim compilation and metadata checks; UI remains owner-observed |
-| MVP-04: Native production/progression | Active | M2 |
-| MVP-05: Existing saves/removal | Authorized; queued | M2 |
+| MVP-04: Native production/progression | Technically closed, 2026-10-08 | [Validation](implementation/VALIDATION.md#mvp-04--native-production-and-progression); 99 assertions and static dependency/native behavior evidence |
+| MVP-05: Existing saves/removal | Active | M2 |
 | MVP-06: Actual CI candidate | Authorized; waiting on M2 | Main delivery and downloaded artifact verification |
 | MVP-07: Owner validation handoff | Authorized; waiting on MVP-06 | M3 |
 

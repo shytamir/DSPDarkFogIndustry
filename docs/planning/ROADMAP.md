@@ -26,40 +26,14 @@ combat/drops, existing recipes, technology costs, and downstream building resear
 
 | Epic | Outcome | Stories | Exit gate |
 | --- | --- | --- | --- |
-| MVP-B: Complete synthesis route | Six correctly placed/gated recipes with native behavior and save continuity | MVP-04, MVP-05 | M2: Feature contracts pass offline checks; runtime observations are explicit |
+| MVP-B: Complete synthesis route | Six correctly placed/gated recipes with native behavior and save continuity | MVP-05 | M2: Feature contracts pass offline checks; runtime observations are explicit |
 | MVP-C: Owner handoff | The actual CI artifact and a bounded validation procedure | MVP-06, MVP-07 | M3: Owner-validation-ready MVP |
 
-Sequence: MVP-04 and MVP-05 then complete M2;
+Sequence: MVP-05 completes M2;
 MVP-06 → MVP-07 completes M3. Each story includes its own checks. These are bounded
 work definitions, not time estimates or automatic activation of every story.
 
 Historical work definitions: [archive](../archive/2026-10-08-mvp/ROADMAP.md).
-
-### MVP-04 — Preserve native production and progression
-
-**Depends on:** MVP-03.
-
-**Outcome:** Express the requested rates and complete industrial route with native execution.
-
-**Scope:** Verify the registered durations/output counts, native proliferation
-eligibility and facility bonuses, and the recipe/input and technology dependencies.
-Resolve integration defects within the fixed contract while preserving native
-discovery, research consumption, drops, and downstream recipes.
-
-**Definition of done:** Focused checks cover all six baseline recipes, the two ship
-input acceleration-only cases, ordinary extra-product eligibility, and the recipe
-dependency route. Static boundaries show no replacement of native production,
-research, statistics, mining, or combat. The final owner procedure covers behavior
-that these checks cannot establish.
-
-**Evidence / stop:** Derive rates from the verified machine speeds and actual recipe
-records. Include higher-tier native scaling and the different Replicator timing;
-trace all five downstream technologies' discovery and Matrix consumption. Stop if
-native behavior conflicts with the fixed contract. Do not force extra-product
-eligibility on ship inputs or add a physical-production gate to discovery.
-
-**Exclusions:** Rate normalization for higher tiers, changes to item productivity,
-custom research/discovery logic, rebalance, and new execution loops.
 
 ### MVP-05 — Reconcile existing saves and define removal
 

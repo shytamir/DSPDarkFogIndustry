@@ -77,3 +77,29 @@ conflicts or stale-link risk; do not silently renumber, relocate, or broaden pat
 
 **Exclusions:** Native item reordering, new items/technologies, custom recipe picker,
 automatic downstream research awards, and extra ingredient requirements.
+
+### MVP-04 — Preserve native production and progression
+
+**Depends on:** MVP-03.
+
+**Outcome:** Express the requested rates and complete industrial route with native execution.
+
+**Scope:** Verify the registered durations/output counts, native proliferation
+eligibility and facility bonuses, and the recipe/input and technology dependencies.
+Resolve integration defects within the fixed contract while preserving native
+discovery, research consumption, drops, and downstream recipes.
+
+**Definition of done:** Focused checks cover all six baseline recipes, the two ship
+input acceleration-only cases, ordinary extra-product eligibility, and the recipe
+dependency route. Static boundaries show no replacement of native production,
+research, statistics, mining, or combat. The final owner procedure covers behavior
+that these checks cannot establish.
+
+**Evidence / stop:** Derive rates from the verified machine speeds and actual recipe
+records. Include higher-tier native scaling and the different Replicator timing;
+trace all five downstream technologies' discovery and Matrix consumption. Stop if
+native behavior conflicts with the fixed contract. Do not force extra-product
+eligibility on ship inputs or add a physical-production gate to discovery.
+
+**Exclusions:** Rate normalization for higher tiers, changes to item productivity,
+custom research/discovery logic, rebalance, and new execution loops.
