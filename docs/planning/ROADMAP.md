@@ -26,40 +26,14 @@ combat/drops, existing recipes, technology costs, and downstream building resear
 
 | Epic | Outcome | Stories | Exit gate |
 | --- | --- | --- | --- |
-| MVP-A: Native integration foundation | One evidenced extension route and a real plugin build | MVP-02 | M1: Integration choices and compilation are evidenced |
 | MVP-B: Complete synthesis route | Six correctly placed/gated recipes with native behavior and save continuity | MVP-03, MVP-04, MVP-05 | M2: Feature contracts pass offline checks; runtime observations are explicit |
 | MVP-C: Owner handoff | The actual CI artifact and a bounded validation procedure | MVP-06, MVP-07 | M3: Owner-validation-ready MVP |
 
-Sequence: MVP-02 → MVP-03; MVP-04 and MVP-05 then complete M2;
+Sequence: MVP-03; MVP-04 and MVP-05 then complete M2;
 MVP-06 → MVP-07 completes M3. Each story includes its own checks. These are bounded
 work definitions, not time estimates or automatic activation of every story.
 
 Historical work definitions: [archive](../archive/2026-10-08-mvp/ROADMAP.md).
-
-### MVP-02 — Establish the actual plugin build
-
-**Depends on:** MVP-01.
-
-**Outcome:** Compile the product against identified real game/dependency references.
-
-**Scope:** Introduce the minimal plugin project, its identity and lifecycle, pinned
-dependencies, local command, focused test seam, and the chosen hosted-build path.
-
-**Definition of done:** Local compilation and focused binding/metadata checks pass;
-missing references fail clearly; the product has valid loader metadata; evidence
-identifies source and references. The shared build command is wired to compile the
-actual product in the selected CI environment. The eventual downloaded artifact is
-verified in MVP-06; fixture CI success cannot satisfy this story. No proprietary
-game references or scaffold payload enter the product package; runtime dependencies
-use the selected dependency distribution contract.
-
-**Evidence / stop:** Preserve compile logs and reference/binding checks. Tests run
-mod-owned logic without loading the game into an unauthorized test host. Stop if
-the actual dependency API differs from the planned surface; repair the narrow
-binding issue or return the changed integration decision to MVP-01.
-
-**Exclusions:** New panels, configuration systems, runtime harnesses, installation,
-and speculative compatibility layers.
 
 ### MVP-03 — Register and expose the six recipes
 

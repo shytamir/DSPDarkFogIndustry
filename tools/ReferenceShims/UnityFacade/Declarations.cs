@@ -1,0 +1,9 @@
+using System.Reflection;
+using System.Runtime.CompilerServices;
+[assembly: AssemblyVersion("0.0.0.0")]
+[assembly: TypeForwardedTo(typeof(UnityEngine.Object))]
+[assembly: TypeForwardedTo(typeof(UnityEngine.Component))]
+[assembly: TypeForwardedTo(typeof(UnityEngine.Behaviour))]
+[assembly: TypeForwardedTo(typeof(UnityEngine.MonoBehaviour))]
+[assembly: TypeForwardedTo(typeof(UnityEngine.ScriptableObject))]
+[assembly: TypeForwardedTo(typeof(UnityEngine.ISerializationCallbackReceiver))]

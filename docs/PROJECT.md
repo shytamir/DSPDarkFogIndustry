@@ -10,14 +10,15 @@ and publication. Other documents define contracts or evidence and link here.
 - Authorized scope: on 2026-10-08 the owner approved the roadmap for implementation
   through completion and owner handoff, with management updates and a main push
   after each completed story.
-- Product implementation: MVP-01 technically closed; MVP-02 active.
+- Product implementation: MVP-01 and MVP-02 technically closed; MVP-03 active.
 - Planning: [recipe decisions](planning/MVP-RECIPES.md) and
   [roadmap](planning/ROADMAP.md) approved for implementation.
 - Owner acceptance: no MVP exists yet; gameplay validation and acceptance remain later.
 - Publication: none. No package is approved for installation or release.
 - Git delivery: preparation and its evidence closeout are on main through
-  `db3d8ed85df251a57e817881a30d61bdad7938e0`. Story commits will include the management
-  update and be pushed to main at each story closeout; no product CI result yet.
+  `db3d8ed85df251a57e817881a30d61bdad7938e0`; MVP-01 is delivered as `89d40d5`.
+  Each story commit includes its management update and is pushed to main at closeout.
+  The final product candidate requires separate downloaded-artifact verification.
 
 ## Product basis and boundaries
 
@@ -100,8 +101,8 @@ separates inspected facts from investigations and final owner observations.
 | --- | --- | --- |
 | MVP roadmap preparation | Approved for implementation, 2026-10-08 | Owner instruction in this task; review record below |
 | MVP-01: Integration seam | Technically closed, 2026-10-08 | [Integration contract](implementation/NATIVE-INTEGRATION.md); native/static asset/catalogue checks; no runtime claim |
-| MVP-02: Actual plugin build | Active | Plugin, complete external-reference shims/ledger, local binding validation; M1 |
-| MVP-03: Six-recipe registration | Authorized; waiting on M1 | Native registration |
+| MVP-02: Actual plugin build | Technically closed, 2026-10-08; M1 satisfied | [Validation](implementation/VALIDATION.md#mvp-02--plugin-and-external-references); shim/real compilation, ledger/binding checks, negative cases, shared build |
+| MVP-03: Six-recipe registration | Active | Native registration |
 | MVP-04: Native production/progression | Authorized; waiting on MVP-03 | M2 |
 | MVP-05: Existing saves/removal | Authorized; waiting on MVP-03 | M2 |
 | MVP-06: Actual CI candidate | Authorized; waiting on M2 | Main delivery and downloaded artifact verification |

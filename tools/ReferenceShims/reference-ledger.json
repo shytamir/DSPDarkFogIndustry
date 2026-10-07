@@ -1,0 +1,179 @@
+[
+  {
+    "assembly": "Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "types": [],
+    "forwards": []
+  },
+  {
+    "assembly": "BepInEx, Version=5.4.17.0, Culture=neutral, PublicKeyToken=null",
+    "types": [
+      {
+        "type": "BepInEx.BaseUnityPlugin",
+        "kind": "class",
+        "abstract_type": true,
+        "base_type": "UnityEngine.MonoBehaviour",
+        "interfaces": [],
+        "fields": [],
+        "methods": [
+          "protected instance BepInEx.Logging.ManualLogSource BepInEx.BaseUnityPlugin::get_Logger()",
+          "protected instance System.Void BepInEx.BaseUnityPlugin::.ctor()"
+        ]
+      },
+      {
+        "type": "BepInEx.BepInPlugin",
+        "kind": "class",
+        "abstract_type": false,
+        "base_type": "System.Attribute",
+        "interfaces": [],
+        "fields": [],
+        "methods": [
+          "public instance System.Void BepInEx.BepInPlugin::.ctor(System.String,System.String,System.String)"
+        ]
+      },
+      {
+        "type": "BepInEx.BepInProcess",
+        "kind": "class",
+        "abstract_type": false,
+        "base_type": "System.Attribute",
+        "interfaces": [],
+        "fields": [],
+        "methods": [
+          "public instance System.Void BepInEx.BepInProcess::.ctor(System.String)"
+        ]
+      },
+      {
+        "type": "BepInEx.Logging.ManualLogSource",
+        "kind": "class",
+        "abstract_type": false,
+        "base_type": "System.Object",
+        "interfaces": [],
+        "fields": [],
+        "methods": [
+          "public instance System.Void BepInEx.Logging.ManualLogSource::LogInfo(System.Object)"
+        ]
+      }
+    ],
+    "forwards": []
+  },
+  {
+    "assembly": "0Harmony, Version=2.5.5.0, Culture=neutral, PublicKeyToken=null",
+    "types": [
+      {
+        "type": "HarmonyLib.Harmony",
+        "kind": "class",
+        "abstract_type": false,
+        "base_type": "System.Object",
+        "interfaces": [],
+        "fields": [],
+        "methods": [
+          "public instance System.Void HarmonyLib.Harmony::.ctor(System.String)",
+          "public instance System.Void HarmonyLib.Harmony::PatchAll(System.Reflection.Assembly)"
+        ]
+      }
+    ],
+    "forwards": []
+  },
+  {
+    "assembly": "UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "types": [],
+    "forwards": [
+      {
+        "type": "UnityEngine.Behaviour",
+        "target": "UnityEngine.CoreModule"
+      },
+      {
+        "type": "UnityEngine.Component",
+        "target": "UnityEngine.CoreModule"
+      },
+      {
+        "type": "UnityEngine.ISerializationCallbackReceiver",
+        "target": "UnityEngine.CoreModule"
+      },
+      {
+        "type": "UnityEngine.MonoBehaviour",
+        "target": "UnityEngine.CoreModule"
+      },
+      {
+        "type": "UnityEngine.Object",
+        "target": "UnityEngine.CoreModule"
+      },
+      {
+        "type": "UnityEngine.ScriptableObject",
+        "target": "UnityEngine.CoreModule"
+      }
+    ]
+  },
+  {
+    "assembly": "UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "types": [
+      {
+        "type": "UnityEngine.Behaviour",
+        "kind": "class",
+        "abstract_type": false,
+        "base_type": "UnityEngine.Component",
+        "interfaces": [],
+        "fields": [],
+        "methods": [
+          "public instance System.Void UnityEngine.Behaviour::.ctor()"
+        ]
+      },
+      {
+        "type": "UnityEngine.Component",
+        "kind": "class",
+        "abstract_type": false,
+        "base_type": "UnityEngine.Object",
+        "interfaces": [],
+        "fields": [],
+        "methods": [
+          "public instance System.Void UnityEngine.Component::.ctor()"
+        ]
+      },
+      {
+        "type": "UnityEngine.ISerializationCallbackReceiver",
+        "kind": "interface",
+        "abstract_type": true,
+        "base_type": null,
+        "interfaces": [],
+        "fields": [],
+        "methods": [
+          "public instance System.Void UnityEngine.ISerializationCallbackReceiver::OnAfterDeserialize()",
+          "public instance System.Void UnityEngine.ISerializationCallbackReceiver::OnBeforeSerialize()"
+        ]
+      },
+      {
+        "type": "UnityEngine.MonoBehaviour",
+        "kind": "class",
+        "abstract_type": false,
+        "base_type": "UnityEngine.Behaviour",
+        "interfaces": [],
+        "fields": [],
+        "methods": [
+          "public instance System.Void UnityEngine.MonoBehaviour::.ctor()"
+        ]
+      },
+      {
+        "type": "UnityEngine.Object",
+        "kind": "class",
+        "abstract_type": false,
+        "base_type": "System.Object",
+        "interfaces": [],
+        "fields": [],
+        "methods": [
+          "public instance System.Void UnityEngine.Object::.ctor()"
+        ]
+      },
+      {
+        "type": "UnityEngine.ScriptableObject",
+        "kind": "class",
+        "abstract_type": false,
+        "base_type": "UnityEngine.Object",
+        "interfaces": [],
+        "fields": [],
+        "methods": [
+          "public instance System.Void UnityEngine.ScriptableObject::.ctor()"
+        ]
+      }
+    ],
+    "forwards": []
+  }
+]

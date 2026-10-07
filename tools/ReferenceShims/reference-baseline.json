@@ -1,0 +1,32 @@
+{
+  "Assembly-CSharp": {
+    "assembly": "Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "sha256": "6c122e5443e6843979b4064050dfcb5e0d75577a0b64f6ae4111290238b33c12",
+    "source": "DSP 0.10.35.29104; Unity 2022.3.62f3",
+    "inspected": "2026-10-08"
+  },
+  "BepInEx": {
+    "assembly": "BepInEx, Version=5.4.17.0, Culture=neutral, PublicKeyToken=null",
+    "sha256": "dc1cb6b58b962bda5aaa1d6b5f9ae14ec174f61836a1a1f96c1a040c7e8381f7",
+    "source": "xiaoye97-BepInEx-5.4.17; archive sha256 ea24d1c33fa63be98768d65057a79002a77a5fb20dab3c7e072cbd3044a1b9fe",
+    "inspected": "2026-10-08"
+  },
+  "0Harmony": {
+    "assembly": "0Harmony, Version=2.5.5.0, Culture=neutral, PublicKeyToken=null",
+    "sha256": "7bd2bd6f87c1758047def40f2f0f024c877456ce7c01d68031358ee0c615d850",
+    "source": "xiaoye97-BepInEx-5.4.17; archive sha256 ea24d1c33fa63be98768d65057a79002a77a5fb20dab3c7e072cbd3044a1b9fe",
+    "inspected": "2026-10-08"
+  },
+  "UnityEngine": {
+    "assembly": "UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "sha256": "72cc73eef0036530abe21f82971ff06002cee37effdd4dd7d5d4ec8df3911f8d",
+    "source": "DSP 0.10.35.29104; Unity 2022.3.62f3",
+    "inspected": "2026-10-08"
+  },
+  "UnityEngine.CoreModule": {
+    "assembly": "UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "sha256": "e2b5ae2fd12646d03fc3d04d1a37d522572a3b97022fe1b95bbf2a2f2b04853a",
+    "source": "DSP 0.10.35.29104; Unity 2022.3.62f3",
+    "inspected": "2026-10-08"
+  }
+}

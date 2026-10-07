@@ -1,5 +1,6 @@
 # Product source
 
-Create product projects here when the approved plan requires them. Package-fixture
-code lives under `tools/` and does not prescribe plugin architecture, target
-framework, dependencies, or identifiers. See [project steering](../docs/PROJECT.md).
+`DSPDarkFogIndustry` is the BepInEx plugin. Work state belongs in
+[project steering](../docs/PROJECT.md); [local development](../docs/LOCAL-DEVELOPMENT.md)
+describes shim and real-reference compilation. Build intermediates are not
+installation artifacts; use the identified package in the final owner handoff.

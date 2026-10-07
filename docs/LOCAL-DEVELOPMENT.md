@@ -60,9 +60,26 @@ retained source records and optional catalogue-reproduction procedure.
 ```
 
 The same entry point runs locally and in GitHub Actions. It does not need the game,
-ILSpy, or the private evidence bundle. It restores locked framework reference
-packages, compiles a fixture, packages it, and runs repository and package checks.
+ILSpy, or the private evidence bundle. It compiles the actual plugin against the
+reviewed external shims, checks their ledger, then still packages the explicitly
+labelled fixture until the candidate-packaging story replaces that stage.
 See [build/package contract](BUILD-AND-PACKAGING.md) for identity and output details.
+
+For product development, compile both reference modes (no game execution):
+
+```powershell
+./scripts/Build-Plugin.ps1 -ReferenceMode Shims -OutputPath "$PWD/artifacts/reference-shims"
+./scripts/Build-Plugin.ps1 -ReferenceMode Real -OutputPath "$PWD/artifacts/product-real"
+```
+
+The real-reference command reads the activated game baseline and prepares a pinned
+BepInEx archive under `.local/dependencies/`. It validates shim declarations and
+actual product references against those real assemblies using metadata only.
+`tools/ReferenceShims/reference-ledger.json` owns the exact declaration inventory;
+`reference-baseline.json` pins inspected library identities. Updating the ledger
+with `-UpdateLedger` is a deliberate source change, followed by real validation.
+Never refresh the baseline to silence a mismatch. Neither shims nor references
+belong in an installable package.
 
 On failure, report the exact failed step and diagnose it before a bounded repair.
 Do not silently install unrelated software, refresh hashes, or retry bootstrap in

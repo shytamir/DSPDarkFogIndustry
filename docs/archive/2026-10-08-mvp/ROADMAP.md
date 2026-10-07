@@ -29,3 +29,28 @@ balance choices merely because a native mechanism needs investigation.
 
 **Exclusions:** No framework, full game emulation, runtime compatibility claim,
 balance change, deployment, or new product feature.
+
+### MVP-02 — Establish the actual plugin build
+
+**Depends on:** MVP-01.
+
+**Outcome:** Compile the product against identified real game/dependency references.
+
+**Scope:** Introduce the minimal plugin project, its identity and lifecycle, pinned
+dependencies, local command, focused test seam, and the chosen hosted-build path.
+
+**Definition of done:** Local compilation and focused binding/metadata checks pass;
+missing references fail clearly; the product has valid loader metadata; evidence
+identifies source and references. The shared build command is wired to compile the
+actual product in the selected CI environment. The eventual downloaded artifact is
+verified in MVP-06; fixture CI success cannot satisfy this story. No proprietary
+game references or scaffold payload enter the product package; runtime dependencies
+use the selected dependency distribution contract.
+
+**Evidence / stop:** Preserve compile logs and reference/binding checks. Tests run
+mod-owned logic without loading the game into an unauthorized test host. Stop if
+the actual dependency API differs from the planned surface; repair the narrow
+binding issue or return the changed integration decision to MVP-01.
+
+**Exclusions:** New panels, configuration systems, runtime harnesses, installation,
+and speculative compatibility layers.

@@ -21,6 +21,10 @@ try {
     })
     $dirty = $status.Count -gt 0
     $label = "$version.$($revision.Substring(0,12))" + $(if ($dirty) { '.dirty' } else { '' })
+    # Compile the actual plugin against the reviewed external shims. Packaging
+    # remains explicitly scaffold-only until the owner-candidate story replaces it.
+    $productOutput = Join-Path $runRoot 'product'
+    & (Join-Path $RepoRoot 'scripts/Build-Plugin.ps1') -ReferenceMode Shims -Version $version -BuildLabel $label -OutputPath $productOutput
     $project = Join-Path $RepoRoot 'tools/ScaffoldFixture/ScaffoldFixture.csproj'
     Invoke-Checked dotnet @('restore',$project,'--locked-mode','--configfile',(Join-Path $RepoRoot 'NuGet.Config'),'--nologo')
     $compiled = Join-Path $runRoot 'compiled'

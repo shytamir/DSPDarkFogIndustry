@@ -11,10 +11,11 @@ build. It is not a BepInEx plugin; it has no entry point, game/Unity references,
 Harmony patches, registration dependency, or product implementation. These fixture
 settings do not decide the future product's architecture or target framework.
 
-`src/` is reserved for later authorized implementation. Moving to a real plugin
-requires a bounded plan: chosen references/dependencies, real-reference local build,
-hosted reference policy, loader metadata checks, package contract update, and
-evidence-backed owner validation. Do not ship substitute reference DLLs.
+The build also compiles `src/DSPDarkFogIndustry` against the complete external
+shim surface and checks its ledger. Local development additionally compiles against
+real references and validates metadata; see [local development](LOCAL-DEVELOPMENT.md).
+The ZIP stage still contains only the labelled fixture until MVP-06 replaces it.
+Do not install that scaffold or ship shim/reference DLLs.
 
 ## Identity and output
 

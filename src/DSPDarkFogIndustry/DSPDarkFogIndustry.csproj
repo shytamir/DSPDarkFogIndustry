@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <LangVersion>7.3</LangVersion>
+    <AssemblyName>DSPDarkFogIndustry</AssemblyName>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <AutomaticallyUseReferenceAssemblyPackages>false</AutomaticallyUseReferenceAssemblyPackages>
+    <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
+    <ReferenceMode Condition="'$(ReferenceMode)' == ''">Shims</ReferenceMode>
+    <NuGetLockFilePath>packages.$(ReferenceMode).lock.json</NuGetLockFilePath>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="all" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(ReferenceMode)' == 'Shims'">
+    <ProjectReference Include="../../tools/ReferenceShims/Game/Game.csproj" Private="false" />
+    <ProjectReference Include="../../tools/ReferenceShims/BepInEx/BepInEx.csproj" Private="false" />
+    <ProjectReference Include="../../tools/ReferenceShims/Harmony/Harmony.csproj" Private="false" />
+    <ProjectReference Include="../../tools/ReferenceShims/Unity/Unity.csproj" Private="false" />
+    <ProjectReference Include="../../tools/ReferenceShims/UnityFacade/UnityFacade.csproj" Private="false" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(ReferenceMode)' == 'Real'">
+    <Reference Include="Assembly-CSharp"><HintPath>$(ManagedPath)/Assembly-CSharp.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine"><HintPath>$(ManagedPath)/UnityEngine.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.CoreModule"><HintPath>$(ManagedPath)/UnityEngine.CoreModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="BepInEx"><HintPath>$(BepInExCorePath)/BepInEx.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="0Harmony"><HintPath>$(BepInExCorePath)/0Harmony.dll</HintPath><Private>false</Private></Reference>
+  </ItemGroup>
+  <Target Name="CheckReferences" BeforeTargets="ResolveReferences">
+    <Error Condition="'$(ReferenceMode)' != 'Real' and '$(ReferenceMode)' != 'Shims'" Text="ReferenceMode must be Real or Shims." />
+    <Error Condition="'$(ReferenceMode)' == 'Real' and (!Exists('$(ManagedPath)/Assembly-CSharp.dll') or !Exists('$(BepInExCorePath)/BepInEx.dll'))" Text="Real references missing. Activate the local environment and prepare the pinned BepInEx references." />
+  </Target>
+  <Target Name="PluginBuildIdentity" BeforeTargets="BeforeCompile">
+    <WriteLinesToFile File="$(IntermediateOutputPath)BuildIdentity.g.cs" Lines="namespace DSPDarkFogIndustry { internal static class BuildIdentity { internal const string Version = &quot;$(Version)&quot;%3B } }" Overwrite="true" />
+    <ItemGroup><Compile Include="$(IntermediateOutputPath)BuildIdentity.g.cs" /></ItemGroup>
+  </Target>
+</Project>
