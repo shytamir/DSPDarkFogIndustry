@@ -42,6 +42,15 @@ public class TechProtoSet : ProtoSet<TechProto>
 {
 }
 
+public class AbnormalityProtoSet : ProtoSet<AbnormalityProto>
+{
+}
+
+public class AbnormalityProto : Proto
+{
+    public string DeterminatorName;
+}
+
 public class ItemProto : Proto
 {
 }
@@ -100,6 +109,13 @@ public class GameHistoryData
 
 public static class LDB
 {
+    public static AbnormalityProtoSet abnormalities
+    {
+        get
+        {
+            throw new NotSupportedException("Compile-only shim");
+        }
+    }
     public static RecipeProtoSet recipes
     {
         get

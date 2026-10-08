@@ -6,8 +6,10 @@ namespace DSPDarkFogIndustry
     internal static class RegistrationPatch
     {
         [HarmonyPrefix]
-        private static void Prefix()
+        internal static void Prefix()
         {
+            // Disconnect signature checks before changing recipes or tech unlocks.
+            PrototypeDetection.Disable(LDB.abnormalities);
             // Run before native preload builds recipe links, icons and productivity.
             RecipeRegistration.Register(LDB.recipes, LDB.items, LDB.techs);
         }

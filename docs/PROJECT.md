@@ -6,10 +6,14 @@ and publication. Other documents define contracts or evidence and link here.
 
 ## Current state
 
-- Phase: maintenance, owner-directed on 2026-10-08 after publication.
-- Authorized scope: record publication and settle the repository into maintenance.
-  Completed development and cleanup remain closed. No implementation, validation,
-  release task or scheduled follow-up is active.
+- Phase: bounded maintenance hotfix, owner-directed on 2026-10-08.
+- Authorized scope: outline and implement [HF-01](planning/HF-01-PROTOTYPE-DETECTION.md)
+  through local validation, main delivery, hosted artifact verification and owner
+  handoff. The owner will perform the in-game test. Whole-system detector
+  disconnection is permitted if simpler; the native registration mechanism allows
+  a comparably small fix scoped to prototype checks. No save repair or publication
+  is authorized. HF-01 is locally validated and awaiting main/hosted verification;
+  completed MVP and cleanup remain closed.
 - Build version line: `0.9.x`, owner-directed on 2026-10-08; the patch remains the
   CI run number (0 for local builds). The historical MVP candidate remains `0.1.8`.
 - Product implementation: MVP-01 through MVP-07 completed and accepted as the MVP;
@@ -17,7 +21,7 @@ and publication. Other documents define contracts or evidence and link here.
   [owner handoff](archive/2026-10-08-mvp/OWNER-VALIDATION.md) is archived.
 - Planning: [recipe requirements](planning/MVP-RECIPES.md) remain the product
   contract and the [completed MVP roadmap](archive/2026-10-08-mvp/ROADMAP.md) is
-  archived. The [live roadmap](planning/ROADMAP.md) is a placeholder. Version 1.0
+  archived. The [live roadmap](planning/ROADMAP.md) links only the hotfix. Version 1.0
   has no approved scope or schedule; planning waits for the owner's direction,
   likely after user feedback. Feedback does not automatically activate work.
 - Owner acceptance: accepted as is on 2026-10-08 after the owner-reported checks
@@ -35,6 +39,28 @@ and publication. Other documents define contracts or evidence and link here.
   `0.1.8` from [run 37699427929](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/37699427929)
   passed independent verification. This remains the historical MVP candidate;
   the published baseline is recorded below.
+
+## HF-01 maintenance hotfix — 2026-10-08
+
+- Authorization: owner requested a bounded investigation story and implementation
+  through push to main, then owner testing of the CI artifact. The later instruction
+  allows whole-system detector disconnection if simpler.
+- Decision: disconnect only `ABN_ProtoData` catalogue registrations through the
+  existing preload prefix, before recipe access. This is a comparably small native
+  mechanism, leaves other detectors active and preserves existing history. No new
+  Harmony target or runtime dependency is required.
+- Local readiness: shared build and real-reference build passed without warnings;
+  all 14 product checks and the package/repository checks passed. Both omitted and
+  late-disconnection mutations were rejected by the ordering regression. Eight
+  unchanged existing method bodies match the published plugin after normalizing
+  its version text. See [evidence and owner procedure](implementation/HF-01-VALIDATION.md).
+- Delivery: awaiting main push and hosted artifact verification. Owner in-game
+  acceptance and hotfix publication are pending; the published baseline below
+  remains unchanged.
+- Review: checked the story for bounded scope and owner gate, confirmed native
+  registration/timing against the installed assembly, and reviewed source, tests
+  and documentation for minimality and authority separation. Existing-history
+  cleanup is explicitly outside this fix.
 
 ## Publication record — 2026-10-08
 

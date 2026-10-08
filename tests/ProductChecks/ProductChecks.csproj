@@ -11,5 +11,7 @@
     <Compile Include="../../src/DSPDarkFogIndustry/SynthesisRecipes.cs" Link="Product/SynthesisRecipes.cs" />
     <Compile Include="../../src/DSPDarkFogIndustry/RecipeRegistration.cs" Link="Product/RecipeRegistration.cs" />
     <Compile Include="../../src/DSPDarkFogIndustry/SaveReconciliation.cs" Link="Product/SaveReconciliation.cs" />
+    <Compile Include="../../src/DSPDarkFogIndustry/PrototypeDetection.cs" Link="Product/PrototypeDetection.cs" />
+    <Compile Include="../../src/DSPDarkFogIndustry/RegistrationPatch.cs" Link="Product/RegistrationPatch.cs" />
   </ItemGroup>
 </Project>

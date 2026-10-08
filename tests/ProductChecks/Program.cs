@@ -24,6 +24,7 @@ internal static class Program
     public static void Main()
     {
         RegistrationChecks.Run();
+        PrototypeDetectionChecks.Run();
         ProductionChecks.Run();
         SaveChecks.Run();
         Console.WriteLine("Product checks passed using test data; no game code executed.");

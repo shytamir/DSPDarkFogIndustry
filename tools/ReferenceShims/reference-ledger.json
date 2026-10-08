@@ -3,6 +3,47 @@
     "assembly": "Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
     "types": [
       {
+        "type": "AbnormalityProto",
+        "kind": "class",
+        "abstract_type": false,
+        "sealed_type": false,
+        "base_type": "Proto",
+        "generic_parameters": [],
+        "interfaces": [],
+        "fields": [
+          {
+            "signature": "public instance System.String AbnormalityProto::DeterminatorName",
+            "read_only": false,
+            "literal": false,
+            "constant": null
+          }
+        ],
+        "methods": [
+          {
+            "signature": "public instance System.Void AbnormalityProto::.ctor()",
+            "virtual_method": false,
+            "abstract_method": false
+          }
+        ]
+      },
+      {
+        "type": "AbnormalityProtoSet",
+        "kind": "class",
+        "abstract_type": false,
+        "sealed_type": false,
+        "base_type": "ProtoSet\u00601\u003CAbnormalityProto\u003E",
+        "generic_parameters": [],
+        "interfaces": [],
+        "fields": [],
+        "methods": [
+          {
+            "signature": "public instance System.Void AbnormalityProtoSet::.ctor()",
+            "virtual_method": false,
+            "abstract_method": false
+          }
+        ]
+      },
+      {
         "type": "ERecipeType",
         "kind": "enum",
         "abstract_type": false,
@@ -120,6 +161,11 @@
         "interfaces": [],
         "fields": [],
         "methods": [
+          {
+            "signature": "public static AbnormalityProtoSet LDB::get_abnormalities()",
+            "virtual_method": false,
+            "abstract_method": false
+          },
           {
             "signature": "public static ItemProtoSet LDB::get_items()",
             "virtual_method": false,

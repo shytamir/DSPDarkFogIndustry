@@ -7,7 +7,9 @@ describe player behavior; [PROJECT](../PROJECT.md) records decisions and accepta
 
 - [Plugin](../../src/DSPDarkFogIndustry/Plugin.cs) installs the Harmony patches.
 - [RegistrationPatch](../../src/DSPDarkFogIndustry/RegistrationPatch.cs) runs before
-  native preload. [RecipeRegistration](../../src/DSPDarkFogIndustry/RecipeRegistration.cs)
+  native preload. It first [disconnects prototype detectors](../../src/DSPDarkFogIndustry/PrototypeDetection.cs)
+  whose vanilla signatures cannot accommodate added recipes and technology unlocks.
+  [RecipeRegistration](../../src/DSPDarkFogIndustry/RecipeRegistration.cs)
   checks for conflicts, adds recipes and technology unlocks, and rebuilds the lookup.
 - [SynthesisRecipes](../../src/DSPDarkFogIndustry/SynthesisRecipes.cs) defines item
   and technology IDs, recipe IDs, ingredients, durations and selector positions.
@@ -34,6 +36,9 @@ using these recipes require the mod; removing it does not clear recipe reference
 from machines. Restore a pre-mod backup when removing the mod.
 
 ## Evidence
+
+The [prototype-detector investigation and validation procedure](HF-01-VALIDATION.md)
+records the native registration mechanism and the existing-history boundary.
 
 The [archived integration investigation](../archive/2026-10-08-mvp/NATIVE-INTEGRATION.md)
 retains the native lifecycle findings, reference identities, rate calculations,

@@ -16,3 +16,9 @@ are validated separately because string-named targets are not compiler member re
 
 Test fakes, where needed, live in tests. A successful shim build is not runtime
 compatibility evidence. No game assembly is executed by the metadata checker.
+
+`PrototypeDetection` also consumes the native catalogue's `ABN_ProtoData` name as
+data: `AbnormalityLogic.InitDeterminators` instantiates each nonempty name. This is
+not a compiled reference to the detector class. The mod clears matching names
+before recipe registration; `AbnormalityProto`, its set and the `LDB` accessor are
+declared and inventoried here. See the [native evidence](../../docs/implementation/HF-01-VALIDATION.md).

@@ -6,6 +6,9 @@ MVP acceptance and the current phase are recorded in PROJECT. The
 [archived owner procedure](../archive/2026-10-08-mvp/OWNER-VALIDATION.md) identifies
 the handed-off candidate; the [recipe contract](MVP-RECIPES.md) retains product behavior.
 
-No active roadmap is defined. This entry point is reserved for future 1.0 planning
-when the owner is ready. Scope, schedule and work items will be agreed then;
-feedback and unreported MVP checks do not automatically become a backlog.
+The bounded maintenance story [HF-01](HF-01-PROTOTYPE-DETECTION.md) covers prevention
+of prototype-detector findings through a verified CI candidate and owner handoff.
+Its state and authorization are recorded in PROJECT.
+
+Version 1.0 planning remains deferred until the owner is ready. Feedback and
+unreported MVP checks do not automatically become a backlog.
