@@ -6,14 +6,14 @@ and publication. Other documents define contracts or evidence and link here.
 
 ## Current state
 
-- Phase: bounded maintenance hotfix, owner-directed on 2026-10-08.
+- Phase: maintenance hotfix awaiting owner validation, 2026-10-08.
 - Authorized scope: outline and implement [HF-01](planning/HF-01-PROTOTYPE-DETECTION.md)
   through local validation, main delivery, hosted artifact verification and owner
   handoff. The owner will perform the in-game test. Whole-system detector
   disconnection is permitted if simpler; the native registration mechanism allows
   a comparably small fix scoped to prototype checks. No save repair or publication
-  is authorized. HF-01 is locally validated and awaiting main/hosted verification;
-  completed MVP and cleanup remain closed.
+  is authorized. HF-01 is technically validated and handed off as `0.9.16`; owner
+  acceptance is pending. Completed MVP and cleanup remain closed.
 - Build version line: `0.9.x`, owner-directed on 2026-10-08; the patch remains the
   CI run number (0 for local builds). The historical MVP candidate remains `0.1.8`.
 - Product implementation: MVP-01 through MVP-07 completed and accepted as the MVP;
@@ -54,9 +54,18 @@ and publication. Other documents define contracts or evidence and link here.
   late-disconnection mutations were rejected by the ordering regression. Eight
   unchanged existing method bodies match the published plugin after normalizing
   its version text. See [evidence and owner procedure](implementation/HF-01-VALIDATION.md).
-- Delivery: awaiting main push and hosted artifact verification. Owner in-game
-  acceptance and hotfix publication are pending; the published baseline below
-  remains unchanged.
+- Delivery: implementation and local evidence pushed to main in
+  `0f329bbafdf992b537118233d9340ba61118f016`.
+  [CI run 37758009481](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/37758009481),
+  attempt 1, passed. Downloaded candidate `0.9.16` matched both provider digests,
+  all 96 committed source hashes, version metadata and package contents. Its DLL
+  passed real-reference validation (65 references, 66 shim members, two hooks).
+- Owner-test candidate: **0.9.16**, build label `0.9.16.0f329bbafdf9`, from that run.
+  ZIP SHA-256: `769fe3eea2cb845dba05a6c51db8c6490f1fd6a0014dd41ac5ebacc59501e792`.
+  DLL SHA-256: `0b88fdc2bf1c50a0fb680ffe8f74de7ccb394463e0ecbf1a8ebf63f6e11be031`.
+  This pins the candidate even if a later documentation-only CI run produces a
+  higher build number. Owner acceptance and hotfix publication are pending;
+  the published baseline below remains unchanged.
 - Review: checked the story for bounded scope and owner gate, confirmed native
   registration/timing against the installed assembly, and reviewed source, tests
   and documentation for minimality and authority separation. Existing-history

@@ -21,6 +21,8 @@ evidence, not product code or task authority. Current static inspection confirms
 
 - `AbnormalityLogic.InitDeterminators` creates its dictionary, then instantiates
   only catalogue rows with a nonempty `DeterminatorName`.
+- `LDB.abnormalities` uses the ordinary cached `LoadTable` accessor, so later
+  accesses retain the edited registrations rather than reloading the catalogue.
 - `ABN_ProtoData` binds to item, technology, recipe, vegetation or vein tables and
   subscribes `CheckProto` to game-begin and before-save events. A signature mismatch
   writes an abnormality record. The base has no independent prototype check.
@@ -69,6 +71,20 @@ Automated tests use authored data and do not execute game assemblies.
 
 No game process, save, installed plugin or game assembly was changed or executed.
 The supplied analysis and referenced investigation were read-only inputs.
+
+## Hosted results — 2026-10-08
+
+[Run 37758009481](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/37758009481),
+attempt 1, built `0.9.16` from `0f329bbafdf992b537118233d9340ba61118f016` and passed
+the shared checks and both artifact uploads. Independent download verification
+matched GitHub's two artifact digests and all 96 source hashes against an export
+of that exact commit. Package paths, manifest, plugin/file/informational versions,
+README, icon, license and DLL identity matched the build reports. The downloaded
+DLL resolved all 65 references and two hooks against the pinned real libraries;
+all 66 declared shim members matched. No upstream binary is packaged.
+
+Retained downloads and reports: `artifacts/ci/37758009481/`. PROJECT records the
+selected candidate and hashes; the local dirty build is not the handoff artifact.
 
 ## Owner check
 
