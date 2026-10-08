@@ -1,58 +1,42 @@
 # DSP Dark Fog Industry
 
-Synthesize all six existing Dark Fog materials through normal industry, without
-enemy drops. Use rare resources, combat components and their existing research;
-native machines, technology costs and combat drops retain their usual behavior.
-
 ## Recipes
 
-Each input count is one. Outputs are one except Energy Shard, which yields two.
-The recipes occupy the rightmost six slots of the Items selector's bottom row.
+Produce all six Dark Fog materials in your factories, even with the Dark Fog disabled. Start with Fractal Silicon and add combat components to work your way from Energy Shards to Core Elements.
 
-| Product | Inputs | Research gate | Facility and unsprayed rate |
-| --- | --- | --- | --- |
-| Energy Shard | Fractal Silicon | Particle Control | Arc Smelter, 120/min |
-| Dark Fog Matrix | Energy Shard + Corvette | Corvette | Assembler Mk.I, 60/min |
-| Matter Recombinator | Dark Fog Matrix + Crystal Shell Set | Crystal Shell Set | Assembler Mk.I, 60/min |
-| Silicon-based Neuron | Matter Recombinator + Destroyer | Destroyer | Assembler Mk.I, 60/min |
-| Negenthropy Singularity | Silicon-based Neuron + Gravity Missile Set | Gravity Missile Set | Assembler Mk.I, 60/min |
-| Core Element | Negenthropy Singularity + Antimatter Capsule | Antimatter Capsule | Chemical Plant, 60/min |
+Find the recipes in the six rightmost slots of the Items tab's bottom row. Each unlocks with the research shown below. If you have already completed that research, the recipe will be available when you load your save.
 
-Higher-tier facility speed and proliferation follow native rules. Ship inputs make
-Dark Fog Matrix and Silicon-based Neuron acceleration-only; the other four support
-native extra products. The four assembler recipes allow handcrafting. Smelting and
-chemical recipes require a machine. Rates assume full power and continuous supply.
+Each recipe consumes one of each listed ingredient. Energy Shard produces two per craft; all other recipes produce one.
 
-Synthesized items participate in normal Dark Fog technology discovery and research.
-Other prerequisites still apply; discovering a material does not finish research.
-Existing saves receive the six recipes whose corresponding gates were researched.
+| Product | Ingredients | Unlocks with |
+| --- | --- | --- |
+| Energy Shard | Fractal Silicon | Particle Control |
+| Dark Fog Matrix | Energy Shard + Corvette | Corvette |
+| Matter Recombinator | Dark Fog Matrix + Crystal Shell Set | Crystal Shell Set |
+| Silicon-based Neuron | Matter Recombinator + Destroyer | Destroyer |
+| Negentropy Singularity | Silicon-based Neuron + Gravity Missile Set | Gravity Missile Set |
+| Core Element | Negentropy Singularity + Antimatter Capsule | Antimatter Capsule |
+
+- **Energy Shard:** 120/min in an Arc Smelter.
+- **Dark Fog Matrix, Matter Recombinator, Silicon-based Neuron and Negentropy Singularity:** 60/min each in an Assembler Mk.I.
+- **Core Element:** 60/min in a Chemical Plant.
+
+These rates assume full power, a steady supply of ingredients and no proliferation. Higher-tier facilities produce faster as usual. Dark Fog Matrix and Silicon-based Neuron support proliferation for production speedup only; the other four recipes also support extra products.
+
+## Replicator and saved games
+
+The four assembler recipes can be crafted in the Replicator. As with the game's other smelting and chemical recipes, Energy Shards and Core Elements must be made in machines. Bring the required ingredients when crafting by hand: the Replicator cannot make the smelting or chemical steps for you.
+
+**Saves that use these recipes are not compatible with an unmodded game.** Keep the mod installed for those saves. Back up your save before adding the mod; if you remove it, restore a backup made before you installed it.
 
 ## Installation
 
-Requires the DSP BepInEx pack **5.4.17** (`xiaoye97-BepInEx-5.4.17`). No LDBTool is
-required. Quit the game, install BepInEx if needed, then extract this package into
-the game directory so the DLL is at
-`BepInEx/plugins/DSPDarkFogIndustry/DSPDarkFogIndustry.dll`. A mod-manager profile
-can instead import the local ZIP and install the declared dependency. Keep one copy
-of the plugin. Its BepInEx GUID is `dark-fog-industry`.
+**Mod manager:** Install **DSPDarkFogIndustry** and its dependencies through your Thunderstore-compatible mod manager, then launch the game from the manager.
 
-## Saves and compatibility
+**Manual installation:**
 
-Back up before testing. **Keep this mod installed for saves using synthesis.**
-To roll back, quit, remove its plugin folder and restore an untouched pre-mod
-checkpoint. Loading a synthesis save without the mod is unsupported; configured
-machines can retain unknown recipe references. The mod does not edit saves or
-automatically clear machine settings.
-
-Recipe IDs 401–406 and grid slots 1809–1814 are fixed. Other content mods using
-those IDs or slots can conflict; an occupied slot/ID causes a load error. The
-baseline for owner validation is this plugin plus BepInEx, with no other mods.
-
-Static checks target DSP **0.10.35.29104**. Hosted packages compile against reviewed
-external shims; local checks compare them with actual game/library metadata. These
-checks do not establish gameplay compatibility. See the repository's
-[project status](https://github.com/shytamir/DSPDarkFogIndustry/blob/main/docs/PROJECT.md)
-for candidate readiness, owner validation and publication state.
-
-[Source and issue tracker](https://github.com/shytamir/DSPDarkFogIndustry).
-Repository-authored code and icon are Apache-2.0 licensed.
+1. Close the game and install [BepInEx for Dyson Sphere Program](https://thunderstore.io/c/dyson-sphere-program/p/xiaoye97/BepInEx/) if you do not already have it.
+2. Download and extract this mod's ZIP file.
+3. In your Steam library, right-click **Dyson Sphere Program**, then choose **Manage → Browse local files**.
+4. Copy the included **BepInEx** folder into that game installation folder, alongside **DSPGAME.exe**. Merge the folders if prompted.
+5. Start the game normally.

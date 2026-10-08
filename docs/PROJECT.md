@@ -7,9 +7,10 @@ and publication. Other documents define contracts or evidence and link here.
 ## Current state
 
 - Phase: pre-release planning, owner-directed on 2026-10-08.
-- Authorized scope: record the owner's acceptance of the MVP as is, close the
-  completed roadmap as accepted, transition to pre-release planning, and promote
-  the minor version to 3.
+- Authorized scope: deliver the approved package presentation and root README,
+  then review repository readability, tests and documentation ownership. The owner
+  authorized both main pushes on 2026-10-08. Preserve product behavior and keep
+  publication separate.
 - Build version line: `0.3.x`, owner-directed on 2026-10-08; the patch remains the
   CI run number (0 for local builds). The historical MVP candidate remains `0.1.8`.
 - Product implementation: MVP-01 through MVP-07 completed and accepted as the MVP;
@@ -18,7 +19,8 @@ and publication. Other documents define contracts or evidence and link here.
 - Planning: [recipe decisions](planning/MVP-RECIPES.md) and
   [completed roadmap](archive/2026-10-08-mvp/ROADMAP.md) retained; the live
   [roadmap entry point](planning/ROADMAP.md) is reserved for pre-release planning;
-  no pre-release work items have been defined yet.
+  no pre-release roadmap has been defined yet. The owner-directed documentation
+  and packaging pass is bounded by the scope above.
 - Owner acceptance: accepted as is on 2026-10-08 after the owner-reported checks
   [recorded below](#owner-acceptance-record--2026-10-08). Completion of the full
   proposed validation procedure is not a condition of this acceptance.
@@ -31,6 +33,15 @@ and publication. Other documents define contracts or evidence and link here.
   Candidate source is `1fabb2543d56d90d5707863c234c18c33ba93f02`; downloaded package
   `0.1.8` from [run 37699427929](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/37699427929)
   passed independent verification. Later documentation commits retain this candidate.
+
+## Pre-release repository work
+
+- Package presentation and root README: owner approved on 2026-10-08. The supplied
+  256x256 icon is unchanged. The player README passed Thunderstore's website
+  Markdown preview; the local build passed product, package and repository checks.
+- Repository cleanup: authorized next. Review code readability and remove obsolete
+  gate checks and duplicated implementation detail without changing the accepted
+  product behavior. Verify local and hosted builds before closeout.
 
 ## Product basis and boundaries
 
