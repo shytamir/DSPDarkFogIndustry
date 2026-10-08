@@ -21,11 +21,26 @@
     <ProjectReference Include="../../tools/ReferenceShims/UnityFacade/UnityFacade.csproj" Private="false" />
   </ItemGroup>
   <ItemGroup Condition="'$(ReferenceMode)' == 'Real'">
-    <Reference Include="Assembly-CSharp"><HintPath>$(ManagedPath)/Assembly-CSharp.dll</HintPath><Private>false</Private></Reference>
-    <Reference Include="UnityEngine"><HintPath>$(ManagedPath)/UnityEngine.dll</HintPath><Private>false</Private></Reference>
-    <Reference Include="UnityEngine.CoreModule"><HintPath>$(ManagedPath)/UnityEngine.CoreModule.dll</HintPath><Private>false</Private></Reference>
-    <Reference Include="BepInEx"><HintPath>$(BepInExCorePath)/BepInEx.dll</HintPath><Private>false</Private></Reference>
-    <Reference Include="0Harmony"><HintPath>$(BepInExCorePath)/0Harmony.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>$(ManagedPath)/Assembly-CSharp.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>$(ManagedPath)/UnityEngine.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>$(ManagedPath)/UnityEngine.CoreModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="BepInEx">
+      <HintPath>$(BepInExCorePath)/BepInEx.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="0Harmony">
+      <HintPath>$(BepInExCorePath)/0Harmony.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
   </ItemGroup>
   <Target Name="CheckReferences" BeforeTargets="ResolveReferences">
     <Error Condition="'$(ReferenceMode)' != 'Real' and '$(ReferenceMode)' != 'Shims'" Text="ReferenceMode must be Real or Shims." />
@@ -33,6 +48,8 @@
   </Target>
   <Target Name="PluginBuildIdentity" BeforeTargets="BeforeCompile">
     <WriteLinesToFile File="$(IntermediateOutputPath)BuildIdentity.g.cs" Lines="namespace DSPDarkFogIndustry { internal static class BuildIdentity { internal const string Version = &quot;$(Version)&quot;%3B } }" Overwrite="true" />
-    <ItemGroup><Compile Include="$(IntermediateOutputPath)BuildIdentity.g.cs" /></ItemGroup>
+    <ItemGroup>
+      <Compile Include="$(IntermediateOutputPath)BuildIdentity.g.cs" />
+    </ItemGroup>
   </Target>
 </Project>

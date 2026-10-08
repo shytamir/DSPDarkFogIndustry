@@ -49,6 +49,6 @@ jobs:
             ${{ steps.build.outputs.evidence_path }}/reference-validation.json
           if-no-files-found: error
           retention-days: 14
-      - name: Describe validation boundary
+      - name: Build summary
         run: |
-          'Plugin compilation against shims, behavior checks, metadata inventory and package checks passed. Local real-reference validation and owner gameplay observations are separate. No owner acceptance or publication is claimed.' >> $env:GITHUB_STEP_SUMMARY
+          'DSPDarkFogIndustry ${{ steps.build.outputs.version }}: build and checks passed. Compiled against the external reference shims.' >> $env:GITHUB_STEP_SUMMARY

@@ -9,7 +9,8 @@ function Get-BuildVersion {
     if ($value -notmatch '\AMAJOR=(0|[1-9][0-9]*)\r?\nMINOR=(0|[1-9][0-9]*)\z') {
         throw 'VERSION must contain exactly MAJOR and MINOR nonnegative integers.'
     }
-    $major = [int]::Parse($Matches[1]); $minor = [int]::Parse($Matches[2])
+    $major = [int]::Parse($Matches[1])
+    $minor = [int]::Parse($Matches[2])
     if ($major -gt 65534 -or $minor -gt 65534 -or $BuildNumber -lt 0 -or $BuildNumber -gt 65534) {
         throw 'Version components must be between 0 and 65534 for assembly identity.'
     }

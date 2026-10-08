@@ -16,9 +16,16 @@ try {
     if ($LASTEXITCODE) { throw 'Pinned SDK unavailable.' }
     $sourcePaths = @(& git ls-files --cached --others --exclude-standard)
     if ($LASTEXITCODE) { throw 'Cannot inventory source inputs.' }
-    $inputs = @(foreach ($relative in ($sourcePaths | Sort-Object -Unique)) {
-        if (Test-Path -LiteralPath $relative -PathType Leaf) { [ordered]@{ path = $relative.Replace('\','/'); sha256 = Get-Sha256 $relative } }
-    })
+    $inputs = @(
+        foreach ($relative in ($sourcePaths | Sort-Object -Unique)) {
+            if (Test-Path -LiteralPath $relative -PathType Leaf) {
+                [ordered]@{
+                    path = $relative.Replace('\', '/')
+                    sha256 = Get-Sha256 $relative
+                }
+            }
+        }
+    )
     $dirty = $status.Count -gt 0
     $label = "$version.$($revision.Substring(0,12))" + $(if ($dirty) { '.dirty' } else { '' })
     # The package receives only the plugin; all external declarations stay here.
@@ -32,10 +39,23 @@ try {
     $fileInfo = [Diagnostics.FileVersionInfo]::GetVersionInfo($dll)
     if ($fileInfo.FileVersion -ne "$version.0" -or $fileInfo.ProductVersion -ne $label) { throw 'Plugin file/informational version mismatch.' }
     Copy-Item (Join-Path $productOutput 'reference-validation.json') (Join-Path $runRoot 'reference-validation.json')
-    $info = [ordered]@{ kind = 'plugin-candidate'; reference_mode = 'Shims'; plugin_guid = 'dark-fog-industry'; package_name = 'DSPDarkFogIndustry'; version = $version; build_label = $label; source_commit = $revision
-        dirty = $dirty; sdk = $sdk; run_number = $BuildNumber; run_attempt = $env:GITHUB_RUN_ATTEMPT
-        created_utc = [DateTime]::UtcNow.ToString('o'); source_files = $inputs; dll_sha256 = Get-Sha256 $dll
-        reference_report_sha256 = Get-Sha256 (Join-Path $runRoot 'reference-validation.json') }
+    $info = [ordered]@{
+        kind = 'plugin-candidate'
+        reference_mode = 'Shims'
+        plugin_guid = 'dark-fog-industry'
+        package_name = 'DSPDarkFogIndustry'
+        version = $version
+        build_label = $label
+        source_commit = $revision
+        dirty = $dirty
+        sdk = $sdk
+        run_number = $BuildNumber
+        run_attempt = $env:GITHUB_RUN_ATTEMPT
+        created_utc = [DateTime]::UtcNow.ToString('o')
+        source_files = $inputs
+        dll_sha256 = Get-Sha256 $dll
+        reference_report_sha256 = Get-Sha256 (Join-Path $runRoot 'reference-validation.json')
+    }
     $infoPath = Join-Path $runRoot 'build-info.json'
     Write-Json $info $infoPath
     $stage = Join-Path $runRoot 'package-staging'

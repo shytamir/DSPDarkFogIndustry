@@ -3,7 +3,6 @@
     "game": "0.10.35.29104",
     "assembly_sha256": "6c122e5443e6843979b4064050dfcb5e0d75577a0b64f6ae4111290238b33c12",
     "item_catalogue_sha256": "ca61a5837ae079ae4876a249de5d30db05a5afe51335dcc0fb691d26ae09c49e",
-    "tech_catalogue_sha256": "4c269e262d71a64761b7eb7f31b15a45936b52d882d992c705b60eecfe844711",
     "resources_sha256": "2839ea86d64c742539410c5e7be005b65ff871212e9d7957c5b015ecff2fd7d2",
     "extracted": "2026-10-08",
     "limits": "Static facts; no native game execution"
@@ -39,107 +38,5 @@
       1.0,
       2.0
     ]
-  },
-  "downstream_research": [
-    {
-      "ID": 1509,
-      "PreItem": [
-        5201
-      ],
-      "Items": [
-        5201
-      ],
-      "ItemPoints": [
-        120
-      ],
-      "HashNeeded": 30000,
-      "PreTechs": [
-        1505
-      ],
-      "PreTechsImplicit": [],
-      "UnlockRecipes": [
-        162
-      ]
-    },
-    {
-      "ID": 1901,
-      "PreItem": [
-        5202
-      ],
-      "Items": [
-        5201
-      ],
-      "ItemPoints": [
-        120
-      ],
-      "HashNeeded": 24000,
-      "PreTechs": [
-        1312
-      ],
-      "PreTechsImplicit": [],
-      "UnlockRecipes": [
-        153
-      ]
-    },
-    {
-      "ID": 1902,
-      "PreItem": [
-        5203
-      ],
-      "Items": [
-        5201
-      ],
-      "ItemPoints": [
-        120
-      ],
-      "HashNeeded": 18000,
-      "PreTechs": [
-        1203
-      ],
-      "PreTechsImplicit": [],
-      "UnlockRecipes": [
-        154
-      ]
-    },
-    {
-      "ID": 1903,
-      "PreItem": [
-        5204
-      ],
-      "Items": [
-        5201
-      ],
-      "ItemPoints": [
-        120
-      ],
-      "HashNeeded": 36000,
-      "PreTechs": [
-        1417
-      ],
-      "PreTechsImplicit": [],
-      "UnlockRecipes": [
-        155
-      ]
-    },
-    {
-      "ID": 1904,
-      "PreItem": [
-        5205
-      ],
-      "Items": [
-        5201
-      ],
-      "ItemPoints": [
-        120
-      ],
-      "HashNeeded": 60000,
-      "PreTechs": [
-        1145
-      ],
-      "PreTechsImplicit": [],
-      "UnlockRecipes": [
-        156
-      ]
-    }
-  ]
+  }
 }

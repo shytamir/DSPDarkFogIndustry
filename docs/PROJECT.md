@@ -11,7 +11,7 @@ and publication. Other documents define contracts or evidence and link here.
   then review repository readability, tests and documentation ownership. The owner
   authorized both main pushes on 2026-10-08. Preserve product behavior and keep
   publication separate.
-- Build version line: `0.3.x`, owner-directed on 2026-10-08; the patch remains the
+- Build version line: `0.9.x`, owner-directed on 2026-10-08; the patch remains the
   CI run number (0 for local builds). The historical MVP candidate remains `0.1.8`.
 - Product implementation: MVP-01 through MVP-07 completed and accepted as the MVP;
   M3 satisfied. No implementation story remains active. The
@@ -39,9 +39,24 @@ and publication. Other documents define contracts or evidence and link here.
 - Package presentation and root README: owner approved on 2026-10-08. The supplied
   256x256 icon is unchanged. The player README passed Thunderstore's website
   Markdown preview; the local build passed product, package and repository checks.
-- Repository cleanup: authorized next. Review code readability and remove obsolete
-  gate checks and duplicated implementation detail without changing the accepted
-  product behavior. Verify local and hosted builds before closeout.
+  Delivered as `589c787`; [run 37706891094](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/37706891094)
+  passed. Downloaded `0.3.12` matched both provider digests, all 88 committed source
+  hashes and the package contract; its DLL passed real-reference metadata checks.
+- Repository cleanup: implemented and locally verified; hosted delivery check
+  pending. Recipe definitions use named item/technology constants; source comments
+  explain timing and lifecycle constraints. Tests are grouped by behavior, with
+  repeated fixture assertions removed and save/registration regressions retained.
+  The metadata checker is split by responsibility and C#/project formatting is
+  consistent. Detailed investigation is archived; current docs link to source.
+  The owner requested minor version 9 for this delivery; direct reference builds
+  now also derive their default version from VERSION.
+- Cleanup validation, 2026-10-08: shared build and real-reference compilation passed
+  with no warnings; all 12 named product checks, 13 malformed-package cases, three
+  malformed-version cases and three reference-rejection cases passed. The external
+  ledger is unchanged (60 compiled references, two Harmony targets). Static IL
+  comparison against `589c787`'s downloaded plugin found all nine existing method
+  bodies identical after normalizing the startup version message. No new gameplay
+  test was performed.
 
 ## Product basis and boundaries
 
@@ -111,6 +126,7 @@ recorded on 2026-10-08 from instructions and clarification answers in this task:
 | MVP-D11 | Owner-directed, 2026-10-08 | Thunderstore package name `DSPDarkFogIndustry` (owner correction supersedes the spaced package name); BepInEx GUID `dark-fog-industry`. Human-readable plugin title remains DSP Dark Fog Industry. |
 | MVP-D12 | Owner-accepted and directed, 2026-10-08 | Accept the MVP as is following partial owner validation; mark the MVP roadmap completed and accepted and move to pre-release planning. Unreported checks remain unverified, not acceptance blockers or automatically activated work. Publication remains separate. |
 | REL-D01 | Owner-directed, 2026-10-08 | Promote MINOR to 3 in VERSION, retaining MAJOR=0 and the existing build-number patch scheme. New builds use 0.3.x; this does not relabel the accepted historical MVP artifact or authorize publication. |
+| REL-D02 | Owner-directed, 2026-10-08 | Promote MINOR to 9 with the repository cleanup delivery. This supersedes REL-D01 for new builds; patch numbering and publication authority are unchanged. |
 
 The [integration contract](implementation/NATIVE-INTEGRATION.md) resolves registration,
 stable IDs, durations, shim-based hosted compilation, and the removal boundary.

@@ -11,7 +11,8 @@ For status, authorization, and acceptance, see [PROJECT.md](PROJECT.md).
 | [PROJECT.md](PROJECT.md) | Steering, decisions/dispositions, all work state and acceptance | Detailed implementation or duplicated plans |
 | `concept/` | Supplied product intent, dated evidence and limitations | Work authorization or current runtime certification |
 | `planning/ROADMAP.md` and work items | Outcomes, order, scope, exclusions, gates, definition of done | Progress logs, acceptance claims, implementation details |
-| `implementation/` | Technical contracts, exact evidence, rationale, validation procedures | Priority, activation, closure, release authorization |
+| Source and nearby comments | Algorithms, constants, integration details and maintenance constraints | Work status or approval |
+| `implementation/` | Source navigation, evidence, rationale and validation procedures | Duplicated code specifications, priority or approval |
 | `archive/` | Frozen historical work definitions and evidence | Active obligations |
 | Build/package documentation | Reproducible operational procedures | Current release state |
 

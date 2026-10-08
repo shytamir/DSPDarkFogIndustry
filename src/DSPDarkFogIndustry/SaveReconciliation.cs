@@ -4,7 +4,12 @@ namespace DSPDarkFogIndustry
     {
         internal static int Reconcile(GameHistoryData history, bool isPreview = false)
         {
-            if (isPreview) return 0;
+            // The save selector imports previews too; it must not award anything.
+            if (isPreview)
+            {
+                return 0;
+            }
+
             int added = 0;
             foreach (var recipe in SynthesisRecipes.All)
             {
@@ -14,6 +19,7 @@ namespace DSPDarkFogIndustry
                     added++;
                 }
             }
+
             return added;
         }
     }

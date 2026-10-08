@@ -8,6 +8,7 @@ namespace DSPDarkFogIndustry
         [HarmonyPrefix]
         private static void Prefix()
         {
+            // Run before native preload builds recipe links, icons and productivity.
             RecipeRegistration.Register(LDB.recipes, LDB.items, LDB.techs);
         }
     }

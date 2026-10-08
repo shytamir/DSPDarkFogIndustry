@@ -1,4 +1,4 @@
-# MVP recipe contract
+# Recipe requirements
 
 This records the owner's recipe decisions and clarifications for the first MVP.
 [PROJECT.md](../PROJECT.md) owns their disposition and the roadmap's authorization.
@@ -33,27 +33,20 @@ At full power with continuous input/output, without proliferation:
   of each input. The owner explicitly chose Mk.I output as the baseline.
 - Chemical Plant: 60 Core Elements/minute, consuming 60/minute of each input.
 
-Higher-tier facilities retain native speed bonuses. Do not compensate for them,
-normalize every machine to 60/minute, or add a new scaling formula. Recipe duration
-must express the above baseline using native timing. Handcrafting uses native
-Replicator timing; its rate is not separately normalized to the Mk.I rate.
+Higher-tier facilities retain their usual speed bonuses. Handcrafting uses the
+Replicator's usual timing; its rate is not separately normalized to the Mk.I rate.
 
-Use normal proliferation eligibility, acceleration, extra products, and power
-behavior. In the inspected catalogue, Corvette and Destroyer are non-productive
-inputs: Dark Fog Matrix and Silicon-based Neuron therefore receive acceleration
-only. Energy Shard, Matter Recombinator, Negentropy Singularity, and Core Element
-can use native extra products or the player's acceleration selection. Preserve
-the native item flags and let native recipe initialization calculate eligibility.
+Use normal proliferation and power behavior. Dark Fog Matrix and Silicon-based
+Neuron support speedup only because of their ship ingredients. The other four
+recipes also support extra products.
 
 ## Selector placement and unlocks
 
 Use the Items recipe tab, bottom row, rightmost six slots, in the table's order
-from left to right. The current native grid has fourteen columns: recipe slots
-`1809` through `1814` meet this placement. Leave the six science-cube recipes at
-`1801` through `1806`, the intervening two slots, and native item sorting untouched.
+from left to right. Leave the science-cube recipes and other item positions unchanged.
 
-Each synthesis recipe has one existing gate. Add no synthesis technologies,
-extra industrial gates, AND-gate emulation, or prerequisite rewrites. A gate may
+Each synthesis recipe has one existing research unlock, with no new technologies
+or additional prerequisites. A gate may
 be researched before the previous material is available; that unlocks the recipe
 but does not grant its ingredients. Manufacturing order comes from the input chain.
 
@@ -69,6 +62,8 @@ sandbox grants, or another mod supplying missing resources. Ordinary raw resourc
 and native manufacturing remain necessary. Both new games and pre-existing saves
 with gates already researched are in the MVP. Existing enemy drops remain native.
 
-Technical identities, evidence, and unresolved integration questions belong in
-[MVP technical basis](../archive/2026-10-08-mvp/MVP-TECHNICAL-BASIS.md). Work is defined in
-the [roadmap](ROADMAP.md); this contract does not authorize implementation.
+IDs, durations and registration details live in the
+[source](../../src/DSPDarkFogIndustry/SynthesisRecipes.cs). The
+[integration guide](../implementation/NATIVE-INTEGRATION.md) links code and dated
+evidence. Work definitions belong in the [roadmap](ROADMAP.md); these requirements
+do not independently authorize work.

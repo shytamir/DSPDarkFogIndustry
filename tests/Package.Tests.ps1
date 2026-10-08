@@ -33,7 +33,7 @@ $cases = @(
     @{ Name = 'wrong-name'; Expected = 'manifest'; Edit = {
         param($zip) $entry = $zip.GetEntry('manifest.json'); $reader = [IO.StreamReader]::new($entry.Open())
         try { $manifest = $reader.ReadToEnd() | ConvertFrom-Json } finally { $reader.Dispose() }
-        $entry.Delete(); $manifest.name = 'DSPDarkFogIndustry_Scaffold'
+        $entry.Delete(); $manifest.name = 'UnexpectedModName'
         $writer = [IO.StreamWriter]::new($zip.CreateEntry('manifest.json').Open())
         try { $writer.Write(($manifest | ConvertTo-Json)) } finally { $writer.Dispose() }
     } },

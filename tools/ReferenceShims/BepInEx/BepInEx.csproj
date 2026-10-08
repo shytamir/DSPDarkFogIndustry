@@ -1,4 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup><AssemblyName>BepInEx</AssemblyName></PropertyGroup>
-  <ItemGroup><ProjectReference Include="../Unity/Unity.csproj" /><ProjectReference Include="../UnityFacade/UnityFacade.csproj" /></ItemGroup>
+  <PropertyGroup>
+    <AssemblyName>BepInEx</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../Unity/Unity.csproj" />
+    <ProjectReference Include="../UnityFacade/UnityFacade.csproj" />
+  </ItemGroup>
 </Project>

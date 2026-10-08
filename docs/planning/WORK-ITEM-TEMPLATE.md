@@ -29,5 +29,5 @@ required evidence and its limits. Avoid a broad runtime matrix without a reason.
 
 ## Technical references
 
-Link concept/evidence and the matching implementation record. Put algorithms,
-hooks, data contracts, and implementation choices there, not in the roadmap.
+Link relevant source and supporting evidence. Keep algorithms, hooks and constants
+in code, with rationale beside the implementation where useful.
