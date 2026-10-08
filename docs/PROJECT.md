@@ -7,10 +7,9 @@ and publication. Other documents define contracts or evidence and link here.
 ## Current state
 
 - Phase: pre-release planning, owner-directed on 2026-10-08.
-- Authorized scope: deliver the approved package presentation and root README,
-  then review repository readability, tests and documentation ownership. The owner
-  authorized both main pushes on 2026-10-08. Preserve product behavior and keep
-  publication separate.
+- Authorized scope: the approved presentation and repository cleanup passes are
+  complete. The owner authorized main delivery on 2026-10-08. No further
+  implementation or publication is active.
 - Build version line: `0.9.x`, owner-directed on 2026-10-08; the patch remains the
   CI run number (0 for local builds). The historical MVP candidate remains `0.1.8`.
 - Product implementation: MVP-01 through MVP-07 completed and accepted as the MVP;
@@ -42,8 +41,8 @@ and publication. Other documents define contracts or evidence and link here.
   Delivered as `589c787`; [run 37706891094](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/37706891094)
   passed. Downloaded `0.3.12` matched both provider digests, all 88 committed source
   hashes and the package contract; its DLL passed real-reference metadata checks.
-- Repository cleanup: implemented and locally verified; hosted delivery check
-  pending. Recipe definitions use named item/technology constants; source comments
+- Repository cleanup: complete, delivered as `e2dc896`. Recipe definitions use
+  named item/technology constants; source comments
   explain timing and lifecycle constraints. Tests are grouped by behavior, with
   repeated fixture assertions removed and save/registration regressions retained.
   The metadata checker is split by responsibility and C#/project formatting is
@@ -57,6 +56,12 @@ and publication. Other documents define contracts or evidence and link here.
   comparison against `589c787`'s downloaded plugin found all nine existing method
   bodies identical after normalizing the startup version message. No new gameplay
   test was performed.
+- Hosted cleanup verification: [run 37707934848](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/37707934848)
+  passed. Downloaded `0.9.13` matched both provider digests, all 91 committed source
+  hashes, version metadata and package contents. Its DLL passed the real-reference
+  check, including all 62 shim members. ZIP SHA-256:
+  `e8b663991367d7c5d97b2ab104a2264b8e4277d7c460f873b27ad9b8139cb450`.
+  This documentation-only closeout retains that verified source/artifact identity.
 
 ## Product basis and boundaries
 
