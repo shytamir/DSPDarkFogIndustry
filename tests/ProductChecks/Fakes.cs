@@ -16,36 +16,6 @@ public class TechProto : Proto
     public int[] UnlockRecipes;
 }
 
-public class AbnormalityProto : Proto
-{
-    public string DeterminatorName;
-}
-
-public class AbnormalityProtoSet : ProtoSet<AbnormalityProto>
-{
-}
-
-public class VFPreload
-{
-}
-
-public static class LDB
-{
-    public static AbnormalityProtoSet abnormalities;
-    public static ItemProtoSet items;
-    public static TechProtoSet techs;
-    public static RecipeProtoSet Recipes;
-    public static Action BeforeRecipeAccess;
-    public static RecipeProtoSet recipes
-    {
-        get
-        {
-            BeforeRecipeAccess?.Invoke();
-            return Recipes;
-        }
-    }
-}
-
 public enum ERecipeType : byte
 {
     None = 0, Smelt = 1, Chemical = 2, Assemble = 4

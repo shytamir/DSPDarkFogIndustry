@@ -6,14 +6,14 @@ and publication. Other documents define contracts or evidence and link here.
 
 ## Current state
 
-- Phase: maintenance hotfix awaiting owner validation, 2026-10-08.
+- Phase: maintenance hotfix correction in progress, 2026-10-08.
 - Authorized scope: outline and implement [HF-01](planning/HF-01-PROTOTYPE-DETECTION.md)
   through local validation, main delivery, hosted artifact verification and owner
-  handoff. The owner will perform the in-game test. Whole-system detector
-  disconnection is permitted if simpler; the native registration mechanism allows
-  a comparably small fix scoped to prototype checks. No save repair or publication
-  is authorized. HF-01 is technically validated and handed off as `0.9.16`; owner
-  acceptance is pending. Completed MVP and cleanup remain closed.
+  handoff. The owner rejected the catalogue-edit implementation: it immediately
+  put the game in sandbox mode on load. Revert that approach and use the existing
+  empty-detector-collection initialization. Record the failure and steering, then
+  validate and deliver the correction under the existing main-push authorization.
+  No save repair or publication is authorized. Completed MVP and cleanup remain closed.
 - Build version line: `0.9.x`, owner-directed on 2026-10-08; the patch remains the
   CI run number (0 for local builds). The historical MVP candidate remains `0.1.8`.
 - Product implementation: MVP-01 through MVP-07 completed and accepted as the MVP;
@@ -42,10 +42,32 @@ and publication. Other documents define contracts or evidence and link here.
 
 ## HF-01 maintenance hotfix — 2026-10-08
 
+- **Failed implementation / owner rejection:** the owner reports that loading with
+  the first fix immediately puts the game in sandbox mode. Candidate `0.9.16` is
+  withdrawn. Its offline passes did not establish safe game-mode behavior; the
+  catalogue-edit approach and its tests are reverted. The original
+  [story](archive/2026-10-08-hf01-catalogue/STORY.md) and
+  [evidence](archive/2026-10-08-hf01-catalogue/VALIDATION.md) are retained as history.
+- **Steering decision HF-01-D02:** the owner directs use of the existing local
+  patcher's empty-collection approach, replacing the agent's selective catalogue
+  alternative. The referenced implementation initializes an empty dictionary in
+  `AbnormalityLogic.InitDeterminators` and returns. Apply that behavior through the
+  plugin's existing Harmony setup. All native detector creation is disabled;
+  prototype catalogue, game mode and saved history are not modified.
+- Correction state: locally validated; main delivery and hosted verification are
+  pending. The shared build passed all 12 retained product checks and package tests.
+  Real-library validation covered 62 external references, 65 shim members, three
+  Harmony targets and the private dictionary binding. An authored local fixture
+  using real Harmony confirmed factory suppression and valid tick/free behavior.
+  All nine pre-hotfix method bodies match the published plugin after normalizing
+  version text. [Current evidence and handoff](implementation/HF-01-VALIDATION.md).
+
+The following records describe the rejected attempt, not current readiness:
+
 - Authorization: owner requested a bounded investigation story and implementation
   through push to main, then owner testing of the CI artifact. The later instruction
   allows whole-system detector disconnection if simpler.
-- Decision: disconnect only `ABN_ProtoData` catalogue registrations through the
+- Superseded decision HF-01-D01: disconnect only `ABN_ProtoData` catalogue registrations through the
   existing preload prefix, before recipe access. This is a comparably small native
   mechanism, leaves other detectors active and preserves existing history. No new
   Harmony target or runtime dependency is required.
@@ -53,19 +75,18 @@ and publication. Other documents define contracts or evidence and link here.
   all 14 product checks and the package/repository checks passed. Both omitted and
   late-disconnection mutations were rejected by the ordering regression. Eight
   unchanged existing method bodies match the published plugin after normalizing
-  its version text. See [evidence and owner procedure](implementation/HF-01-VALIDATION.md).
+  its version text. See [historical evidence](archive/2026-10-08-hf01-catalogue/VALIDATION.md).
 - Delivery: implementation and local evidence pushed to main in
   `0f329bbafdf992b537118233d9340ba61118f016`.
   [CI run 37758009481](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/37758009481),
   attempt 1, passed. Downloaded candidate `0.9.16` matched both provider digests,
   all 96 committed source hashes, version metadata and package contents. Its DLL
   passed real-reference validation (65 references, 66 shim members, two hooks).
-- Owner-test candidate: **0.9.16**, build label `0.9.16.0f329bbafdf9`, from that run.
+- Withdrawn candidate: **0.9.16**, build label `0.9.16.0f329bbafdf9`, from that run.
   ZIP SHA-256: `769fe3eea2cb845dba05a6c51db8c6490f1fd6a0014dd41ac5ebacc59501e792`.
   DLL SHA-256: `0b88fdc2bf1c50a0fb680ffe8f74de7ccb394463e0ecbf1a8ebf63f6e11be031`.
-  This pins the candidate even if a later documentation-only CI run produces a
-  higher build number. Owner acceptance and hotfix publication are pending;
-  the published baseline below remains unchanged.
+  Owner rejected its behavior; it is not a candidate for further acceptance.
+  The published baseline below remains unchanged.
 - Review: checked the story for bounded scope and owner gate, confirmed native
   registration/timing against the installed assembly, and reviewed source, tests
   and documentation for minimality and authority separation. Existing-history

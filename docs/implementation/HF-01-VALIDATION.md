@@ -1,102 +1,61 @@
-# Prototype detector hotfix: evidence and validation
+# Detector initialization correction
 
-For scope see [HF-01](../planning/HF-01-PROTOTYPE-DETECTION.md); for current state
-and acceptance see [PROJECT](../PROJECT.md).
+[PROJECT](../PROJECT.md) owns rejection, steering, readiness and acceptance.
+The [current story](../planning/HF-01-PROTOTYPE-DETECTION.md) defines scope;
+the [first implementation's evidence](../archive/2026-10-08-hf01-catalogue/VALIDATION.md)
+is archived. Its catalogue fixtures did not test actual startup/game-mode behavior.
+The owner's report of immediate sandbox mode invalidates its readiness conclusion.
+That symptom has not been independently reproduced by the agent.
 
-## Evidence basis
+## Native basis
 
-Inspected on 2026-10-08 against DSP 0.10.35.29104, `Assembly-CSharp.dll` SHA-256
+DSP 0.10.35.29104, `Assembly-CSharp.dll` SHA-256:
 `6c122e5443e6843979b4064050dfcb5e0d75577a0b64f6ae4111290238b33c12`.
-The owner's `_autosave_0.analysis.json` has SHA-256
-`a7f885bfcbd1feecd5accac9d3bebf12a60d335d50e6af57af37a264ed043a13`.
-It records 34 findings: 17 technology-signature entries
-(category 3, evidence 2), and 17 recipe-signature entries (category 4, evidence 3).
-Its offline checks report no current-state findings; it explicitly cannot evaluate
-runtime prototype signatures. Its `changes_planned` state is not evidence that a
-save was repaired. Only this supplied report was read, not its source save.
+Read-only inspection on 2026-10-08 confirms that `AbnormalityLogic.InitDeterminators`
+first allocates a dictionary, then constructs detectors. Tick and free callers
+enumerate that dictionary. It must remain valid even when no detectors are created.
 
-The owner-referenced `DSPBlueprintFixer/tools/save-normalizer/INVESTIGATION.md`
-(2026-10-03) describes the same assembly hash and categories. It is supporting
-evidence, not product code or task authority. Current static inspection confirms:
+The owner-directed reference is `DSPNativeTestPatcher/Patcher.cs`, under the local
+shared resources. Its detector change replaces the method body with empty-dictionary
+initialization and return. The [plugin patch](../../src/DSPDarkFogIndustry/DetectorInitializationPatch.cs)
+applies the same behavior using Harmony's field injection and original-method skip.
+It is installed by `Plugin.Awake` with the other patches, before the recipe preload
+callback. It disables all native detectors and does not touch the catalogue,
+game-mode flags, saved records, or account/network methods from the reference patcher.
 
-- `AbnormalityLogic.InitDeterminators` creates its dictionary, then instantiates
-  only catalogue rows with a nonempty `DeterminatorName`.
-- `LDB.abnormalities` uses the ordinary cached `LoadTable` accessor, so later
-  accesses retain the edited registrations rather than reloading the catalogue.
-- `ABN_ProtoData` binds to item, technology, recipe, vegetation or vein tables and
-  subscribes `CheckProto` to game-begin and before-save events. A signature mismatch
-  writes an abnormality record. The base has no independent prototype check.
-- `VFPreload.InvokeOnLoad` precedes native preload and the menu demo game. The mod's
-  existing prefix runs before that callback, so detector registration can be
-  disconnected before recipes or technology unlock arrays are changed.
+The [target ledger](../../tools/ReferenceShims/patch-targets.json) records the method
+and injected private dictionary; real-reference checks validate both. The normal
+type/member ledger records the three game types and their inheritance. Removed
+catalogue references and tests are not retained as active product checks.
 
-The source owns the fix: [PrototypeDetection](../../src/DSPDarkFogIndustry/PrototypeDetection.cs)
-and [RegistrationPatch](../../src/DSPDarkFogIndustry/RegistrationPatch.cs).
-It leaves the catalogue rows/IDs available for interpreting old records and leaves
-non-prototype detector names intact. It does not erase existing history, bypass
-eligibility gates, modify installed assemblies or add a save repair path.
+## Offline results — 2026-10-08
 
-## Validation procedure
+- Shim and real-reference builds completed without warnings. The real check resolved
+  62 compiled external references, 65 shim members, three Harmony targets and the
+  injected private dictionary. Deliberately wrong field type and visibility entries
+  were both rejected by the checker.
+- The shared build passed all 12 retained product checks, valid packaging, 13
+  malformed-package cases, three malformed-version cases and repository checks.
+- An authored local .NET Framework fixture linked the actual patch source and used
+  BepInEx's pinned Harmony 2.5.5 library. An unpatched control created a detector;
+  patched initialization skipped the factory and assigned an empty private
+  collection on independent and reused instances. Tick/free iteration remained
+  valid. This tests actual Harmony dispatch/injection, not Unity or a saved game.
+  Fixture sources and output remain ignored under `.local/detector-fixture/`.
+- Static comparison against published `0.9.14` found all nine existing product
+  method bodies identical after normalizing startup version text. The sole added
+  behavior is the new initialization prefix. Local evidence:
+  `artifacts/hf01-correction-il-comparison.json`.
+- Local dirty build evidence: `artifacts/runs/61825c91c58446b8a04fc6d82d1200dd/`,
+  ZIP SHA-256 `893daf7be2673e93f86b1612a72d8cd2c4ae771ac8f0cd4019b58ed947b4d5cb`.
+  This is not the committed owner-test artifact; PROJECT will identify that candidate.
 
-Run the shared build, shim and real-reference checks per [local development](../LOCAL-DEVELOPMENT.md).
-Verify the actual hosted artifact per [the package contract](../BUILD-AND-PACKAGING.md#hosted-verification-and-publication-boundary).
-Automated tests use authored data and do not execute game assemblies.
+## Owner handoff
 
-## Local results — 2026-10-08
+For the in-game check, restart with that candidate and use a new normal-mode game
+or an untouched normal-mode backup. Check that the game remains outside sandbox
+mode, recipes still work, and no new abnormal findings appear after manual save,
+autosave and reload. A save already written in sandbox mode or containing abnormal
+history is not repaired. Existing abnormal records should remain unchanged.
 
-- `./build.ps1`: all 14 named product checks passed, including the two new detector
-  regressions; valid package, 13 malformed packages, three malformed versions and
-  repository checks passed. Build completed with no warnings or errors.
-- `Build-Plugin.ps1 -ReferenceMode Shims -OutputPath artifacts/reference-shims
-  -UpdateLedger`, followed by `-ReferenceMode Real -OutputPath artifacts/product-real`:
-  declaration inventory and real-library compilation passed. The checker resolved
-  65 compiled external references, 66 shim members and the two existing Harmony
-  targets. The library baseline and target ledger are unchanged.
-- Direct calls to the linked preload callback verify disconnection before recipe
-  access and idempotent registration. Independent category fixtures verify that
-  unrelated detector names and category identities survive repeated calls. The
-  test attributes do not simulate Harmony patch dispatch.
-- In ignored scratch copies, removing disconnection and moving it after recipe
-  access both failed with the intended ordering-regression message. Product source
-  was not mutated for these checks. Evidence: `artifacts/hf01-mutations/`.
-- Static IL comparison with published candidate `0.9.14` from run `37708171164`
-  found all eight existing method bodies other than the changed preload prefix
-  identical after normalizing startup version text. Recipe definitions,
-  registration, save reconciliation and existing patch installation are unchanged.
-  Evidence: `artifacts/hf01-il-comparison.json`.
-- Local candidate: `artifacts/runs/57263668672e4176ba00864e513cf547/`, version
-  `0.9.0.b6a5d945d2f4.dirty`; ZIP SHA-256
-  `b5c1d25eaef25f11cc4ebcf4f9dfc6d6bccecafbe4ed6532e4b35f652d1f08df`.
-  This is local validation evidence, not the committed owner-test candidate.
-
-No game process, save, installed plugin or game assembly was changed or executed.
-The supplied analysis and referenced investigation were read-only inputs.
-
-## Hosted results — 2026-10-08
-
-[Run 37758009481](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/37758009481),
-attempt 1, built `0.9.16` from `0f329bbafdf992b537118233d9340ba61118f016` and passed
-the shared checks and both artifact uploads. Independent download verification
-matched GitHub's two artifact digests and all 96 source hashes against an export
-of that exact commit. Package paths, manifest, plugin/file/informational versions,
-README, icon, license and DLL identity matched the build reports. The downloaded
-DLL resolved all 65 references and two hooks against the pinned real libraries;
-all 66 declared shim members matched. No upstream binary is packaged.
-
-Retained downloads and reports: `artifacts/ci/37758009481/`. PROJECT records the
-selected candidate and hashes; the local dirty build is not the handoff artifact.
-
-## Owner check
-
-Use the exact downloaded CI candidate identified in PROJECT. Restart the game
-with that candidate installed. In a new save or a backed-up save known to have
-no recorded abnormal findings, confirm the recipes still unlock and produce as
-before. Save, reload, and save again; check that no new prototype-data findings
-are recorded. Include an autosave (the supplied report shows repeated save-time
-findings). Report the candidate version, starting history state and observations.
-
-An already flagged save can remain flagged: this fix deliberately preserves old
-history. To test such a save, compare the count/ticks of prototype findings before
-and after instead of expecting its abnormal status to disappear. Other native
-detectors remain active. Offline validation is not an in-game or online-eligibility
-claim; owner acceptance and publication are separate.
+No game launch, save access, installation or publication is part of agent validation.

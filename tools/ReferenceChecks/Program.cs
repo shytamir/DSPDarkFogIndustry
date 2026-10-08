@@ -266,10 +266,12 @@ internal static class Program
         var targets = new List<string>();
         using var patchLedger = JsonDocument.Parse(File.ReadAllText(
             Path.Combine(Path.GetDirectoryName(ledgerPath)!, "patch-targets.json")));
-        var patches = product.MainModule.Types.SelectMany(t => t.CustomAttributes)
-            .Where(attribute => attribute.AttributeType.FullName == "HarmonyLib.HarmonyPatch");
-        foreach (var attribute in patches)
+        var patches = product.MainModule.Types.SelectMany(t => t.CustomAttributes
+            .Where(a => a.AttributeType.FullName == "HarmonyLib.HarmonyPatch")
+            .Select(a => (Type: t, Attribute: a)));
+        foreach (var patch in patches)
         {
+            var attribute = patch.Attribute;
             Require(attribute.ConstructorArguments.Count == 2, "Unreviewed Harmony target declaration.");
             var targetType = (TypeReference)attribute.ConstructorArguments[0].Value;
             var targetName = (string)attribute.ConstructorArguments[1].Value;
@@ -277,6 +279,25 @@ internal static class Program
                 target.GetProperty("type").GetString() == targetType.FullName
                 && target.GetProperty("method").GetString() == targetName);
             Require(expected.GetProperty("assembly").GetString() == Scope(targetType), "Wrong Harmony target assembly.");
+            var injectedFields = expected.TryGetProperty("injected_fields", out var fields)
+                ? fields.EnumerateArray().ToArray() : [];
+            var injections = patch.Type.Methods.SelectMany(m => m.Parameters)
+                .Where(p => p.Name.StartsWith("___", StringComparison.Ordinal)).ToArray();
+            Require(injections.Length == injectedFields.Length, "Unaccounted Harmony field injection.");
+            foreach (var injection in injections)
+            {
+                var field = injectedFields.Single(f => f.GetProperty("name").GetString() == injection.Name[3..]);
+                Require(injection.ParameterType is ByReferenceType byRef
+                    && byRef.ElementType.FullName == field.GetProperty("type").GetString(),
+                    $"Unverified Harmony field binding: {injection.Name}");
+                if (realReferences)
+                {
+                    var nativeField = targetType.Resolve().Fields.Single(f => f.Name == injection.Name[3..]);
+                    Require(!nativeField.IsStatic && nativeField.FieldType.FullName == field.GetProperty("type").GetString()
+                        && field.GetProperty("visibility").GetString() == (nativeField.IsPrivate ? "private" : Visibility(nativeField)),
+                        $"Unverified native field: {nativeField.FullName}");
+                }
+            }
             if (realReferences)
             {
                 var method = targetType.Resolve().Methods.Single(m => m.Name == targetName);

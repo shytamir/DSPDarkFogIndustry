@@ -3,41 +3,51 @@
     "assembly": "Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
     "types": [
       {
-        "type": "AbnormalityProto",
+        "type": "AbnormalityDeterminator",
         "kind": "class",
         "abstract_type": false,
         "sealed_type": false,
-        "base_type": "Proto",
+        "base_type": "DeterminatorBase",
         "generic_parameters": [],
         "interfaces": [],
-        "fields": [
-          {
-            "signature": "public instance System.String AbnormalityProto::DeterminatorName",
-            "read_only": false,
-            "literal": false,
-            "constant": null
-          }
-        ],
+        "fields": [],
         "methods": [
           {
-            "signature": "public instance System.Void AbnormalityProto::.ctor()",
+            "signature": "public instance System.Void AbnormalityDeterminator::.ctor()",
             "virtual_method": false,
             "abstract_method": false
           }
         ]
       },
       {
-        "type": "AbnormalityProtoSet",
+        "type": "AbnormalityLogic",
         "kind": "class",
         "abstract_type": false,
         "sealed_type": false,
-        "base_type": "ProtoSet\u00601\u003CAbnormalityProto\u003E",
+        "base_type": "System.Object",
         "generic_parameters": [],
         "interfaces": [],
         "fields": [],
         "methods": [
           {
-            "signature": "public instance System.Void AbnormalityProtoSet::.ctor()",
+            "signature": "public instance System.Void AbnormalityLogic::.ctor()",
+            "virtual_method": false,
+            "abstract_method": false
+          }
+        ]
+      },
+      {
+        "type": "DeterminatorBase",
+        "kind": "class",
+        "abstract_type": false,
+        "sealed_type": false,
+        "base_type": "System.Object",
+        "generic_parameters": [],
+        "interfaces": [],
+        "fields": [],
+        "methods": [
+          {
+            "signature": "public instance System.Void DeterminatorBase::.ctor()",
             "virtual_method": false,
             "abstract_method": false
           }
@@ -161,11 +171,6 @@
         "interfaces": [],
         "fields": [],
         "methods": [
-          {
-            "signature": "public static AbnormalityProtoSet LDB::get_abnormalities()",
-            "virtual_method": false,
-            "abstract_method": false
-          },
           {
             "signature": "public static ItemProtoSet LDB::get_items()",
             "virtual_method": false,

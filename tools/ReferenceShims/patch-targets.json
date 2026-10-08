@@ -14,5 +14,20 @@
     "signature": "System.Void GameHistoryData::Import(System.IO.BinaryReader,System.Boolean)",
     "visibility": "public",
     "parameter_names": ["r", "isPreview"]
+  },
+  {
+    "assembly": "Assembly-CSharp",
+    "type": "AbnormalityLogic",
+    "method": "InitDeterminators",
+    "signature": "System.Void AbnormalityLogic::InitDeterminators()",
+    "visibility": "public",
+    "parameter_names": [],
+    "injected_fields": [
+      {
+        "name": "determinators",
+        "type": "System.Collections.Generic.Dictionary`2<System.Int32,AbnormalityDeterminator>",
+        "visibility": "private"
+      }
+    ]
   }
 ]
