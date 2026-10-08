@@ -6,7 +6,7 @@ and publication. Other documents define contracts or evidence and link here.
 
 ## Current state
 
-- Phase: maintenance hotfix correction in progress, 2026-10-08.
+- Phase: corrected maintenance hotfix awaiting owner validation, 2026-10-08.
 - Authorized scope: outline and implement [HF-01](planning/HF-01-PROTOTYPE-DETECTION.md)
   through local validation, main delivery, hosted artifact verification and owner
   handoff. The owner rejected the catalogue-edit implementation: it immediately
@@ -54,13 +54,22 @@ and publication. Other documents define contracts or evidence and link here.
   `AbnormalityLogic.InitDeterminators` and returns. Apply that behavior through the
   plugin's existing Harmony setup. All native detector creation is disabled;
   prototype catalogue, game mode and saved history are not modified.
-- Correction state: locally validated; main delivery and hosted verification are
-  pending. The shared build passed all 12 retained product checks and package tests.
+- Correction state: offline and hosted validation passed; candidate `0.9.18` is
+  handed off for owner validation. The shared build passed all 12 retained product checks and package tests.
   Real-library validation covered 62 external references, 65 shim members, three
   Harmony targets and the private dictionary binding. An authored local fixture
   using real Harmony confirmed factory suppression and valid tick/free behavior.
   All nine pre-hotfix method bodies match the published plugin after normalizing
   version text. [Current evidence and handoff](implementation/HF-01-VALIDATION.md).
+- Corrected delivery: main source `429ed652a3713b66d48084f8f1a44551204aa0f8`;
+  [CI run 37759891486](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/37759891486),
+  attempt 1, passed. Independently downloaded `0.9.18` matched both provider
+  digests, all 96 committed source hashes, metadata, package contents and real
+  references, including the private field. This is the selected candidate even
+  if a later documentation-only run receives a higher build number.
+  ZIP SHA-256: `1b92039f55b3720f7878d38a28489edf44eb7469ca4cfbebeabcf317c8e7f21c`.
+  DLL SHA-256: `b96a02e88a3ae997363d4ef9d49f581a99a9ba75735ab3819d0611ce21efb7ea`.
+  Owner in-game acceptance and publication remain pending.
 
 The following records describe the rejected attempt, not current readiness:
 

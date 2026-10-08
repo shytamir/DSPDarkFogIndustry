@@ -48,7 +48,17 @@ catalogue references and tests are not retained as active product checks.
   `artifacts/hf01-correction-il-comparison.json`.
 - Local dirty build evidence: `artifacts/runs/61825c91c58446b8a04fc6d82d1200dd/`,
   ZIP SHA-256 `893daf7be2673e93f86b1612a72d8cd2c4ae771ac8f0cd4019b58ed947b4d5cb`.
-  This is not the committed owner-test artifact; PROJECT will identify that candidate.
+  This is not the committed owner-test artifact; PROJECT identifies that candidate.
+
+## Hosted result — 2026-10-08
+
+[Run 37759891486](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/37759891486),
+attempt 1, passed for source `429ed652a3713b66d48084f8f1a44551204aa0f8`.
+Downloaded `0.9.18` matched both GitHub artifact digests, all 96 source hashes,
+the five package entries and version metadata. The downloaded plugin passed the
+real-library check, including the new method and private-field binding. Downloads
+and independent reports are retained under `artifacts/ci/37759891486/`; exact hashes
+and selection are recorded in PROJECT. No in-game result is inferred.
 
 ## Owner handoff
 
