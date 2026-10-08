@@ -6,6 +6,6 @@ MVP acceptance and the current phase are recorded in PROJECT. The
 [archived owner procedure](../archive/2026-10-08-mvp/OWNER-VALIDATION.md) identifies
 the handed-off candidate; the [recipe contract](MVP-RECIPES.md) retains product behavior.
 
-This entry point is reserved for pre-release planning with the owner. Scope, work
-items and release criteria are not yet defined. Unreported MVP validation checks
-do not automatically become a new backlog.
+No active roadmap is defined. This entry point is reserved for future 1.0 planning
+when the owner is ready. Scope, schedule and work items will be agreed then;
+feedback and unreported MVP checks do not automatically become a backlog.

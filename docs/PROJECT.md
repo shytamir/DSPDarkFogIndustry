@@ -6,24 +6,26 @@ and publication. Other documents define contracts or evidence and link here.
 
 ## Current state
 
-- Phase: pre-release planning, owner-directed on 2026-10-08.
-- Authorized scope: the approved presentation and repository cleanup passes are
-  complete. The owner authorized main delivery on 2026-10-08. No further
-  implementation or publication is active.
+- Phase: maintenance, owner-directed on 2026-10-08 after publication.
+- Authorized scope: record publication and settle the repository into maintenance.
+  Completed development and cleanup remain closed. No implementation, validation,
+  release task or scheduled follow-up is active.
 - Build version line: `0.9.x`, owner-directed on 2026-10-08; the patch remains the
   CI run number (0 for local builds). The historical MVP candidate remains `0.1.8`.
 - Product implementation: MVP-01 through MVP-07 completed and accepted as the MVP;
   M3 satisfied. No implementation story remains active. The
   [owner handoff](archive/2026-10-08-mvp/OWNER-VALIDATION.md) is archived.
-- Planning: [recipe decisions](planning/MVP-RECIPES.md) and
-  [completed roadmap](archive/2026-10-08-mvp/ROADMAP.md) retained; the live
-  [roadmap entry point](planning/ROADMAP.md) is reserved for pre-release planning;
-  no pre-release roadmap has been defined yet. The owner-directed documentation
-  and packaging pass is bounded by the scope above.
+- Planning: [recipe requirements](planning/MVP-RECIPES.md) remain the product
+  contract and the [completed MVP roadmap](archive/2026-10-08-mvp/ROADMAP.md) is
+  archived. The [live roadmap](planning/ROADMAP.md) is a placeholder. Version 1.0
+  has no approved scope or schedule; planning waits for the owner's direction,
+  likely after user feedback. Feedback does not automatically activate work.
 - Owner acceptance: accepted as is on 2026-10-08 after the owner-reported checks
   [recorded below](#owner-acceptance-record--2026-10-08). Completion of the full
   proposed validation procedure is not a condition of this acceptance.
-- Publication: none. No release tag or store publication has been authorized.
+- Publication: the owner reports publishing the latest artifact, `0.9.14`, on
+  2026-10-08. See the [publication record](#publication-record--2026-10-08).
+  Later CI builds do not supersede that published baseline.
 - Git delivery: preparation and its evidence closeout are on main through
   `db3d8ed85df251a57e817881a30d61bdad7938e0`; MVP-01 is `89d40d5`, MVP-02 is `2ebab16`,
   MVP-03 is `bfac10d`, MVP-04 is `0be4006`, MVP-05 is `5a8e01f`;
@@ -31,7 +33,26 @@ and publication. Other documents define contracts or evidence and link here.
   Each story commit includes its management update and is pushed to main at closeout.
   Candidate source is `1fabb2543d56d90d5707863c234c18c33ba93f02`; downloaded package
   `0.1.8` from [run 37699427929](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/37699427929)
-  passed independent verification. Later documentation commits retain this candidate.
+  passed independent verification. This remains the historical MVP candidate;
+  the published baseline is recorded below.
+
+## Publication record — 2026-10-08
+
+The owner reported publishing the latest artifact and requested maintenance mode
+until they are ready to plan 1.0. In this conversation, that artifact is `0.9.14`
+from source `edb43256911e93c76bb7450a6229d328dbf9d286`,
+[CI run 37708171164](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/37708171164),
+attempt 1. Its downloaded CI package passed independent verification of both
+provider digests, all 91 source hashes, version metadata, package contents and
+real-library bindings.
+
+- Package SHA-256: `a56a39154564ed54faddcf9048f06bf71f501d5cb565c069b77830db185e49dc`.
+- Plugin SHA-256: `ea832bf3e2061b0691b7661f6555d3e248d54fed5598a2a6551f9bd61ecfd3d1`.
+- Publication evidence: owner's report. Public download bytes have not been
+  independently verified; the CI verification above is a separate observation.
+
+No new release, version promotion, feedback-monitoring task or 1.0 work is started
+by this maintenance transition. Future fixes and planning require owner steering.
 
 ## Pre-release repository work
 
@@ -132,6 +153,7 @@ recorded on 2026-10-08 from instructions and clarification answers in this task:
 | MVP-D12 | Owner-accepted and directed, 2026-10-08 | Accept the MVP as is following partial owner validation; mark the MVP roadmap completed and accepted and move to pre-release planning. Unreported checks remain unverified, not acceptance blockers or automatically activated work. Publication remains separate. |
 | REL-D01 | Owner-directed, 2026-10-08 | Promote MINOR to 3 in VERSION, retaining MAJOR=0 and the existing build-number patch scheme. New builds use 0.3.x; this does not relabel the accepted historical MVP artifact or authorize publication. |
 | REL-D02 | Owner-directed, 2026-10-08 | Promote MINOR to 9 with the repository cleanup delivery. This supersedes REL-D01 for new builds; patch numbering and publication authority are unchanged. |
+| REL-D03 | Owner-reported and directed, 2026-10-08 | The owner published the latest artifact (`0.9.14`) and requested maintenance until ready to plan 1.0, likely after feedback. No 1.0 scope, deadline or ongoing monitoring is authorized. |
 
 The [integration contract](implementation/NATIVE-INTEGRATION.md) resolves registration,
 stable IDs, durations, shim-based hosted compilation, and the removal boundary.
@@ -158,7 +180,8 @@ separates inspected facts from investigations and final owner observations.
 | MVP-06: Actual CI candidate | Technically closed, 2026-10-08 | [Validation](archive/2026-10-08-mvp/VALIDATION.md#mvp-06--candidate-packaging); source `1fabb25`, hosted run success, both provider digests and 87 source hashes matched, downloaded DLL real bindings passed |
 | MVP-07: Owner validation handoff | Technically closed, 2026-10-08; M3 satisfied | [Archived procedure](archive/2026-10-08-mvp/OWNER-VALIDATION.md) and [review evidence](archive/2026-10-08-mvp/VALIDATION.md#mvp-07--owner-handoff-review); original blank checklist preserved; subsequent owner report below |
 | Final owner validation and acceptance | Accepted as is, 2026-10-08 | Owner reported recipe unlocks and production in different facilities with/without proliferation, with no observed problems or side effects; full checklist not completed |
-| Pre-release planning | Current phase, 2026-10-08 | Owner-directed transition; scope and work items to be defined with the owner |
+| Pre-release preparation | Closed, 2026-10-08 | Presentation and repository cleanup delivered; owner reports publishing 0.9.14 |
+| Maintenance | Current phase, 2026-10-08 | No active work; 1.0 planning waits for owner direction |
 
 ### Owner acceptance record — 2026-10-08
 
@@ -176,8 +199,9 @@ do not block the owner's acceptance and are not automatically carried into a new
 backlog. The handoff's candidate identity remains `0.1.8`; no different build was
 identified in the owner report.
 
-The MVP roadmap is completed and accepted. The next phase is pre-release planning,
-with publication and its work scope still separate from this acceptance.
+At acceptance, the MVP roadmap was completed and the owner moved the project to
+pre-release planning. The later publication and maintenance transition are recorded
+above; neither changes the scope of the original gameplay observations.
 
 ### Planning review record
 
