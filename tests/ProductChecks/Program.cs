@@ -23,6 +23,7 @@ internal static class Program
 
     public static void Main()
     {
+        ConfigurationChecks.Run();
         RegistrationChecks.Run();
         CatalogueChecks.Run();
         ProductionChecks.Run();

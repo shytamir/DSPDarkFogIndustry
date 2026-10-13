@@ -28,6 +28,14 @@ game's existing behavior. The plugin does not patch those systems.
 
 ## References and hosted compilation
 
+[RecipeConfiguration](../../src/DSPDarkFogIndustry/RecipeConfiguration.cs) binds
+the six stable recipe sections through BepInEx. A temporary string binding retains
+raw numeric text before the public integer binding is created; no global converter
+or private config API is changed. Settings are captured at startup, with batched
+saving and explicit persistence-error reporting. The file tests use the pinned
+public BepInEx binary in an isolated test host; product compilation still uses
+shims, and the package contains neither dependency nor generated configuration.
+
 The [shim declarations and ledger](../../tools/ReferenceShims/README.md) describe
 every external reference. The [metadata checker](../../tools/ReferenceChecks/Program.cs)
 checks declarations, compiled references, plugin identity and Harmony targets.

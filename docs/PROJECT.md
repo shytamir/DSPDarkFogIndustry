@@ -73,10 +73,11 @@ be accepted; invalid values must receive specific nearest-valid corrections.
 
 | Story / gate | State | Evidence / next action |
 | --- | --- | --- |
-| CFG-I01 | Technically complete; delivery in this story commit | [Numeric/shape findings](implementation/CONFIGURATION-INVESTIGATION.md#numeric-and-shape-follow-up) establish per-recipe domains, duration/rate conversion, duplicate-row correction and the owner-selected recursive-arithmetic boundary. No game code was executed. |
+| CFG-I01 | Delivered | Main `5b2303a638dbe234deb76d69b18e44b589f3f78a`; [CI run 38402139496](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/38402139496) passed. [Numeric/shape findings](implementation/CONFIGURATION-INVESTIGATION.md#numeric-and-shape-follow-up) establish per-recipe domains, duration/rate conversion, duplicate-row correction and the owner-selected recursive-arithmetic boundary. No game code was executed. |
 | G1 | Passed within CFG-D13's boundary | Direct native consumers and correction examples are recorded. Cross-recipe/queue safety is explicitly retained as native behavior, not claimed as proven. |
 | CFG-N01 | Delivered | Main `2a5ad341c37966c9de02d0d2f436a7b238ccbc75`; [CI run 38400259645](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/38400259645) passed. Shared pipeline passed 15 behavior checks, package checks and 164 local links; real-reference build verified 73 external references and three Harmony targets. Its G0 dependency permits catalogue/lifecycle work independently of numeric proofs. |
-| CFG-C01, C02, N02, N03, C03, D01, D02 | Approved, not started | Follow the roadmap's dependency order and per-story delivery rule. |
+| CFG-C01 | Technically complete; delivery in this story commit | Six integer-field sections, startup snapshots and persistence use public BepInEx APIs. Actual pinned-library tests cover defaults, edits, missing/unknown keys, comments, ordering, restart and save failure. Shared pipeline passed 18 behavior checks and package/repository checks; real-reference validation passed. Correction and recipe application follow in C02/N02. |
+| CFG-C02, N02, N03, C03, D01, D02 | Approved, not started | Follow the roadmap's dependency order and per-story delivery rule. |
 | G2, G3, G4 | Pending | Technical completion, verified handoff and owner acceptance remain separate. |
 
 The [investigation](implementation/CONFIGURATION-INVESTIGATION.md) now maps machine

@@ -576,6 +576,11 @@
             "signature": "protected instance System.Void BepInEx.BaseUnityPlugin::.ctor()",
             "virtual_method": false,
             "abstract_method": false
+          },
+          {
+            "signature": "public instance BepInEx.Configuration.ConfigFile BepInEx.BaseUnityPlugin::get_Config()",
+            "virtual_method": false,
+            "abstract_method": false
           }
         ]
       },
@@ -614,6 +619,99 @@
         ]
       },
       {
+        "type": "BepInEx.Configuration.ConfigDefinition",
+        "kind": "class",
+        "abstract_type": false,
+        "sealed_type": false,
+        "base_type": "System.Object",
+        "generic_parameters": [],
+        "interfaces": [],
+        "fields": [],
+        "methods": [
+          {
+            "signature": "public instance System.Void BepInEx.Configuration.ConfigDefinition::.ctor(System.String,System.String)",
+            "virtual_method": false,
+            "abstract_method": false
+          }
+        ]
+      },
+      {
+        "type": "BepInEx.Configuration.ConfigEntry\u00601",
+        "kind": "class",
+        "abstract_type": false,
+        "sealed_type": true,
+        "base_type": "BepInEx.Configuration.ConfigEntryBase",
+        "generic_parameters": [
+          {
+            "name": "T",
+            "attributes": "NonVariant",
+            "constraints": []
+          }
+        ],
+        "interfaces": [],
+        "fields": [],
+        "methods": [
+          {
+            "signature": "public instance System.Void BepInEx.Configuration.ConfigEntry\u00601::set_Value(T)",
+            "virtual_method": false,
+            "abstract_method": false
+          },
+          {
+            "signature": "public instance T BepInEx.Configuration.ConfigEntry\u00601::get_Value()",
+            "virtual_method": false,
+            "abstract_method": false
+          }
+        ]
+      },
+      {
+        "type": "BepInEx.Configuration.ConfigEntryBase",
+        "kind": "class",
+        "abstract_type": true,
+        "sealed_type": false,
+        "base_type": "System.Object",
+        "generic_parameters": [],
+        "interfaces": [],
+        "fields": [],
+        "methods": []
+      },
+      {
+        "type": "BepInEx.Configuration.ConfigFile",
+        "kind": "class",
+        "abstract_type": false,
+        "sealed_type": false,
+        "base_type": "System.Object",
+        "generic_parameters": [],
+        "interfaces": [],
+        "fields": [],
+        "methods": [
+          {
+            "signature": "public instance BepInEx.Configuration.ConfigEntry\u00601\u003CT\u003E BepInEx.Configuration.ConfigFile::Bind(System.String,System.String,T,System.String)",
+            "virtual_method": false,
+            "abstract_method": false
+          },
+          {
+            "signature": "public instance System.Boolean BepInEx.Configuration.ConfigFile::get_SaveOnConfigSet()",
+            "virtual_method": false,
+            "abstract_method": false
+          },
+          {
+            "signature": "public instance System.Boolean BepInEx.Configuration.ConfigFile::Remove(BepInEx.Configuration.ConfigDefinition)",
+            "virtual_method": true,
+            "abstract_method": false
+          },
+          {
+            "signature": "public instance System.Void BepInEx.Configuration.ConfigFile::Save()",
+            "virtual_method": false,
+            "abstract_method": false
+          },
+          {
+            "signature": "public instance System.Void BepInEx.Configuration.ConfigFile::set_SaveOnConfigSet(System.Boolean)",
+            "virtual_method": false,
+            "abstract_method": false
+          }
+        ]
+      },
+      {
         "type": "BepInEx.Logging.ManualLogSource",
         "kind": "class",
         "abstract_type": false,
@@ -625,6 +723,11 @@
         "methods": [
           {
             "signature": "public instance System.Void BepInEx.Logging.ManualLogSource::LogInfo(System.Object)",
+            "virtual_method": false,
+            "abstract_method": false
+          },
+          {
+            "signature": "public instance System.Void BepInEx.Logging.ManualLogSource::LogWarning(System.Object)",
             "virtual_method": false,
             "abstract_method": false
           }

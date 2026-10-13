@@ -16,6 +16,10 @@ namespace BepInEx
                 throw new NotSupportedException("Compile-only shim");
             }
         }
+        public Configuration.ConfigFile Config
+        {
+            get { throw new NotSupportedException("Compile-only shim"); }
+        }
     }
     [AttributeUsage(AttributeTargets.Class)]
     public class BepInPlugin : Attribute
@@ -45,5 +49,43 @@ namespace BepInEx.Logging
         {
             throw new NotSupportedException("Compile-only shim");
         }
+        public void LogWarning(object data)
+        {
+            throw new NotSupportedException("Compile-only shim");
+        }
+    }
+}
+namespace BepInEx.Configuration
+{
+    public class ConfigDefinition
+    {
+        public ConfigDefinition(string section, string key) { throw new NotSupportedException("Compile-only shim"); }
+    }
+    public abstract class ConfigEntryBase
+    {
+        internal ConfigEntryBase() { }
+    }
+    public sealed class ConfigEntry<T> : ConfigEntryBase
+    {
+        private ConfigEntry() { }
+        public T Value
+        {
+            get { throw new NotSupportedException("Compile-only shim"); }
+            set { throw new NotSupportedException("Compile-only shim"); }
+        }
+    }
+    public class ConfigFile
+    {
+        private ConfigFile() { }
+        public bool SaveOnConfigSet
+        {
+            get { throw new NotSupportedException("Compile-only shim"); }
+            set { throw new NotSupportedException("Compile-only shim"); }
+        }
+        public ConfigEntry<T> Bind<T>(string section, string key, T defaultValue, string description)
+        { throw new NotSupportedException("Compile-only shim"); }
+        // The upstream dictionary implementation emits this member as virtual.
+        public virtual bool Remove(ConfigDefinition key) { throw new NotSupportedException("Compile-only shim"); }
+        public void Save() { throw new NotSupportedException("Compile-only shim"); }
     }
 }

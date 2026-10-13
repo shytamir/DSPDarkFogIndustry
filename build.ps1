@@ -32,6 +32,9 @@ try {
     $productOutput = Join-Path $runRoot 'product'
     & (Join-Path $RepoRoot 'scripts/Build-Plugin.ps1') -ReferenceMode Shims -Version $version -BuildLabel $label -OutputPath $productOutput
     $productChecks = Join-Path $RepoRoot 'tests/ProductChecks/ProductChecks.csproj'
+    # Product compilation uses shims; file round-trip tests use the pinned public
+    # BepInEx implementation. Neither dependency is part of the package payload.
+    & (Join-Path $RepoRoot 'scripts/Prepare-References.ps1') | Out-Null
     Invoke-Checked dotnet @('restore',$productChecks,'--locked-mode','--nologo')
     Invoke-Checked dotnet @('run','--project',$productChecks,'--no-restore','-c','Release')
     $dll = Join-Path $productOutput 'DSPDarkFogIndustry.dll'

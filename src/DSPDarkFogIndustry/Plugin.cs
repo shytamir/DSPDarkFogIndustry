@@ -11,6 +11,7 @@ namespace DSPDarkFogIndustry
 
         private void Awake()
         {
+            RecipeStartup.Configuration = new RecipeConfiguration(Config, message => Logger.LogWarning(message));
             new Harmony(Id).PatchAll(typeof(Plugin).Assembly);
             Logger.LogInfo("DSP Dark Fog Industry " + BuildIdentity.Version + " loaded.");
         }
