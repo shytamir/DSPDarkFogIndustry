@@ -1,6 +1,6 @@
-# Configurable recipes: owner checklist
+# Configurable recipes: owner checklist for 0.9.33
 
-Use the **replacement candidate identified in [PROJECT](../PROJECT.md#selected-configurability-candidate)** in a test save/profile. Launch once to generate the config, then exit. Before changing recipes already in use: **empty affected machines, clear their recipes, cancel queued handcrafts, save, then exit.**
+Use **0.9.33** from [run 38419021406](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/38419021406) in a test save/profile; [PROJECT](../PROJECT.md#selected-configurability-candidate) records the verified artifact. Launch once to generate the config, then exit. Before changing recipes already in use: **empty affected machines, clear their recipes, cancel queued handcrafts, save, then exit.**
 
 In **Notepad or another text editor**, open the config in the profile you launch:
 

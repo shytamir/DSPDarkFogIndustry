@@ -6,7 +6,7 @@ and publication. Other documents define contracts or evidence and link here.
 
 ## Current state
 
-- Phase: configurability owner-review revision; preparing a replacement handoff.
+- Phase: configurability owner handoff; revised candidate awaiting validation and acceptance.
 - Authorized scope: execute the approved configurability roadmap through owner
   handoff, committing and pushing each completed story with its management update.
   G0 is approved; execution through G3 is delivered below. The owner subsequently
@@ -17,7 +17,8 @@ and publication. Other documents define contracts or evidence and link here.
 - Build version line: `0.9.x`, owner-directed on 2026-10-08; the patch remains the
   CI run number (0 for local builds). The historical MVP candidate remains `0.1.8`.
 - Product implementation: MVP-01 through MVP-07 completed and accepted as the MVP;
-  the MVP's M3 satisfied. The earlier configurability G3 is undergoing the owner-directed usability revision below. The
+  the MVP's M3 satisfied. Configurability and the owner-directed usability revision
+  have passed G3; acceptance remains pending. The
   [owner handoff](archive/2026-10-08-mvp/OWNER-VALIDATION.md) is archived.
 - Planning: the [live roadmap](planning/ROADMAP.md) defines the configurability
   investigation and approved delivery sequence. G0 approves the configuration
@@ -83,21 +84,34 @@ are superseded by CFG-D14/D15 below. Quantity/rate corrections remain unchanged.
 | CFG-N02 | Delivered | Main `8eeb5ac8a413f3936b746492803c503ada038e96`; [CI run 38404231424](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/38404231424) passed. Corrected contents and gates populate native records. Shared gates accumulate; import uses native full completion and preserves saved unlocks. Shared pipeline passed 22 checks; real metadata verified 86 references and three hooks. |
 | CFG-N03 | Delivered | Main `2a05f5e89d302ff1062325aa25631e80c38e7384`; [CI run 38404589354](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/38404589354) passed. Emitted-record tests preserve defaults and verify custom batches, family changes, tier-ID invariance, native ceilings and lower-rate ties. Shared pipeline passed 24 checks. [Production evidence](implementation/NATIVE-INTEGRATION.md#configured-production-checks) gives owner expectations. |
 | CFG-C03 | Delivered | Main `6fde23f0b6a5a929864c7897bfc0b051d18e1fb8`; [CI run 38405244674](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/38405244674) passed. References use the validator's catalogue and native translation/metadata; edits are inert. Generated text and round trips were reviewed. Shared pipeline passed 25 checks; real metadata verified 93 references and three hooks. Actual editor interaction remains an owner observation. |
-| G2 | Passed | All implementation stories are on main with successful CI. Defaults, custom settings, native integration and file persistence pass the offline checks; no game validation is inferred. |
+| G2 | Passed, including CFG-U01 | All implementation stories are on main with successful CI. Defaults, custom settings, native integration and file persistence pass the offline checks; no game validation is inferred. |
 | CFG-D01 | Delivered and independently verified | Candidate source `5c0cdda26e5f08d378795c604afc83787a046617`; [CI run 38405672271](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/38405672271), attempt 1, passed. Downloaded 0.9.30 matched both provider digests, all 107 committed source hashes, package contents and version metadata. Its DLL passed real-reference validation for 93 references and three Harmony targets. Details below. |
 | CFG-D02 | Delivered in this handoff commit | [Owner procedure](implementation/CONFIGURATION-OWNER-VALIDATION.md) identifies the candidate, editor checks, defaults/custom rates, shared gates, corrections, native behavior and prepared save changes. Instructions were checked against the package, generated file layout and emitted-record expectations. Owner result fields are blank. |
-| G3 | Passed; awaiting owner acceptance | Nine stories delivered through technical validation and one verified candidate. No game launch, save access, installed-file change or manager interaction was performed by the agent. Stop at the owner handoff. |
+| G3 | Passed again for 0.9.33; awaiting owner acceptance | The original nine stories and CFG-U01 are delivered through technical validation and the verified replacement candidate below. No game launch, save access, installed-file change or manager interaction was performed by the agent. Stop at the owner handoff. |
 | G4 | Pending owner decision | Acceptance, archival, any version promotion and publication remain separate. |
-| CFG-U01 | Locally validated; CI candidate verification pending | [Bounded revision](planning/ROADMAP.md#cfg-u01--text-editor-usability-after-owner-review). The generated file is 138 lines with core controls through line 65, including blank lines between sections. Offline checks cover name/ID resolution, default fallback, legacy extra-input migration, separate reference and stable saves. All 27 behavior checks and the shared build/package/repository checks pass. Real/shim builds verify 95 external references and three unchanged Harmony targets. Delivery requires the actual CI artifact below. |
+| CFG-U01 | Delivered; replacement candidate independently verified | Main `7f2598debeabf303842fdbab339b041f350529d4`; [CI run 38419021406](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/38419021406) passed. [Bounded revision](planning/ROADMAP.md#cfg-u01--text-editor-usability-after-owner-review). Generated config: 138 lines, core controls through line 65. All 27 behavior checks and the shared build/package/repository checks pass. Real/shim validation verifies 95 external references and three unchanged Harmony targets. Downloaded 0.9.33 passed the checks below; owner observations remain pending. |
 
 ### Selected configurability candidate
 
-The replacement for the owner-rejected embedded-reference layout is awaiting CI
-artifact verification. The following 0.9.30 record is retained as the earlier
-candidate's evidence; it does not contain CFG-U01.
+- **0.9.33**, label `0.9.33.7f2598debeab`, from CFG-U01's run above, attempt 1.
+  Source: `7f2598debeabf303842fdbab339b041f350529d4`. The subsequent documentation-only
+  handoff build does not replace this selected package.
+- ZIP SHA-256: `6289e433e263ed44ebb5b8af6ba35d03c5590f8195f072555d0a0bdf56a6e408`.
+- DLL SHA-256: `8c061e621f154a7ef39c89e7e79709d195b50e564926c0513680133b02b6a4a5`.
+- Independent download inspection verified both provider digests, all 109 source
+  hashes against the committed export, package contents/metadata and the downloaded
+  DLL against real external metadata. Evidence: `artifacts/ci/38419021406/`.
+- Offline BepInEx checks verify the 138-line layout, migration of inputs 3–6,
+  exact names/IDs, default fallback, stable corrected saves and the separate
+  reference. No production defaults or configurable output controls were removed.
+- Follow the [owner checklist](implementation/CONFIGURATION-OWNER-VALIDATION.md).
+  Game behavior and actual editor use remain owner observations; no acceptance
+  or publication is inferred from these checks.
+
+### Earlier configurability candidate — 0.9.30
 
 - Version **0.9.30**, build label `0.9.30.5c0cdda26e5f`, from the D01 run above.
-  The later documentation-only handoff build does not replace this selected artifact.
+  This was the original handoff artifact, now superseded by 0.9.33 above.
 - Package SHA-256: `d9556239e5c4219f9397144df1665d03be7eb0a2dd13a82f384a0351a41c6243`.
 - Plugin SHA-256: `fd53b689928d8f291cdf53d295b9f803aea14a17d379a3652f723c0c5838c14e`.
 - Retained download/evidence: `artifacts/ci/38405672271/`, including source export,
