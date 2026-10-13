@@ -3,7 +3,9 @@
 Static inspection, 2026-10-13. [PROJECT](../PROJECT.md) records authorization and
 dispositions; the [roadmap](../planning/ROADMAP.md) defines the work and questions.
 This is an initial evidence record, not a complete configuration design or a
-current-game compatibility claim.
+current-game compatibility claim. The follow-up below records the bounded checks
+requested when refining the roadmap; the initial observations remain identified
+separately from the additional evidence.
 
 ## Sources and reproduction
 
@@ -73,8 +75,9 @@ ID cannot determine the requested behavior without an agreed mapping.
 smelting, chemical, refining, assembly, particle, exchange, photon storage,
 fractionation and research. Merely naming an enum value does not prove a machine
 accepts arbitrary recipes of that family. This inspection has not completed the
-machine-prefab capability/speed map or specialized consumer checks. Those must
-precede the valid-machine list and rate semantics, including higher-tier machines.
+machine-prefab capability/speed map or specialized consumer checks in the initial
+pass. The follow-up below supplies the ordinary-machine map and identifies the
+remaining lab-specific question.
 
 **Integer fields still have native constraints.** `RecipeProto.Preload` requires
 matching item/count arrays and, for fractionation, one input and one output. It
@@ -129,7 +132,131 @@ clamps to an interval endpoint. In contrast,
 returns the first listed value for an invalid entry; it does not find the nearest
 numeric ID. Neither mechanism defines distance between different whole recipes.
 
-The remaining policy questions are in the roadmap, rather than embedded here as
-implementation choices. In particular, no complete valid-ID list, universal
-quantity cap, correction algorithm, mod-manager compatibility claim or safe
-save-transition procedure has been established by this initial inspection.
+The initial pass did not establish a complete valid-ID list, universal quantity
+cap, correction algorithm, mod-manager compatibility claim or safe save-transition
+procedure. Requirements and proposals now live in the
+[configuration contract](../planning/CONFIGURATION.md); PROJECT owns their dispositions.
+
+## Follow-up inspection for the revised roadmap
+
+The assembly hash was reconfirmed against the identity above. No failed activation
+was retried and no baseline was refreshed. ILSpy output for `RecipeProto`,
+`AssemblerComponent`, `PrefabDesc`, `GameHistoryData` and `VFPreload` is byte-identical
+to the retained 29104 decompilations made with the same tool. That is a bounded
+source comparison, not verification of all external references or game behavior.
+Additional selected types were `ItemProto`, `MechaForge`, `FactorySystem`,
+`FractionatorComponent`, `UIRecipePicker`, `UIReplicatorWindow`, `UIAssemblerWindow`,
+`PowerGeneratorComponent` and `PowerExchangerComponent`.
+
+UnityPy 1.25.3 read `AssemblerDesc`, `LabDesc`, `FractionatorDesc` and `ModelProtoSet`
+from the current assets. The probe joined item `ModelIndex` to model ID and
+`PrefabPath`, then matched the corresponding prefab/component. Besides the
+resource hash above, the inputs were `globalgamemanagers.assets` SHA-256
+`6b33628213f713bcac82a5d94f7739e42362b71ac3df881a0eefc0c26586564e`
+and `sharedassets0.assets` SHA-256
+`841f08598c8ab4253441e29de0d7b739d5852c4f693eec59bd86049f2feb004e`.
+The ignored probe is `.local/configurability/inspect-facilities.py`; its result is
+`facilities.json` in the same hash-keyed evidence directory as the other extracts.
+
+### Machine selection and startup
+
+| Item IDs, in tier order | Native recipe family | Base speeds, in the same order |
+| --- | --- | --- |
+| 2302, 2315, 2319 | Smelt | 1, 2, 3 |
+| 2303, 2304, 2305, 2318 | Assemble | 0.75, 1, 1.5, 3 |
+| 2309, 2317 | Chemical | 1, 2 |
+| 2308 | Refine | 1 |
+| 2310 | Particle | 1 |
+| 2901, 2902 | Research, lab manufacturing mode | 1, 3; arbitrary product/count support is not established |
+
+`PrefabDesc` converts assembler and lab production speeds to native integer
+speed units. `UIAssemblerWindow.OnSelectRecipeClick` passes the building's recipe family
+to `UIRecipePicker.Popup`; the picker filters by that family and unlock state,
+not an individual machine ID. Thus selecting one tier can provide a rate baseline
+while other compatible tiers continue to accept the same recipe natively.
+
+`VFPreload.PreloadThread` calls `InvokeOnLoad` before model preloads. The current
+plugin hook therefore cannot simply start reading initialized machine prefab
+fields. All models finish before the first `ItemProto.Preload`; that item method
+then builds recipe links. A guarded Harmony prefix before the first item preload,
+reading the already-loaded model descriptors, is a source-supported candidate
+for registration. `ItemProto.prefabDesc` itself is assigned inside item preload;
+the candidate must not assume every item already has it. `InvokeOnLoadHalf` occurs
+partway through the model loop and is insufficient. This identifies a narrow
+integration route; selecting and verifying the actual hook belongs with the code
+change and its external-reference ledger.
+
+Fractionator item 2314 has no ordinary crafting speed. Its `SetRecipe` selects
+the first fractionation recipe for an incoming item and uses the output/input
+count ratio as probability. It does not use recipe duration to deliver a fixed
+per-minute output. Ray-receiver production and energy-exchanger processing use
+dedicated energy/item paths rather than the ordinary timed recipe executor.
+Those are different production contracts, not interchangeable machine IDs for
+the requested fixed-rate recipes.
+
+### Shape, research and saved state
+
+- `AssemblerComponent.SetRecipe` and lab assembly each allocate six input demand
+  positions. The Replicator builds ingredient rows dynamically, but its main
+  output display has two positions. The owner's subsequent choice of one output
+  removes the need for a multi-output configuration design.
+- Both `MechaForge.TryAddTaskIterate` and `AddTaskIterate` stop after 20 nested
+  calls. `ItemProto.FindRecipes`/`ComputeRawMats` assign their collections before
+  descending into ingredient recipes. The inspected code does not justify the
+  initial suspicion of an unbounded handcraft cycle. Do not introduce a blanket
+  acyclic-progression requirement; these observations do not prove every cyclic
+  recipe is useful or every count calculation safe.
+- `GameHistoryData.SetForNewGame` creates state for every technology record.
+  `AddTechHash` grants `UnlockRecipes` when that record reaches its maximum level,
+  not on each intermediate level. A technology ID alone therefore means completed
+  technology under native semantics. Very high-level gates can be impractical
+  without being invalid. The catalogue contains 304 ordinary published records,
+  six obsolete records and five hidden records; those labels are not themselves
+  evidence of an invalid ID.
+- `MechaForge.Import`, `GameTick` and cancellation use the saved task's arrays
+  and timing. Cancellation returns served items through the native inventory path.
+  This supports preparing/cancelling work before an edit instead of introducing
+  a queue migration. UI lookups can still use current recipe metadata, so old
+  queued work should not be presented as freshly configured work.
+- `FactorySystem.Import` invokes the native component imports. Assembler import
+  retains its saved recipe family and attaches current execution data. Merely
+  emptying buffers does not change that saved family. Preparation for a family
+  switch must also clear the affected machine's selected recipe before saving;
+  after restart the player chooses an appropriate facility and selects the recipe
+  again. This procedure still needs the final owner observation.
+
+### File format and manager boundary
+
+The pinned upstream
+[BaseUnityPlugin constructor](https://github.com/BepInEx/BepInEx/blob/3c3153598b530fb85e623ba226c8cca1b3f4d262/BepInEx/Contract/BaseUnityPlugin.cs)
+constructs the GUID-named `ConfigFile` before the plugin's `Awake`. The config
+constructor immediately reads an existing file. A malformed section/key can
+therefore fail before mod-owned value correction runs. A promise to repair every
+damaged INI file would require a different loading intervention; no such mechanism
+is selected or authorized by these findings.
+
+Ordinary named sections, scalar settings, generated descriptions and reference-only
+string entries fit the inspected BepInEx file model. A numeric ID key and a readable
+name value avoid a giant escaped multiline string. No custom subgroup extension
+is required to group the reference into items, technologies and machines.
+The owner selected Thunderstore Mod Manager. Its exact installed editor version
+and actual rendering were not established by the bounded check; official
+[Thunderstore documentation](https://wiki.thunderstore.io/) does not establish
+how this proposed reference renders. r2modman or an in-game BepInEx configuration
+plugin is not a substitute for validating the selected app. Keep its actual edit,
+search and save round trip in the final owner procedure, without an agent changing
+the owner's manager profile or launching the game.
+
+### Investigations stopped at the brief-check boundary
+
+Only these questions need separate follow-up investigations in the revised plan:
+
+| Story | What the brief check established | Remaining bounded question |
+| --- | --- | --- |
+| CFG-I01 | Duration scaling can overflow; assembler demand multiplies input counts by a speed/time-dependent buffer factor; smelters stop when a batch would exceed 100 output items; handcraft and raw-material calculations multiply counts; production finishes at most one normal cycle per update. | Establish the supported input shapes and exact count/rate/ID bounds across those consumers, including ordinary higher-tier speeds and proliferation. Define nearest attainable integer-rate behavior without quietly changing a valid batch count. This grew beyond a simple range check, so no universal cap or formula was adopted. |
+| CFG-I02 | Labs use count-independent input demand thresholds, a speed-dependent output buffer, and return a production-state value derived from `productId - firstMatrixId + 1`. | Trace that state's consumers and lab feeding/output paths to determine which non-default item/count combinations are natively valid. Do not assume every existing item works or exclude every lab recipe without that evidence. |
+
+The other questions now have source findings, owner decisions, concrete proposals
+for review, or a named final runtime observation. They do not justify retaining
+the original three broad investigation stories. Native extracts and the probe
+remain local; no installed file, save or product code was changed.

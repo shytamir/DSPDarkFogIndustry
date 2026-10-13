@@ -7,16 +7,16 @@ and publication. Other documents define contracts or evidence and link here.
 ## Current state
 
 - Phase: configurability planning, reopened by the owner on 2026-10-13.
-- Authorized scope: initial read-only investigation, a configurability roadmap
-  skeleton, and management/documentation updates through push to main. Product
-  code changes, game execution, installed-file changes and save access are outside
-  this work. Implementation requires a subsequent owner instruction. Completed
+- Authorized scope: bounded read-only investigation, refinement of the
+  configurability roadmap and contract, and documentation updates through push
+  to main. Product code changes, game execution, installed-file changes and save
+  access are outside this work. Implementation requires a subsequent owner instruction. Completed
   MVP and cleanup remain closed; the corrected [HF-01](planning/HF-01-PROTOTYPE-DETECTION.md)
   candidate still awaits owner validation independently of this planning work.
 - Build version line: `0.9.x`, owner-directed on 2026-10-08; the patch remains the
   CI run number (0 for local builds). The historical MVP candidate remains `0.1.8`.
 - Product implementation: MVP-01 through MVP-07 completed and accepted as the MVP;
-  M3 satisfied. No implementation story remains active. The
+  the MVP's M3 satisfied. No implementation story remains active. The
   [owner handoff](archive/2026-10-08-mvp/OWNER-VALIDATION.md) is archived.
 - Planning: the [live roadmap](planning/ROADMAP.md) defines the configurability
   investigation and proposed delivery sequence. Its questions and later
@@ -53,26 +53,46 @@ be accepted; invalid values must receive specific nearest-valid corrections.
 | Work / decision | Disposition | Basis / next gate |
 | --- | --- | --- |
 | CFG-D01: Reopen planning | Owner-directed | Supersedes maintenance deferral for this feature. Documentation delivery to main is authorized; product implementation is not. |
-| Initial investigation and roadmap skeleton | Prepared for owner review | [Roadmap](planning/ROADMAP.md) and [technical findings](implementation/CONFIGURATION-INVESTIGATION.md); later stories remain proposed. |
+| Initial investigation and roadmap skeleton | Delivered; draft definitions superseded by refinement | Main `fa42c40bf1315d6a3e2268b9dee6160b1eda4ab9`; [CI run 38388888854](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/38388888854) passed. Current definitions are in the [roadmap](planning/ROADMAP.md). |
 | CFG-D02: Existing defaults and recipe identity | Proposed | Preserve the accepted recipes as defaults and retain the six registered recipe IDs/selector positions while exposing their contents. Confirm at the planning review. |
-| CFG-D03: Configuration contract | Unresolved | Resolve the roadmap's decision agenda: recipe shape, rate meaning, machine/handcraft rules, validity and correction policy, file presentation, and changes between saves/sessions. |
+| CFG-D03: Remaining configuration proposals | Awaiting owner review | [Contract](planning/CONFIGURATION.md): file/ingredient layout, native completed-tech meaning, correction distance/ties/precedence, startup application, reference presentation and malformed-file boundary. Numeric proofs and lab constraints remain CFG-I01/I02; neither may invent balance restrictions. |
+| CFG-D04: Rate baseline | Owner-selected, 2026-10-13 | Products/minute in the selected machine before proliferation; other compatible tiers retain native speed differences. |
+| CFG-D05: Hand replication | Owner-selected, 2026-10-13 | Retain the current family rule: assembler recipes allow handcrafting; other families do not. No independent handcraft toggle. |
+| CFG-D06: Configuration changes and saves | Owner-selected, 2026-10-13 | Keep native loading behavior and document preparation, including emptying/clearing affected machines and cancelling queued handcrafts. No resource-preserving migration. |
+| CFG-D07: Output shape | Owner-selected, 2026-10-13 | One output item type per recipe, with editable ID and count. |
+| CFG-D08: Config editor target | Owner-selected, 2026-10-13 | Thunderstore Mod Manager, alongside Notepad. Actual manager presentation remains an owner observation; no substitute editor establishes it. |
+| CFG-D09: Roadmap refinement | Owner-directed, 2026-10-13 | Investigate routine uncertainties now within the existing envelope; retain bounded investigation stories only for questions that exceed it or become rabbit holes. Add relative work weights, epic/story separation, explicit phase gates and executable closeout/handoff instructions. |
+| Revised roadmap and contract | Prepared for owner review; G0 not passed | Three epics, ten stories, 32 relative work units. Only CFG-I01 (coupled numeric/shape bounds) and CFG-I02 (lab-specific validity) remain investigation stories. Implementation and later gates have not begun. |
 | Current native reference | Drift identified; not adopted | Installed build identifies itself as 0.10.35.29131; recorded baseline is 0.10.35.29104. Activation stopped once. Selected new-build types/assets were inspected statically; baseline refresh and compatibility validation remain outstanding. |
 | Implementation, gameplay acceptance and publication | Not authorized by this planning request | Owner review of the completed contract and implementation plan precedes a separate implementation instruction. HF-01 acceptance and the published baseline are unchanged. |
 
-The initial evidence distinguishes recipe-level handcraft flags from machine
-families, identifies shared-technology registration and saved-buffer concerns,
-and checks BepInEx's actual serialization and validation behavior. It does not
-establish a complete valid-value domain, current-game compatibility, or any
-configurable runtime behavior. Native extracts remain ignored local evidence.
+The [investigation](implementation/CONFIGURATION-INVESTIGATION.md) now maps machine
+IDs/speeds, family filtering, startup timing, technology completion, bounded
+handcraft recursion and native save/queue transitions. The brief numeric and lab
+checks exposed further coupled consumers; those two questions were bounded and
+deferred instead of assigning guessed limits. Native extracts remain ignored.
+No complete valid-value domain, current-game compatibility or configurable
+runtime behavior has been established.
 
-Review covered technical claims against source/assets, investigation coverage,
+Initial draft review covered technical claims against source/assets, investigation coverage,
 scope and document authority, then wording. It kept machine family, handcraft
 eligibility and rate interpretation as separate questions; required the reference
 to match the accepted ID domain; and left default preservation and save-transition
 policy for owner review. The pending hotfix and published release were preserved.
-Documentation validation passed: PowerShell syntax, 158 local links, retained
+Initial draft validation passed: PowerShell syntax, 158 local links, retained
 concept hashes, source hygiene and diff whitespace. No local product build or
 runtime test was performed for this documentation change.
+
+Refinement review checked the new facts against their native consumers, then
+scope, dependencies, weights and handoff instructions against the completed MVP's
+delivery standard. It removed routine investigation stories, put reference adoption
+before the first configuration build, made C02's catalogue dependency explicit,
+distinguished value correction from damaged
+file syntax, and kept pending native bounds out of assumed implementation facts.
+The epic totals agree with the ten story weights (32); gates add no work weight.
+Repository validation passed with 162 local links, retained concept hashes,
+PowerShell syntax, source hygiene and diff whitespace. Only planning/management
+and evidence documents changed; product code, installed files and saves were untouched.
 
 ## HF-01 maintenance hotfix — 2026-10-08
 
