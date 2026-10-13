@@ -45,6 +45,7 @@ public class TechProtoSet : ProtoSet<TechProto>
 public class ItemProto : Proto
 {
     public int ModelIndex;
+    public bool Productive;
 }
 
 public class ModelProtoSet : ProtoSet<ModelProto>
@@ -58,6 +59,7 @@ public class ModelProto : Proto
 
 public class PrefabDesc
 {
+    public UnityEngine.Pose[] slotPoses;
     public bool isAssembler;
     public int assemblerSpeed;
     public ERecipeType assemblerRecipeType;

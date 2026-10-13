@@ -14,6 +14,7 @@ namespace DSPDarkFogIndustry
             }
 
             var catalogue = new RecipeCatalogue(items, technologies, models);
+            Configuration?.Correct(catalogue);
             Configuration?.Save();
             RecipeRegistration.Register(recipes, items, technologies);
             Catalogue = catalogue;

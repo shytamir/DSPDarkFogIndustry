@@ -4,6 +4,7 @@ using System.Reflection;
 // Compile-only declarations. These assemblies must never be installed.
 namespace UnityEngine
 {
+    public struct Pose { }
     public class Object
     {
     }

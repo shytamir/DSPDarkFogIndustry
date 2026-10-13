@@ -6,7 +6,7 @@ using Mono.Cecil;
 internal static class Program
 {
     private static readonly string[] Libraries = ["Assembly-CSharp", "BepInEx", "0Harmony", "UnityEngine", "UnityEngine.CoreModule"];
-    private static readonly HashSet<string> Framework = ["mscorlib", "System", "System.Core", "System.Runtime", "netstandard"];
+    private static readonly HashSet<string> Framework = ["mscorlib", "System", "System.Core", "System.Numerics", "System.Runtime", "netstandard"];
     private static readonly JsonSerializerOptions Json = new() { WriteIndented = true };
 
     private static string Visibility(MethodDefinition method) => method.IsPublic ? "public"

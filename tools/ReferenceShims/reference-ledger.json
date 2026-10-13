@@ -137,6 +137,12 @@
         "interfaces": [],
         "fields": [
           {
+            "signature": "public instance System.Boolean ItemProto::Productive",
+            "read_only": false,
+            "literal": false,
+            "constant": null
+          },
+          {
             "signature": "public instance System.Int32 ItemProto::ModelIndex",
             "read_only": false,
             "literal": false,
@@ -264,6 +270,12 @@
           },
           {
             "signature": "public instance System.Int32 PrefabDesc::assemblerSpeed",
+            "read_only": false,
+            "literal": false,
+            "constant": null
+          },
+          {
+            "signature": "public instance UnityEngine.Pose[] PrefabDesc::slotPoses",
             "read_only": false,
             "literal": false,
             "constant": null
@@ -954,6 +966,17 @@
             "abstract_method": false
           }
         ]
+      },
+      {
+        "type": "UnityEngine.Pose",
+        "kind": "struct",
+        "abstract_type": false,
+        "sealed_type": true,
+        "base_type": "System.ValueType",
+        "generic_parameters": [],
+        "interfaces": [],
+        "fields": [],
+        "methods": []
       },
       {
         "type": "UnityEngine.ScriptableObject",

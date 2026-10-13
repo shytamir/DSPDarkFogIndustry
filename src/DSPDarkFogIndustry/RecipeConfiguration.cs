@@ -72,6 +72,7 @@ namespace DSPDarkFogIndustry
         internal readonly RecipeSettings[] Recipes = new RecipeSettings[6];
         internal readonly ConfigFile File;
         private readonly Action<string> report;
+        internal int[] Durations { get; private set; }
 
         internal RecipeConfiguration(ConfigFile file, Action<string> report)
         {
@@ -100,6 +101,11 @@ namespace DSPDarkFogIndustry
             {
                 report("Could not save effective recipe settings: " + error.Message);
             }
+        }
+
+        internal void Correct(RecipeCatalogue catalogue)
+        {
+            Durations = RecipeCorrection.Apply(this, catalogue, report);
         }
     }
 }

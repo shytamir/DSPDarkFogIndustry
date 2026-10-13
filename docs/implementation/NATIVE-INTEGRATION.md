@@ -36,6 +36,20 @@ saving and explicit persistence-error reporting. The file tests use the pinned
 public BepInEx binary in an isolated test host; product compilation still uses
 shims, and the package contains neither dependency nor generated configuration.
 
+[RecipeCorrection](../../src/DSPDarkFogIndustry/RecipeCorrection.cs) applies the
+contract's field precedence. [NumericSetting](../../src/DSPDarkFogIndustry/NumericSetting.cs)
+compares decimal distances exactly, including overflow text.
+[RecipeLimits](../../src/DSPDarkFogIndustry/RecipeLimits.cs) keeps native duration,
+input demand, insertion headroom and output buffers representable, then searches
+the finite duration domain for an integral basic-machine rate. Its quantity search
+does not change a valid count to accommodate a requested rate. Recursive crafting
+and queue arithmetic remain native, as selected in PROJECT.
+
+Machine descriptors whose accelerated speed would overflow native `speedOverride * 180`
+are ineligible independently of recipe duration. Native catalogue speeds are far
+below that bound. The four-point spray/acceleration assumptions are native values;
+mods replacing those tables need separate compatibility evidence.
+
 The [shim declarations and ledger](../../tools/ReferenceShims/README.md) describe
 every external reference. The [metadata checker](../../tools/ReferenceChecks/Program.cs)
 checks declarations, compiled references, plugin identity and Harmony targets.

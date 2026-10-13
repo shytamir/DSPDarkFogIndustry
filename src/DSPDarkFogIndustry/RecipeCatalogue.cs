@@ -8,12 +8,14 @@ namespace DSPDarkFogIndustry
         internal readonly int ItemId;
         internal readonly ERecipeType Family;
         internal readonly int Speed;
+        internal readonly int Slots;
 
-        internal MachineChoice(int itemId, ERecipeType family, int speed)
+        internal MachineChoice(int itemId, ERecipeType family, int speed, int slots)
         {
             ItemId = itemId;
             Family = family;
             Speed = speed;
+            Slots = slots;
         }
     }
 
@@ -38,9 +40,11 @@ namespace DSPDarkFogIndustry
                 var model = models.Select(item.ModelIndex);
                 var prefab = model == null ? null : model.prefabDesc;
                 if (prefab != null && prefab.isAssembler && IsAllowedFamily(prefab.assemblerRecipeType)
-                    && prefab.assemblerSpeed > 0)
+                    && prefab.assemblerSpeed > 0 && prefab.assemblerSpeed <= int.MaxValue / 360)
                 {
-                    Machines.Add(item.ID, new MachineChoice(item.ID, prefab.assemblerRecipeType, prefab.assemblerSpeed));
+                    // UpdateNeeds multiplies the accelerated speed by 180 in Int32.
+                    Machines.Add(item.ID, new MachineChoice(item.ID, prefab.assemblerRecipeType, prefab.assemblerSpeed,
+                        prefab.slotPoses == null ? 0 : prefab.slotPoses.Length));
                 }
             }
 

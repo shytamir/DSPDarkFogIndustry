@@ -17,5 +17,8 @@
     <Compile Include="../../src/DSPDarkFogIndustry/RecipeCatalogue.cs" Link="Product/RecipeCatalogue.cs" />
     <Compile Include="../../src/DSPDarkFogIndustry/RecipeStartup.cs" Link="Product/RecipeStartup.cs" />
     <Compile Include="../../src/DSPDarkFogIndustry/RecipeConfiguration.cs" Link="Product/RecipeConfiguration.cs" />
+    <Compile Include="../../src/DSPDarkFogIndustry/NumericSetting.cs" Link="Product/NumericSetting.cs" />
+    <Compile Include="../../src/DSPDarkFogIndustry/RecipeLimits.cs" Link="Product/RecipeLimits.cs" />
+    <Compile Include="../../src/DSPDarkFogIndustry/RecipeCorrection.cs" Link="Product/RecipeCorrection.cs" />
   </ItemGroup>
 </Project>
