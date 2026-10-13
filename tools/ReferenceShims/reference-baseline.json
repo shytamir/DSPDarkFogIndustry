@@ -1,9 +1,9 @@
 {
   "Assembly-CSharp": {
     "assembly": "Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-    "sha256": "6c122e5443e6843979b4064050dfcb5e0d75577a0b64f6ae4111290238b33c12",
-    "source": "DSP 0.10.35.29104; Unity 2022.3.62f3",
-    "inspected": "2026-10-08"
+    "sha256": "74ac6162cef8394a6021c8475132cae4df4f840871a99e63cc7d2c8297661bc0",
+    "source": "DSP 0.10.35.29131; Unity 2022.3.62f3",
+    "inspected": "2026-10-13"
   },
   "BepInEx": {
     "assembly": "BepInEx, Version=5.4.17.0, Culture=neutral, PublicKeyToken=null",

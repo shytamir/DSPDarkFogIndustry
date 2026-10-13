@@ -6,21 +6,21 @@ and publication. Other documents define contracts or evidence and link here.
 
 ## Current state
 
-- Phase: configurability planning, reopened by the owner on 2026-10-13.
-- Authorized scope: bounded read-only investigation, refinement of the
-  configurability roadmap and contract, and documentation updates through push
-  to main. Product code changes, game execution, installed-file changes and save
-  access are outside this work. Implementation requires a subsequent owner instruction. Completed
+- Phase: configurability implementation, authorized by the owner on 2026-10-13.
+- Authorized scope: execute the approved configurability roadmap through owner
+  handoff, committing and pushing each completed story with its management update.
+  G0 is approved. Game execution, installed-file/manager-profile changes and save
+  access remain outside the agent's operational envelope. Completed
   MVP and cleanup remain closed; the corrected [HF-01](planning/HF-01-PROTOTYPE-DETECTION.md)
   candidate still awaits owner validation independently of this planning work.
 - Build version line: `0.9.x`, owner-directed on 2026-10-08; the patch remains the
   CI run number (0 for local builds). The historical MVP candidate remains `0.1.8`.
 - Product implementation: MVP-01 through MVP-07 completed and accepted as the MVP;
-  the MVP's M3 satisfied. No implementation story remains active. The
+  the MVP's M3 satisfied. CFG-I01 is active under the new roadmap. The
   [owner handoff](archive/2026-10-08-mvp/OWNER-VALIDATION.md) is archived.
 - Planning: the [live roadmap](planning/ROADMAP.md) defines the configurability
-  investigation and proposed delivery sequence. Its questions and later
-  implementation stories are not approved product decisions. The
+  investigation and approved delivery sequence. G0 approves the configuration
+  contract and implementation through G3; G4 remains the owner's acceptance. The
   [MVP recipe contract](planning/MVP-RECIPES.md) describes current behavior;
   the [completed MVP roadmap](archive/2026-10-08-mvp/ROADMAP.md) remains archived.
   No release version or schedule has been selected for configurability; this
@@ -52,10 +52,10 @@ be accepted; invalid values must receive specific nearest-valid corrections.
 
 | Work / decision | Disposition | Basis / next gate |
 | --- | --- | --- |
-| CFG-D01: Reopen planning | Owner-directed | Supersedes maintenance deferral for this feature. Documentation delivery to main is authorized; product implementation is not. |
+| CFG-D01: Reopen planning | Owner-directed; initial planning scope | Superseded maintenance deferral for this feature. Initially authorized documentation only; G0 below subsequently authorizes implementation. |
 | Initial investigation and roadmap skeleton | Delivered; draft definitions superseded by refinement | Main `fa42c40bf1315d6a3e2268b9dee6160b1eda4ab9`; [CI run 38388888854](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/38388888854) passed. Current definitions are in the [roadmap](planning/ROADMAP.md). |
-| CFG-D02: Existing defaults and recipe identity | Proposed | Preserve the accepted recipes as defaults and retain the six registered recipe IDs/selector positions while exposing their contents. Confirm at the planning review. |
-| CFG-D03: Remaining configuration proposals | Awaiting owner review | [Contract](planning/CONFIGURATION.md): file/ingredient layout, native completed-tech meaning, correction distance/ties/precedence, startup application, reference presentation and malformed-file boundary. Numeric/shape proofs remain CFG-I01 within the three allowed machine families; no invented balance restrictions. |
+| CFG-D02: Existing defaults and recipe identity | Approved at G0, 2026-10-13 | Preserve the accepted recipes as defaults and retain the six registered recipe IDs/selector positions while exposing their contents. |
+| CFG-D03: Configuration contract | Approved at G0, 2026-10-13 | [Contract](planning/CONFIGURATION.md): file/ingredient layout, native completed-tech meaning, correction distance/ties/precedence, startup application, reference presentation and malformed-file boundary. Numeric/shape proofs remain CFG-I01 within the three allowed machine families; no invented balance restrictions. |
 | CFG-D04: Selected-machine rate baseline | Superseded by CFG-D11, 2026-10-13 | The earlier selection used the chosen machine's speed. The owner now requires each family's basic-machine baseline, regardless of the configured tier ID. |
 | CFG-D05: Hand replication | Owner-selected, 2026-10-13 | Retain the current family rule: assembler recipes allow handcrafting; other families do not. No independent handcraft toggle. |
 | CFG-D06: Configuration changes and saves | Owner-selected, 2026-10-13 | Keep native loading behavior and document preparation, including emptying/clearing affected machines and cancelling queued handcrafts. No resource-preserving migration. |
@@ -66,9 +66,17 @@ be accepted; invalid values must receive specific nearest-valid corrections.
 | CFG-D10: Allowed production machines | Owner-directed, 2026-10-13 | Only smelters, chemical plants and assemblers. Labs and all other families are outside this roadmap. Remove CFG-I02 and its dependent lab work; this is a scope decision, not a native incompatibility finding. |
 | CFG-D11: Basic-machine rate baseline | Owner-directed, 2026-10-13 | Products/minute before proliferation in Arc Smelter, Chemical Plant or Assembling Machine Mk.I. A configured higher-tier ID in the same family does not change this baseline; native tier speed differences remain. Supersedes CFG-D04. |
 | CFG-D12: Explicit story exclusions | Owner-directed, 2026-10-13 | Every story must state its out-of-scope work separately from its stop condition before the final draft is resubmitted. |
-| Revised roadmap and contract | Prepared for owner review; G0 not passed | Three epics, nine stories, 29 relative work units. Only CFG-I01 (coupled numeric/shape bounds in the three allowed families) remains an investigation story. Implementation and later gates have not begun. |
-| Current native reference | Drift identified; not adopted | Installed build identifies itself as 0.10.35.29131; recorded baseline is 0.10.35.29104. Activation stopped once. Selected new-build types/assets were inspected statically; baseline refresh and compatibility validation remain outstanding. |
-| Implementation, gameplay acceptance and publication | Not authorized by this planning request | Owner review of the completed contract and implementation plan precedes a separate implementation instruction. HF-01 acceptance and the published baseline are unchanged. |
+| Revised roadmap and contract / G0 | Owner-approved, 2026-10-13 | Owner: "I'm approving G0. Implement through to owner handoff please. Push to main when each story is done alongside a management docs update where appropriate." Three epics, nine stories, 29 relative work units; execute through G3, then wait for acceptance. |
+| Current native reference | Adopted for CFG-N01 | DSP 0.10.35.29131, assembly SHA-256 `74ac6162cef8394a6021c8475132cae4df4f840871a99e63cc7d2c8297661bc0`. Deliberate bootstrap refresh passed after the earlier drift diagnosis; real-library compilation and binding validation passed. This is not in-game compatibility acceptance. |
+| Implementation, gameplay acceptance and publication | Implementation through handoff authorized; acceptance/publication separate | Story pushes are authorized. HF-01 acceptance and the published baseline are unchanged; no version promotion or publication is included. |
+
+| Story / gate | State | Evidence / next action |
+| --- | --- | --- |
+| CFG-I01 | Active | Trace remaining native numeric/shape constraints before G1. |
+| G1 | Pending | Numeric domains and correction examples must be established. |
+| CFG-N01 | Technically validated; delivery in this story commit | Model-backed catalogue and first-item-preload registration preserve fixed recipes. Shared pipeline passed 15 behavior checks, package checks and 164 local links; real-reference build verified 73 external references and three Harmony targets. Catalogue/lifecycle work is independent of numeric limits, so its dependency was corrected to G0. G1 still blocks configurable recipe implementation. |
+| CFG-C01, C02, N02, N03, C03, D01, D02 | Approved, not started | Follow the roadmap's dependency order and per-story delivery rule. |
+| G2, G3, G4 | Pending | Technical completion, verified handoff and owner acceptance remain separate. |
 
 The [investigation](implementation/CONFIGURATION-INVESTIGATION.md) now maps machine
 IDs/speeds, family filtering, startup timing, technology completion, bounded

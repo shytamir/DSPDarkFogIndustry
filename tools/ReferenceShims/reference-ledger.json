@@ -135,7 +135,14 @@
         "base_type": "Proto",
         "generic_parameters": [],
         "interfaces": [],
-        "fields": [],
+        "fields": [
+          {
+            "signature": "public instance System.Int32 ItemProto::ModelIndex",
+            "read_only": false,
+            "literal": false,
+            "constant": null
+          }
+        ],
         "methods": [
           {
             "signature": "public instance System.Void ItemProto::.ctor()",
@@ -177,12 +184,94 @@
             "abstract_method": false
           },
           {
+            "signature": "public static ModelProtoSet LDB::get_models()",
+            "virtual_method": false,
+            "abstract_method": false
+          },
+          {
             "signature": "public static RecipeProtoSet LDB::get_recipes()",
             "virtual_method": false,
             "abstract_method": false
           },
           {
             "signature": "public static TechProtoSet LDB::get_techs()",
+            "virtual_method": false,
+            "abstract_method": false
+          }
+        ]
+      },
+      {
+        "type": "ModelProto",
+        "kind": "class",
+        "abstract_type": false,
+        "sealed_type": false,
+        "base_type": "Proto",
+        "generic_parameters": [],
+        "interfaces": [],
+        "fields": [
+          {
+            "signature": "public instance PrefabDesc ModelProto::prefabDesc",
+            "read_only": false,
+            "literal": false,
+            "constant": null
+          }
+        ],
+        "methods": [
+          {
+            "signature": "public instance System.Void ModelProto::.ctor()",
+            "virtual_method": false,
+            "abstract_method": false
+          }
+        ]
+      },
+      {
+        "type": "ModelProtoSet",
+        "kind": "class",
+        "abstract_type": false,
+        "sealed_type": false,
+        "base_type": "ProtoSet\u00601\u003CModelProto\u003E",
+        "generic_parameters": [],
+        "interfaces": [],
+        "fields": [],
+        "methods": [
+          {
+            "signature": "public instance System.Void ModelProtoSet::.ctor()",
+            "virtual_method": false,
+            "abstract_method": false
+          }
+        ]
+      },
+      {
+        "type": "PrefabDesc",
+        "kind": "class",
+        "abstract_type": false,
+        "sealed_type": false,
+        "base_type": "System.Object",
+        "generic_parameters": [],
+        "interfaces": [],
+        "fields": [
+          {
+            "signature": "public instance ERecipeType PrefabDesc::assemblerRecipeType",
+            "read_only": false,
+            "literal": false,
+            "constant": null
+          },
+          {
+            "signature": "public instance System.Boolean PrefabDesc::isAssembler",
+            "read_only": false,
+            "literal": false,
+            "constant": null
+          },
+          {
+            "signature": "public instance System.Int32 PrefabDesc::assemblerSpeed",
+            "read_only": false,
+            "literal": false,
+            "constant": null
+          }
+        ],
+        "methods": [
+          {
+            "signature": "public instance System.Void PrefabDesc::.ctor()",
             "virtual_method": false,
             "abstract_method": false
           }
@@ -461,23 +550,6 @@
           }
         ],
         "methods": []
-      },
-      {
-        "type": "VFPreload",
-        "kind": "class",
-        "abstract_type": false,
-        "sealed_type": false,
-        "base_type": "UnityEngine.MonoBehaviour",
-        "generic_parameters": [],
-        "interfaces": [],
-        "fields": [],
-        "methods": [
-          {
-            "signature": "public instance System.Void VFPreload::.ctor()",
-            "virtual_method": false,
-            "abstract_method": false
-          }
-        ]
       }
     ],
     "forwards": []

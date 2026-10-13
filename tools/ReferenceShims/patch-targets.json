@@ -1,11 +1,11 @@
 [
   {
     "assembly": "Assembly-CSharp",
-    "type": "VFPreload",
-    "method": "InvokeOnLoad",
-    "signature": "System.Void VFPreload::InvokeOnLoad()",
-    "visibility": "private",
-    "parameter_names": []
+    "type": "ItemProto",
+    "method": "Preload",
+    "signature": "System.Void ItemProto::Preload(System.Int32)",
+    "visibility": "public",
+    "parameter_names": ["_index"]
   },
   {
     "assembly": "Assembly-CSharp",

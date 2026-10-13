@@ -77,8 +77,10 @@ requires broader access, stop the affected work and request that specific decisi
 
 1. Read AGENTS, PROJECT, this roadmap, the contract and the findings. Check Git
    status and preserve unrelated changes. Confirm G0 before implementation.
-2. Use existing inspection results. Complete I01, close G1, then follow
-   this order: **N01 → C01 → C02 → N02 → N03 → C03 → D01 → D02**. N01 adopts the
+2. Use existing inspection results. N01 may proceed independently of I01 because
+   catalogue availability and startup ordering do not depend on numeric bounds.
+   Complete I01 and close G1 before C01, then follow
+   this order: **C01 → C02 → N02 → N03 → C03 → D01 → D02**. N01 adopts the
    reviewed reference baseline before later stories require real-library builds.
    The dependencies below govern if a different sequence is more useful.
 3. Apply the shared completion rule to each story. Once its dependencies and gate
@@ -230,7 +232,7 @@ not make them production-machine choices.
 ### CFG-N01 — Supply machine data before recipe caches · weight 3
 
 **Outcome:** Configurable machine choices are grounded in initialized native data
-at the correct startup point. **Depends on:** G1.
+at the correct startup point. **Depends on:** G0; independent of numeric proofs in I01.
 
 **Scope:** Deliberately adopt the reviewed game-reference identity, update the
 existing evidence baseline, and integrate the narrow Harmony lifecycle point

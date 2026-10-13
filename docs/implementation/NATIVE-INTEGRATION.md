@@ -10,7 +10,11 @@ describe player behavior; [PROJECT](../PROJECT.md) records decisions and accepta
   initializes an empty native detector collection and skips detector creation.
   The prototype catalogue, game mode and saved abnormal history are left intact.
 - [RegistrationPatch](../../src/DSPDarkFogIndustry/RegistrationPatch.cs) runs before
-  native preload. [RecipeRegistration](../../src/DSPDarkFogIndustry/RecipeRegistration.cs)
+  the first item preload, after models have initialized their prefab descriptors.
+  [RecipeStartup](../../src/DSPDarkFogIndustry/RecipeStartup.cs) prepares one
+  [catalogue](../../src/DSPDarkFogIndustry/RecipeCatalogue.cs) per recipe table,
+  using model descriptors because item descriptors are assigned during preload.
+  [RecipeRegistration](../../src/DSPDarkFogIndustry/RecipeRegistration.cs)
   checks for conflicts, adds recipes and technology unlocks, and rebuilds the lookup.
 - [SynthesisRecipes](../../src/DSPDarkFogIndustry/SynthesisRecipes.cs) defines item
   and technology IDs, recipe IDs, ingredients, durations and selector positions.
@@ -37,6 +41,14 @@ using these recipes require the mod; removing it does not clear recipe reference
 from machines. Restore a pre-mod backup when removing the mod.
 
 ## Evidence
+
+The current reference baseline adopts DSP 0.10.35.29131. Selected native lifecycle
+and production methods matched the previously inspected 29104 output; external
+bindings are checked against the new assembly rather than inferred from that
+comparison. The earlier baseline identity remains in the dated evidence/archive.
+The catalogue admits only smelting, assembly and chemical machine families and
+uses the basic machine's native speed for each family. A missing basic descriptor
+stops registration before recipe mutation.
 
 The [detector-initialization record](HF-01-VALIDATION.md) covers the correction and
 links to the rejected catalogue-edit attempt. Owner disposition is in PROJECT.

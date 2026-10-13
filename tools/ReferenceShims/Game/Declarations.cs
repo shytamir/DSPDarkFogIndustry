@@ -44,6 +44,23 @@ public class TechProtoSet : ProtoSet<TechProto>
 
 public class ItemProto : Proto
 {
+    public int ModelIndex;
+}
+
+public class ModelProtoSet : ProtoSet<ModelProto>
+{
+}
+
+public class ModelProto : Proto
+{
+    public PrefabDesc prefabDesc;
+}
+
+public class PrefabDesc
+{
+    public bool isAssembler;
+    public int assemblerSpeed;
+    public ERecipeType assemblerRecipeType;
 }
 
 public class TechProto : Proto
@@ -71,10 +88,6 @@ public class RecipeProto : Proto
     public string IconPath;
     public string IconTag;
     public string Description;
-}
-
-public class VFPreload : UnityEngine.MonoBehaviour
-{
 }
 
 public class AbnormalityLogic
@@ -112,6 +125,13 @@ public class GameHistoryData
 
 public static class LDB
 {
+    public static ModelProtoSet models
+    {
+        get
+        {
+            throw new NotSupportedException("Compile-only shim");
+        }
+    }
     public static RecipeProtoSet recipes
     {
         get
