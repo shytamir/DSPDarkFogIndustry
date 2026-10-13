@@ -1,6 +1,10 @@
 # Configurable recipes: owner checklist for 0.9.33
 
-Use **0.9.33** from [run 38419021406](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/38419021406) in a test save/profile; [PROJECT](../PROJECT.md#selected-configurability-candidate) records the verified artifact. Launch once to generate the config, then exit. Before changing recipes already in use: **empty affected machines, clear their recipes, cancel queued handcrafts, save, then exit.**
+Historical checklist, preserved as issued. The
+[owner's completion report and acceptance](../../PROJECT.md#owner-acceptance-record--2026-10-13)
+are recorded in PROJECT; the boxes below are not outstanding work.
+
+Use **0.9.33** from [run 38419021406](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/38419021406) in a test save/profile; [PROJECT](../../PROJECT.md#accepted-configurability-artifact) records the verified artifact. Launch once to generate the config, then exit. Before changing recipes already in use: **empty affected machines, clear their recipes, cancel queued handcrafts, save, then exit.**
 
 Start with default recipes and keep a copy of the config for the reset step. In **Notepad or another text editor**, open `BepInEx/config/dark-fog-industry.cfg` in the profile you launch. Core sections `01`–`06` come first; `Extra inputs - ...` sections follow.
 

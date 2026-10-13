@@ -105,6 +105,10 @@ dependency-route proof and removal analysis. These are dated evidence, not a
 second implementation specification. Owner observations are recorded in
 [PROJECT](../PROJECT.md#owner-acceptance-record--2026-10-08).
 
+The [configuration investigation](../archive/2026-10-13-configurability/INVESTIGATION.md)
+retains the later native and BepInEx findings. Configurability observations and
+acceptance are recorded in [PROJECT](../PROJECT.md#owner-acceptance-record--2026-10-13).
+
 ## Configured production checks
 
 The current static asset probe reconfirmed speeds of 1/2/3 for smelters,
@@ -120,4 +124,5 @@ at 90/min in the chemical family emits 120 ticks and predicts 90/180. A change
 between tier IDs leaves timing unchanged; a family change changes the basic rate
 conversion and handcraft eligibility. Higher tiers and acceleration still share
 the native one-normal-cycle-per-update ceiling. The source-derived expectations
-assume continuous supply, output clearance and full power, and need owner observation.
+assume continuous supply, output clearance and full power. The owner report above
+records the checks performed in-game.

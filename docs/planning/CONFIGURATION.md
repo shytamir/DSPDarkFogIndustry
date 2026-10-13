@@ -1,9 +1,10 @@
 # Configuration contract
 
-[PROJECT](../PROJECT.md) records which requirements the owner has selected and
-which proposals still await approval. This document defines behavior for the
-[roadmap](ROADMAP.md), not work status or implementation algorithms. Native facts
-and remaining proofs are in the [investigation](../implementation/CONFIGURATION-INVESTIGATION.md).
+[PROJECT](../PROJECT.md) records decisions and acceptance. This document defines
+the configuration behavior, not work status or implementation algorithms. The
+[archived investigation](../archive/2026-10-13-configurability/INVESTIGATION.md)
+records native findings and their evidence limits;
+[native integration](../implementation/NATIVE-INTEGRATION.md) points to the implementation.
 
 ## Owner-selected behavior
 

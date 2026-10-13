@@ -1,7 +1,7 @@
 # Configuration investigation
 
-Static inspection, 2026-10-13. [PROJECT](../PROJECT.md) records authorization and
-dispositions; the [roadmap](../planning/ROADMAP.md) defines the work and questions.
+Static inspection, 2026-10-13. [PROJECT](../../PROJECT.md) records authorization and
+dispositions; the [roadmap](ROADMAP.md) defines the work and questions.
 This is an initial evidence record, not a complete configuration design or a
 current-game compatibility claim. The follow-up below records the bounded checks
 requested when refining the roadmap; the initial observations remain identified
@@ -10,16 +10,16 @@ separately from the additional evidence.
 ## Sources and reproduction
 
 Repository source inspected at `ea36542aacc810fa24aea5e9cd5f265bef4af874`:
-[plugin startup](../../src/DSPDarkFogIndustry/Plugin.cs),
-[recipe definitions](../../src/DSPDarkFogIndustry/SynthesisRecipes.cs),
-[registration](../../src/DSPDarkFogIndustry/RecipeRegistration.cs),
-[preload patch](../../src/DSPDarkFogIndustry/RegistrationPatch.cs), and
-[save reconciliation](../../src/DSPDarkFogIndustry/SaveReconciliation.cs).
+[plugin startup](../../../src/DSPDarkFogIndustry/Plugin.cs),
+[recipe definitions](../../../src/DSPDarkFogIndustry/SynthesisRecipes.cs),
+[registration](../../../src/DSPDarkFogIndustry/RecipeRegistration.cs),
+[preload patch](../../../src/DSPDarkFogIndustry/RegistrationPatch.cs), and
+[save reconciliation](../../../src/DSPDarkFogIndustry/SaveReconciliation.cs).
 
 The session's single `Enter-Environment.ps1` attempt stopped at changed game
 assembly bytes. Diagnosis found installed `Updates/Versions.txt` beginning with
 `0.10.35.29131,False,2026-10-12`. The committed
-[reference baseline](../../tools/ReferenceShims/reference-baseline.json) still
+[reference baseline](../../../tools/ReferenceShims/reference-baseline.json) still
 identifies `0.10.35.29104`; it and the local activation record were left intact.
 
 | Inspected input | Identity |
@@ -41,7 +41,7 @@ To reproduce the bounded inspection, identify and hash the two current files,
 run ILSpyCmd with `-t <type> <Assembly-CSharp.dll>`, and run the restored concept's
 `scripts/extract_native_catalogue.py` with explicit game root, ignored output
 directory and local UnityPy path. The full source bundle and extraction limits
-are documented in [concept provenance](../concept/EVIDENCE.md). Outputs for this
+are documented in [concept provenance](../../concept/EVIDENCE.md). Outputs for this
 inspection are under ignored `.local/configurability/<assembly-sha256>/`.
 No game assembly was executed, game launched, save read or installed file changed.
 The selected checks do not replace review of the baseline change before adoption.
@@ -56,7 +56,7 @@ The selected checks do not replace review of the baseline change before adoption
 | Save reconciliation adds missing recipe unlocks when the configured gate is unlocked; it never revokes unlocks. | Changing a gate does not currently relock an already-known recipe. The desired behavior on existing saves needs an explicit decision. |
 | Recipe IDs and input ordering already participate in persisted state. | Retaining recipe identities does not by itself make arbitrary content changes safe. |
 
-The current [shim inventory](../../tools/ReferenceShims/README.md) covers the
+The current [shim inventory](../../../tools/ReferenceShims/README.md) covers the
 existing integration, not the new configuration API. Future implementation must
 add each external type/member actually used and verify it against real metadata.
 
@@ -135,7 +135,7 @@ numeric ID. Neither mechanism defines distance between different whole recipes.
 The initial pass did not establish a complete valid-ID list, universal quantity
 cap, correction algorithm, mod-manager compatibility claim or safe save-transition
 procedure. Requirements and proposals now live in the
-[configuration contract](../planning/CONFIGURATION.md); PROJECT owns their dispositions.
+[configuration contract](../../planning/CONFIGURATION.md); PROJECT owns their dispositions.
 
 ## Follow-up inspection for the revised roadmap
 

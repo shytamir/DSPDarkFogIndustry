@@ -6,30 +6,29 @@ and publication. Other documents define contracts or evidence and link here.
 
 ## Current state
 
-- Phase: configurability owner handoff; revised candidate awaiting validation and acceptance.
-- Authorized scope: execute the approved configurability roadmap through owner
-  handoff, committing and pushing each completed story with its management update.
-  G0 is approved; execution through G3 is delivered below. The owner subsequently
-  directs CFG-U01's compact text-editor layout and exact-name inputs. Game execution, installed-file/manager-profile changes and save
-  access remain outside the agent's operational envelope. Completed
-  MVP and cleanup remain closed; the corrected [HF-01](planning/HF-01-PROTOTYPE-DETECTION.md)
-  candidate still awaits owner validation independently of this planning work.
+- Phase: prerelease planning, following acceptance of configurability 0.9.33.
+- Authorized scope: record the owner's acceptance and archive the completed
+  configurability roadmap, including CFG-U01, with a documentation closeout push.
+  The next prerelease scope awaits owner direction. Game execution,
+  installed-file/manager-profile changes and save access remain outside the
+  agent's operational envelope. Completed MVP and cleanup remain closed; the
+  separate [HF-01 record](#hf-01-maintenance-hotfix--2026-10-08) is unchanged.
 - Build version line: `0.9.x`, owner-directed on 2026-10-08; the patch remains the
   CI run number (0 for local builds). The historical MVP candidate remains `0.1.8`.
 - Product implementation: MVP-01 through MVP-07 completed and accepted as the MVP;
   the MVP's M3 satisfied. Configurability and the owner-directed usability revision
-  have passed G3; acceptance remains pending. The
-  [owner handoff](archive/2026-10-08-mvp/OWNER-VALIDATION.md) is archived.
-- Planning: the [live roadmap](planning/ROADMAP.md) defines the configurability
-  investigation and approved delivery sequence. G0 approves the configuration
-  contract and implementation through G3; G4 remains the owner's acceptance. The
-  [MVP recipe contract](planning/MVP-RECIPES.md) describes the retained defaults;
-  the [completed MVP roadmap](archive/2026-10-08-mvp/ROADMAP.md) remains archived.
-  No release version or schedule has been selected for configurability; this
-  request does not itself establish the scope of version 1.0.
-- Owner acceptance: accepted as is on 2026-10-08 after the owner-reported checks
-  [recorded below](#owner-acceptance-record--2026-10-08). Completion of the full
-  proposed validation procedure is not a condition of this acceptance.
+  are completed and accepted; G4/M4 are satisfied.
+- Planning: the [live roadmap](planning/ROADMAP.md) is a prerelease planning
+  placeholder. The [configurability roadmap](archive/2026-10-13-configurability/ROADMAP.md)
+  and [MVP roadmap](archive/2026-10-08-mvp/ROADMAP.md) are archived. The
+  [configuration contract](planning/CONFIGURATION.md) and
+  [default recipes](planning/MVP-RECIPES.md) remain active. No next release scope,
+  version or schedule has been selected; version 1.0 remains undefined.
+- Owner acceptance: **0.9.33 accepted on 2026-10-13**, after completing the whole
+  [owner checklist](archive/2026-10-13-configurability/OWNER-VALIDATION.md) with no
+  skipped tests. [Results and correction logs](#owner-acceptance-record--2026-10-13)
+  are recorded below. The earlier [MVP acceptance](#owner-acceptance-record--2026-10-08)
+  remains historical.
 - Publication: the owner reports publishing the latest artifact, `0.9.14`, on
   2026-10-08. See the [publication record](#publication-record--2026-10-08).
   Later CI builds do not supersede that published baseline.
@@ -43,7 +42,7 @@ and publication. Other documents define contracts or evidence and link here.
   passed independent verification. This remains the historical MVP candidate;
   the published baseline is recorded below.
 
-## Configurability planning — 2026-10-13
+## Configurability — 2026-10-13
 
 The owner requests control of recipe unlock technologies, items, quantities,
 production rates and manufacturing machines in the BepInEx configuration file,
@@ -54,7 +53,7 @@ are superseded by CFG-D14/D15 below. Quantity/rate corrections remain unchanged.
 | Work / decision | Disposition | Basis / next gate |
 | --- | --- | --- |
 | CFG-D01: Reopen planning | Owner-directed; initial planning scope | Superseded maintenance deferral for this feature. Initially authorized documentation only; G0 below subsequently authorizes implementation. |
-| Initial investigation and roadmap skeleton | Delivered; draft definitions superseded by refinement | Main `fa42c40bf1315d6a3e2268b9dee6160b1eda4ab9`; [CI run 38388888854](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/38388888854) passed. Current definitions are in the [roadmap](planning/ROADMAP.md). |
+| Initial investigation and roadmap skeleton | Delivered; draft definitions superseded by refinement | Main `fa42c40bf1315d6a3e2268b9dee6160b1eda4ab9`; [CI run 38388888854](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/38388888854) passed. Final definitions are in the [archived roadmap](archive/2026-10-13-configurability/ROADMAP.md). |
 | CFG-D02: Existing defaults and recipe identity | Approved at G0, 2026-10-13 | Preserve the accepted recipes as defaults and retain the six registered recipe IDs/selector positions while exposing their contents. |
 | CFG-D03: Configuration contract | Approved at G0, 2026-10-13 | [Contract](planning/CONFIGURATION.md): file/ingredient layout, native completed-tech meaning, correction distance/ties/precedence, startup application, reference presentation and malformed-file boundary. Numeric/shape proofs remain CFG-I01 within the three allowed machine families; no invented balance restrictions. |
 | CFG-D04: Selected-machine rate baseline | Superseded by CFG-D11, 2026-10-13 | The earlier selection used the chosen machine's speed. The owner now requires each family's basic-machine baseline, regardless of the configured tier ID. |
@@ -70,14 +69,14 @@ are superseded by CFG-D14/D15 below. Quantity/rate corrections remain unchanged.
 | CFG-D13: Native recursive crafting limits | Owner-selected, 2026-10-13 | "Preserve native recursive crafting limits; correct recipe and machine fields." Document cross-recipe raw-material/handcraft/queue arithmetic limits; do not add chain validation or runtime queue safeguards. Per-recipe field and machine-buffer corrections remain required. |
 | CFG-D14: Text-editor usability | Owner-directed, 2026-10-13 | The approximately 3,500-line config is impractical. Keep generated content below 200 lines; target core controls in the first 60, with flexibility to avoid overengineering. Move optional inputs 3–6 later and the catalogue to a separate text reference. Dropdowns are out of scope. Keep all output controls and values pending a later decision. |
 | CFG-D15: Name inputs | Owner-directed, 2026-10-13 | Include name inputs; "Just replace invalid inputs with defaults and don't make a guesser." Selectors accept exact current-language names ignoring case/edge whitespace, or IDs. Invalid/ambiguous/ineligible selections use their field defaults. Stored IDs with readable labels preserve identity across language changes. No cross-language alias system or fuzzy matching. |
-| Configuration layout review | Owner-accepted, 2026-10-13 | Owner: "I checked the new format and it's perfectly fine as it is." Acceptance covers the file's presentation. Name resolution, corrections, configured gameplay and overall G4 acceptance remain pending. The owner checklist was checked against the new section/value format and clarified before gameplay validation. |
+| Configuration layout review | Owner-accepted, 2026-10-13 | Owner: "I checked the new format and it's perfectly fine as it is." This initial acceptance covered presentation; the full checklist and G4 were subsequently completed below. The checklist was checked against the new section/value format and clarified before gameplay validation. |
 | Revised roadmap and contract / G0 | Owner-approved, 2026-10-13 | Owner: "I'm approving G0. Implement through to owner handoff please. Push to main when each story is done alongside a management docs update where appropriate." Three epics, nine stories, 29 relative work units; execute through G3, then wait for acceptance. |
 | Current native reference | Adopted for CFG-N01 | DSP 0.10.35.29131, assembly SHA-256 `74ac6162cef8394a6021c8475132cae4df4f840871a99e63cc7d2c8297661bc0`. Deliberate bootstrap refresh passed after the earlier drift diagnosis; real-library compilation and binding validation passed. This is not in-game compatibility acceptance. |
-| Implementation, gameplay acceptance and publication | Implementation through handoff authorized; acceptance/publication separate | Story pushes are authorized. HF-01 acceptance and the published baseline are unchanged; no version promotion or publication is included. |
+| Implementation, gameplay acceptance and publication | Configurability completed and owner-accepted, 2026-10-13 | The owner completed every checklist check and explicitly accepted 0.9.33, closing the roadmap. Prerelease planning is next. The separate HF-01 record and published baseline are unchanged; no version promotion or publication is included. |
 
 | Story / gate | State | Evidence / next action |
 | --- | --- | --- |
-| CFG-I01 | Delivered | Main `5b2303a638dbe234deb76d69b18e44b589f3f78a`; [CI run 38402139496](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/38402139496) passed. [Numeric/shape findings](implementation/CONFIGURATION-INVESTIGATION.md#numeric-and-shape-follow-up) establish per-recipe domains, duration/rate conversion, duplicate-row correction and the owner-selected recursive-arithmetic boundary. No game code was executed. |
+| CFG-I01 | Delivered | Main `5b2303a638dbe234deb76d69b18e44b589f3f78a`; [CI run 38402139496](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/38402139496) passed. [Numeric/shape findings](archive/2026-10-13-configurability/INVESTIGATION.md#numeric-and-shape-follow-up) establish per-recipe domains, duration/rate conversion, duplicate-row correction and the owner-selected recursive-arithmetic boundary. No game code was executed. |
 | G1 | Passed within CFG-D13's boundary | Direct native consumers and correction examples are recorded. Cross-recipe/queue safety is explicitly retained as native behavior, not claimed as proven. |
 | CFG-N01 | Delivered | Main `2a5ad341c37966c9de02d0d2f436a7b238ccbc75`; [CI run 38400259645](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/38400259645) passed. Shared pipeline passed 15 behavior checks, package checks and 164 local links; real-reference build verified 73 external references and three Harmony targets. Its G0 dependency permits catalogue/lifecycle work independently of numeric proofs. |
 | CFG-C01 | Delivered | Main `df0c3254e0600efb73092097b855569c4e4da236`; [CI run 38402800038](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/38402800038) passed. Six integer-field sections, startup snapshots and persistence use public BepInEx APIs. Pinned-library tests cover defaults, edits, missing/unknown keys, comments, ordering, restart and save failure. Shared pipeline passed 18 behavior checks; real-reference validation passed. |
@@ -87,16 +86,16 @@ are superseded by CFG-D14/D15 below. Quantity/rate corrections remain unchanged.
 | CFG-C03 | Delivered | Main `6fde23f0b6a5a929864c7897bfc0b051d18e1fb8`; [CI run 38405244674](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/38405244674) passed. References use the validator's catalogue and native translation/metadata; edits are inert. Generated text and round trips were reviewed. Shared pipeline passed 25 checks; real metadata verified 93 references and three hooks. Actual editor interaction remains an owner observation. |
 | G2 | Passed, including CFG-U01 | All implementation stories are on main with successful CI. Defaults, custom settings, native integration and file persistence pass the offline checks; no game validation is inferred. |
 | CFG-D01 | Delivered and independently verified | Candidate source `5c0cdda26e5f08d378795c604afc83787a046617`; [CI run 38405672271](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/38405672271), attempt 1, passed. Downloaded 0.9.30 matched both provider digests, all 107 committed source hashes, package contents and version metadata. Its DLL passed real-reference validation for 93 references and three Harmony targets. Details below. |
-| CFG-D02 | Delivered in this handoff commit | [Owner procedure](implementation/CONFIGURATION-OWNER-VALIDATION.md) identifies the candidate, editor checks, defaults/custom rates, shared gates, corrections, native behavior and prepared save changes. Instructions were checked against the package, generated file layout and emitted-record expectations. Owner result fields are blank. |
-| G3 | Passed again for 0.9.33; awaiting owner acceptance | The original nine stories and CFG-U01 are delivered through technical validation and the verified replacement candidate below. No game launch, save access, installed-file change or manager interaction was performed by the agent. Stop at the owner handoff. |
-| G4 | Pending owner decision | Acceptance, archival, any version promotion and publication remain separate. |
-| CFG-U01 | Delivered; replacement candidate independently verified | Main `7f2598debeabf303842fdbab339b041f350529d4`; [CI run 38419021406](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/38419021406) passed. [Bounded revision](planning/ROADMAP.md#cfg-u01--text-editor-usability-after-owner-review). Generated config: 138 lines, core controls through line 65. All 27 behavior checks and the shared build/package/repository checks pass. Real/shim validation verifies 95 external references and three unchanged Harmony targets. Downloaded 0.9.33 passed the checks below; owner observations remain pending. |
+| CFG-D02 | Delivered; owner checklist completed | [Archived procedure](archive/2026-10-13-configurability/OWNER-VALIDATION.md) identifies the candidate, editing checks, defaults/custom rates, shared gates, corrections, native behavior and prepared save changes. Final checklist revision: `262d70ad6b47d607488bc70385b40e253f44b29b`. The owner reports completing it with no skipped tests; results are recorded below. |
+| G3 | Passed for 0.9.33 | The original nine stories and CFG-U01 were delivered through technical validation and the independently verified candidate below. No game launch, save access, installed-file change or manager interaction was performed by the agent. |
+| G4 / M4 | Owner-accepted; completed and archived, 2026-10-13 | Explicit acceptance of 0.9.33 after the full checklist, with no significant regression or errors observed. The roadmap, owner procedure and investigation are archived; prerelease planning is next. |
+| CFG-U01 | Delivered and owner-accepted | Main `7f2598debeabf303842fdbab339b041f350529d4`; [CI run 38419021406](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/38419021406) passed. [Bounded revision](archive/2026-10-13-configurability/ROADMAP.md#cfg-u01--text-editor-usability-after-owner-review). Generated config: 138 lines, core controls through line 65. All 27 behavior checks and the shared build/package/repository checks pass. Real/shim validation verifies 95 external references and three unchanged Harmony targets. Downloaded 0.9.33 passed the checks below and is included in the owner's acceptance. |
 
-### Selected configurability candidate
+### Accepted configurability artifact
 
 - **0.9.33**, label `0.9.33.7f2598debeab`, from CFG-U01's run above, attempt 1.
-  Source: `7f2598debeabf303842fdbab339b041f350529d4`. The subsequent documentation-only
-  handoff build does not replace this selected package.
+  Source: `7f2598debeabf303842fdbab339b041f350529d4`. Subsequent documentation-only
+  builds do not replace or relabel this accepted package.
 - ZIP SHA-256: `6289e433e263ed44ebb5b8af6ba35d03c5590f8195f072555d0a0bdf56a6e408`.
 - DLL SHA-256: `8c061e621f154a7ef39c89e7e79709d195b50e564926c0513680133b02b6a4a5`.
 - Independent download inspection verified both provider digests, all 109 source
@@ -105,10 +104,33 @@ are superseded by CFG-D14/D15 below. Quantity/rate corrections remain unchanged.
 - Offline BepInEx checks verify the 138-line layout, migration of inputs 3–6,
   exact names/IDs, default fallback, stable corrected saves and the separate
   reference. No production defaults or configurable output controls were removed.
-- Follow the [owner checklist](implementation/CONFIGURATION-OWNER-VALIDATION.md).
-  The owner accepts the layout as recorded above. Game behavior and the remaining
-  edit/restart checks still need owner observations; overall acceptance and
-  publication remain pending.
+
+### Owner acceptance record — 2026-10-13
+
+Source: the owner's report in this task for the 0.9.33 handoff above. The owner
+completed the entire [checklist](archive/2026-10-13-configurability/OWNER-VALIDATION.md),
+with no test skipped, and reported:
+
+- No significant regression or errors observed.
+- Good logging behavior.
+- All expected behavior present without variation.
+
+The owner supplied these correction log excerpts:
+
+```text
+[Warning:DSP Dark Fog Industry] [02 - Recipe 402 - Dark Fog Matrix] Input2ItemId: 'fractal silico' -> 5111; unknown, ambiguous or ineligible selection; using the documented default.
+[Warning:DSP Dark Fog Industry] [Extra inputs - 02 - Recipe 402 - Dark Fog Matrix] Input3Count: '8' -> 0; unused ingredient row.
+[Warning:DSP Dark Fog Industry] [02 - Recipe 402 - Dark Fog Matrix] OutputCount: 'nonsense' -> 1; not numeric; documented default followed by representable output quantity and integer rate.
+[Warning:DSP Dark Fog Industry] [02 - Recipe 402 - Dark Fog Matrix] OutputPerMinute: '61' -> 60; attainable basic-machine products/minute.
+```
+
+The owner explicitly accepted this version and completed the roadmap. G4/M4 are
+satisfied, including CFG-U01. These are owner-reported observations; the agent did
+not run the game or independently capture its logs. The archived checklist is
+preserved as issued, with this report recording the results.
+
+The project now moves to prerelease planning. Its scope, release version and
+schedule await owner direction; this acceptance does not change publication.
 
 ### Earlier configurability candidate — 0.9.30
 
@@ -125,17 +147,17 @@ are superseded by CFG-D14/D15 below. Quantity/rate corrections remain unchanged.
 - Final review covered native startup ordering, correction precedence and arithmetic,
   shared gates/import isolation, readable BepInEx output, player wording, tests and
   story/delivery records. Recursive crafting/queue arithmetic remains native under
-  CFG-D13. Actual gameplay and Notepad/Thunderstore Mod Manager interaction remain
-  explicitly unobserved; no acceptance or publication is inferred.
+  CFG-D13. Gameplay and editor interaction were unobserved at that handoff;
+  subsequent owner validation and acceptance apply to 0.9.33 above.
 
-The [investigation](implementation/CONFIGURATION-INVESTIGATION.md) now maps machine
+The [archived investigation](archive/2026-10-13-configurability/INVESTIGATION.md) maps machine
 IDs/speeds, family filtering, startup timing, technology completion, bounded
 handcraft recursion and native save/queue transitions. The brief numeric checks
 exposed coupled consumers resolved by CFG-I01 within CFG-D13's boundary. The earlier lab findings are retained
 as evidence, but CFG-D10 removes the need for further lab investigation. Native
 extracts remain ignored.
-Current-game compatibility and configurable runtime behavior still require the
-owner's game observations; static evidence does not establish those results.
+The owner's subsequent game observations are recorded above; static evidence
+alone did not establish those results.
 
 Initial draft review covered technical claims against source/assets, investigation coverage,
 scope and document authority, then wording. It kept machine family, handcraft
