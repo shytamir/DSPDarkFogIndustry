@@ -6,10 +6,12 @@ and publication. Other documents define contracts or evidence and link here.
 
 ## Current state
 
-- Phase: prerelease planning, following acceptance of configurability 0.9.33.
-- Authorized scope: record the owner's acceptance and archive the completed
-  configurability roadmap, including CFG-U01, with a documentation closeout push.
-  The next prerelease scope awaits owner direction. Game execution,
+- Phase: approved 1.0 prerelease work in progress, following acceptance of
+  configurability 0.9.33.
+- Authorized scope: execute the approved package-copy/version roadmap through
+  owner handoff, pushing each completed story with its management update.
+  Code changes are outside this roadmap.
+  Game execution,
   installed-file/manager-profile changes and save access remain outside the
   agent's operational envelope. Completed MVP and cleanup remain closed; the
   separate [HF-01 record](#hf-01-maintenance-hotfix--2026-10-08) is unchanged.
@@ -18,12 +20,14 @@ and publication. Other documents define contracts or evidence and link here.
 - Product implementation: MVP-01 through MVP-07 completed and accepted as the MVP;
   the MVP's M3 satisfied. Configurability and the owner-directed usability revision
   are completed and accepted; G4/M4 are satisfied.
-- Planning: the [live roadmap](planning/ROADMAP.md) is a prerelease planning
-  placeholder. The [configurability roadmap](archive/2026-10-13-configurability/ROADMAP.md)
+- Planning: the [live roadmap](planning/ROADMAP.md) defines package copy review,
+  a Simplified Chinese summary, the 1.0 version line and verified owner handoff.
+  G0 is approved; final owner acceptance remains separate. The
+  [configurability roadmap](archive/2026-10-13-configurability/ROADMAP.md)
   and [MVP roadmap](archive/2026-10-08-mvp/ROADMAP.md) are archived. The
   [configuration contract](planning/CONFIGURATION.md) and
-  [default recipes](planning/MVP-RECIPES.md) remain active. No next release scope,
-  version or schedule has been selected; version 1.0 remains undefined.
+  [default recipes](planning/MVP-RECIPES.md) remain active. The owner requests the
+  1.0 version line; the approved work is defined below and no schedule is selected.
 - Owner acceptance: **0.9.33 accepted on 2026-10-13**, after completing the whole
   [owner checklist](archive/2026-10-13-configurability/OWNER-VALIDATION.md) with no
   skipped tests. [Results and correction logs](#owner-acceptance-record--2026-10-13)
@@ -41,6 +45,64 @@ and publication. Other documents define contracts or evidence and link here.
   `0.1.8` from [run 37699427929](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/37699427929)
   passed independent verification. This remains the historical MVP candidate;
   the published baseline is recorded below.
+
+## Prerelease 1.0 planning — 2026-10-13
+
+The owner requests a full roadmap draft before implementation: review the package
+description and README for concise, approachable player guidance; add a Simplified
+Chinese summary at the end with a brief notice near the start; and promote the
+version to 1.0. The owner subsequently approved the revised roadmap and directed:
+"Please see it through to owner acceptance, pushing to main with appropriate
+management docs updates after each story is done." G0 authorizes execution through
+handoff; the owner's review of the resulting package is still required.
+
+| Decision / work | Disposition | Basis / boundary |
+| --- | --- | --- |
+| PRE-P01: Player-copy review | Approved at G0 | Remove irrelevant implementation explanations, keep useful examples sparse, and preserve complete usage/install instructions. Replace correction mechanics with simple log-based troubleshooting guidance. |
+| PRE-P02: Chinese summary | Approved at G0 | Simplified Chinese, native game terminology and player-facing content. Brief notice near the start; summary appended at the end. The owner confirms English config text and the unchanged mod name are acceptable; full config localization is outside this work. |
+| PRE-P03: Bilingual manifest description | Defined within the copy stories | Produce the short English/Simplified Chinese description during the work, within the existing 250-character total limit. The owner reviews the finished wording at handoff; it is not a separate G0 approval or prerequisite. |
+| PRE-P04: Version 1.0 | Owner-requested; apply after G0 and copy review | Set MAJOR=1/MINOR=0 and retain workflow-run patch numbering, producing 1.0.x. No run-counter reset, dependency/identity change, tag or publication. |
+| PRE-P05: Existing configurability | Retained | The owner sees configurable outputs as a useful distinction. Keep all accepted controls and default recipes; explain that outputs can be changed within the six added recipes. No new slots or feature expansion. |
+| PRE-P06: Localization verification | Static review complete | [Evidence](implementation/NATIVE-INTEGRATION.md#configuration-language-evidence--2026-10-13): current-language names are used in all three reference groups and name selectors; startup language selection precedes generation. Help/headings remain English. Chinese game strings were checked; no Chinese runtime session is claimed. |
+| PRE-P07: Proportionate prerelease scope | Owner-directed revision | Remove the Chinese startup/name-input check; the owner will not perform it. Keep this a package-copy/version pass with a simple boundary against code changes. Remove generic implementation/investigation instructions and redundant approval dependencies. |
+| Prerelease roadmap | Approved for execution, 2026-10-13 | Two epics, four stories, nine relative work units; definitions and gates in the [roadmap](planning/ROADMAP.md). Package copy and VERSION changes are authorized; product code and tests remain unchanged. |
+| G0 / execution | Owner-approved, 2026-10-13 | Approval covers this package-copy/version work, story-by-story main pushes and CI verification through the owner handoff. Description wording is decided during the work and reviewed at handoff. |
+
+| Story / gate | State | Next action |
+| --- | --- | --- |
+| PRE-C01: English package copy | Technically validated | English copy reviewed against the configuration/default-recipe contracts; one valid custom-output example retained. Repository checks passed. This story's main commit carries the approved planning documents and language evidence; CI delivery is verified after push. |
+| PRE-C02: Simplified Chinese summary | Approved; next | Prepare the appended summary, notice/link and bilingual description, then check the complete website preview. |
+| G1 / M1: Copy ready | Pending | Both languages agree and pass Thunderstore's website Markdown preview. |
+| PRE-V01: Version promotion | Approved; follows G1 | Promote through the standard version/build procedure. |
+| PRE-D01: Verified candidate and handoff | Approved; follows V01 | Inspect the actual CI package/evidence and supply a short owner checklist. |
+| G2 / M2: Owner review ready | Pending | Exact 1.0.x artifact independently verified and handed off. |
+| G3 / M3: Acceptance and archival | Pending owner decision | Record the new candidate's explicit acceptance and archive completed work; publication remains separate. |
+
+### Planning basis and review
+
+Read the [recently completed roadmap](archive/2026-10-13-configurability/ROADMAP.md)
+for story weights, epic boundaries, phase gates, evidence and owner handoff rules.
+The owner review covers the finished package copy and candidate. No game startup,
+Chinese name-input check or repeat of the accepted 0.9.33 gameplay checks is required.
+The static localization evidence remains valid within its recorded limits; the
+omitted runtime check is not represented as a pass.
+
+The supplied [DarkFogWorkshop listing](https://thunderstore.io/c/dyson-sphere-program/p/TTenYX/DarkFogWorkshop/)
+and [README at inspected revision 2c5d73d](https://github.com/TTenYX/TTenYX-DSPMods/blob/2c5d73d8a8a44170a9b082272a4811d98f103c71/DarkFogWorkshop/README.md)
+were reviewed only as public player-presentation context. They describe
+logistics-station conversion and include an English summary. Their documentation
+allows both matrix and Dark Fog material value settings, rather than matrix values
+alone. No implementation was imported, interoperability tested, or explanation
+for relative downloads or social reach established. Our roadmap does not depend
+on competitive or popularity claims.
+
+The initial draft was overdocumented for this work. The owner-directed revision
+removes the runtime checklist, advance description approval and generic code-change,
+investigation and repair procedures. Review retains the necessary story scopes,
+weights, exclusions, package checks and owner handoff without reopening feature work.
+Planning validation covers repository syntax, local documentation links, retained
+concept hashes, source hygiene and diff whitespace. Product builds and gameplay
+checks were not rerun for the document-only draft. G0 was subsequently approved.
 
 ## Configurability — 2026-10-13
 
@@ -129,8 +191,9 @@ satisfied, including CFG-U01. These are owner-reported observations; the agent d
 not run the game or independently capture its logs. The archived checklist is
 preserved as issued, with this report recording the results.
 
-The project now moves to prerelease planning. Its scope, release version and
-schedule await owner direction; this acceptance does not change publication.
+At acceptance, the project moved to prerelease planning without selecting its
+scope, release version or schedule. The owner's subsequent direction is recorded
+above; neither decision changes publication.
 
 ### Earlier configurability candidate — 0.9.30
 

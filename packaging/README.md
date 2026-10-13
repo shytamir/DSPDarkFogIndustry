@@ -2,11 +2,11 @@
 
 ## Recipes and configuration
 
-Produce all six Dark Fog materials in your factories, even with the Dark Fog disabled. Start with Fractal Silicon and add combat components to work your way from Energy Shards to Core Elements.
+Produce all six Dark Fog materials in your factories, even with Dark Fog disabled. Start with Fractal Silicon and add combat components to work your way up to Core Elements. You can also customize these six recipes, including what they produce.
 
-Find the recipes in the six rightmost slots of the Items tab's bottom row. Each unlocks with the research shown below. If you have already completed that research, the recipe will be available when you load your save.
+Find them in the six rightmost slots of the Items tab's bottom row. Each unlocks with the research below, including when you load a save where that research is already complete.
 
-With the default settings, each recipe consumes one of each listed ingredient. Energy Shard produces two per craft; all other recipes produce one.
+With default settings, each batch uses **one of each listed ingredient**. Energy Shard produces two per batch; the other recipes produce one.
 
 | Product | Ingredients | Unlocks with |
 | --- | --- | --- |
@@ -18,48 +18,58 @@ With the default settings, each recipe consumes one of each listed ingredient. E
 | Core Element | Negentropy Singularity + Antimatter Capsule | Antimatter Capsule |
 
 - **Energy Shard:** 120/min in an Arc Smelter.
-- **Dark Fog Matrix, Matter Recombinator, Silicon-based Neuron and Negentropy Singularity:** 60/min each in an Assembler Mk.I.
+- **The middle four recipes:** 60/min each in an Assembler Mk.I.
 - **Core Element:** 60/min in a Chemical Plant.
 
-These rates assume full power, a steady supply of ingredients and no proliferation. Higher-tier facilities produce faster as usual. Dark Fog Matrix and Silicon-based Neuron support proliferation for production speedup only; the other four recipes also support extra products.
+These rates assume full power, enough ingredients and no proliferation. Higher-tier machines run faster as usual. By default, Dark Fog Matrix and Silicon-based Neuron support proliferation for speedup only; the other four recipes also support extra products.
 
 **Custom recipes**
 
-After starting the game once, close it and edit `BepInEx/config/dark-fog-industry.cfg` with Notepad or another text editor. For a managed installation, use the file in the profile you launch. Restart the game to apply changes. Settings apply to every save loaded with that profile.
+Start the game once, then close it and open `BepInEx/config/dark-fog-industry.cfg` in Notepad or another text editor. With a mod manager, use the file in the profile you launch. Restart to apply changes; settings apply to every save you play with that profile.
 
-Each of the six numbered recipe sections lets you choose:
+Each numbered section lets you choose the unlock technology, machine, output item and batch count, output per minute, and ingredients with their counts. Outputs can be **other items too**, not just Dark Fog materials. You are editing the same six recipe slots.
 
-- The unlock technology. The technology must be fully completed; several recipes can share it.
-- A smelter, assembler or chemical plant. All compatible tiers remain usable.
-- One output item, its count per batch and its products per minute.
-- The first two ingredients and their counts per batch. Optional inputs 3–6 are in the **Extra inputs** sections below. Set an ingredient ID to zero to leave that slot unused. Recipes can also have no ingredients.
+- `TechnologyId`: the research that must be fully completed to unlock the recipe. Several recipes can share it.
+- `MachineId`: a smelter, assembler or chemical plant. Any compatible tier can make the recipe.
+- `OutputItemId`, `OutputCount`, `OutputPerMinute`: what to make, how many per batch, and how many per minute.
+- `Input1ItemId` / `Input1Count` and `Input2ItemId` / `Input2Count`: ingredients per batch. Inputs 3–6 are in the matching **Extra inputs** section. Use different items in each slot; set an item's ID and count to `0` to leave it unused.
 
-Fields ending in `Id` accept an ID or an exact name in your current game language, ignoring capitalization and surrounding spaces. For example, replace the whole value with `Input1ItemId = fractal silicon`. Saved selections show `1013 # Fractal Silicon`; the number determines the selection, and the label helps you read it. Use an ID when several technologies share a name.
+Fields ending in `Id` accept IDs or exact names in your current game language, ignoring capitalization. Replace the **whole value after `=`**, including any `# name` label; changing the label alone keeps the same item. Find names and IDs in `dark-fog-industry.reference.txt`, beside the config. Use an ID if a name has multiple matches. The reference refreshes at startup, including after a language change; editing it does not change recipes. Hidden or obsolete research may be unavailable in normal play.
 
-Use whole numbers for counts and rates. Rates always refer to the **basic machine**: Arc Smelter, Assembler Mk.I or Chemical Plant, before proliferation. Choosing an upgraded machine ID does not change that baseline. For example, 60/min in the assembly family means 60/min in Mk.I and 80/min in Mk.II. Counts are per batch; they are separate from the production rate. With custom ingredients, extra-product eligibility follows those ingredients' normal rules.
+Counts are whole numbers **per batch**. Rates are whole numbers **per minute in the basic machine**: Arc Smelter, Assembler Mk.I or Chemical Plant, before proliferation. Choosing an upgraded machine ID keeps that baseline. Extra-product availability follows the ingredients you choose.
 
-Find the complete grouped name/ID list in `dark-fog-industry.reference.txt`, beside the config. Use your editor's Find command to look up an item, technology or machine. This reference refreshes at startup; editing it does not change recipes. Hidden and obsolete technologies are labelled; selecting one may leave a recipe unavailable in ordinary play.
+For example, to make iron ingots in the first recipe slot, edit these fields in its section and leave the others at defaults (use your game's names if it is not in English):
 
-Unknown, ambiguous or ineligible item, technology and machine selections return to that field's default, with a message in the BepInEx log. There is no spelling correction. For duplicate ingredients, the later slot returns to its default, or becomes unused if that default is already present. Quantities and rates retain their nearest-valid corrections; equal distances use the lower value. Missing or nonnumeric quantities/rates use their defaults. Check the saved values after restarting. Comments are regenerated, so keep personal notes separately. Damaged file syntax or a file that cannot be read or written needs to be fixed before settings can be saved normally.
+```ini
+[01 - Recipe 401 - Energy Shard]
+OutputItemId = iron ingot
+OutputCount = 1
+OutputPerMinute = 60
+Input1ItemId = iron ore
+```
+
+This uses one Iron Ore per ingot, producing 60/min in an Arc Smelter, unlocked by Particle Control.
+
+After restarting, check your saved settings. If a change does not save as expected, check `BepInEx/LogOutput.log` in the same installation or profile. Keep personal notes separately, as config comments are regenerated.
 
 ## Replicator and saved games
 
-Recipes configured for assemblers can be crafted in the Replicator; smelting and chemical recipes must be made in machines. With the defaults, this means the middle four recipes allow handcrafting while Energy Shards and Core Elements are machine-only. Bring the required ingredients when crafting by hand: the Replicator cannot make the smelting or chemical steps for you.
+Assembler recipes can be crafted in the Replicator; smelting and chemical recipes need machines. Bring the ingredients for handcrafting: the Replicator cannot make the smelting or chemical steps for you.
 
-**Before changing a recipe already in use:** with the old settings still active, stop and empty affected machines, clear their selected recipes, cancel affected handcraft orders, and save. Then exit the game, edit the configuration and restart. Choose the recipes again in compatible facilities. Keep a backup of both the save and its matching configuration.
+**Before changing a recipe already in use:** with the old settings active, empty affected machines, clear their selected recipes, cancel affected handcraft orders, and save. Then exit, edit the config and restart. Select the recipe again in a compatible machine. Keep backups of both your save and its matching config; skipping these steps can lose stored ingredients or leave queued crafts using the old recipe.
 
-Already unlocked recipes stay unlocked when their technology gate changes. Changing a machine ID does not convert buildings. Skipping the preparation above can clear machine contents or leave queued work using its old recipe. The mod keeps the game's normal save-loading and crafting behavior; it does not migrate stored resources or queued work. Extremely large quantities across crafting chains or long handcraft queues can exceed the game's native arithmetic limits, even when each recipe's machine settings are valid.
+Changing the unlock technology does not relock recipes you already know. Very large quantities or handcraft queues can exceed the game's limits.
 
-**Saves that use these recipes are not compatible with an unmodded game.** Keep the mod installed for those saves. Back up your save before adding the mod; if you remove it, restore a backup made before you installed it.
+**Saves using these recipes need the mod installed.** Back up your save before adding the mod. If you remove it, restore a backup from before installation.
 
 ## Installation
 
-**Mod manager:** Install **DSPDarkFogIndustry** and its dependencies through your Thunderstore-compatible mod manager, then launch the game from the manager.
+**Mod manager:** Install **DSPDarkFogIndustry** and its dependencies through your Thunderstore-compatible mod manager, then launch from that manager.
 
 **Manual installation:**
 
-1. Close the game and install [BepInEx for Dyson Sphere Program](https://thunderstore.io/c/dyson-sphere-program/p/xiaoye97/BepInEx/) if you do not already have it.
-2. Download and extract this mod's ZIP file.
-3. In your Steam library, right-click **Dyson Sphere Program**, then choose **Manage → Browse local files**.
-4. Copy the included **BepInEx** folder into that game installation folder, alongside **DSPGAME.exe**. Merge the folders if prompted.
+1. Close the game and install [BepInEx for Dyson Sphere Program](https://thunderstore.io/c/dyson-sphere-program/p/xiaoye97/BepInEx/) if needed.
+2. Download and extract this mod's ZIP.
+3. In Steam, right-click **Dyson Sphere Program → Manage → Browse local files**.
+4. Copy the included **BepInEx** folder there, alongside **DSPGAME.exe**. Merge folders if prompted.
 5. Start the game normally.

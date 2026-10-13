@@ -2,6 +2,6 @@
   "name": "DSPDarkFogIndustry",
   "version_number": "0.0.0",
   "website_url": "https://github.com/shytamir/DSPDarkFogIndustry",
-  "description": "Produce all six Dark Fog materials in your factories, even with Dark Fog disabled.",
+  "description": "Produce all six Dark Fog materials, even with Dark Fog disabled. Customize the recipes to make other items.",
   "dependencies": ["xiaoye97-BepInEx-5.4.17"]
 }

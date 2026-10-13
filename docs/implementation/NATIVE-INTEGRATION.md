@@ -109,6 +109,57 @@ The [configuration investigation](../archive/2026-10-13-configurability/INVESTIG
 retains the later native and BepInEx findings. Configurability observations and
 acceptance are recorded in [PROJECT](../PROJECT.md#owner-acceptance-record--2026-10-13).
 
+## Configuration language evidence — 2026-10-13
+
+Read-only review at source `00967e34b6355ba78c86b2e2d8ff4dcff2aa04a6`, against
+the adopted DSP 0.10.35.29131 assembly SHA-256
+`74ac6162cef8394a6021c8475132cae4df4f840871a99e63cc7d2c8297661bc0`.
+Environment activation verified all three existing static reference identities.
+
+- [ConfigurationReference.Write](../../src/DSPDarkFogIndustry/ConfigurationReference.cs)
+  writes UTF-8 and calls `Localization.Translate` on every item, technology and
+  machine name. Introductory text, headings, annotations and baseline-machine
+  descriptions are English literals; the file is not wholly translated.
+- [RecipeCorrection.Apply](../../src/DSPDarkFogIndustry/RecipeCorrection.cs) builds
+  selector dictionaries through the same translation API.
+  [IntegerSetting.Resolve/Label](../../src/DSPDarkFogIndustry/RecipeConfiguration.cs)
+  matches exact trimmed names case-insensitively and saves an ID with its translated
+  label. Duplicate names require IDs. This uses the current language, not an
+  English/Chinese alias list.
+- Native `GlobalObject.Initialize`, marked `BeforeSceneLoad`, loads localization
+  and selects the saved language before scene startup. `VFPreload` later preloads
+  items, invoking the existing registration prefix. `RecipeStartup.Prepare` corrects
+  settings and writes the reference there. Native `Localization.Translate` looks
+  up the selected language's `currentStrings`, falling back to the original key
+  if the key/table is unavailable. Chinese (Simplified) uses LCID 2052.
+- The reference regenerates during startup; there is no language-change event
+  hook that rewrites it while playing. Restart after changing the game language.
+  Existing saved numeric IDs retain identity across languages.
+
+Selected native display names were checked directly in `Locale/2052/prototype.txt`
+(SHA-256 `350b79de6eb5741372c887d168901221fe9102953ccc4c33432c4e7b7e9a62f8`):
+
+| Type / ID | Simplified Chinese display name |
+| --- | --- |
+| Item 1013 | 分形硅石 |
+| Item 5201 | 黑雾矩阵 |
+| Item 5205 | 核心素 |
+| Technology 1133 | 粒子可控 |
+| Machine 2302 | 电弧熔炉 |
+| Machine 2309 | 化工厂 |
+
+These are display strings, not assumed translations of prototype keys: for
+example, item 5201's key is `存储单元`, and item 5205's key is `虚粒子`.
+Use the native display strings when preparing Chinese player copy. Native source
+extracts remain under ignored `.local/inspection/`; no native code or complete
+language files are added to tracked source.
+
+The existing [configuration checks](../../tests/ProductChecks/ConfigurationChecks.cs)
+cover translated reference entries, exact-name input and stable IDs after label
+changes, but their translator is a test double. This review establishes the source
+path and native strings, not an observed Chinese-language game session or a captured
+game-generated reference. No game was launched, installed file changed or save read.
+
 ## Configured production checks
 
 The current static asset probe reconfirmed speeds of 1/2/3 for smelters,
