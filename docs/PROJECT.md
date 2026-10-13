@@ -70,6 +70,7 @@ are superseded by CFG-D14/D15 below. Quantity/rate corrections remain unchanged.
 | CFG-D13: Native recursive crafting limits | Owner-selected, 2026-10-13 | "Preserve native recursive crafting limits; correct recipe and machine fields." Document cross-recipe raw-material/handcraft/queue arithmetic limits; do not add chain validation or runtime queue safeguards. Per-recipe field and machine-buffer corrections remain required. |
 | CFG-D14: Text-editor usability | Owner-directed, 2026-10-13 | The approximately 3,500-line config is impractical. Keep generated content below 200 lines; target core controls in the first 60, with flexibility to avoid overengineering. Move optional inputs 3–6 later and the catalogue to a separate text reference. Dropdowns are out of scope. Keep all output controls and values pending a later decision. |
 | CFG-D15: Name inputs | Owner-directed, 2026-10-13 | Include name inputs; "Just replace invalid inputs with defaults and don't make a guesser." Selectors accept exact current-language names ignoring case/edge whitespace, or IDs. Invalid/ambiguous/ineligible selections use their field defaults. Stored IDs with readable labels preserve identity across language changes. No cross-language alias system or fuzzy matching. |
+| Configuration layout review | Owner-accepted, 2026-10-13 | Owner: "I checked the new format and it's perfectly fine as it is." Acceptance covers the file's presentation. Name resolution, corrections, configured gameplay and overall G4 acceptance remain pending. The owner checklist was checked against the new section/value format and clarified before gameplay validation. |
 | Revised roadmap and contract / G0 | Owner-approved, 2026-10-13 | Owner: "I'm approving G0. Implement through to owner handoff please. Push to main when each story is done alongside a management docs update where appropriate." Three epics, nine stories, 29 relative work units; execute through G3, then wait for acceptance. |
 | Current native reference | Adopted for CFG-N01 | DSP 0.10.35.29131, assembly SHA-256 `74ac6162cef8394a6021c8475132cae4df4f840871a99e63cc7d2c8297661bc0`. Deliberate bootstrap refresh passed after the earlier drift diagnosis; real-library compilation and binding validation passed. This is not in-game compatibility acceptance. |
 | Implementation, gameplay acceptance and publication | Implementation through handoff authorized; acceptance/publication separate | Story pushes are authorized. HF-01 acceptance and the published baseline are unchanged; no version promotion or publication is included. |
@@ -105,8 +106,9 @@ are superseded by CFG-D14/D15 below. Quantity/rate corrections remain unchanged.
   exact names/IDs, default fallback, stable corrected saves and the separate
   reference. No production defaults or configurable output controls were removed.
 - Follow the [owner checklist](implementation/CONFIGURATION-OWNER-VALIDATION.md).
-  Game behavior and actual editor use remain owner observations; no acceptance
-  or publication is inferred from these checks.
+  The owner accepts the layout as recorded above. Game behavior and the remaining
+  edit/restart checks still need owner observations; overall acceptance and
+  publication remain pending.
 
 ### Earlier configurability candidate — 0.9.30
 
