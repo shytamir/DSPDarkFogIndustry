@@ -20,6 +20,7 @@ internal static class ConfigurationChecks
         Program.Run("Nearest corrections preserve unrelated settings and settle after one save", Corrections);
         Program.Run("Quantity bounds preserve native buffers and exact rate choices", Bounds);
         Program.Run("Decimal distance remains exact beyond ordinary numeric parsers", DecimalDistance);
+        Program.Run("ID reference follows the validated catalogue and remains inert", Reference);
     }
 
     internal static RecipeConfiguration Load(string name, string content, Action<string> report = null)
@@ -138,6 +139,30 @@ internal static class ConfigurationChecks
             var value = new IntegerSetting(config.File, "probe", "Number", 4, "test number");
             Check(new NumericSetting(value).Nearest(1, 9) == sample.Item2, "Numeric distance failed for " + sample.Item1);
         }
+    }
+
+    private static void Reference()
+    {
+        var catalogue = Catalogue();
+        catalogue.Technologies[1133].MaxLevel = 20;
+        catalogue.Technologies[1133].IsHiddenTech = true;
+        var config = Load("reference", "[90 - Reference - Items]\n5206 = edited label\n");
+        ConfigurationReference.Write(config.File, catalogue);
+        config.Correct(catalogue);
+        config.Save();
+        var groups = config.File.Keys.GroupBy(key => key.Section).ToDictionary(g => g.Key, g => g.ToArray());
+        Check(groups["90 - Reference - Items"].Select(key => int.Parse(key.Key)).SequenceEqual(catalogue.Items.Keys), "Item reference differs from eligible IDs.");
+        Check(groups["91 - Reference - Technologies"].Length == catalogue.Technologies.Count &&
+            groups["92 - Reference - Machines"].Length == catalogue.Machines.Count, "Reference omitted catalogue records.");
+        string text = File.ReadAllText(config.File.ConfigFilePath);
+        Check(text.IndexOf("[06 -") < text.IndexOf("[90 -") && text.IndexOf("[91 -") < text.IndexOf("[92 -"), "Reference sections are not last.");
+        Check(!text.Contains("edited label") && text.Contains("5206 = Translated native-5206") &&
+            text.Contains("Maximum level 20") && text.Contains("Hidden technology"), "Reference labels/eligibility metadata were not regenerated.");
+        Check(config.Recipes[0].OutputItem.Value == 5206, "Editing reference data changed a recipe.");
+        config.File.Reload();
+        ConfigurationReference.Write(config.File, catalogue);
+        config.Save();
+        Check(text == File.ReadAllText(config.File.ConfigFilePath), "A normal BepInEx save changed the generated reference.");
     }
 }
 

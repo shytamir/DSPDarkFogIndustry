@@ -17,7 +17,10 @@ compiles against and checks metadata from the identified actual libraries.
 pins the real library identities/hashes. CI resolves every compiled external member
 against shims and checks plugin identity/version and declared hooks. Only local
 real-reference validation proves those hook signatures and declarations match the
-identified native metadata. Neither path executes upstream assemblies or the plugin.
+identified native metadata. Compilation and metadata checks execute neither those
+assemblies nor the plugin. The separate file round-trip tests execute the pinned
+public BepInEx configuration library in an isolated host, without Unity or the game.
+Its archive hash is checked by `Prepare-References.ps1`; it is not packaged.
 
 ## Identity and output
 

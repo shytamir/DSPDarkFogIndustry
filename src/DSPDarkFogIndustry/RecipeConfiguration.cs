@@ -45,17 +45,18 @@ namespace DSPDarkFogIndustry
         internal RecipeSettings(ConfigFile file, string section, SynthesisRecipe recipe)
         {
             Technology = new IntegerSetting(file, section, "TechnologyId", recipe.Gate,
-                "Fully completed technology required to unlock this recipe. See the ID references below. " +
-                "Changes apply after restarting DSP, to all saves in this profile. " +
+                "Fully completed technology required to unlock this recipe. See the ID references below.\n" +
+                "Changes apply after restarting DSP, to all saves in this profile.\n" +
                 "BepInEx regenerates comments when saving; handwritten comments are not preserved.");
             Machine = new IntegerSetting(file, section, "MachineId", recipe.Family == ERecipeType.Smelt ? 2302 :
                 recipe.Family == ERecipeType.Assemble ? 2303 : 2309,
-                "Smelter, assembler or chemical plant item ID. Selects a family; all its tiers remain usable. " +
-                "Only assembler recipes allow hand replication. Rates use the basic machine, even for an upgraded ID.");
+                "Smelter, assembler or chemical plant item ID. Selects a family; all its tiers remain usable.\n" +
+                "Only assembler recipes allow hand replication.\nRates use the basic machine, even for an upgraded ID.");
             OutputItem = new IntegerSetting(file, section, "OutputItemId", recipe.Product, "Item produced. See the item reference below.");
             OutputCount = new IntegerSetting(file, section, "OutputCount", recipe.OutputCount, "Items produced per batch. Positive integer.");
             Rate = new IntegerSetting(file, section, "OutputPerMinute", recipe.Id == 401 ? 120 : 60,
-                "Products per minute before proliferation in Arc Smelter, Assembling Machine Mk.I or Chemical Plant. " +
+                "Products per minute before proliferation in this family's basic machine:\n" +
+                "Arc Smelter, Assembling Machine Mk.I or Chemical Plant.\n" +
                 "Unattainable integer rates are corrected to the nearest attainable rate; ties use the lower rate.");
             for (int i = 0; i < InputItems.Length; i++)
             {

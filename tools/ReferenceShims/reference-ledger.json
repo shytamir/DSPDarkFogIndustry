@@ -207,6 +207,23 @@
         ]
       },
       {
+        "type": "Localization",
+        "kind": "class",
+        "abstract_type": true,
+        "sealed_type": true,
+        "base_type": "System.Object",
+        "generic_parameters": [],
+        "interfaces": [],
+        "fields": [],
+        "methods": [
+          {
+            "signature": "public static System.String Localization::Translate(System.String)",
+            "virtual_method": false,
+            "abstract_method": false
+          }
+        ]
+      },
+      {
         "type": "ModelProto",
         "kind": "class",
         "abstract_type": false,
@@ -513,6 +530,30 @@
         "generic_parameters": [],
         "interfaces": [],
         "fields": [
+          {
+            "signature": "public instance System.Boolean TechProto::IsHiddenTech",
+            "read_only": false,
+            "literal": false,
+            "constant": null
+          },
+          {
+            "signature": "public instance System.Boolean TechProto::IsObsolete",
+            "read_only": false,
+            "literal": false,
+            "constant": null
+          },
+          {
+            "signature": "public instance System.Boolean TechProto::Published",
+            "read_only": false,
+            "literal": false,
+            "constant": null
+          },
+          {
+            "signature": "public instance System.Int32 TechProto::MaxLevel",
+            "read_only": false,
+            "literal": false,
+            "constant": null
+          },
           {
             "signature": "public instance System.Int32[] TechProto::UnlockRecipes",
             "read_only": false,

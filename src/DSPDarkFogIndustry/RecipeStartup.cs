@@ -16,6 +16,7 @@ namespace DSPDarkFogIndustry
 
             var catalogue = new RecipeCatalogue(items, technologies, models);
             Configuration?.Correct(catalogue);
+            if (Configuration != null) { ConfigurationReference.Write(Configuration.File, catalogue); }
             Configuration?.Save();
             var definitions = Configuration == null ? SynthesisRecipes.Defaults : Configuration.CreateRecipes(catalogue);
             RecipeRegistration.Register(recipes, items, technologies, definitions);

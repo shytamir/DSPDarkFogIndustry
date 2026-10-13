@@ -68,6 +68,15 @@ public class PrefabDesc
 public class TechProto : Proto
 {
     public int[] UnlockRecipes;
+    public int MaxLevel;
+    public bool Published;
+    public bool IsHiddenTech;
+    public bool IsObsolete;
+}
+
+public static class Localization
+{
+    public static string Translate(string s) { throw new NotSupportedException("Compile-only shim"); }
 }
 
 public enum ERecipeType : byte

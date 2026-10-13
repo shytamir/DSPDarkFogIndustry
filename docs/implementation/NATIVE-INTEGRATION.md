@@ -58,6 +58,15 @@ are ineligible independently of recipe duration. Native catalogue speeds are far
 below that bound. The four-point spray/acceleration assumptions are native values;
 mods replacing those tables need separate compatibility evidence.
 
+[ConfigurationReference](../../src/DSPDarkFogIndustry/ConfigurationReference.cs)
+appends native item, technology and eligible-machine names through the ordinary
+BepInEx string entries. `Localization.Translate` supplies the active-language
+label before item preload has assigned `Proto.name`. Technology visibility and
+maximum-level metadata explain unusual choices without rejecting them. Reference
+values never feed recipe settings. Generated fixture text was reviewed for section
+order, spacing, comments and integer fields; Notepad and Thunderstore Mod Manager
+interaction remain owner observations.
+
 The [shim declarations and ledger](../../tools/ReferenceShims/README.md) describe
 every external reference. The [metadata checker](../../tools/ReferenceChecks/Program.cs)
 checks declarations, compiled references, plugin identity and Harmony targets.

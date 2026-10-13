@@ -24,7 +24,7 @@ internal static class RegistrationChecks
             },
             new TechProtoSet
             {
-                dataArray = techIds.Select(id => new TechProto { ID = id, UnlockRecipes = [id + 10000] }).ToArray()
+                dataArray = techIds.Select(id => new TechProto { ID = id, Name = "Technology " + id, Published = true, MaxLevel = 1, UnlockRecipes = [id + 10000] }).ToArray()
             });
     }
 

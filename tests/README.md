@@ -6,6 +6,10 @@ Run `./build.ps1` from the repository root for the standard suite.
   code with small data-store fakes. It checks registration conflicts and atomicity,
   stable save IDs, native recipe field construction, recipe rates and proliferation
   eligibility, and unlock behavior across all research combinations.
+  Configuration checks exercise the pinned BepInEx file implementation for integer
+  metadata, missing/invalid values, exact nearest corrections, stable persistence,
+  startup snapshots and grouped inert references. These tests initialize only a
+  temporary BepInEx config path; they do not load Unity or game code.
 - **Package.Tests.ps1:** changes a valid ZIP to ensure the package validator rejects
   invalid contents, metadata, encoding and versions.
 - **References.Tests.ps1:** local negative checks for ledger changes, reference
