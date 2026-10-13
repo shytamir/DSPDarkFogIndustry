@@ -6,24 +6,25 @@ and publication. Other documents define contracts or evidence and link here.
 
 ## Current state
 
-- Phase: corrected maintenance hotfix awaiting owner validation, 2026-10-08.
-- Authorized scope: outline and implement [HF-01](planning/HF-01-PROTOTYPE-DETECTION.md)
-  through local validation, main delivery, hosted artifact verification and owner
-  handoff. The owner rejected the catalogue-edit implementation: it immediately
-  put the game in sandbox mode on load. Revert that approach and use the existing
-  empty-detector-collection initialization. Record the failure and steering, then
-  validate and deliver the correction under the existing main-push authorization.
-  No save repair or publication is authorized. Completed MVP and cleanup remain closed.
+- Phase: configurability planning, reopened by the owner on 2026-10-13.
+- Authorized scope: initial read-only investigation, a configurability roadmap
+  skeleton, and management/documentation updates through push to main. Product
+  code changes, game execution, installed-file changes and save access are outside
+  this work. Implementation requires a subsequent owner instruction. Completed
+  MVP and cleanup remain closed; the corrected [HF-01](planning/HF-01-PROTOTYPE-DETECTION.md)
+  candidate still awaits owner validation independently of this planning work.
 - Build version line: `0.9.x`, owner-directed on 2026-10-08; the patch remains the
   CI run number (0 for local builds). The historical MVP candidate remains `0.1.8`.
 - Product implementation: MVP-01 through MVP-07 completed and accepted as the MVP;
   M3 satisfied. No implementation story remains active. The
   [owner handoff](archive/2026-10-08-mvp/OWNER-VALIDATION.md) is archived.
-- Planning: [recipe requirements](planning/MVP-RECIPES.md) remain the product
-  contract and the [completed MVP roadmap](archive/2026-10-08-mvp/ROADMAP.md) is
-  archived. The [live roadmap](planning/ROADMAP.md) links only the hotfix. Version 1.0
-  has no approved scope or schedule; planning waits for the owner's direction,
-  likely after user feedback. Feedback does not automatically activate work.
+- Planning: the [live roadmap](planning/ROADMAP.md) defines the configurability
+  investigation and proposed delivery sequence. Its questions and later
+  implementation stories are not approved product decisions. The
+  [MVP recipe contract](planning/MVP-RECIPES.md) describes current behavior;
+  the [completed MVP roadmap](archive/2026-10-08-mvp/ROADMAP.md) remains archived.
+  No release version or schedule has been selected for configurability; this
+  request does not itself establish the scope of version 1.0.
 - Owner acceptance: accepted as is on 2026-10-08 after the owner-reported checks
   [recorded below](#owner-acceptance-record--2026-10-08). Completion of the full
   proposed validation procedure is not a condition of this acceptance.
@@ -39,6 +40,39 @@ and publication. Other documents define contracts or evidence and link here.
   `0.1.8` from [run 37699427929](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/37699427929)
   passed independent verification. This remains the historical MVP candidate;
   the published baseline is recorded below.
+
+## Configurability planning — 2026-10-13
+
+The owner requests control of recipe unlock technologies, items, quantities,
+production rates and manufacturing machines in the BepInEx configuration file,
+with hand replication following the agreed native behavior. The file must be
+usable in Notepad and end with an ID reference grouped by type. Reference-only
+settings are permitted to support mod-manager lookup. Valid configurations must
+be accepted; invalid values must receive specific nearest-valid corrections.
+
+| Work / decision | Disposition | Basis / next gate |
+| --- | --- | --- |
+| CFG-D01: Reopen planning | Owner-directed | Supersedes maintenance deferral for this feature. Documentation delivery to main is authorized; product implementation is not. |
+| Initial investigation and roadmap skeleton | Prepared for owner review | [Roadmap](planning/ROADMAP.md) and [technical findings](implementation/CONFIGURATION-INVESTIGATION.md); later stories remain proposed. |
+| CFG-D02: Existing defaults and recipe identity | Proposed | Preserve the accepted recipes as defaults and retain the six registered recipe IDs/selector positions while exposing their contents. Confirm at the planning review. |
+| CFG-D03: Configuration contract | Unresolved | Resolve the roadmap's decision agenda: recipe shape, rate meaning, machine/handcraft rules, validity and correction policy, file presentation, and changes between saves/sessions. |
+| Current native reference | Drift identified; not adopted | Installed build identifies itself as 0.10.35.29131; recorded baseline is 0.10.35.29104. Activation stopped once. Selected new-build types/assets were inspected statically; baseline refresh and compatibility validation remain outstanding. |
+| Implementation, gameplay acceptance and publication | Not authorized by this planning request | Owner review of the completed contract and implementation plan precedes a separate implementation instruction. HF-01 acceptance and the published baseline are unchanged. |
+
+The initial evidence distinguishes recipe-level handcraft flags from machine
+families, identifies shared-technology registration and saved-buffer concerns,
+and checks BepInEx's actual serialization and validation behavior. It does not
+establish a complete valid-value domain, current-game compatibility, or any
+configurable runtime behavior. Native extracts remain ignored local evidence.
+
+Review covered technical claims against source/assets, investigation coverage,
+scope and document authority, then wording. It kept machine family, handcraft
+eligibility and rate interpretation as separate questions; required the reference
+to match the accepted ID domain; and left default preservation and save-transition
+policy for owner review. The pending hotfix and published release were preserved.
+Documentation validation passed: PowerShell syntax, 158 local links, retained
+concept hashes, source hygiene and diff whitespace. No local product build or
+runtime test was performed for this documentation change.
 
 ## HF-01 maintenance hotfix — 2026-10-08
 
@@ -116,8 +150,9 @@ real-library bindings.
 - Publication evidence: owner's report. Public download bytes have not been
   independently verified; the CI verification above is a separate observation.
 
-No new release, version promotion, feedback-monitoring task or 1.0 work is started
-by this maintenance transition. Future fixes and planning require owner steering.
+That maintenance transition did not start a release, version promotion,
+feedback-monitoring task or 1.0 work. Subsequent owner-authorized work is recorded
+in the current state above.
 
 ## Pre-release repository work
 
@@ -246,7 +281,7 @@ separates inspected facts from investigations and final owner observations.
 | MVP-07: Owner validation handoff | Technically closed, 2026-10-08; M3 satisfied | [Archived procedure](archive/2026-10-08-mvp/OWNER-VALIDATION.md) and [review evidence](archive/2026-10-08-mvp/VALIDATION.md#mvp-07--owner-handoff-review); original blank checklist preserved; subsequent owner report below |
 | Final owner validation and acceptance | Accepted as is, 2026-10-08 | Owner reported recipe unlocks and production in different facilities with/without proliferation, with no observed problems or side effects; full checklist not completed |
 | Pre-release preparation | Closed, 2026-10-08 | Presentation and repository cleanup delivered; owner reports publishing 0.9.14 |
-| Maintenance | Current phase, 2026-10-08 | No active work; 1.0 planning waits for owner direction |
+| Maintenance | Superseded as current phase, 2026-10-13 | Owner reopened configurability planning; completed MVP acceptance and release records remain unchanged |
 
 ### Owner acceptance record — 2026-10-08
 

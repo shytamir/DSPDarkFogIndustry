@@ -4,5 +4,9 @@
 supporting investigation. Code and nearby comments own implementation details;
 these documents provide navigation and evidence without duplicating the code.
 
+[Configuration investigation](CONFIGURATION-INVESTIGATION.md) records the native
+and BepInEx findings supporting configurability planning, including unresolved
+constraints and the changed installed-game reference.
+
 [PROJECT](../PROJECT.md) owns work state and decisions. Completed investigations
 are retained in the [archive](../archive/README.md).
