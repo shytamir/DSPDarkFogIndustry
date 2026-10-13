@@ -6,8 +6,9 @@ and publication. Other documents define contracts or evidence and link here.
 
 ## Current state
 
-- Phase: approved 1.0 prerelease work in progress, following acceptance of
-  configurability 0.9.33.
+- Phase: 1.0 prerelease owner review. Candidate **1.0.40** is technically verified;
+  the [short copy-review checklist](implementation/PRERELEASE-OWNER-REVIEW.md)
+  is ready. Configurability 0.9.33 remains accepted.
 - Authorized scope: execute the approved package-copy/version roadmap through
   owner handoff, pushing each completed story with its management update.
   Code changes are outside this roadmap.
@@ -22,7 +23,7 @@ and publication. Other documents define contracts or evidence and link here.
   are completed and accepted; G4/M4 are satisfied.
 - Planning: the [live roadmap](planning/ROADMAP.md) defines package copy review,
   a Simplified Chinese summary, the 1.0 version line and verified owner handoff.
-  G0 is approved; final owner acceptance remains separate. The
+  G0 is approved and G1/G2 are satisfied; G3 awaits owner acceptance. The
   [configurability roadmap](archive/2026-10-13-configurability/ROADMAP.md)
   and [MVP roadmap](archive/2026-10-08-mvp/ROADMAP.md) are archived. The
   [configuration contract](planning/CONFIGURATION.md) and
@@ -73,9 +74,9 @@ handoff; the owner's review of the resulting package is still required.
 | PRE-C01: English package copy | Delivered | Main `2a2fa1e`; [CI 38433971869](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/38433971869) passed. English copy checked against the configuration/default-recipe contracts; one valid custom-output example retained. Repository checks passed. |
 | PRE-C02: Simplified Chinese summary | Delivered | Main `5d2d80e`; [CI 38434862826](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/38434862826) passed. Native terminology, bilingual meaning, UTF-8, 143-character description and website rendering checked; evidence below. |
 | G1 / M1: Copy ready | Satisfied, 2026-10-13 | Both languages agree; notice, two tables and example render correctly in Thunderstore's website preview. |
-| PRE-V01: Version promotion | Technically validated | MAJOR=1/MINOR=0; shared build and real-reference compilation/metadata checks passed. This story's CI output will be verified independently in D01. |
-| PRE-D01: Verified candidate and handoff | Approved; follows V01 | Inspect the actual CI package/evidence and supply a short owner checklist. |
-| G2 / M2: Owner review ready | Pending | Exact 1.0.x artifact independently verified and handed off. |
+| PRE-V01: Version promotion | Delivered | Main `c79c3cf`; [CI 38435202010](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/38435202010) passed. MAJOR=1/MINOR=0; local build and real-reference checks passed. |
+| PRE-D01: Verified candidate and handoff | Technically complete | Downloaded 1.0.40 independently verified; identity/evidence below and [owner checklist](implementation/PRERELEASE-OWNER-REVIEW.md) ready. This documentation-only story commit delivers the handoff; its CI output does not replace the selected package. |
+| G2 / M2: Owner review ready | Satisfied, 2026-10-13 | Exact 1.0.40 artifact independently verified and prepared for copy review. |
 | G3 / M3: Acceptance and archival | Pending owner decision | Record the new candidate's explicit acceptance and archive completed work; publication remains separate. |
 
 ### Planning basis and review
@@ -138,6 +139,37 @@ tool configuration workaround was made. Real-reference compilation then passed
 with no warnings/errors, validating 95 external references, three declared Harmony
 targets and 91 shim members against the adopted metadata. No game code was executed.
 The prerelease diff is limited to package text, VERSION and documentation.
+
+### Verified 1.0 candidate — 2026-10-13
+
+- Package: **1.0.40**, `DSPDarkFogIndustry-1.0.40.c79c3cf2ff79.zip`.
+- Source: `c79c3cf2ff797d352b0c91215cdeb6c2593c2c20`.
+- [CI run 38435202010](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/38435202010),
+  run number 40, attempt 1, successful main build.
+- [Package artifact 11832781564](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/38435202010/artifacts/11832781564);
+  separate evidence artifact `plugin-evidence-40-1`.
+- ZIP SHA-256: `e2b7aefca221ad5ff3d805dd8b06ad6f98d5e89cc1328594aa88bf92f00f7e7e`.
+- DLL SHA-256: `e8e1e8af3ff21459a287c2434b95464bbc9a7ebcce1a3d9d9a84da0542ed5e8a`.
+
+Both actual downloads matched GitHub's artifact digests. All 110 source-file hashes
+matched an export of that commit. Independent package inspection confirmed the
+five required entries, source README/icon/license bytes, strict UTF-8 and metadata.
+The packaged bilingual description and Chinese README text match the reviewed copy.
+Package/plugin version is `1.0.40`, assembly/file version `1.0.40.0`, informational
+version `1.0.40.c79c3cf2ff79`. The downloaded DLL passed real-metadata validation:
+95 external references, three Harmony targets and 91 shim members; hosted and local
+reference inventories agree.
+
+The sandbox artifact request returned HTTP 401; authenticated download through the
+supported permission route succeeded. Only the successful downloads were verified.
+The package, provider metadata, exported source and independent verification report
+are retained under ignored `artifacts/ci/38435202010/`.
+
+Final scope review confirmed no changes to product code, tests, tools, dependencies,
+pipeline or icon. No game was launched, installed file/profile changed, or save
+accessed. G3 remains open for the owner's review of the finished copy and candidate;
+no repeat gameplay or Chinese runtime validation is requested. Later documentation
+builds do not supersede 1.0.40. Acceptance and publication are not inferred.
 
 ## Configurability — 2026-10-13
 
