@@ -8,29 +8,33 @@ namespace DSPDarkFogIndustry
     {
         internal static int[] Apply(RecipeConfiguration configuration, RecipeCatalogue catalogue, Action<string> report)
         {
+            var itemNames = catalogue.Items.ToDictionary(pair => pair.Key, pair => Localization.Translate(pair.Value.Name).Trim());
+            var technologyNames = catalogue.Technologies.ToDictionary(pair => pair.Key, pair => Localization.Translate(pair.Value.Name).Trim());
+            var machineNames = catalogue.Machines.ToDictionary(pair => pair.Key, pair => itemNames[pair.Key]);
             var durations = new int[configuration.Recipes.Length];
             for (int recipeIndex = 0; recipeIndex < durations.Length; recipeIndex++)
             {
                 var recipe = configuration.Recipes[recipeIndex];
-                CorrectId(recipe.Machine, catalogue.Machines.Keys, report);
-                CorrectId(recipe.Technology, catalogue.Technologies.Keys, report);
-                CorrectId(recipe.OutputItem, catalogue.Items.Keys, report);
+                recipe.Machine.Resolve(machineNames, false, report);
+                recipe.Technology.Resolve(technologyNames, false, report);
+                recipe.OutputItem.Resolve(itemNames, false, report);
                 var used = new HashSet<int>();
                 bool productive = true;
                 for (int row = 0; row < recipe.InputItems.Length; row++)
                 {
                     var item = recipe.InputItems[row];
-                    var number = new NumericSetting(item);
-                    // Missing unused rows and explicit numeric zero both stay unused.
-                    if (number.IsZero || (!number.IsNumeric && item.Default == 0))
+                    item.Resolve(itemNames, true, report);
+                    if (item.Value != 0 && used.Contains(item.Value))
                     {
-                        Set(item, 0, "unused ingredient row", report);
+                        // A later duplicate uses its own default if that is still
+                        // available; otherwise leave the optional slot unused.
+                        int fallback = used.Contains(item.Default) ? 0 : item.Default;
+                        Set(item, fallback, "duplicate ingredient; default or unused slot", report);
                     }
-                    else
+                    if (item.Value != 0)
                     {
-                        var available = catalogue.Items.Keys.Where(id => !used.Contains(id)).ToArray();
-                        if (available.Length == 0) { Set(item, 0, "no distinct ingredient ID remains", report); }
-                        else { CorrectId(item, available, report); used.Add(item.Value); productive &= catalogue.Items[item.Value].Productive; }
+                        used.Add(item.Value);
+                        productive &= catalogue.Items[item.Value].Productive;
                     }
                     if (item.Value == 0) { Set(recipe.InputCounts[row], 0, "unused ingredient row", report); }
                 }
@@ -81,21 +85,12 @@ namespace DSPDarkFogIndustry
                 }
                 if (bestRate == 0) { throw new InvalidOperationException("No attainable integer rate for " + recipe.Machine.Value); }
                 Set(recipe.Rate, bestRate, "attainable basic-machine products/minute", report);
+                recipe.Machine.Label(machineNames);
+                recipe.Technology.Label(technologyNames);
+                recipe.OutputItem.Label(itemNames);
+                foreach (var item in recipe.InputItems) { item.Label(itemNames); }
             }
             return durations;
-        }
-
-        private static void CorrectId(IntegerSetting setting, IEnumerable<int> eligible, Action<string> report)
-        {
-            var requested = new NumericSetting(setting);
-            int best = 0;
-            foreach (int id in eligible)
-            {
-                if (best == 0 || requested.Distance(id) < requested.Distance(best) ||
-                    (requested.Distance(id) == requested.Distance(best) && id < best)) { best = id; }
-            }
-            if (best == 0) { throw new InvalidOperationException("No eligible IDs for " + setting.Key); }
-            Set(setting, best, "nearest eligible ID (distinct for active ingredients)", report);
         }
 
         private static void Set(IntegerSetting setting, int value, string reason, Action<string> report)

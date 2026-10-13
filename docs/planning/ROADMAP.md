@@ -13,7 +13,8 @@ Configure the six synthesis recipes through BepInEx: technology, ingredient IDs
 and integer quantities, one output item ID/count, machine ID and integer output
 rate. Keep the six recipe identities/positions, the existing recipes as defaults,
 native proliferation and ordinary facility bonuses. Provide a readable configuration
-and a grouped ID reference usable in Notepad and Thunderstore Mod Manager.
+and a grouped name/ID reference usable in a text editor. The owner review
+adjustment below supersedes the original embedded-reference presentation.
 
 Only smelters, chemical plants and assemblers are selectable production machines.
 Rates use each family's basic machine before proliferation: Arc Smelter, Chemical
@@ -35,6 +36,27 @@ slots, vanilla recipe editor, custom production loop, resource migration, new UI
 publication, tagging or version promotion are included.
 
 ## Work structure and weight
+
+### CFG-U01 — Text-editor usability after owner review
+
+- **Weight:** 3. **Dependency:** the delivered configurability candidate.
+- **Outcome:** a config below 200 generated lines, with core controls near the
+  first 60 lines and optional inputs 3–6 later. Accept exact case-insensitive
+  current-language names or IDs; invalid selections use defaults without guessing.
+- **Includes:** a separate grouped text reference, preservation of existing edits,
+  short player instructions, correction/round-trip checks, real-reference build,
+  CI package verification and a replacement owner handoff.
+- **Excludes:** dropdowns, custom editor UI, fuzzy matching, multilingual alias
+  systems, removal/fixing of output controls, changes to production/defaults,
+  numerical quantity/rate bounds, save migration, game execution and publication.
+- **Done:** the generated file is measured, valid old/custom selections survive,
+  invalid/ambiguous names settle to defaults, the old reference entries stay out,
+  and the actual CI artifact passes the existing delivery checks. Recheck G2/G3.
+- **Stop condition:** a native format or name lookup limitation would require a
+  broader mechanism. The 60-line target is flexible; do not build around an exact
+  line count at the expense of simplicity. PROJECT owns this story's state.
+
+### Original roadmap weights
 
 An **epic** delivers a coherent capability. A **story** has its own bounded result,
 dependencies and completion evidence. Gates and milestones carry no extra weight;

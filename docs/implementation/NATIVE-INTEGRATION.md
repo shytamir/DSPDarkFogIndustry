@@ -37,10 +37,17 @@ game's existing behavior. The plugin does not patch those systems.
 ## References and hosted compilation
 
 [RecipeConfiguration](../../src/DSPDarkFogIndustry/RecipeConfiguration.cs) binds
-the six stable recipe sections through BepInEx. A temporary string binding retains
-raw numeric text before the public integer binding is created; no global converter
-or private config API is changed. Settings are captured at startup, with batched
-saving and explicit persistence-error reporting. The file tests use the pinned
+the six stable recipe sections and six extra-input sections through BepInEx.
+Selectors use string bindings for exact current-language names or IDs; quantities
+retain raw numeric text before the public integer binding is created. No global
+converter or private config API is changed. Settings are captured at startup.
+[ConfigurationLayout](../../src/DSPDarkFogIndustry/ConfigurationLayout.cs) compacts
+the ordinary BepInEx save, retaining keys and values while replacing verbose
+metadata with shared instructions. Removed legacy reference sections are forgotten
+through the public reload API; active recipe snapshots are unchanged.
+[ConfigurationReference](../../src/DSPDarkFogIndustry/ConfigurationReference.cs)
+writes a separate grouped text reference. Config/reference write failures are
+reported independently. The file tests use the pinned
 public BepInEx binary in an isolated test host; product compilation still uses
 shims, and the package contains neither dependency nor generated configuration.
 

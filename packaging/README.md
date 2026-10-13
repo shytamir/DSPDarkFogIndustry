@@ -25,20 +25,22 @@ These rates assume full power, a steady supply of ingredients and no proliferati
 
 **Custom recipes**
 
-After starting the game once, close it and edit `BepInEx/config/dark-fog-industry.cfg` with Notepad or Thunderstore Mod Manager's config editor. For a managed installation, use the file in the profile you launch. Restart the game to apply changes. Settings apply to every save loaded with that profile.
+After starting the game once, close it and edit `BepInEx/config/dark-fog-industry.cfg` with Notepad or another text editor. For a managed installation, use the file in the profile you launch. Restart the game to apply changes. Settings apply to every save loaded with that profile.
 
 Each of the six numbered recipe sections lets you choose:
 
-- The unlock technology ID. The technology must be fully completed; several recipes can share it.
-- A smelter, assembler or chemical plant item ID. All compatible tiers remain usable.
-- One output item ID, its count per batch and its products per minute.
-- Up to six different ingredient IDs and their counts per batch. Set an ingredient ID to zero to leave that row unused. Recipes can also have no ingredients.
+- The unlock technology. The technology must be fully completed; several recipes can share it.
+- A smelter, assembler or chemical plant. All compatible tiers remain usable.
+- One output item, its count per batch and its products per minute.
+- The first two ingredients and their counts per batch. Optional inputs 3–6 are in the **Extra inputs** sections below. Set an ingredient ID to zero to leave that slot unused. Recipes can also have no ingredients.
 
-Use whole numbers. Rates always refer to the **basic machine**: Arc Smelter, Assembler Mk.I or Chemical Plant, before proliferation. Choosing an upgraded machine ID does not change that baseline. For example, 60/min in the assembly family means 60/min in Mk.I and 80/min in Mk.II. Counts are per batch; they are separate from the production rate. With custom ingredients, extra-product eligibility follows those ingredients' normal rules.
+Fields ending in `Id` accept an ID or an exact name in your current game language, ignoring capitalization and surrounding spaces. For example, replace the whole value with `Input1ItemId = fractal silicon`. Saved selections show `1013 # Fractal Silicon`; the number determines the selection, and the label helps you read it. Use an ID when several technologies share a name.
 
-The final three sections list item, technology and eligible machine IDs with names in the game's active language. They are lookup lists: editing a name does not change a recipe, and names refresh at startup. Hidden and obsolete technologies are labelled; selecting one may leave a recipe unavailable in ordinary play.
+Use whole numbers for counts and rates. Rates always refer to the **basic machine**: Arc Smelter, Assembler Mk.I or Chemical Plant, before proliferation. Choosing an upgraded machine ID does not change that baseline. For example, 60/min in the assembly family means 60/min in Mk.I and 80/min in Mk.II. Counts are per batch; they are separate from the production rate. With custom ingredients, extra-product eligibility follows those ingredients' normal rules.
 
-Invalid values are corrected individually and saved, with details in the BepInEx log. Numeric values use the nearest valid choice; equal distances use the lower value. Unattainable rates use the nearest attainable whole-number rate. Missing or nonnumeric fields use their defaults. Check the saved values after restarting. BepInEx regenerates comments when saving, so keep personal notes separately. Damaged file syntax or a file that cannot be read or written needs to be fixed before settings can be saved normally.
+Find the complete grouped name/ID list in `dark-fog-industry.reference.txt`, beside the config. Use your editor's Find command to look up an item, technology or machine. This reference refreshes at startup; editing it does not change recipes. Hidden and obsolete technologies are labelled; selecting one may leave a recipe unavailable in ordinary play.
+
+Unknown, ambiguous or ineligible item, technology and machine selections return to that field's default, with a message in the BepInEx log. There is no spelling correction. For duplicate ingredients, the later slot returns to its default, or becomes unused if that default is already present. Quantities and rates retain their nearest-valid corrections; equal distances use the lower value. Missing or nonnumeric quantities/rates use their defaults. Check the saved values after restarting. Comments are regenerated, so keep personal notes separately. Damaged file syntax or a file that cannot be read or written needs to be fixed before settings can be saved normally.
 
 ## Replicator and saved games
 

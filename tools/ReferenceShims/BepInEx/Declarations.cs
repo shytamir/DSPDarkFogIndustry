@@ -87,5 +87,7 @@ namespace BepInEx.Configuration
         // The upstream dictionary implementation emits this member as virtual.
         public virtual bool Remove(ConfigDefinition key) { throw new NotSupportedException("Compile-only shim"); }
         public void Save() { throw new NotSupportedException("Compile-only shim"); }
+        public void Reload() { throw new NotSupportedException("Compile-only shim"); }
+        public string ConfigFilePath { get { throw new NotSupportedException("Compile-only shim"); } }
     }
 }

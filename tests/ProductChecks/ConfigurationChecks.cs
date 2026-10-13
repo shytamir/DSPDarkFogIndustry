@@ -14,13 +14,15 @@ internal static class ConfigurationChecks
         // No plugin host, Unity assembly or installed game code is loaded.
         typeof(BepInEx.Paths).GetProperty("BepInExConfigPath", BindingFlags.Public | BindingFlags.Static)!
             .SetValue(null, Path.Combine(Root, "BepInEx.cfg"));
-        Program.Run("BepInEx defaults, integer metadata and section ordering", Defaults);
+        Program.Run("Compact defaults retain every setting and fit the text-editor layout", Defaults);
         Program.Run("BepInEx edits, unknown keys, comments and startup snapshot", RoundTrip);
         Program.Run("Configuration save errors are reported without resetting values", SaveError);
         Program.Run("Nearest corrections preserve unrelated settings and settle after one save", Corrections);
         Program.Run("Quantity bounds preserve native buffers and exact rate choices", Bounds);
         Program.Run("Decimal distance remains exact beyond ordinary numeric parsers", DecimalDistance);
-        Program.Run("ID reference follows the validated catalogue and remains inert", Reference);
+        Program.Run("Separate reference follows the catalogue and replaces legacy lookup sections", Reference);
+        Program.Run("Names resolve exactly, while invalid or ambiguous selections use defaults", Names);
+        Program.Run("Extra ingredient migration preserves edits and prefers the new section", ExtraInputs);
     }
 
     internal static RecipeConfiguration Load(string name, string content, Action<string> report = null)
@@ -33,12 +35,19 @@ internal static class ConfigurationChecks
     private static void Defaults()
     {
         var config = Load("defaults", "");
+        config.Correct(Catalogue());
         config.Save();
         var read = new RecipeConfiguration(new ConfigFile(config.File.ConfigFilePath, false), _ => { });
+        read.Correct(Catalogue());
         Check(read.Recipes.Select(r => r.OutputItem.Value).SequenceEqual(SynthesisRecipes.Defaults.Select(r => r.Product)), "Defaults did not survive save.");
         string text = File.ReadAllText(config.File.ConfigFilePath);
-        Check(text.Split("# Setting type: Int32").Length - 1 == 102, "Not all editable fields have integer metadata.");
-        Check(text.IndexOf("[01 -") < text.IndexOf("[06 -"), "Recipe sections are not ordered.");
+        string[] lines = File.ReadAllLines(config.File.ConfigFilePath);
+        Check(lines.Length <= 200 && Array.FindIndex(lines, line => line.StartsWith("[Extra inputs")) <= 70,
+            "The default file exceeds the text-editor size or core-setting budget.");
+        Check(lines.Count(line => !line.StartsWith('#') && line.Contains(" = ")) == 102,
+            "The compact layout lost an editable setting.");
+        Check(read.CreateRecipes(Catalogue()).SelectMany(r => r.Inputs).SequenceEqual(SynthesisRecipes.Defaults.SelectMany(r => r.Inputs)),
+            "Compact serialization changed default ingredients.");
     }
 
     private static void RoundTrip()
@@ -48,7 +57,8 @@ internal static class ConfigurationChecks
         Check(config.Recipes[0].OutputItem.Value == 1606 && config.Recipes[0].Rate.Value == 120, "An ordinary edit or missing field was lost.");
         config.Save();
         string text = File.ReadAllText(config.File.ConfigFilePath);
-        Check(text.Contains(section) && text.Contains("Unknown = retained") && !text.Contains("personal note"), "Stable identity or BepInEx comment/key handling changed.");
+        Check(text.Contains(section) && text.Contains("Unknown = retained") &&
+            !File.ReadAllLines(config.File.ConfigFilePath).Contains("# personal note"), "Stable identity or BepInEx comment/key handling changed.");
         File.WriteAllText(config.File.ConfigFilePath, text.Replace("OutputCount = 7", "OutputCount = 9"));
         config.File.Reload();
         Check(config.Recipes[0].OutputCount.Value == 7, "Reload changed the startup snapshot.");
@@ -87,14 +97,14 @@ internal static class ConfigurationChecks
             "Input3ItemId = 0\nInput3Count = 21474836499999999999\n", messages.Add);
         config.Correct(catalogue);
         var recipe = config.Recipes[1];
-        Check(recipe.Machine.Value == 2319 && recipe.OutputItem.Value == 1606 && recipe.Technology.Value == 1133,
-            "Nearest eligible IDs or lower tie were incorrect.");
-        Check(recipe.InputCounts[0].Value == 7 && recipe.InputItems[1].Value == 1606 && recipe.InputCounts[1].Value == 1,
+        Check(recipe.Machine.Value == 2303 && recipe.OutputItem.Value == recipe.OutputItem.Default && recipe.Technology.Value == recipe.Technology.Default,
+            "Invalid selections did not use their defaults.");
+        Check(recipe.InputCounts[0].Value == 7 && recipe.InputItems[1].Value == recipe.InputItems[1].Default && recipe.InputCounts[1].Value == 1,
             "Fractional count, duplicate row or nonnumeric fallback was incorrect.");
         Check(recipe.InputItems[2].Value == 0 && recipe.InputCounts[2].Value == 0, "An unused row became active.");
         Check(recipe.Rate.Value == 60 && recipe.OutputCount.Value == 1, "Rate correction changed the batch.");
         Check(config.Recipes[0].OutputCount.Value == 2 && config.Durations[0] == 60, "Unrelated defaults changed.");
-        Check(messages.All(m => m.Contains("[0") && m.Contains(" -> ") && m.Contains(";")), "A correction lacks field/value/reason context.");
+        Check(messages.All(m => m.StartsWith("[") && m.Contains("] ") && m.Contains(" -> ") && m.Contains(";")), "A correction lacks field/value/reason context.");
         config.Save();
         string first = File.ReadAllText(config.File.ConfigFilePath);
         messages.Clear();
@@ -147,22 +157,80 @@ internal static class ConfigurationChecks
         catalogue.Technologies[1133].MaxLevel = 20;
         catalogue.Technologies[1133].IsHiddenTech = true;
         var config = Load("reference", "[90 - Reference - Items]\n5206 = edited label\n");
-        ConfigurationReference.Write(config.File, catalogue);
         config.Correct(catalogue);
-        config.Save();
-        var groups = config.File.Keys.GroupBy(key => key.Section).ToDictionary(g => g.Key, g => g.ToArray());
-        Check(groups["90 - Reference - Items"].Select(key => int.Parse(key.Key)).SequenceEqual(catalogue.Items.Keys), "Item reference differs from eligible IDs.");
-        Check(groups["91 - Reference - Technologies"].Length == catalogue.Technologies.Count &&
-            groups["92 - Reference - Machines"].Length == catalogue.Machines.Count, "Reference omitted catalogue records.");
+        config.Save(catalogue);
         string text = File.ReadAllText(config.File.ConfigFilePath);
-        Check(text.IndexOf("[06 -") < text.IndexOf("[90 -") && text.IndexOf("[91 -") < text.IndexOf("[92 -"), "Reference sections are not last.");
-        Check(!text.Contains("edited label") && text.Contains("5206 = Translated native-5206") &&
-            text.Contains("Maximum level 20") && text.Contains("Hidden technology"), "Reference labels/eligibility metadata were not regenerated.");
+        string path = ConfigurationReference.PathFor(config.File.ConfigFilePath);
+        string reference = File.ReadAllText(path);
+        Check(!text.Contains("[90 -") && !text.Contains("edited label"), "Legacy lookup entries remained in the config.");
+        Check(reference.Contains("5206 | Translated native-5206") && reference.Contains("Maximum level 20") &&
+            reference.Contains("Hidden technology"), "Reference omitted translated names or technology metadata.");
+        Check(File.ReadAllLines(path).Count(line => line.Contains(" | ")) ==
+            catalogue.Items.Count + catalogue.Technologies.Count + catalogue.Machines.Count, "Reference omitted catalogue records.");
         Check(config.Recipes[0].OutputItem.Value == 5206, "Editing reference data changed a recipe.");
-        config.File.Reload();
-        ConfigurationReference.Write(config.File, catalogue);
-        config.Save();
+        File.WriteAllText(path, "edited lookup");
+        config.Save(catalogue);
         Check(text == File.ReadAllText(config.File.ConfigFilePath), "A normal BepInEx save changed the generated reference.");
+        Check(reference == File.ReadAllText(path), "Lookup edits were not replaced independently of recipe settings.");
+        var messages = new List<string>();
+        var locked = new RecipeConfiguration(new ConfigFile(config.File.ConfigFilePath, false), messages.Add);
+        using (File.Open(path, FileMode.Open, FileAccess.ReadWrite, FileShare.None)) { locked.Save(catalogue); }
+        Check(messages.Count == 1 && messages[0].Contains("reference"), "Reference write failure was not reported separately.");
+    }
+
+    private static void Names()
+    {
+        var catalogue = Catalogue();
+        var messages = new List<string>();
+        var config = Load("names", "[02 - Recipe 402 - Dark Fog Matrix]\n" +
+            "MachineId =  tRaNsLaTeD mAcHiNe 2318  \nOutputItemId = Translated native-1606\n" +
+            "TechnologyId = Translated Technology 1133\nInput2ItemId = Translated native-1013\n", messages.Add);
+        config.Correct(catalogue);
+        var recipe = config.Recipes[1];
+        Check(recipe.Machine.Value == 2318 && recipe.OutputItem.Value == 1606 && recipe.Technology.Value == 1133 &&
+            recipe.InputItems[1].Value == 1013 && messages.Count == 0, "Exact names or case/edge-whitespace handling failed.");
+        config.Save();
+        string text = File.ReadAllText(config.File.ConfigFilePath);
+        Check(text.Contains("MachineId = 2318 # Translated Machine 2318"), "Saved selection lacks its ID and readable name.");
+        catalogue.Items[2318].Name = "new language";
+        var restart = new RecipeConfiguration(new ConfigFile(config.File.ConfigFilePath, false), messages.Add);
+        restart.Correct(catalogue);
+        Check(restart.Recipes[1].Machine.Value == 2318 && messages.Count == 0, "A label change retargeted a saved ID.");
+
+        catalogue.Technologies[recipe.Technology.Default].Name = catalogue.Technologies[1133].Name;
+        var invalid = Load("bad-names", "[02 - Recipe 402 - Dark Fog Matrix]\n" +
+            "TechnologyId = Translated Technology 1133\nMachineId = Translated Machine 2901\n" +
+            "OutputItemId = Translated native-160\nInput3ItemId = no such item\n", messages.Add);
+        invalid.Correct(catalogue);
+        Check(invalid.Recipes[1].Technology.Value == recipe.Technology.Default && invalid.Recipes[1].Machine.Value == 2303 &&
+            invalid.Recipes[1].OutputItem.Value == recipe.OutputItem.Default && invalid.Recipes[1].InputItems[2].Value == 0,
+            "Unknown, ambiguous or ineligible names were guessed instead of defaulted.");
+        Check(messages.Count == 4 && messages.All(message => message.Contains("default")), "Invalid name diagnostics omitted fields or defaults.");
+        invalid.Save();
+        messages.Clear();
+        var corrected = new RecipeConfiguration(new ConfigFile(invalid.File.ConfigFilePath, false), messages.Add);
+        corrected.Correct(catalogue);
+        Check(messages.Count == 0, "Corrected name selections did not settle after one restart.");
+    }
+
+    private static void ExtraInputs()
+    {
+        const string section = "[02 - Recipe 402 - Dark Fog Matrix]";
+        var config = Load("extra-inputs", section + "\nInput3ItemId = 1013\nInput3Count = 7\nCustomNote = retained\n" +
+            "[Extra inputs - 02 - Recipe 402 - Dark Fog Matrix]\nInput4ItemId = 1606\nInput4Count = 3\n");
+        config.Correct(Catalogue());
+        config.Save();
+        var read = new RecipeConfiguration(new ConfigFile(config.File.ConfigFilePath, false), _ => { });
+        read.Correct(Catalogue());
+        Check(read.Recipes[1].InputItems[2].Value == 1013 && read.Recipes[1].InputCounts[2].Value == 7 &&
+            read.Recipes[1].InputItems[3].Value == 1606 && read.Recipes[1].InputCounts[3].Value == 3,
+            "Moving extra inputs lost an active ingredient or count.");
+        Check(File.ReadAllText(config.File.ConfigFilePath).Contains("CustomNote = retained"), "Layout migration removed an unrelated setting.");
+        var both = Load("extra-conflict", section + "\nInput3ItemId = 1013\nInput3Count = 7\n" +
+            "[Extra inputs - 02 - Recipe 402 - Dark Fog Matrix]\nInput3ItemId = 1606\nInput3Count = 4\n");
+        both.Correct(Catalogue());
+        Check(both.Recipes[1].InputItems[2].Value == 1606 && both.Recipes[1].InputCounts[2].Value == 4,
+            "A legacy value overrode the current extra-input section.");
     }
 }
 

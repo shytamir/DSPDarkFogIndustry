@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -11,20 +12,35 @@ namespace DSPDarkFogIndustry
         internal readonly string Section;
         internal readonly string Key;
         internal readonly string Raw;
+        internal string NumericText { get; private set; }
         internal readonly int Default;
         private readonly ConfigEntry<int> entry;
+        private readonly ConfigEntry<string> selection;
         internal int Value { get; private set; }
 
-        internal IntegerSetting(ConfigFile file, string section, string key, int value, string description)
+        internal IntegerSetting(ConfigFile file, string section, string key, int value, string description,
+            bool acceptsName = false, string oldSection = null)
         {
             Section = section;
             Key = key;
             Default = value;
             // Read through BepInEx before binding Int32: its integer converter loses
             // overflow/fractional text. Only public, per-entry APIs are needed.
-            Raw = file.Bind(section, key, value.ToString(CultureInfo.InvariantCulture), "").Value;
-            file.Remove(new ConfigDefinition(section, key));
-            entry = file.Bind(section, key, value, description);
+            string initial = value.ToString(CultureInfo.InvariantCulture);
+            if (oldSection != null)
+            {
+                initial = file.Bind(oldSection, key, initial, "").Value;
+                file.Remove(new ConfigDefinition(oldSection, key));
+            }
+            var text = file.Bind(section, key, initial, description);
+            Raw = text.Value;
+            NumericText = Raw;
+            if (acceptsName) { selection = text; }
+            else
+            {
+                file.Remove(new ConfigDefinition(section, key));
+                entry = file.Bind(section, key, value, description);
+            }
             int parsed;
             Set(int.TryParse(Raw, NumberStyles.Integer, CultureInfo.InvariantCulture, out parsed) ? parsed : value);
         }
@@ -32,7 +48,39 @@ namespace DSPDarkFogIndustry
         internal void Set(int value)
         {
             Value = value;
-            entry.Value = value;
+            if (entry != null) { entry.Value = value; }
+            else { selection.Value = value.ToString(CultureInfo.InvariantCulture); }
+        }
+
+        internal void Resolve(IDictionary<int, string> names, bool allowZero, Action<string> report)
+        {
+            string text = Raw.Trim();
+            int marker = text.IndexOf('#');
+            int id;
+            bool numeric = int.TryParse(marker < 0 ? text : text.Substring(0, marker).Trim(),
+                NumberStyles.Integer, CultureInfo.InvariantCulture, out id);
+            bool valid = numeric && (names.ContainsKey(id) || (allowZero && id == 0));
+            if (!numeric)
+            {
+                var matches = names.Where(pair => string.Equals(pair.Value, text, StringComparison.OrdinalIgnoreCase)).Take(2).ToArray();
+                valid = matches.Length == 1;
+                if (valid) { id = matches[0].Key; }
+            }
+            if (!valid)
+            {
+                id = Default;
+                report("[" + Section + "] " + Key + ": '" + Raw + "' -> " + id +
+                    "; unknown, ambiguous or ineligible selection; using the documented default.");
+            }
+            NumericText = id.ToString(CultureInfo.InvariantCulture);
+            Set(id);
+        }
+
+        internal void Label(IDictionary<int, string> names)
+        {
+            string name;
+            selection.Value = Value.ToString(CultureInfo.InvariantCulture) + " # " +
+                (names.TryGetValue(Value, out name) ? name.Replace('\r', ' ').Replace('\n', ' ') : "unused");
         }
     }
 
@@ -44,15 +92,16 @@ namespace DSPDarkFogIndustry
 
         internal RecipeSettings(ConfigFile file, string section, SynthesisRecipe recipe)
         {
+            string extraSection = "Extra inputs - " + section;
             Technology = new IntegerSetting(file, section, "TechnologyId", recipe.Gate,
-                "Fully completed technology required to unlock this recipe. See the ID references below.\n" +
+                "Fully completed technology required to unlock this recipe. Accepts a name or ID.\n" +
                 "Changes apply after restarting DSP, to all saves in this profile.\n" +
-                "BepInEx regenerates comments when saving; handwritten comments are not preserved.");
+                "BepInEx regenerates comments when saving; handwritten comments are not preserved.", true);
             Machine = new IntegerSetting(file, section, "MachineId", recipe.Family == ERecipeType.Smelt ? 2302 :
                 recipe.Family == ERecipeType.Assemble ? 2303 : 2309,
-                "Smelter, assembler or chemical plant item ID. Selects a family; all its tiers remain usable.\n" +
-                "Only assembler recipes allow hand replication.\nRates use the basic machine, even for an upgraded ID.");
-            OutputItem = new IntegerSetting(file, section, "OutputItemId", recipe.Product, "Item produced. See the item reference below.");
+                "Smelter, assembler or chemical plant name or ID. All tiers in the family remain usable.\n" +
+                "Only assembler recipes allow hand replication.\nRates use the basic machine, even for an upgraded ID.", true);
+            OutputItem = new IntegerSetting(file, section, "OutputItemId", recipe.Product, "Item produced. Accepts a name or ID.", true);
             OutputCount = new IntegerSetting(file, section, "OutputCount", recipe.OutputCount, "Items produced per batch. Positive integer.");
             Rate = new IntegerSetting(file, section, "OutputPerMinute", recipe.Id == 401 ? 120 : 60,
                 "Products per minute before proliferation in this family's basic machine:\n" +
@@ -61,10 +110,12 @@ namespace DSPDarkFogIndustry
             for (int i = 0; i < InputItems.Length; i++)
             {
                 bool active = i < recipe.Inputs.Length;
-                InputItems[i] = new IntegerSetting(file, section, "Input" + (i + 1) + "ItemId", active ? recipe.Inputs[i] : 0,
-                    "Ingredient item ID. Zero disables this row. Active ingredients must have distinct IDs.");
-                InputCounts[i] = new IntegerSetting(file, section, "Input" + (i + 1) + "Count", active ? 1 : 0,
-                    "Items consumed per batch. Positive for an active row; zero for an unused row.");
+                string rowSection = i < 2 ? section : extraSection;
+                string oldSection = i < 2 ? null : section;
+                InputItems[i] = new IntegerSetting(file, rowSection, "Input" + (i + 1) + "ItemId", active ? recipe.Inputs[i] : 0,
+                    "Ingredient name or ID. Zero disables this row. Active ingredients must have distinct IDs.", true, oldSection);
+                InputCounts[i] = new IntegerSetting(file, rowSection, "Input" + (i + 1) + "Count", active ? 1 : 0,
+                    "Items consumed per batch. Positive for an active row; zero for an unused row.", false, oldSection);
             }
         }
     }
@@ -89,11 +140,12 @@ namespace DSPDarkFogIndustry
             }
         }
 
-        internal void Save()
+        internal void Save(RecipeCatalogue catalogue = null)
         {
             try
             {
                 File.Save();
+                ConfigurationLayout.Compact(File);
             }
             catch (IOException error)
             {
@@ -103,6 +155,10 @@ namespace DSPDarkFogIndustry
             {
                 report("Could not save effective recipe settings: " + error.Message);
             }
+            if (catalogue == null) { return; }
+            try { ConfigurationReference.Write(File, catalogue); }
+            catch (IOException error) { report("Could not write the name/ID reference: " + error.Message); }
+            catch (UnauthorizedAccessException error) { report("Could not write the name/ID reference: " + error.Message); }
         }
 
         internal void Correct(RecipeCatalogue catalogue)

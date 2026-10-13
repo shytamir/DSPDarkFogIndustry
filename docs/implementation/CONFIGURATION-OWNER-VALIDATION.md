@@ -1,13 +1,14 @@
-# Configurable recipes: owner checklist for 0.9.30
+# Configurable recipes: owner checklist
 
-Use a **test save/profile with 0.9.30** from [run 38405672271](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/38405672271). Launch once to generate the config, then exit. Before changing recipes already in use: **empty affected machines, clear their recipes, cancel queued handcrafts, save, then exit.**
+Use the **replacement candidate identified in [PROJECT](../PROJECT.md#selected-configurability-candidate)** in a test save/profile. Launch once to generate the config, then exit. Before changing recipes already in use: **empty affected machines, clear their recipes, cancel queued handcrafts, save, then exit.**
 
-In **Thunderstore Mod Manager**:
+In **Notepad or another text editor**, open the config in the profile you launch:
 
-- [ ] Find `dark-fog-industry.cfg`: six recipe groups first, then item, technology and machine references.
-- [ ] Look up an item by name and ID. Machine choices should cover only assemblers, smelters and chemical plants.
-- [ ] Edit and save a value; reopen it and confirm Notepad shows the same value.
-- [ ] Edit a reference name. After restarting DSP, its original label should return without changing any recipe.
+- [ ] `dark-fog-industry.cfg` stays below 200 lines: core recipe fields first, then extra inputs 3–6. Existing customized values survive the layout change.
+- [ ] Find the separate `dark-fog-industry.reference.txt`; use Find to look up an item or technology. Machine choices cover only assemblers, smelters and chemical plants.
+- [ ] With the default Energy Shard recipe, replace the whole `Input1ItemId` value with `fractal silicon` (or that item's name in your game language). Restart → `1013 # <current name>`, still producing normally.
+- [ ] Replace that selector with a misspelled name. Restart → its default `1013`, with a field-specific warning. There is no closest-name substitution.
+- [ ] Add a distinct item/count to an extra-input section, prepare/restart, and confirm it appears in that recipe. Restore it to ID/count `0` afterward.
 
 In-game, first check the defaults:
 

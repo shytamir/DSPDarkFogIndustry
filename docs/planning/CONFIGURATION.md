@@ -9,7 +9,8 @@ and remaining proofs are in the [investigation](../implementation/CONFIGURATION-
 
 - Each recipe has one output item type, with an editable item ID and integer
   count. Ingredient item IDs/counts, unlock technology, machine and output rate
-  are also configurable. Settings use IDs rather than localized names as identity.
+  are also configurable. Selectors accept IDs or exact names in the game's current
+  language, ignoring case and surrounding whitespace. Saved IDs retain identity.
 - Only smelters, chemical plants and assemblers are selectable production
   machines. Labs, refineries, particle colliders and all other families are excluded.
 - The integer output rate means products per minute in the selected family's
@@ -22,10 +23,11 @@ and remaining proofs are in the [investigation](../implementation/CONFIGURATION-
   recipe follows it. There is no independent handcraft toggle.
 - Keep native save loading. Provide preparation instructions; do not add resource
   migration, queue rewriting or automatic refunds when recipes change.
-- The config must be usable in Notepad, end with a reference grouped by ID type,
-  and support lookup in Thunderstore Mod Manager. Reference-only settings are
-  allowed. Valid settings must survive; invalid settings receive specific
-  automatic nearest-valid corrections.
+- The generated config must stay within 200 lines. Aim to keep all six recipes'
+  core controls in the first 60 lines; this is a usability target, not a reason
+  for complex formatting. Inputs 3–6 follow in extra-input sections. Keep the
+  grouped reference in a separate text file. Custom dropdowns and manager lookup
+  features are excluded. Preserve every current configurable field and default.
 
 ## Recipe and file contract
 
@@ -38,7 +40,10 @@ Use the plugin's ordinary `BepInEx/config/dark-fog-industry.cfg`, in the selecte
 mod-manager profile when applicable. One numbered section identifies each recipe
 by stable recipe ID and original/default name. An output change does not rename
 its section and strand the player's settings. Use ordinary scalar entries and
-short generated descriptions, not JSON, an external recipe file or a custom UI.
+shared instructions, not JSON, an external recipe file or a custom UI. Fields keep
+their existing keys, including the `Id` suffix, to preserve existing configurations.
+Inputs 3–6 move to `Extra inputs - <original section>`; preserve old values and
+prefer the new location if both locations contain a value.
 
 | Field | Meaning |
 | --- | --- |
@@ -51,9 +56,9 @@ short generated descriptions, not JSON, an external recipe file or a custom UI.
 Six rows reflect native input demand positions. The investigation records their
 consumer bounds. Zero through six distinct active
 inputs are allowed, including an input that is also the output. For a duplicate
-active ID, keep the earlier row and correct the later ID to the nearest eligible
-item not already used, choosing the lower ID on a tie. If no unused eligible item
-exists, clear that row. There is no separate recipe-disable switch.
+active ID, keep the earlier row and restore the later row's default ID. If that
+default is already used, clear the later row. Do not choose an unrelated ingredient.
+There is no separate recipe-disable switch.
 
 ### Allowed machines and rate baselines
 
@@ -91,55 +96,52 @@ does not weaken the per-recipe duration, machine-buffer or item-ID checks.
 ### Readability example
 
 This excerpt illustrates the layout and current default values. The
-implementation must produce all six sections, all ingredient rows and normal
-BepInEx metadata; this is not an installable config or a completed file-format test.
+implementation must retain every field. Short labels share the selector's line;
+shared instructions follow the extra inputs.
 
 ```ini
 [01 - Recipe 401 - Energy Shard]
-
-## Technology required to unlock this recipe. See the technology reference below.
-TechnologyId = 1133
-
-## Machine family: smelting. Rates use Arc Smelter even if an upgraded ID is selected.
-MachineId = 2302
-
-OutputItemId = 5206
+TechnologyId = 1133 # Particle Control
+MachineId = 2302 # Arc Smelter
+OutputItemId = 5206 # Energy Shard
 OutputCount = 2
-
-## Products per minute in this family's basic machine, before proliferation.
 OutputPerMinute = 120
-
-Input1ItemId = 1013
+Input1ItemId = 1013 # Fractal Silicon
 Input1Count = 1
-
-## Zero in both fields means this ingredient row is unused.
-Input2ItemId = 0
+Input2ItemId = 0 # unused
 Input2Count = 0
 ```
 
-Generated descriptions explain units, zero rows, restart requirements and how to
-find IDs. Keep recipe settings before reference sections. Preserve valid unknown
-keys through ordinary BepInEx handling. BepInEx regenerates comments when saving;
-tell players that handwritten comments are not preserved. The mod's descriptions
-must return on normal saves. Reference ordering refers to mod-owned sections;
-arbitrary user-created sections are not silently deleted to force an order.
+To enter a name, replace the whole selector value, for example
+`Input1ItemId = fractal silicon`. If the value contains an integer followed by
+`#`, that integer is authoritative and the following label is informational.
+After resolution, save `ID # current name` so changing the game language does not
+retarget a selection. Name matching uses only the current game language; there
+is no translation service, spelling correction, partial matching or invented alias.
+Repeated technology names require IDs. Unknown, ambiguous or ineligible selections
+restore their own documented defaults and log the field, original value and result.
+
+Shared comments explain units, zero rows, restart requirements and the reference
+filename. Preserve unrelated unknown keys. Only the obsolete mod-owned reference
+sections are removed. The 200-line limit applies to generated mod content, not
+arbitrary additions by the player. Handwritten comments are not retained.
 
 ## Correction policy
 
-These rules were approved at G0. CFG-I01 supplies domains within CFG-D13's scope
-and numerical examples, not new balance choices. Corrections must settle after
-one pass and leave an already valid configuration unchanged.
+The owner review adjustment supersedes nearest-ID selection with default fallback.
+Quantity/rate correction and CFG-D13's native boundary remain unchanged.
+Corrections must settle after one pass and preserve already valid selections and quantities.
 
 | Situation | Behavior |
 | --- | --- |
 | Missing setting | Supply that setting's documented default. This is normal initialization, not a reason to replace an entire recipe. |
-| Numeric item/technology/machine ID that is absent or ineligible | Choose the eligible ID with minimum absolute numeric distance; choose the lower ID on a tie. An intentional zero ingredient row remains distinct from an invalid real-item selection. |
+| Unknown, ambiguous or ineligible item/technology/machine selection | Restore that field's documented default and log the correction. No name or numeric-ID guessing. Ingredient ID zero remains an explicit unused slot. |
 | Numeric count outside the proven domain | Use the closest valid integer for the selected recipe/machine; choose the lower value on a tie. Preserve other valid fields. |
-| Integer text larger than the parser's ordinary integer range | Correct by numeric magnitude to the nearest valid boundary. Do not silently treat overflow as a request for the default. |
-| Fractional numeric value in an integer field | Choose the nearest valid integer, with the same lower-value tie rule. |
-| Empty or nonnumeric value in a required numeric field | Use that field's documented default and explain that no numeric distance exists. Optional unused ingredient rows still have their explicit zero representation. |
+| Quantity/rate text larger than the parser's ordinary integer range | Correct by numeric magnitude to the nearest valid boundary. |
+| Fractional quantity/rate | Choose the nearest valid integer, with the same lower-value tie rule. Selectors require an integer ID or exact name. |
+| Empty or nonnumeric quantity/rate | Use that field's documented default and explain that no numeric distance exists. Optional unused ingredient rows still have their explicit zero representation. |
 | Rate not exactly attainable | Choose the closest attainable integer products/minute value in the selected family's basic machine for the output count; choose the lower rate on a tie. Report requested and effective rates. Do not silently change output or ingredient counts to force a rate. |
-| Conflicting fields or ingredient rows | Preserve an eligible selected machine first; choose output/input IDs within its eligible domain, then repair row shape and quantities, then rate. An intentional unused row keeps item ID zero and receives count zero. Duplicates follow the distinct-row rule above; avoid repeatedly correcting one field back and forth. |
+| Conflicting fields or ingredient rows | Resolve selections, then repair duplicate rows and quantities, then rate. An unused row keeps item ID zero and receives count zero. Duplicates use the later row's default or zero as described above. |
 | Lookup/reference edit | Never use lookup names or values to define recipes. Regenerate native labels on the next ordinary mod save. |
 
 This is field-by-field correction under the stated precedence, not a claim of a
@@ -160,23 +162,21 @@ would need a separate, justified loading design.
 
 ## ID reference
 
-Append ordinary sections named so they sort after recipe settings:
-`90 - Reference - Items`, `91 - Reference - Technologies` and
-`92 - Reference - Machines`. Use an inert entry per ID, with the numeric ID as key
-and a native readable name as value. Each group explains that it is lookup data,
-not editable recipe settings. Where relevant, include family/speed, maximum-level
+Write `dark-fog-industry.reference.txt` beside the config, grouped into items,
+technologies and eligible machines. Use one line per record: ID, native readable
+name and short notes. This is lookup data, not editable recipe settings. Include
+family/speed, maximum-level
 or eligibility notes without presenting obsolete or hidden records as ordinary
 research progression. The machine group contains only eligible smelters, chemical
 plants and assemblers; identify each family's basic rate baseline and each tier's
 speed relative to it. Keep the wider item reference distinct from machine eligibility.
-Do not invent true subgroups that BepInEx does not provide.
 
 Generate the reference from the same native snapshot used for validation, using
 the game's active language for names. IDs remain stable when language changes.
 Label conditional restrictions rather than implying that every ID works in every
 field. Verify completeness against the accepted domain and keep the reference
-out of the correction inputs. The exact manager version and observed rendering
-are recorded at final handoff; Notepad or r2modman alone cannot establish that result.
+out of the correction inputs. The full catalogue must not be restored as config
+settings. No mod-manager dropdown or grouped lookup behavior is promised.
 
 ## Applying settings and changing existing saves
 

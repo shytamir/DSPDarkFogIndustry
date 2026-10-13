@@ -21,5 +21,6 @@
     <Compile Include="../../src/DSPDarkFogIndustry/RecipeLimits.cs" Link="Product/RecipeLimits.cs" />
     <Compile Include="../../src/DSPDarkFogIndustry/RecipeCorrection.cs" Link="Product/RecipeCorrection.cs" />
     <Compile Include="../../src/DSPDarkFogIndustry/ConfigurationReference.cs" Link="Product/ConfigurationReference.cs" />
+    <Compile Include="../../src/DSPDarkFogIndustry/ConfigurationLayout.cs" Link="Product/ConfigurationLayout.cs" />
   </ItemGroup>
 </Project>

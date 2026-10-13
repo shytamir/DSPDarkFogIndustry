@@ -17,7 +17,7 @@ namespace DSPDarkFogIndustry
 
         internal NumericSetting(IntegerSetting setting)
         {
-            var match = Regex.Match(setting.Raw.Trim(), @"^([+-]?)([0-9]*)(?:\.([0-9]*))?(?:[eE]([+-]?[0-9]+))?$");
+            var match = Regex.Match(setting.NumericText.Trim(), @"^([+-]?)([0-9]*)(?:\.([0-9]*))?(?:[eE]([+-]?[0-9]+))?$");
             string digits = match.Groups[2].Value + match.Groups[3].Value;
             IsNumeric = match.Success && digits.Length > 0;
             denominator = BigInteger.One;

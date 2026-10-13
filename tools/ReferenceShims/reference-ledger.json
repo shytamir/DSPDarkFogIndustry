@@ -735,6 +735,16 @@
             "abstract_method": false
           },
           {
+            "signature": "public instance System.String BepInEx.Configuration.ConfigFile::get_ConfigFilePath()",
+            "virtual_method": false,
+            "abstract_method": false
+          },
+          {
+            "signature": "public instance System.Void BepInEx.Configuration.ConfigFile::Reload()",
+            "virtual_method": false,
+            "abstract_method": false
+          },
+          {
             "signature": "public instance System.Void BepInEx.Configuration.ConfigFile::Save()",
             "virtual_method": false,
             "abstract_method": false

@@ -6,17 +6,18 @@ and publication. Other documents define contracts or evidence and link here.
 
 ## Current state
 
-- Phase: configurability owner handoff; awaiting owner validation and acceptance.
+- Phase: configurability owner-review revision; preparing a replacement handoff.
 - Authorized scope: execute the approved configurability roadmap through owner
   handoff, committing and pushing each completed story with its management update.
-  G0 is approved; execution through G3 is delivered below. Game execution, installed-file/manager-profile changes and save
+  G0 is approved; execution through G3 is delivered below. The owner subsequently
+  directs CFG-U01's compact text-editor layout and exact-name inputs. Game execution, installed-file/manager-profile changes and save
   access remain outside the agent's operational envelope. Completed
   MVP and cleanup remain closed; the corrected [HF-01](planning/HF-01-PROTOTYPE-DETECTION.md)
   candidate still awaits owner validation independently of this planning work.
 - Build version line: `0.9.x`, owner-directed on 2026-10-08; the patch remains the
   CI run number (0 for local builds). The historical MVP candidate remains `0.1.8`.
 - Product implementation: MVP-01 through MVP-07 completed and accepted as the MVP;
-  the MVP's M3 satisfied. Configurability is technically complete through G3. The
+  the MVP's M3 satisfied. The earlier configurability G3 is undergoing the owner-directed usability revision below. The
   [owner handoff](archive/2026-10-08-mvp/OWNER-VALIDATION.md) is archived.
 - Planning: the [live roadmap](planning/ROADMAP.md) defines the configurability
   investigation and approved delivery sequence. G0 approves the configuration
@@ -46,9 +47,8 @@ and publication. Other documents define contracts or evidence and link here.
 The owner requests control of recipe unlock technologies, items, quantities,
 production rates and manufacturing machines in the BepInEx configuration file,
 with hand replication following the agreed native behavior. The file must be
-usable in Notepad and end with an ID reference grouped by type. Reference-only
-settings are permitted to support mod-manager lookup. Valid configurations must
-be accepted; invalid values must receive specific nearest-valid corrections.
+usable in Notepad. The original embedded ID reference and nearest-ID selection
+are superseded by CFG-D14/D15 below. Quantity/rate corrections remain unchanged.
 
 | Work / decision | Disposition | Basis / next gate |
 | --- | --- | --- |
@@ -67,6 +67,8 @@ be accepted; invalid values must receive specific nearest-valid corrections.
 | CFG-D11: Basic-machine rate baseline | Owner-directed, 2026-10-13 | Products/minute before proliferation in Arc Smelter, Chemical Plant or Assembling Machine Mk.I. A configured higher-tier ID in the same family does not change this baseline; native tier speed differences remain. Supersedes CFG-D04. |
 | CFG-D12: Explicit story exclusions | Owner-directed, 2026-10-13 | Every story must state its out-of-scope work separately from its stop condition before the final draft is resubmitted. |
 | CFG-D13: Native recursive crafting limits | Owner-selected, 2026-10-13 | "Preserve native recursive crafting limits; correct recipe and machine fields." Document cross-recipe raw-material/handcraft/queue arithmetic limits; do not add chain validation or runtime queue safeguards. Per-recipe field and machine-buffer corrections remain required. |
+| CFG-D14: Text-editor usability | Owner-directed, 2026-10-13 | The approximately 3,500-line config is impractical. Keep generated content below 200 lines; target core controls in the first 60, with flexibility to avoid overengineering. Move optional inputs 3–6 later and the catalogue to a separate text reference. Dropdowns are out of scope. Keep all output controls and values pending a later decision. |
+| CFG-D15: Name inputs | Owner-directed, 2026-10-13 | Include name inputs; "Just replace invalid inputs with defaults and don't make a guesser." Selectors accept exact current-language names ignoring case/edge whitespace, or IDs. Invalid/ambiguous/ineligible selections use their field defaults. Stored IDs with readable labels preserve identity across language changes. No cross-language alias system or fuzzy matching. |
 | Revised roadmap and contract / G0 | Owner-approved, 2026-10-13 | Owner: "I'm approving G0. Implement through to owner handoff please. Push to main when each story is done alongside a management docs update where appropriate." Three epics, nine stories, 29 relative work units; execute through G3, then wait for acceptance. |
 | Current native reference | Adopted for CFG-N01 | DSP 0.10.35.29131, assembly SHA-256 `74ac6162cef8394a6021c8475132cae4df4f840871a99e63cc7d2c8297661bc0`. Deliberate bootstrap refresh passed after the earlier drift diagnosis; real-library compilation and binding validation passed. This is not in-game compatibility acceptance. |
 | Implementation, gameplay acceptance and publication | Implementation through handoff authorized; acceptance/publication separate | Story pushes are authorized. HF-01 acceptance and the published baseline are unchanged; no version promotion or publication is included. |
@@ -86,8 +88,13 @@ be accepted; invalid values must receive specific nearest-valid corrections.
 | CFG-D02 | Delivered in this handoff commit | [Owner procedure](implementation/CONFIGURATION-OWNER-VALIDATION.md) identifies the candidate, editor checks, defaults/custom rates, shared gates, corrections, native behavior and prepared save changes. Instructions were checked against the package, generated file layout and emitted-record expectations. Owner result fields are blank. |
 | G3 | Passed; awaiting owner acceptance | Nine stories delivered through technical validation and one verified candidate. No game launch, save access, installed-file change or manager interaction was performed by the agent. Stop at the owner handoff. |
 | G4 | Pending owner decision | Acceptance, archival, any version promotion and publication remain separate. |
+| CFG-U01 | Locally validated; CI candidate verification pending | [Bounded revision](planning/ROADMAP.md#cfg-u01--text-editor-usability-after-owner-review). The generated file is 138 lines with core controls through line 65, including blank lines between sections. Offline checks cover name/ID resolution, default fallback, legacy extra-input migration, separate reference and stable saves. All 27 behavior checks and the shared build/package/repository checks pass. Real/shim builds verify 95 external references and three unchanged Harmony targets. Delivery requires the actual CI artifact below. |
 
 ### Selected configurability candidate
+
+The replacement for the owner-rejected embedded-reference layout is awaiting CI
+artifact verification. The following 0.9.30 record is retained as the earlier
+candidate's evidence; it does not contain CFG-U01.
 
 - Version **0.9.30**, build label `0.9.30.5c0cdda26e5f`, from the D01 run above.
   The later documentation-only handoff build does not replace this selected artifact.
