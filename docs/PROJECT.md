@@ -21,7 +21,7 @@ and publication. Other documents define contracts or evidence and link here.
 - Planning: the [live roadmap](planning/ROADMAP.md) defines the configurability
   investigation and approved delivery sequence. G0 approves the configuration
   contract and implementation through G3; G4 remains the owner's acceptance. The
-  [MVP recipe contract](planning/MVP-RECIPES.md) describes current behavior;
+  [MVP recipe contract](planning/MVP-RECIPES.md) describes the retained defaults;
   the [completed MVP roadmap](archive/2026-10-08-mvp/ROADMAP.md) remains archived.
   No release version or schedule has been selected for configurability; this
   request does not itself establish the scope of version 1.0.
@@ -80,9 +80,11 @@ be accepted; invalid values must receive specific nearest-valid corrections.
 | CFG-C02 | Delivered | Main `0136159d9f57831d05ab8cff5b03176402845af4`; [CI run 38403744264](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/38403744264) passed. Corrections preserve raw numeric distance and valid unrelated fields; actual BepInEx round trips settle after one save. Shared pipeline passed 21 behavior checks; real metadata verified 88 external references and three hooks. CFG-D13 remains the recursive-crafting boundary. |
 | CFG-N02 | Delivered | Main `8eeb5ac8a413f3936b746492803c503ada038e96`; [CI run 38404231424](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/38404231424) passed. Corrected contents and gates populate native records. Shared gates accumulate; import uses native full completion and preserves saved unlocks. Shared pipeline passed 22 checks; real metadata verified 86 references and three hooks. |
 | CFG-N03 | Delivered | Main `2a05f5e89d302ff1062325aa25631e80c38e7384`; [CI run 38404589354](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/38404589354) passed. Emitted-record tests preserve defaults and verify custom batches, family changes, tier-ID invariance, native ceilings and lower-rate ties. Shared pipeline passed 24 checks. [Production evidence](implementation/NATIVE-INTEGRATION.md#configured-production-checks) gives owner expectations. |
-| CFG-C03 | Technically complete; delivery in this story commit | Grouped references use the validator's catalogue and native translation/metadata; edits remain inert and labels regenerate. Generated text was reviewed for readability and BepInEx round-trip ordering. Shared pipeline passed 25 behavior checks; real metadata verified 93 references and three hooks. Actual Notepad/Thunderstore Mod Manager interaction remains in the owner procedure. |
-| CFG-D01, D02 | Approved, not started | Verify the coherent candidate and prepare the owner procedure. |
-| G2, G3, G4 | Pending | Technical completion, verified handoff and owner acceptance remain separate. |
+| CFG-C03 | Delivered | Main `6fde23f0b6a5a929864c7897bfc0b051d18e1fb8`; [CI run 38405244674](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/38405244674) passed. References use the validator's catalogue and native translation/metadata; edits are inert. Generated text and round trips were reviewed. Shared pipeline passed 25 checks; real metadata verified 93 references and three hooks. Actual editor interaction remains an owner observation. |
+| G2 | Passed | All implementation stories are on main with successful CI. Defaults, custom settings, native integration and file persistence pass the offline checks; no game validation is inferred. |
+| CFG-D01 | Candidate source ready; hosted artifact verification follows this push | Player instructions cover editing, basic-machine rates, corrections, lookup sections, restart and prepared save changes. Shared pipeline passed 25 behavior checks, package/repository checks and real bindings. Final source review covered scope, arithmetic, lifecycle, file presentation and test relevance. Download and independently verify this commit's CI artifact before selecting it. |
+| CFG-D02 | Approved, not started | Prepare the owner procedure after artifact verification. |
+| G3, G4 | Pending | Verified handoff and owner acceptance remain separate. |
 
 The [investigation](implementation/CONFIGURATION-INVESTIGATION.md) now maps machine
 IDs/speeds, family filtering, startup timing, technology completion, bounded

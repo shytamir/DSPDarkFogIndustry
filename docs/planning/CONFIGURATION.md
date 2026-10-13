@@ -27,7 +27,7 @@ and remaining proofs are in the [investigation](../implementation/CONFIGURATION-
   allowed. Valid settings must survive; invalid settings receive specific
   automatic nearest-valid corrections.
 
-## Proposed recipe and file contract
+## Recipe and file contract
 
 Keep recipe IDs 401–406 and selector positions 1809–1814. Defaults reproduce the
 [MVP recipes](MVP-RECIPES.md), including the two Energy Shards per batch. These
@@ -48,8 +48,8 @@ short generated descriptions, not JSON, an external recipe file or a custom UI.
 | `OutputPerMinute` | Positive integer products/minute in the selected family's basic machine, before proliferation; count and rate are distinct. Native timing may make an entered rate unattainable; the correction rule below covers that case. |
 | `Input1ItemId`, `Input1Count` through `Input6ItemId`, `Input6Count` | Up to six ordered ingredient rows. An unused row has both values zero. Active rows use an existing item ID and a positive integer count. |
 
-Six rows reflect native input demand positions. CFG-I01 must establish the
-consumer bounds recorded in the investigation. Zero through six distinct active
+Six rows reflect native input demand positions. The investigation records their
+consumer bounds. Zero through six distinct active
 inputs are allowed, including an input that is also the output. For a duplicate
 active ID, keep the earlier row and correct the later ID to the nearest eligible
 item not already used, choosing the lower ID on a tie. If no unused eligible item
@@ -124,13 +124,13 @@ tell players that handwritten comments are not preserved. The mod's descriptions
 must return on normal saves. Reference ordering refers to mod-owned sections;
 arbitrary user-created sections are not silently deleted to force an order.
 
-## Proposed correction policy
+## Correction policy
 
-These rules need owner approval with the plan. CFG-I01 supplies proven domains
+These rules were approved at G0. CFG-I01 supplies domains within CFG-D13's scope
 and numerical examples, not new balance choices. Corrections must settle after
 one pass and leave an already valid configuration unchanged.
 
-| Situation | Proposed behavior |
+| Situation | Behavior |
 | --- | --- |
 | Missing setting | Supply that setting's documented default. This is normal initialization, not a reason to replace an entire recipe. |
 | Numeric item/technology/machine ID that is absent or ineligible | Choose the eligible ID with minimum absolute numeric distance; choose the lower ID on a tie. An intentional zero ingredient row remains distinct from an invalid real-item selection. |
@@ -152,11 +152,11 @@ through the same constraints before the effective configuration is published.
 An inability to persist corrections must be clearly reported;
 it is not successful persistence or justification to overwrite another file.
 
-This proposal applies automatic correction to setting values in a parseable
+Automatic correction applies to setting values in a parseable
 BepInEx file. Damaged section/key syntax and filesystem failures may occur before
 the plugin is constructed. They remain explicit file errors rather than a promise
-of automatic file reconstruction. Approval of this boundary is required; a broader
-repair guarantee would need a separate, justified loading design.
+of automatic file reconstruction, as approved at G0. A broader repair guarantee
+would need a separate, justified loading design.
 
 ## ID reference
 
