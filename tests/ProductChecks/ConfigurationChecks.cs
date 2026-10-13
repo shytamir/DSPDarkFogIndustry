@@ -86,7 +86,7 @@ internal static class ConfigurationChecks
             "Input3ItemId = 0\nInput3Count = 21474836499999999999\n", messages.Add);
         config.Correct(catalogue);
         var recipe = config.Recipes[1];
-        Check(recipe.Machine.Value == 2309 && recipe.OutputItem.Value == 1606 && recipe.Technology.Value == 1133,
+        Check(recipe.Machine.Value == 2319 && recipe.OutputItem.Value == 1606 && recipe.Technology.Value == 1133,
             "Nearest eligible IDs or lower tie were incorrect.");
         Check(recipe.InputCounts[0].Value == 7 && recipe.InputItems[1].Value == 1606 && recipe.InputCounts[1].Value == 1,
             "Fractional count, duplicate row or nonnumeric fallback was incorrect.");

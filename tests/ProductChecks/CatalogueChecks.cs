@@ -16,6 +16,9 @@ internal static class CatalogueChecks
         [
             (2302, ERecipeType.Smelt, 10000), (2303, ERecipeType.Assemble, 7500),
             (2309, ERecipeType.Chemical, 10000), (2304, ERecipeType.Assemble, 10000),
+            (2305, ERecipeType.Assemble, 15000), (2318, ERecipeType.Assemble, 30000),
+            (2315, ERecipeType.Smelt, 20000), (2319, ERecipeType.Smelt, 30000),
+            (2317, ERecipeType.Chemical, 20000),
             (2310, (ERecipeType)5, 10000), (2901, (ERecipeType)15, 10000),
             (8000, ERecipeType.Chemical, 25000)
         ];

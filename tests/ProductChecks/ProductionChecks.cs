@@ -8,6 +8,8 @@ internal static class ProductionChecks
         Program.Run(nameof(ProducesAtExpectedFacilityRates), ProducesAtExpectedFacilityRates);
         Program.Run(nameof(RespectsNativeProliferationEligibility), RespectsNativeProliferationEligibility);
         Program.Run(nameof(UsesOnlyEarlierSynthesisProducts), UsesOnlyEarlierSynthesisProducts);
+        Program.Run(nameof(ConfiguredDefaultsPreserveProduction), ConfiguredDefaultsPreserveProduction);
+        Program.Run(nameof(ConfiguredRatesUseBasicMachinesAndNativeCeilings), ConfiguredRatesUseBasicMachinesAndNativeCeilings);
     }
 
     private static RecipeProtoSet RegisteredRecipes()
@@ -86,5 +88,57 @@ internal static class ProductionChecks
 
             availableProducts.Add(recipe.Results[0]);
         }
+    }
+
+    private static RecipeProto[] ConfiguredRecipes(string text)
+    {
+        var f = CatalogueChecks.CreateFixture();
+        var catalogue = new RecipeCatalogue(f.items, f.techs, f.models);
+        var config = ConfigurationChecks.Load("production", text);
+        config.Correct(catalogue);
+        RecipeRegistration.Register(f.recipes, f.items, f.techs, config.CreateRecipes(catalogue));
+        return f.recipes.dataArray.Skip(1).ToArray();
+    }
+
+    private static void ConfiguredDefaultsPreserveProduction()
+    {
+        var configured = ConfiguredRecipes("");
+        var fixedRecipes = RegisteredRecipes();
+        foreach (var actual in configured)
+        {
+            var expected = fixedRecipes.Select(actual.ID);
+            Program.Check(actual.Type == expected.Type && actual.TimeSpend == expected.TimeSpend &&
+                actual.Handcraft == expected.Handcraft && actual.NonProductive == expected.NonProductive &&
+                actual.Items.SequenceEqual(expected.Items) && actual.ItemCounts.SequenceEqual(expected.ItemCounts) &&
+                actual.Results.SequenceEqual(expected.Results) && actual.ResultCounts.SequenceEqual(expected.ResultCounts),
+                "Creating a default config changed the accepted production behavior.");
+        }
+    }
+
+    private static void ConfiguredRatesUseBasicMachinesAndNativeCeilings()
+    {
+        const string section = "[02 - Recipe 402 - Dark Fog Matrix]\n";
+        var basic = ConfiguredRecipes(section + "MachineId = 2303\nOutputCount = 2\nOutputPerMinute = 90\n")[1];
+        var upgraded = ConfiguredRecipes(section + "MachineId = 2318\nOutputCount = 2\nOutputPerMinute = 90\n")[1];
+        Program.Check(basic.TimeSpend == upgraded.TimeSpend && basic.TimeSpend == 60 && basic.Handcraft,
+            "Selecting an upgraded assembler changed the baseline or handcraft rule.");
+        // Evaluate the emitted duration using independently observed native tier speeds.
+        using var evidence = ReadNativeRules();
+        var speeds = evidence.RootElement.GetProperty("facility_speeds").GetProperty("assembler")
+            .EnumerateArray().Select(v => v.GetDouble()).ToArray();
+        double[] expected = [90, 120, 180, 360];
+        for (int i = 0; i < speeds.Length; i++)
+        {
+            double cycles = Math.Min(1, speeds[i] / basic.TimeSpend);
+            Program.Check(cycles * 3600 * basic.ResultCounts[0] == expected[i], "Custom tier rate is incorrect.");
+        }
+        var chemical = ConfiguredRecipes(section + "MachineId = 2317\nOutputCount = 3\nOutputPerMinute = 90\n")[1];
+        Program.Check(chemical.TimeSpend == 120 && chemical.Type == ERecipeType.Chemical && !chemical.Handcraft && !chemical.NonProductive,
+            "Family change did not inherit native timing/handcraft/proliferation behavior.");
+        var fastest = ConfiguredRecipes(section + "MachineId = 2302\nOutputCount = 1\nOutputPerMinute = 999999999999\n")[1];
+        Program.Check(fastest.TimeSpend == 1 && !fastest.Handcraft, "Fastest representable smelting recipe is incorrect.");
+        Program.Check(Math.Min(1, 3d * 2 / fastest.TimeSpend) * 3600 == 3600, "Native one-cycle ceiling was lost.");
+        var tied = ConfiguredRecipes(section + "OutputPerMinute = 67.5\n")[1];
+        Program.Check(tied.TimeSpend == 45 && tied.ResultCounts[0] == 1, "An unattainable rate tie did not preserve the batch and lower rate.");
     }
 }
