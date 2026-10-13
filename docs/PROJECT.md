@@ -16,7 +16,7 @@ and publication. Other documents define contracts or evidence and link here.
 - Build version line: `0.9.x`, owner-directed on 2026-10-08; the patch remains the
   CI run number (0 for local builds). The historical MVP candidate remains `0.1.8`.
 - Product implementation: MVP-01 through MVP-07 completed and accepted as the MVP;
-  the MVP's M3 satisfied. CFG-I01 is active under the new roadmap. The
+  the MVP's M3 satisfied. Configurability implementation is active. The
   [owner handoff](archive/2026-10-08-mvp/OWNER-VALIDATION.md) is archived.
 - Planning: the [live roadmap](planning/ROADMAP.md) defines the configurability
   investigation and approved delivery sequence. G0 approves the configuration
@@ -66,26 +66,27 @@ be accepted; invalid values must receive specific nearest-valid corrections.
 | CFG-D10: Allowed production machines | Owner-directed, 2026-10-13 | Only smelters, chemical plants and assemblers. Labs and all other families are outside this roadmap. Remove CFG-I02 and its dependent lab work; this is a scope decision, not a native incompatibility finding. |
 | CFG-D11: Basic-machine rate baseline | Owner-directed, 2026-10-13 | Products/minute before proliferation in Arc Smelter, Chemical Plant or Assembling Machine Mk.I. A configured higher-tier ID in the same family does not change this baseline; native tier speed differences remain. Supersedes CFG-D04. |
 | CFG-D12: Explicit story exclusions | Owner-directed, 2026-10-13 | Every story must state its out-of-scope work separately from its stop condition before the final draft is resubmitted. |
+| CFG-D13: Native recursive crafting limits | Owner-selected, 2026-10-13 | "Preserve native recursive crafting limits; correct recipe and machine fields." Document cross-recipe raw-material/handcraft/queue arithmetic limits; do not add chain validation or runtime queue safeguards. Per-recipe field and machine-buffer corrections remain required. |
 | Revised roadmap and contract / G0 | Owner-approved, 2026-10-13 | Owner: "I'm approving G0. Implement through to owner handoff please. Push to main when each story is done alongside a management docs update where appropriate." Three epics, nine stories, 29 relative work units; execute through G3, then wait for acceptance. |
 | Current native reference | Adopted for CFG-N01 | DSP 0.10.35.29131, assembly SHA-256 `74ac6162cef8394a6021c8475132cae4df4f840871a99e63cc7d2c8297661bc0`. Deliberate bootstrap refresh passed after the earlier drift diagnosis; real-library compilation and binding validation passed. This is not in-game compatibility acceptance. |
 | Implementation, gameplay acceptance and publication | Implementation through handoff authorized; acceptance/publication separate | Story pushes are authorized. HF-01 acceptance and the published baseline are unchanged; no version promotion or publication is included. |
 
 | Story / gate | State | Evidence / next action |
 | --- | --- | --- |
-| CFG-I01 | Active | Trace remaining native numeric/shape constraints before G1. |
-| G1 | Pending | Numeric domains and correction examples must be established. |
-| CFG-N01 | Technically validated; delivery in this story commit | Model-backed catalogue and first-item-preload registration preserve fixed recipes. Shared pipeline passed 15 behavior checks, package checks and 164 local links; real-reference build verified 73 external references and three Harmony targets. Catalogue/lifecycle work is independent of numeric limits, so its dependency was corrected to G0. G1 still blocks configurable recipe implementation. |
+| CFG-I01 | Technically complete; delivery in this story commit | [Numeric/shape findings](implementation/CONFIGURATION-INVESTIGATION.md#numeric-and-shape-follow-up) establish per-recipe domains, duration/rate conversion, duplicate-row correction and the owner-selected recursive-arithmetic boundary. No game code was executed. |
+| G1 | Passed within CFG-D13's boundary | Direct native consumers and correction examples are recorded. Cross-recipe/queue safety is explicitly retained as native behavior, not claimed as proven. |
+| CFG-N01 | Delivered | Main `2a5ad341c37966c9de02d0d2f436a7b238ccbc75`; [CI run 38400259645](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/38400259645) passed. Shared pipeline passed 15 behavior checks, package checks and 164 local links; real-reference build verified 73 external references and three Harmony targets. Its G0 dependency permits catalogue/lifecycle work independently of numeric proofs. |
 | CFG-C01, C02, N02, N03, C03, D01, D02 | Approved, not started | Follow the roadmap's dependency order and per-story delivery rule. |
 | G2, G3, G4 | Pending | Technical completion, verified handoff and owner acceptance remain separate. |
 
 The [investigation](implementation/CONFIGURATION-INVESTIGATION.md) now maps machine
 IDs/speeds, family filtering, startup timing, technology completion, bounded
 handcraft recursion and native save/queue transitions. The brief numeric checks
-exposed coupled consumers that remain CFG-I01. The earlier lab findings are retained
+exposed coupled consumers resolved by CFG-I01 within CFG-D13's boundary. The earlier lab findings are retained
 as evidence, but CFG-D10 removes the need for further lab investigation. Native
 extracts remain ignored.
-No complete valid-value domain, current-game compatibility or configurable
-runtime behavior has been established.
+Current-game compatibility and configurable runtime behavior still require the
+owner's game observations; static evidence does not establish those results.
 
 Initial draft review covered technical claims against source/assets, investigation coverage,
 scope and document authority, then wording. It kept machine family, handcraft

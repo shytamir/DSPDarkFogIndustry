@@ -1,4 +1,4 @@
-# Configuration contract for review
+# Configuration contract
 
 [PROJECT](../PROJECT.md) records which requirements the owner has selected and
 which proposals still await approval. This document defines behavior for the
@@ -49,9 +49,11 @@ short generated descriptions, not JSON, an external recipe file or a custom UI.
 | `Input1ItemId`, `Input1Count` through `Input6ItemId`, `Input6Count` | Up to six ordered ingredient rows. An unused row has both values zero. Active rows use an existing item ID and a positive integer count. |
 
 Six rows reflect native input demand positions. CFG-I01 must establish the
-consumer behavior of empty inputs, duplicate rows and input/output overlap before
-calling those shapes valid or invalid. Do not infer invalidity from unconventional
-balance. There is no separate recipe-disable switch in this proposal.
+consumer bounds recorded in the investigation. Zero through six distinct active
+inputs are allowed, including an input that is also the output. For a duplicate
+active ID, keep the earlier row and correct the later ID to the nearest eligible
+item not already used, choosing the lower ID on a tie. If no unused eligible item
+exists, clear that row. There is no separate recipe-disable switch.
 
 ### Allowed machines and rate baselines
 
@@ -79,6 +81,12 @@ the agreed product scope, apply only proven native constraints. Eligible content
 supplied by another mod is usable if present at the registration point and satisfies
 the same constraints; a machine must belong to one of the three allowed families.
 This does not promise arbitrary load-order or mod-combination compatibility.
+
+Automatic correction covers recipe fields and machine operation. Recursive
+handcrafting, raw-material previews and accumulated queues retain their native
+arithmetic limits. Large quantities across recipe chains can exceed those limits;
+the mod does not analyze or rewrite chains/queues to prevent that. This boundary
+does not weaken the per-recipe duration, machine-buffer or item-ID checks.
 
 ### Readability example
 

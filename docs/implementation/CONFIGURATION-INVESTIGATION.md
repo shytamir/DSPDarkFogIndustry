@@ -274,3 +274,78 @@ The other questions now have source findings, owner decisions, concrete proposal
 for review, or a named final runtime observation. They do not justify retaining
 the original three broad investigation stories. Native extracts and the probe
 remain local; no installed file, save or product code was changed.
+
+## Numeric and shape follow-up
+
+The additional static reads used the same assembly hash and ILSpy version:
+`PlanetFactory`, `Cargo` and `ItemBundle`, plus the retained assembler, item,
+forge and Replicator types. No game code was executed.
+
+| Consumer | Established constraint or behavior |
+| --- | --- |
+| `ItemProto.Preload` and item-index tables | Existing positive item IDs below 12000 are addressable by the native arrays. Assembler serialization also writes signed 16-bit IDs; the array limit is tighter. Technology IDs use their existing catalogue records. |
+| `AssemblerComponent.UpdateNeeds` | At most six input rows. For duration `t` ticks and effective speed `s` in native units, demand multiplies each input count by `max(2, floor(s * 180 / (t * 10000)) + 1)`. Check the multiplication in a wider type. |
+| `PlanetFactory.InsertInto`, both overloads | Insertion returns after the first matching ingredient ID. Duplicate active rows cannot be supplied independently. Input/output overlap is not this problem: outputs have a separate buffer. |
+| `AssemblerComponent.InternalUpdate` | An empty input array is supported: the input loops are skipped and proliferation level is zero. Do not invent a minimum ingredient count. |
+| `RecipeProto.InitRecipeItems` | Both `t * 10000` and `t * 100000` are signed Int32 expressions. Positive duration is at most 21474 ticks before considering runtime accumulation. |
+| `AssemblerComponent.InternalUpdate` | Smelting cannot complete an output batch above 100. Assembly's buffer test multiplies output count by 9; chemical uses 19. The subsequent normal/extra batch additions also need representable buffers, not merely a representable multiplier. |
+| `PlanetFactory` fast-fill and `UIAssemblerWindow` serving storage | Manual input capacity multiplies counts by 50 for smelting and 20 otherwise. Stored proliferation points are also Int32; native spray level is at most four. |
+| `ItemProto.ComputeRawMats` | Cached ingredient totals multiply through the selected main-recipe graph and add totals for equal raw IDs using Int32. A per-field range cannot prove a whole configured chain valid. The output batch count does not divide this particular calculation. |
+| `MechaForge.TryAddTaskIterate` / `AddTaskIterate` | Input and output counts multiply by requested batch counts; recursive batches depend on intermediate output quantities. Recursion stops after depth 20, but that does not prevent earlier arithmetic overflow. |
+| `MechaForge.PredictTaskCount` / `UIReplicatorWindow` | Ordinary UI prediction doubles trial batch counts through 128 with its default limit of 99. Direct clicks request up to ten batches; consecutive tasks can merge, so the saved queue has no fixed ten-batch bound. |
+
+For an unproliferated basic facility at full power, the uncapped rate is
+`3600 * basicSpeed * outputCount / ticks`: the numerator is `2700 * outputCount`
+for Mk.I assembly and `3600 * outputCount` for smelting/chemical production.
+Only positive integer rates with an integral native duration are exact under the
+approved integer-rate contract. Enumerating representable durations gives a finite
+nearest-rate search without changing a valid output batch. For example, assembly
+count 1 at requested 61/min corrects to 60/min and 45 ticks; smelting count 100
+cannot reach 1/min within the duration bound, while 18/min uses 20000 ticks.
+Native production completes at most one ordinary cycle per update. Faster tiers
+and proliferation retain that native ceiling; it is not a reason to reject a
+recipe whose basic-machine rate is representable.
+
+The simple shape rules are resolved: zero through six distinct active inputs,
+one output, and input/output overlap allowed. Duplicate-ID correction must choose
+the nearest eligible ID not already used by an earlier active row, with the
+approved lower-ID tie rule; quantities remain separate. Empty rows remain zero.
+
+### Correction boundary selected after the follow-up
+
+The owner selected per-recipe fields and machine operation, retaining/documenting
+native recursive crafting limits. Thus raw-material graph totals, handcraft
+prediction and accumulated queue multiplication are not configuration rejection
+criteria. This is a scope decision, not a proof that those calculations cannot
+overflow. Do not add a graph validator, queue guard or global native arithmetic patch.
+
+Within that boundary, validation uses these coupled constraints, evaluated in a
+wider numeric type before emitting Int32 fields:
+
+- Read basic/compatible speeds from initialized model descriptors. Normal
+  acceleration is at most twice native speed; extra-product accumulation advances
+  at most 2.5 times speed in its tenfold time units. These are level-four native
+  proliferation values, not promises about mods replacing the proliferation tables.
+- Duration must keep both scaled durations and the largest normal/extra time
+  increments representable. Consider the native one-cycle-per-update ceiling in
+  the basic-machine rate; retain that ceiling on upgraded machines.
+- Check input counts against the largest demand multiplier across compatible
+  tiers and the manual 50/20-batch capacity. Preserve room for four proliferation
+  points per item. Native inserter payloads are signed 16-bit counts, and each
+  insertion slot can have a held delivery; reserve that field-width headroom per
+  slot when proving the input buffer bound. Slot counts come from the same model
+  descriptors, not a guessed fixed building size.
+- Smelter output batches are at most 100. For assembly/chemical production, check
+  the 9/19-batch threshold, the completed normal batch and any pending extra
+  batches permitted by the chosen duration and largest compatible speed. Recipes
+  without productive ingredients need no extra-product allowance.
+- First preserve eligible machine/item IDs and unique row shape. Clamp a quantity
+  only if no representable duration supports it; then choose the nearest attainable
+  integer rate among durations that support the retained quantities. A rate change
+  must not silently change valid counts. Ties choose the lower rate.
+
+These rules define finite, monotone quantity bounds and a finite duration search.
+For count 1 at 61/min, ordinary Mk.I assembly selects 45 ticks and 60/min. The
+default Energy Shard batch at 120/min selects 60 ticks; the other defaults retain
+45 assembly ticks or 60 chemical ticks. Boundary behavior and BepInEx persistence
+belong in the implementation checks, not a native execution harness.
