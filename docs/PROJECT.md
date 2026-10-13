@@ -6,46 +6,36 @@ and publication. Other documents define contracts or evidence and link here.
 
 ## Current state
 
-- Phase: 1.0 prerelease owner review. Candidate **1.0.40** is technically verified;
-  the [short copy-review checklist](implementation/PRERELEASE-OWNER-REVIEW.md)
-  is ready. Configurability 0.9.33 remains accepted.
-- Authorized scope: execute the approved package-copy/version roadmap through
-  owner handoff, pushing each completed story with its management update.
-  Code changes are outside this roadmap.
-  Game execution,
+- Phase: **maintenance**, owner-directed on 2026-10-13 after acceptance and
+  publication of **1.0.40**. No active story, roadmap or validation gate.
+- Authorized scope: record acceptance/publication, archive the completed roadmap
+  and handoff, and push this management closeout. Future planning or implementation
+  requires owner steering; no ongoing monitoring is authorized. Game execution,
   installed-file/manager-profile changes and save access remain outside the
-  agent's operational envelope. Completed MVP and cleanup remain closed; the
-  separate [HF-01 record](#hf-01-maintenance-hotfix--2026-10-08) is unchanged.
+  agent's operational envelope. Completed work stays closed; the separate
+  [HF-01 record](#hf-01-maintenance-hotfix--2026-10-08) is unchanged.
 - Build version line: `1.0.x`, owner-directed for this prerelease; the patch remains the
   CI run number (0 for local builds). The historical MVP candidate remains `0.1.8`.
 - Product implementation: MVP-01 through MVP-07 completed and accepted as the MVP;
   the MVP's M3 satisfied. Configurability and the owner-directed usability revision
   are completed and accepted; G4/M4 are satisfied.
-- Planning: the [live roadmap](planning/ROADMAP.md) defines package copy review,
-  a Simplified Chinese summary, the 1.0 version line and verified owner handoff.
-  G0 is approved and G1/G2 are satisfied; G3 awaits owner acceptance. The
+- Planning: the [live roadmap](planning/ROADMAP.md) is an empty maintenance
+  placeholder. The [1.0 prerelease roadmap](archive/2026-10-13-prerelease-1.0/ROADMAP.md),
   [configurability roadmap](archive/2026-10-13-configurability/ROADMAP.md)
-  and [MVP roadmap](archive/2026-10-08-mvp/ROADMAP.md) are archived. The
+  and [MVP roadmap](archive/2026-10-08-mvp/ROADMAP.md) are completed and archived. The
   [configuration contract](planning/CONFIGURATION.md) and
-  [default recipes](planning/MVP-RECIPES.md) remain active. The owner requests the
-  1.0 version line; the approved work is defined below and no schedule is selected.
-- Owner acceptance: **0.9.33 accepted on 2026-10-13**, after completing the whole
-  [owner checklist](archive/2026-10-13-configurability/OWNER-VALIDATION.md) with no
-  skipped tests. [Results and correction logs](#owner-acceptance-record--2026-10-13)
-  are recorded below. The earlier [MVP acceptance](#owner-acceptance-record--2026-10-08)
-  remains historical.
-- Publication: the owner reports publishing the latest artifact, `0.9.14`, on
-  2026-10-08. See the [publication record](#publication-record--2026-10-08).
-  Later CI builds do not supersede that published baseline.
-- Git delivery: preparation and its evidence closeout are on main through
-  `db3d8ed85df251a57e817881a30d61bdad7938e0`; MVP-01 is `89d40d5`, MVP-02 is `2ebab16`,
-  MVP-03 is `bfac10d`, MVP-04 is `0be4006`, MVP-05 is `5a8e01f`;
-  MVP-06 source/closeout are `1fabb25` / `05b1130`; MVP-07 is `cb9456d`.
-  Each story commit includes its management update and is pushed to main at closeout.
-  Candidate source is `1fabb2543d56d90d5707863c234c18c33ba93f02`; downloaded package
-  `0.1.8` from [run 37699427929](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/37699427929)
-  passed independent verification. This remains the historical MVP candidate;
-  the published baseline is recorded below.
+  [default recipes](planning/MVP-RECIPES.md) remain active contracts. No next release
+  scope or schedule is selected.
+- Owner acceptance: **1.0.40 accepted on 2026-10-13**; prerelease G3/M3 are satisfied.
+  The [acceptance and publication record](#10-acceptance-and-publication--2026-10-13)
+  preserves the owner's decision. Accepted 0.9.33 gameplay results and the earlier
+  MVP acceptance remain historical evidence.
+- Publication: **1.0.40 is published on Thunderstore**. The public ZIP matches the
+  accepted CI artifact byte for byte; evidence is recorded below. Later CI builds
+  do not supersede this published baseline.
+- Git delivery: all four prerelease stories are on main through `2372c95`, with
+  successful CI for each story. The package source remains `c79c3cf`; this management
+  closeout does not produce a new selected release.
 
 ## Prerelease 1.0 planning — 2026-10-13
 
@@ -55,7 +45,8 @@ Chinese summary at the end with a brief notice near the start; and promote the
 version to 1.0. The owner subsequently approved the revised roadmap and directed:
 "Please see it through to owner acceptance, pushing to main with appropriate
 management docs updates after each story is done." G0 authorizes execution through
-handoff; the owner's review of the resulting package is still required.
+handoff. The owner subsequently accepted 1.0.40 and requested archival and
+maintenance mode; the closeout is recorded below.
 
 | Decision / work | Disposition | Basis / boundary |
 | --- | --- | --- |
@@ -66,7 +57,7 @@ handoff; the owner's review of the resulting package is still required.
 | PRE-P05: Existing configurability | Retained | The owner sees configurable outputs as a useful distinction. Keep all accepted controls and default recipes; explain that outputs can be changed within the six added recipes. No new slots or feature expansion. |
 | PRE-P06: Localization verification | Static review complete | [Evidence](implementation/NATIVE-INTEGRATION.md#configuration-language-evidence--2026-10-13): current-language names are used in all three reference groups and name selectors; startup language selection precedes generation. Help/headings remain English. Chinese game strings were checked; no Chinese runtime session is claimed. |
 | PRE-P07: Proportionate prerelease scope | Owner-directed revision | Remove the Chinese startup/name-input check; the owner will not perform it. Keep this a package-copy/version pass with a simple boundary against code changes. Remove generic implementation/investigation instructions and redundant approval dependencies. |
-| Prerelease roadmap | Approved for execution, 2026-10-13 | Two epics, four stories, nine relative work units; definitions and gates in the [roadmap](planning/ROADMAP.md). Package copy and VERSION changes are authorized; product code and tests remain unchanged. |
+| Prerelease roadmap | Completed, accepted and archived, 2026-10-13 | Two epics, four stories, nine relative work units; definitions and gates in the [archived roadmap](archive/2026-10-13-prerelease-1.0/ROADMAP.md). Product code and tests remained unchanged. |
 | G0 / execution | Owner-approved, 2026-10-13 | Approval covers this package-copy/version work, story-by-story main pushes and CI verification through the owner handoff. Description wording is decided during the work and reviewed at handoff. |
 
 | Story / gate | State | Next action |
@@ -75,9 +66,9 @@ handoff; the owner's review of the resulting package is still required.
 | PRE-C02: Simplified Chinese summary | Delivered | Main `5d2d80e`; [CI 38434862826](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/38434862826) passed. Native terminology, bilingual meaning, UTF-8, 143-character description and website rendering checked; evidence below. |
 | G1 / M1: Copy ready | Satisfied, 2026-10-13 | Both languages agree; notice, two tables and example render correctly in Thunderstore's website preview. |
 | PRE-V01: Version promotion | Delivered | Main `c79c3cf`; [CI 38435202010](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/38435202010) passed. MAJOR=1/MINOR=0; local build and real-reference checks passed. |
-| PRE-D01: Verified candidate and handoff | Technically complete | Downloaded 1.0.40 independently verified; identity/evidence below and [owner checklist](implementation/PRERELEASE-OWNER-REVIEW.md) ready. This documentation-only story commit delivers the handoff; its CI output does not replace the selected package. |
+| PRE-D01: Verified candidate and handoff | Delivered | Main `2372c95`; [CI 38435808917](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/38435808917) passed. Downloaded 1.0.40 independently verified; identity/evidence below and [archived owner checklist](archive/2026-10-13-prerelease-1.0/PRERELEASE-OWNER-REVIEW.md) retained. |
 | G2 / M2: Owner review ready | Satisfied, 2026-10-13 | Exact 1.0.40 artifact independently verified and prepared for copy review. |
-| G3 / M3: Acceptance and archival | Pending owner decision | Record the new candidate's explicit acceptance and archive completed work; publication remains separate. |
+| G3 / M3: Acceptance and archival | Satisfied, 2026-10-13 | Owner explicitly accepted 1.0.40; roadmap and handoff archived, live roadmap reset, and maintenance mode restored. Publication verified separately below. |
 
 ### Planning basis and review
 
@@ -167,9 +158,32 @@ are retained under ignored `artifacts/ci/38435202010/`.
 
 Final scope review confirmed no changes to product code, tests, tools, dependencies,
 pipeline or icon. No game was launched, installed file/profile changed, or save
-accessed. G3 remains open for the owner's review of the finished copy and candidate;
-no repeat gameplay or Chinese runtime validation is requested. Later documentation
-builds do not supersede 1.0.40. Acceptance and publication are not inferred.
+accessed. At handoff, G3 remained open for the owner's review of the finished copy
+and candidate; no repeat gameplay or Chinese runtime validation was requested.
+The subsequent acceptance and publication are recorded below. Later documentation
+builds do not supersede 1.0.40.
+
+### 1.0 acceptance and publication — 2026-10-13
+
+The owner stated: "Looks good, I accept 1.0.40," reported publishing it on
+Thunderstore, and requested roadmap archival, a management push and maintenance
+mode. This accepts the finished copy and identified candidate; it does not claim
+additional gameplay or Chinese runtime checks.
+
+The [published listing](https://thunderstore.io/c/dyson-sphere-program/p/DSPDarkFogIndustry/DSPDarkFogIndustry/)
+shows version 1.0.40. Its public download was retrieved independently and has
+SHA-256 `e2b7aefca221ad5ff3d805dd8b06ad6f98d5e89cc1328594aa88bf92f00f7e7e`,
+identical to the accepted CI package above. Package inspection against the exact
+exported source and build evidence passed, including all five entries and DLL
+identity. The public ZIP is retained under `artifacts/releases/1.0.40/`.
+An initial comparison with the working checkout found only its CRLF-normalized
+LICENSE; verification against the actual LF source export resolved that mismatch.
+No package or source changes were needed.
+
+The completed roadmap and original blank review checklist are archived under
+`docs/archive/2026-10-13-prerelease-1.0/`. The live roadmap has no active work.
+Current recipe/configuration and integration contracts remain in place. The owner
+also requested Discord announcement copy; this authorizes drafting, not posting.
 
 ## Configurability — 2026-10-13
 
@@ -508,6 +522,15 @@ claim. The owner report below supplements the technical evidence; acceptance is
 the owner's explicit decision, not an inference that every runtime path was tested.
 
 ## MVP work state
+
+Historical Git delivery: preparation and its evidence closeout reached main at
+`db3d8ed85df251a57e817881a30d61bdad7938e0`; MVP-01 is `89d40d5`, MVP-02 is `2ebab16`,
+MVP-03 is `bfac10d`, MVP-04 is `0be4006`, MVP-05 is `5a8e01f`;
+MVP-06 source/closeout are `1fabb25` / `05b1130`; MVP-07 is `cb9456d`.
+Each story included its management update and main push. The historical MVP
+candidate source is `1fabb2543d56d90d5707863c234c18c33ba93f02`; downloaded package
+`0.1.8` from [run 37699427929](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/37699427929)
+passed independent verification. The current published baseline is recorded above.
 
 The [archived roadmap](archive/2026-10-08-mvp/ROADMAP.md) defines scope, sequence, completion criteria,
 evidence, and stop conditions. Its [technical basis](archive/2026-10-08-mvp/MVP-TECHNICAL-BASIS.md)
