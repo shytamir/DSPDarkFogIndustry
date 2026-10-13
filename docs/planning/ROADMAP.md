@@ -88,7 +88,7 @@ Resolve that wording before completing the story.
 **Outcome:** Chinese-speaking players can understand, install and configure the
 mod from its package description and README. **Depends on:** C01.
 
-**Scope:** Append a concise Simplified Chinese summary and add a brief notice/link
+**Scope:** Append a concise Simplified Chinese summary and add a brief notice
 near the README's start. Finish the bilingual short description within the existing
 250-character total limit. Use actual Chinese game names and familiar player terms;
 keep mod names, configuration keys and paths intact.
@@ -101,7 +101,8 @@ English explanation while preserving the actions a player needs to take.
 review the Chinese for natural phrasing. Compare both languages for meaning,
 numbers, paths and completeness. Check the description length and UTF-8 encoding;
 verify the complete README in Thunderstore's website Markdown preview, including
-the notice/link, tables and code. Record the preview result for G1.
+the notice, tables and code. Record the preview result for G1. Thunderstore's
+preview strips section anchors, so use a clear notice rather than a broken link.
 
 **Out of scope:** Translating config/reference headings or logs, mod renaming,
 other languages, runtime language validation and external promotion.

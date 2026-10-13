@@ -70,9 +70,9 @@ handoff; the owner's review of the resulting package is still required.
 
 | Story / gate | State | Next action |
 | --- | --- | --- |
-| PRE-C01: English package copy | Technically validated | English copy reviewed against the configuration/default-recipe contracts; one valid custom-output example retained. Repository checks passed. This story's main commit carries the approved planning documents and language evidence; CI delivery is verified after push. |
-| PRE-C02: Simplified Chinese summary | Approved; next | Prepare the appended summary, notice/link and bilingual description, then check the complete website preview. |
-| G1 / M1: Copy ready | Pending | Both languages agree and pass Thunderstore's website Markdown preview. |
+| PRE-C01: English package copy | Delivered | Main `2a2fa1e`; [CI 38433971869](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/38433971869) passed. English copy checked against the configuration/default-recipe contracts; one valid custom-output example retained. Repository checks passed. |
+| PRE-C02: Simplified Chinese summary | Technically validated | Native terminology, bilingual meaning, UTF-8 and 143-character description checked. Complete README passed the website preview; evidence below. This story's commit carries the copy and management update. |
+| G1 / M1: Copy ready | Satisfied, 2026-10-13 | Both languages agree; notice, two tables and example render correctly in Thunderstore's website preview. |
 | PRE-V01: Version promotion | Approved; follows G1 | Promote through the standard version/build procedure. |
 | PRE-D01: Verified candidate and handoff | Approved; follows V01 | Inspect the actual CI package/evidence and supply a short owner checklist. |
 | G2 / M2: Owner review ready | Pending | Exact 1.0.x artifact independently verified and handed off. |
@@ -103,6 +103,25 @@ weights, exclusions, package checks and owner handoff without reopening feature 
 Planning validation covers repository syntax, local documentation links, retained
 concept hashes, source hygiene and diff whitespace. Product builds and gameplay
 checks were not rerun for the document-only draft. G0 was subsequently approved.
+
+### Package copy review — 2026-10-13
+
+The English guidance and Chinese summary were checked for supported claims,
+complete player actions and restrained wording. The bilingual description is
+143 characters. Recipe, technology, machine and example names were compared with
+the adopted native Chinese locale; `合成器` is the native Replicator label. No
+product behavior changed and no Chinese runtime session is claimed.
+
+The complete [packaged README](../packaging/README.md), SHA-256
+`6d6ed39f02e61a86bc218247bced76eb9ff588f4c0065b534c87f9a404165a4a`,
+passed [Thunderstore's Markdown preview](https://thunderstore.io/tools/markdown-preview/).
+Both six-row tables, the example and Chinese text were inspected in the rendered
+output. The renderer strips section anchors, so the opening notice directs readers
+to the end without a broken link. Chinese punctuation was moved outside emphasis
+markers after the preview exposed literal asterisks; the final rendered text has
+none. A screenshot is retained locally at
+`artifacts/prerelease/chinese-preview.png`. Repository checks and strict UTF-8
+decoding of both copy files passed.
 
 ## Configurability — 2026-10-13
 
