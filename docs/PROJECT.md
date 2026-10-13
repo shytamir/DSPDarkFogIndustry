@@ -6,17 +6,17 @@ and publication. Other documents define contracts or evidence and link here.
 
 ## Current state
 
-- Phase: configurability implementation, authorized by the owner on 2026-10-13.
+- Phase: configurability owner handoff; awaiting owner validation and acceptance.
 - Authorized scope: execute the approved configurability roadmap through owner
   handoff, committing and pushing each completed story with its management update.
-  G0 is approved. Game execution, installed-file/manager-profile changes and save
+  G0 is approved; execution through G3 is delivered below. Game execution, installed-file/manager-profile changes and save
   access remain outside the agent's operational envelope. Completed
   MVP and cleanup remain closed; the corrected [HF-01](planning/HF-01-PROTOTYPE-DETECTION.md)
   candidate still awaits owner validation independently of this planning work.
 - Build version line: `0.9.x`, owner-directed on 2026-10-08; the patch remains the
   CI run number (0 for local builds). The historical MVP candidate remains `0.1.8`.
 - Product implementation: MVP-01 through MVP-07 completed and accepted as the MVP;
-  the MVP's M3 satisfied. Configurability implementation is active. The
+  the MVP's M3 satisfied. Configurability is technically complete through G3. The
   [owner handoff](archive/2026-10-08-mvp/OWNER-VALIDATION.md) is archived.
 - Planning: the [live roadmap](planning/ROADMAP.md) defines the configurability
   investigation and approved delivery sequence. G0 approves the configuration
@@ -82,9 +82,28 @@ be accepted; invalid values must receive specific nearest-valid corrections.
 | CFG-N03 | Delivered | Main `2a05f5e89d302ff1062325aa25631e80c38e7384`; [CI run 38404589354](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/38404589354) passed. Emitted-record tests preserve defaults and verify custom batches, family changes, tier-ID invariance, native ceilings and lower-rate ties. Shared pipeline passed 24 checks. [Production evidence](implementation/NATIVE-INTEGRATION.md#configured-production-checks) gives owner expectations. |
 | CFG-C03 | Delivered | Main `6fde23f0b6a5a929864c7897bfc0b051d18e1fb8`; [CI run 38405244674](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/38405244674) passed. References use the validator's catalogue and native translation/metadata; edits are inert. Generated text and round trips were reviewed. Shared pipeline passed 25 checks; real metadata verified 93 references and three hooks. Actual editor interaction remains an owner observation. |
 | G2 | Passed | All implementation stories are on main with successful CI. Defaults, custom settings, native integration and file persistence pass the offline checks; no game validation is inferred. |
-| CFG-D01 | Candidate source ready; hosted artifact verification follows this push | Player instructions cover editing, basic-machine rates, corrections, lookup sections, restart and prepared save changes. Shared pipeline passed 25 behavior checks, package/repository checks and real bindings. Final source review covered scope, arithmetic, lifecycle, file presentation and test relevance. Download and independently verify this commit's CI artifact before selecting it. |
-| CFG-D02 | Approved, not started | Prepare the owner procedure after artifact verification. |
-| G3, G4 | Pending | Verified handoff and owner acceptance remain separate. |
+| CFG-D01 | Delivered and independently verified | Candidate source `5c0cdda26e5f08d378795c604afc83787a046617`; [CI run 38405672271](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/38405672271), attempt 1, passed. Downloaded 0.9.30 matched both provider digests, all 107 committed source hashes, package contents and version metadata. Its DLL passed real-reference validation for 93 references and three Harmony targets. Details below. |
+| CFG-D02 | Delivered in this handoff commit | [Owner procedure](implementation/CONFIGURATION-OWNER-VALIDATION.md) identifies the candidate, editor checks, defaults/custom rates, shared gates, corrections, native behavior and prepared save changes. Instructions were checked against the package, generated file layout and emitted-record expectations. Owner result fields are blank. |
+| G3 | Passed; awaiting owner acceptance | Nine stories delivered through technical validation and one verified candidate. No game launch, save access, installed-file change or manager interaction was performed by the agent. Stop at the owner handoff. |
+| G4 | Pending owner decision | Acceptance, archival, any version promotion and publication remain separate. |
+
+### Selected configurability candidate
+
+- Version **0.9.30**, build label `0.9.30.5c0cdda26e5f`, from the D01 run above.
+  The later documentation-only handoff build does not replace this selected artifact.
+- Package SHA-256: `d9556239e5c4219f9397144df1665d03be7eb0a2dd13a82f384a0351a41c6243`.
+- Plugin SHA-256: `fd53b689928d8f291cdf53d295b9f803aea14a17d379a3652f723c0c5838c14e`.
+- Retained download/evidence: `artifacts/ci/38405672271/`, including source export,
+  provider metadata, independent package inspection and downloaded-DLL real binding report.
+- Shared checks passed: 25 behavior checks, 13 malformed-package cases, three
+  malformed-version cases, source/document hygiene; local negative reference checks
+  rejected altered ledgers, reference drift and missing references. Builds reported
+  no compiler warnings. The installable ZIP contains only the five contracted files.
+- Final review covered native startup ordering, correction precedence and arithmetic,
+  shared gates/import isolation, readable BepInEx output, player wording, tests and
+  story/delivery records. Recursive crafting/queue arithmetic remains native under
+  CFG-D13. Actual gameplay and Notepad/Thunderstore Mod Manager interaction remain
+  explicitly unobserved; no acceptance or publication is inferred.
 
 The [investigation](implementation/CONFIGURATION-INVESTIGATION.md) now maps machine
 IDs/speeds, family filtering, startup timing, technology completion, bounded

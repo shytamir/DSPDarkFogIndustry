@@ -42,7 +42,7 @@ short generated descriptions, not JSON, an external recipe file or a custom UI.
 
 | Field | Meaning |
 | --- | --- |
-| `TechnologyId` | An existing technology record. The recipe unlocks when that record is fully completed under native research rules. Multiple recipes may use the same ID. No zero/no-research sentinel is proposed. |
+| `TechnologyId` | An existing technology record. The recipe unlocks when that record is fully completed under native research rules. Multiple recipes may use the same ID. Zero is not a no-research sentinel. |
 | `MachineId` | A smelter, chemical plant or assembler item ID. It selects the native recipe family. Rates always use that family's basic machine, regardless of the selected tier; other compatible tiers remain usable. |
 | `OutputItemId`, `OutputCount` | One existing output item and its positive integer quantity per completed batch. |
 | `OutputPerMinute` | Positive integer products/minute in the selected family's basic machine, before proliferation; count and rate are distinct. Native timing may make an entered rate unattainable; the correction rule below covers that case. |
@@ -90,7 +90,7 @@ does not weaken the per-recipe duration, machine-buffer or item-ID checks.
 
 ### Readability example
 
-This excerpt illustrates the proposed layout and current default values. The
+This excerpt illustrates the layout and current default values. The
 implementation must produce all six sections, all ingredient rows and normal
 BepInEx metadata; this is not an installable config or a completed file-format test.
 
@@ -139,7 +139,7 @@ one pass and leave an already valid configuration unchanged.
 | Fractional numeric value in an integer field | Choose the nearest valid integer, with the same lower-value tie rule. |
 | Empty or nonnumeric value in a required numeric field | Use that field's documented default and explain that no numeric distance exists. Optional unused ingredient rows still have their explicit zero representation. |
 | Rate not exactly attainable | Choose the closest attainable integer products/minute value in the selected family's basic machine for the output count; choose the lower rate on a tie. Report requested and effective rates. Do not silently change output or ingredient counts to force a rate. |
-| Conflicting fields or ingredient rows | Preserve an eligible selected machine first; choose output/input IDs within its eligible domain, then repair row shape and quantities, then rate. An intentional unused row keeps item ID zero and receives count zero. Define duplicate/empty-row treatment from CFG-I01 before coding, with an example for each repair; avoid repeatedly correcting one field back and forth. |
+| Conflicting fields or ingredient rows | Preserve an eligible selected machine first; choose output/input IDs within its eligible domain, then repair row shape and quantities, then rate. An intentional unused row keeps item ID zero and receives count zero. Duplicates follow the distinct-row rule above; avoid repeatedly correcting one field back and forth. |
 | Lookup/reference edit | Never use lookup names or values to define recipes. Regenerate native labels on the next ordinary mod save. |
 
 This is field-by-field correction under the stated precedence, not a claim of a

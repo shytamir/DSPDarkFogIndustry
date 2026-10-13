@@ -54,7 +54,7 @@ this plan, recording the scope decision in PROJECT.
 | E3 — Candidate and owner handoff | An inspected CI package and a concise acceptance procedure | D01: 3; D02: 2 | 5 |
 | **Total** | Nine stories; IDs below use the `CFG-` prefix | | **29** |
 
-One investigation remains because the brief checks reached a concrete complexity
+One bounded investigation is included because the brief checks reached a concrete complexity
 boundary: coupled numeric and recipe-shape limits in the three allowed families.
 Routine questions already answered by inspection are not separate work items.
 
