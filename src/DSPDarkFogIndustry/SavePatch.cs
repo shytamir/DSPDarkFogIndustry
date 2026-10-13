@@ -8,7 +8,7 @@ namespace DSPDarkFogIndustry
         [HarmonyPostfix]
         private static void Postfix(GameHistoryData __instance, bool isPreview)
         {
-            SaveReconciliation.Reconcile(__instance, isPreview);
+            SaveReconciliation.Reconcile(__instance, isPreview, RecipeStartup.EffectiveRecipes);
         }
     }
 }

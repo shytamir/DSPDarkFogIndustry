@@ -7,21 +7,21 @@ namespace DSPDarkFogIndustry
     {
         private static RecipeProtoSet registeredTable;
 
-        internal static bool Register(RecipeProtoSet recipes, ItemProtoSet items, TechProtoSet techs)
+        internal static bool Register(RecipeProtoSet recipes, ItemProtoSet items, TechProtoSet techs, SynthesisRecipe[] definitions = null)
         {
             if (ReferenceEquals(registeredTable, recipes))
             {
                 return false;
             }
 
-            var additions = new RecipeProto[SynthesisRecipes.All.Length];
-            var gates = new TechProto[additions.Length];
-            var unlocks = new int[additions.Length][];
+            definitions = definitions ?? SynthesisRecipes.Defaults;
+            var additions = new RecipeProto[definitions.Length];
+            var unlocks = new Dictionary<TechProto, List<int>>();
 
             // Finish preflight before touching any native table or technology.
             for (int i = 0; i < additions.Length; i++)
             {
-                var definition = SynthesisRecipes.All[i];
+                var definition = definitions[i];
                 foreach (var existing in recipes.dataArray)
                 {
                     if (existing.ID == definition.Id || existing.GridIndex == definition.Grid)
@@ -45,28 +45,32 @@ namespace DSPDarkFogIndustry
                     }
                 }
 
-                gates[i] = techs.Select(definition.Gate);
-                if (gates[i] == null)
+                var gate = techs.Select(definition.Gate);
+                if (gate == null)
                 {
                     throw new InvalidOperationException("DSP Dark Fog Industry: missing native gate " + definition.Gate);
                 }
 
-                var ids = new List<int>(gates[i].UnlockRecipes);
+                List<int> ids;
+                if (!unlocks.TryGetValue(gate, out ids))
+                {
+                    ids = new List<int>(gate.UnlockRecipes ?? new int[0]);
+                    unlocks.Add(gate, ids);
+                }
                 if (!ids.Contains(definition.Id))
                 {
                     ids.Add(definition.Id);
                 }
 
-                unlocks[i] = ids.ToArray();
                 additions[i] = definition.Create(product);
             }
 
             var combined = new RecipeProto[recipes.dataArray.Length + additions.Length];
             Array.Copy(recipes.dataArray, combined, recipes.dataArray.Length);
             Array.Copy(additions, 0, combined, recipes.dataArray.Length, additions.Length);
-            for (int i = 0; i < gates.Length; i++)
+            foreach (var gate in unlocks)
             {
-                gates[i].UnlockRecipes = unlocks[i];
+                gate.Key.UnlockRecipes = gate.Value.ToArray();
             }
 
             recipes.dataArray = combined;

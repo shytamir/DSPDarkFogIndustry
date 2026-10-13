@@ -80,17 +80,13 @@ public class TechProtoSet : ProtoSet<TechProto>
 {
 }
 
-public struct TechState
-{
-    public bool unlocked;
-}
-
 public class GameHistoryData
 {
     public readonly HashSet<int> Researched = [];
+    public readonly HashSet<int> PartialResearch = [];
     public readonly HashSet<int> UnlockedRecipes = [];
     public readonly List<int> UnlockCalls = [];
-    public TechState TechState(int techId) => new TechState { unlocked = Researched.Contains(techId) };
+    public bool TechUnlocked(int techId, bool max) => Researched.Contains(techId) || (!max && PartialResearch.Contains(techId));
     public bool RecipeUnlocked(int recipeId) => UnlockedRecipes.Contains(recipeId);
     public void UnlockRecipe(int recipeId)
     {

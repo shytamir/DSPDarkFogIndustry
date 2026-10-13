@@ -17,11 +17,19 @@ describe player behavior; [PROJECT](../PROJECT.md) records decisions and accepta
   [RecipeRegistration](../../src/DSPDarkFogIndustry/RecipeRegistration.cs)
   checks for conflicts, adds recipes and technology unlocks, and rebuilds the lookup.
 - [SynthesisRecipes](../../src/DSPDarkFogIndustry/SynthesisRecipes.cs) defines item
-  and technology IDs, recipe IDs, ingredients, durations and selector positions.
+  and technology defaults, stable recipe IDs and selector positions. Corrected
+  startup settings produce the effective records used by registration and save import.
   Comments explain the timing and save-compatibility constraints.
 - [SavePatch](../../src/DSPDarkFogIndustry/SavePatch.cs) and
   [SaveReconciliation](../../src/DSPDarkFogIndustry/SaveReconciliation.cs) add missing
   recipe unlocks after a full save import. Preview imports are skipped.
+
+Technology additions accumulate by gate before any native table is changed, so
+multiple configured recipes can share a gate. Save reconciliation calls native
+`TechUnlocked(id, true)` and awards only missing recipe IDs from the effective
+settings. The inspected `AddTechHash` path awards `UnlockRecipes` only on full
+record completion. No relock, research replay, machine conversion or queue migration
+is performed.
 
 Production, proliferation, research discovery and handcraft execution use the
 game's existing behavior. The plugin does not patch those systems.

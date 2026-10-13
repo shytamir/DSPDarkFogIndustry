@@ -104,14 +104,9 @@ public class AbnormalityDeterminator : DeterminatorBase
 {
 }
 
-public struct TechState
-{
-    public bool unlocked;
-}
-
 public class GameHistoryData
 {
-    public TechState TechState(int techId)
+    public bool TechUnlocked(int techId, bool max)
     {
         throw new NotSupportedException("Compile-only shim");
     }

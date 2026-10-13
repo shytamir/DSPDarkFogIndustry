@@ -9,6 +9,7 @@ internal static class RegistrationChecks
         Program.Run(nameof(RegistersEachTableOnce), RegistersEachTableOnce);
         Program.Run(nameof(RejectsConflictsBeforeMutation), RejectsConflictsBeforeMutation);
         Program.Run(nameof(RejectsMissingRecordsBeforeMutation), RejectsMissingRecordsBeforeMutation);
+        Program.Run(nameof(AppliesConfiguredShapesAndSharedGates), AppliesConfiguredShapesAndSharedGates);
     }
 
     internal static (RecipeProtoSet recipes, ItemProtoSet items, TechProtoSet techs) CreateFixture()
@@ -39,7 +40,7 @@ internal static class RegistrationChecks
             "Saved recipe identities changed.");
         Program.Check(recipes.LookupRebuilds == 1, "Recipe lookup was not rebuilt exactly once.");
 
-        foreach (var definition in SynthesisRecipes.All)
+        foreach (var definition in SynthesisRecipes.Defaults)
         {
             Program.Check(techs.Select(definition.Gate).UnlockRecipes.SequenceEqual([definition.Gate + 10000, definition.Id]),
                 $"Registration changed an existing unlock or missed recipe {definition.Id}.");
@@ -51,7 +52,7 @@ internal static class RegistrationChecks
         var (recipes, items, techs) = CreateFixture();
         RecipeRegistration.Register(recipes, items, techs);
 
-        foreach (var definition in SynthesisRecipes.All)
+        foreach (var definition in SynthesisRecipes.Defaults)
         {
             var recipe = recipes.Select(definition.Id);
             Program.Check(recipe.Items.SequenceEqual(definition.Inputs) && !ReferenceEquals(recipe.Items, definition.Inputs),
@@ -96,6 +97,42 @@ internal static class RegistrationChecks
             "missing native product");
         RejectBeforeMutation((_, _, techs) => techs.dataArray = techs.dataArray.Where(tech => tech.ID != 1818).ToArray(),
             "missing native gate");
+    }
+
+    private static void AppliesConfiguredShapesAndSharedGates()
+    {
+        var f = CatalogueChecks.CreateFixture();
+        var config = ConfigurationChecks.Load("registration", "[01 - Recipe 401 - Energy Shard]\n" +
+            "TechnologyId = 1822\nMachineId = 2304\nOutputItemId = 1606\nOutputCount = 3\n" +
+            "Input1ItemId = 1606\nInput1Count = 4\nInput6ItemId = 1013\nInput6Count = 9\n" +
+            "[03 - Recipe 403 - Matter Recombinator]\nTechnologyId = 1822\nInput1ItemId = 0\nInput2ItemId = 0\n");
+        RecipeStartup.Configuration = config;
+        try
+        {
+            RecipeStartup.Prepare(f.recipes, f.items, f.techs, f.models);
+            var recipe = f.recipes.Select(401);
+            Program.Check(recipe.Items.SequenceEqual([1606, 1013]) && recipe.ItemCounts.SequenceEqual([4, 9]),
+                "Configured rows, order or counts were lost.");
+            Program.Check(recipe.Results.SequenceEqual([1606]) && recipe.ResultCounts.SequenceEqual([3]) &&
+                recipe.Handcraft && recipe.Type == ERecipeType.Assemble, "Configured product/family was lost.");
+            Program.Check(f.recipes.Select(403).Items.Length == 0, "Empty ingredients were rejected.");
+            Program.Check(f.techs.Select(1822).UnlockRecipes.SequenceEqual([11822, 401, 402, 403]),
+                "Shared technology additions overwrote one another or native rewards.");
+            Program.Check(f.techs.Select(1133).UnlockRecipes.SequenceEqual([11133]), "Old gate received a configured-away recipe.");
+            var history = new GameHistoryData();
+            history.PartialResearch.Add(1822);
+            history.UnlockedRecipes.Add(406);
+            Program.Check(SaveReconciliation.Reconcile(history, false, RecipeStartup.EffectiveRecipes) == 0,
+                "Partial technology completion awarded a configured recipe.");
+            history.Researched.Add(1822);
+            Program.Check(SaveReconciliation.Reconcile(history, true, RecipeStartup.EffectiveRecipes) == 0, "Preview awarded configured recipes.");
+            Program.Check(SaveReconciliation.Reconcile(history, false, RecipeStartup.EffectiveRecipes) == 3 &&
+                history.UnlockedRecipes.SetEquals([401, 402, 403, 406]), "Shared completed gate or old saved unlock was lost.");
+            Program.Check(SaveReconciliation.Reconcile(history, false, RecipeStartup.EffectiveRecipes) == 0, "Repeat import repeated grants.");
+            RecipeStartup.Prepare(f.recipes, f.items, f.techs, f.models);
+            Program.Check(f.recipes.LookupRebuilds == 1, "Later item preload repeated configured registration.");
+        }
+        finally { RecipeStartup.Configuration = null; }
     }
 
     private static void RejectBeforeMutation(Action<RecipeProtoSet, ItemProtoSet, TechProtoSet> arrange, string expectedError)

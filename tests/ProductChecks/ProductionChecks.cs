@@ -29,7 +29,7 @@ internal static class ProductionChecks
         var facts = document.RootElement;
         int ticksPerSecond = facts.GetProperty("ticks_per_second").GetInt32();
 
-        foreach (var definition in SynthesisRecipes.All)
+        foreach (var definition in SynthesisRecipes.Defaults)
         {
             var recipe = recipes.Select(definition.Id);
             bool assembler = recipe.ID > 401 && recipe.ID < 406;
@@ -61,7 +61,7 @@ internal static class ProductionChecks
 
         // Apply the inspected eligibility rule to our recipes; this is not a simulation
         // of spraying or the native producer's extra-product timing.
-        foreach (var definition in SynthesisRecipes.All)
+        foreach (var definition in SynthesisRecipes.Defaults)
         {
             var recipe = recipes.Select(definition.Id);
             bool productive = !recipe.NonProductive
@@ -75,7 +75,7 @@ internal static class ProductionChecks
     {
         var recipes = RegisteredRecipes();
         var availableProducts = new HashSet<int>();
-        foreach (var definition in SynthesisRecipes.All)
+        foreach (var definition in SynthesisRecipes.Defaults)
         {
             var recipe = recipes.Select(definition.Id);
             foreach (int input in recipe.Items.Where(item => item >= 5201 && item <= 5206))

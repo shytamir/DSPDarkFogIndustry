@@ -10,10 +10,17 @@ namespace DSPDarkFogIndustry
         internal readonly int OutputCount;
         internal readonly ERecipeType Family;
         internal readonly int[] Inputs;
+        internal readonly int[] InputCounts;
 
         internal SynthesisRecipe(
             int id, int product, int gate, int grid, int ticks,
             int outputCount, ERecipeType family, params int[] inputs)
+            : this(id, product, gate, grid, ticks, outputCount, family, inputs, UnitCounts(inputs.Length))
+        {
+        }
+
+        internal SynthesisRecipe(int id, int product, int gate, int grid, int ticks,
+            int outputCount, ERecipeType family, int[] inputs, int[] inputCounts)
         {
             Id = id;
             Product = product;
@@ -23,16 +30,21 @@ namespace DSPDarkFogIndustry
             OutputCount = outputCount;
             Family = family;
             Inputs = inputs;
+            InputCounts = inputCounts;
         }
 
-        internal RecipeProto Create(ItemProto product)
+        private static int[] UnitCounts(int length)
         {
-            var counts = new int[Inputs.Length];
+            var counts = new int[length];
             for (int i = 0; i < counts.Length; i++)
             {
                 counts[i] = 1;
             }
+            return counts;
+        }
 
+        internal RecipeProto Create(ItemProto product)
+        {
             return new RecipeProto
             {
                 ID = Id,
@@ -44,7 +56,7 @@ namespace DSPDarkFogIndustry
                 TimeSpend = Ticks,
                 GridIndex = Grid,
                 Items = (int[])Inputs.Clone(),
-                ItemCounts = counts,
+                ItemCounts = (int[])InputCounts.Clone(),
                 Results = new[] { Product },
                 ResultCounts = new[] { OutputCount },
                 // Empty icon fields use the product icon during native preload.
@@ -62,7 +74,7 @@ namespace DSPDarkFogIndustry
         // IDs and input ordering are persisted by native saves. Keep them stable.
         // Grid 1809-1814 is the right end of the Items tab's bottom row.
         // At 60 ticks/second, 45 ticks gives 60/min in the 0.75x Assembler Mk.I.
-        internal static readonly SynthesisRecipe[] All =
+        internal static readonly SynthesisRecipe[] Defaults =
         {
             new SynthesisRecipe(
                 id: 401, product: Item.EnergyShard, gate: Technology.ParticleControl, grid: 1809,

@@ -2,7 +2,7 @@ namespace DSPDarkFogIndustry
 {
     internal static class SaveReconciliation
     {
-        internal static int Reconcile(GameHistoryData history, bool isPreview = false)
+        internal static int Reconcile(GameHistoryData history, bool isPreview = false, SynthesisRecipe[] definitions = null)
         {
             // The save selector imports previews too; it must not award anything.
             if (isPreview)
@@ -11,9 +11,9 @@ namespace DSPDarkFogIndustry
             }
 
             int added = 0;
-            foreach (var recipe in SynthesisRecipes.All)
+            foreach (var recipe in definitions ?? SynthesisRecipes.Defaults)
             {
-                if (history.TechState(recipe.Gate).unlocked && !history.RecipeUnlocked(recipe.Id))
+                if (history.TechUnlocked(recipe.Gate, true) && !history.RecipeUnlocked(recipe.Id))
                 {
                     history.UnlockRecipe(recipe.Id);
                     added++;

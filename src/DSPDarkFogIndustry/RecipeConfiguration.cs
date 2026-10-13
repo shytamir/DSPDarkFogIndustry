@@ -1,6 +1,7 @@
 using System;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using BepInEx.Configuration;
 
 namespace DSPDarkFogIndustry
@@ -82,7 +83,7 @@ namespace DSPDarkFogIndustry
             string[] names = { "Energy Shard", "Dark Fog Matrix", "Matter Recombinator", "Silicon-based Neuron", "Negentropy Singularity", "Core Element" };
             for (int i = 0; i < Recipes.Length; i++)
             {
-                var recipe = SynthesisRecipes.All[i];
+                var recipe = SynthesisRecipes.Defaults[i];
                 Recipes[i] = new RecipeSettings(file, (i + 1).ToString("00") + " - Recipe " + recipe.Id + " - " + names[i], recipe);
             }
         }
@@ -106,6 +107,21 @@ namespace DSPDarkFogIndustry
         internal void Correct(RecipeCatalogue catalogue)
         {
             Durations = RecipeCorrection.Apply(this, catalogue, report);
+        }
+
+        internal SynthesisRecipe[] CreateRecipes(RecipeCatalogue catalogue)
+        {
+            var definitions = new SynthesisRecipe[Recipes.Length];
+            for (int i = 0; i < Recipes.Length; i++)
+            {
+                var settings = Recipes[i];
+                var identity = SynthesisRecipes.Defaults[i];
+                var rows = Enumerable.Range(0, settings.InputItems.Length).Where(row => settings.InputItems[row].Value != 0).ToArray();
+                definitions[i] = new SynthesisRecipe(identity.Id, settings.OutputItem.Value, settings.Technology.Value,
+                    identity.Grid, Durations[i], settings.OutputCount.Value, catalogue.Machines[settings.Machine.Value].Family,
+                    rows.Select(row => settings.InputItems[row].Value).ToArray(), rows.Select(row => settings.InputCounts[row].Value).ToArray());
+            }
+            return definitions;
         }
     }
 }

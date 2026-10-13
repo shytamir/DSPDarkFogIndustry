@@ -34,7 +34,7 @@ internal static class ConfigurationChecks
         var config = Load("defaults", "");
         config.Save();
         var read = new RecipeConfiguration(new ConfigFile(config.File.ConfigFilePath, false), _ => { });
-        Check(read.Recipes.Select(r => r.OutputItem.Value).SequenceEqual(SynthesisRecipes.All.Select(r => r.Product)), "Defaults did not survive save.");
+        Check(read.Recipes.Select(r => r.OutputItem.Value).SequenceEqual(SynthesisRecipes.Defaults.Select(r => r.Product)), "Defaults did not survive save.");
         string text = File.ReadAllText(config.File.ConfigFilePath);
         Check(text.Split("# Setting type: Int32").Length - 1 == 102, "Not all editable fields have integer metadata.");
         Check(text.IndexOf("[01 -") < text.IndexOf("[06 -"), "Recipe sections are not ordered.");

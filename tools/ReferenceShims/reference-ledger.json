@@ -111,17 +111,17 @@
             "abstract_method": false
           },
           {
+            "signature": "public instance System.Boolean GameHistoryData::TechUnlocked(System.Int32,System.Boolean)",
+            "virtual_method": false,
+            "abstract_method": false
+          },
+          {
             "signature": "public instance System.Void GameHistoryData::.ctor()",
             "virtual_method": false,
             "abstract_method": false
           },
           {
             "signature": "public instance System.Void GameHistoryData::UnlockRecipe(System.Int32)",
-            "virtual_method": false,
-            "abstract_method": false
-          },
-          {
-            "signature": "public instance TechState GameHistoryData::TechState(System.Int32)",
             "virtual_method": false,
             "abstract_method": false
           }
@@ -544,24 +544,6 @@
             "abstract_method": false
           }
         ]
-      },
-      {
-        "type": "TechState",
-        "kind": "struct",
-        "abstract_type": false,
-        "sealed_type": true,
-        "base_type": "System.ValueType",
-        "generic_parameters": [],
-        "interfaces": [],
-        "fields": [
-          {
-            "signature": "public instance System.Boolean TechState::unlocked",
-            "read_only": false,
-            "literal": false,
-            "constant": null
-          }
-        ],
-        "methods": []
       }
     ],
     "forwards": []
