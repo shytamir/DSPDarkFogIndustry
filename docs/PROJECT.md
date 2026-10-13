@@ -15,7 +15,7 @@ and publication. Other documents define contracts or evidence and link here.
   installed-file/manager-profile changes and save access remain outside the
   agent's operational envelope. Completed MVP and cleanup remain closed; the
   separate [HF-01 record](#hf-01-maintenance-hotfix--2026-10-08) is unchanged.
-- Build version line: `0.9.x`, owner-directed on 2026-10-08; the patch remains the
+- Build version line: `1.0.x`, owner-directed for this prerelease; the patch remains the
   CI run number (0 for local builds). The historical MVP candidate remains `0.1.8`.
 - Product implementation: MVP-01 through MVP-07 completed and accepted as the MVP;
   the MVP's M3 satisfied. Configurability and the owner-directed usability revision
@@ -61,7 +61,7 @@ handoff; the owner's review of the resulting package is still required.
 | PRE-P01: Player-copy review | Approved at G0 | Remove irrelevant implementation explanations, keep useful examples sparse, and preserve complete usage/install instructions. Replace correction mechanics with simple log-based troubleshooting guidance. |
 | PRE-P02: Chinese summary | Approved at G0 | Simplified Chinese, native game terminology and player-facing content. Brief notice near the start; summary appended at the end. The owner confirms English config text and the unchanged mod name are acceptable; full config localization is outside this work. |
 | PRE-P03: Bilingual manifest description | Defined within the copy stories | Produce the short English/Simplified Chinese description during the work, within the existing 250-character total limit. The owner reviews the finished wording at handoff; it is not a separate G0 approval or prerequisite. |
-| PRE-P04: Version 1.0 | Owner-requested; apply after G0 and copy review | Set MAJOR=1/MINOR=0 and retain workflow-run patch numbering, producing 1.0.x. No run-counter reset, dependency/identity change, tag or publication. |
+| PRE-P04: Version 1.0 | Applied after G1 | MAJOR=1/MINOR=0; retain workflow-run patch numbering, producing 1.0.x. No run-counter reset, dependency/identity change, tag or publication. |
 | PRE-P05: Existing configurability | Retained | The owner sees configurable outputs as a useful distinction. Keep all accepted controls and default recipes; explain that outputs can be changed within the six added recipes. No new slots or feature expansion. |
 | PRE-P06: Localization verification | Static review complete | [Evidence](implementation/NATIVE-INTEGRATION.md#configuration-language-evidence--2026-10-13): current-language names are used in all three reference groups and name selectors; startup language selection precedes generation. Help/headings remain English. Chinese game strings were checked; no Chinese runtime session is claimed. |
 | PRE-P07: Proportionate prerelease scope | Owner-directed revision | Remove the Chinese startup/name-input check; the owner will not perform it. Keep this a package-copy/version pass with a simple boundary against code changes. Remove generic implementation/investigation instructions and redundant approval dependencies. |
@@ -71,9 +71,9 @@ handoff; the owner's review of the resulting package is still required.
 | Story / gate | State | Next action |
 | --- | --- | --- |
 | PRE-C01: English package copy | Delivered | Main `2a2fa1e`; [CI 38433971869](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/38433971869) passed. English copy checked against the configuration/default-recipe contracts; one valid custom-output example retained. Repository checks passed. |
-| PRE-C02: Simplified Chinese summary | Technically validated | Native terminology, bilingual meaning, UTF-8 and 143-character description checked. Complete README passed the website preview; evidence below. This story's commit carries the copy and management update. |
+| PRE-C02: Simplified Chinese summary | Delivered | Main `5d2d80e`; [CI 38434862826](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/38434862826) passed. Native terminology, bilingual meaning, UTF-8, 143-character description and website rendering checked; evidence below. |
 | G1 / M1: Copy ready | Satisfied, 2026-10-13 | Both languages agree; notice, two tables and example render correctly in Thunderstore's website preview. |
-| PRE-V01: Version promotion | Approved; follows G1 | Promote through the standard version/build procedure. |
+| PRE-V01: Version promotion | Technically validated | MAJOR=1/MINOR=0; shared build and real-reference compilation/metadata checks passed. This story's CI output will be verified independently in D01. |
 | PRE-D01: Verified candidate and handoff | Approved; follows V01 | Inspect the actual CI package/evidence and supply a short owner checklist. |
 | G2 / M2: Owner review ready | Pending | Exact 1.0.x artifact independently verified and handed off. |
 | G3 / M3: Acceptance and archival | Pending owner decision | Record the new candidate's explicit acceptance and archive completed work; publication remains separate. |
@@ -122,6 +122,22 @@ markers after the preview exposed literal asterisks; the final rendered text has
 none. A screenshot is retained locally at
 `artifacts/prerelease/chinese-preview.png`. Repository checks and strict UTF-8
 decoding of both copy files passed.
+
+### Version validation — 2026-10-13
+
+`./build.ps1` passed with SDK 10.0.302: shim compilation and ledger checks,
+27 behavior checks, package inspection, 13 malformed-package cases, three malformed
+version cases and repository checks. Local package/plugin version is `1.0.0`,
+assembly/file version `1.0.0.0`; the diagnostic label identifies the dirty local
+build. Evidence is under `artifacts/runs/c1451bd57cee46c99097aa43a95dba6c/`.
+This is local validation, not the selected committed candidate.
+
+The sandboxed restore initially exited without a reported build error. The same
+standard build succeeded through the supported permission route; no source or
+tool configuration workaround was made. Real-reference compilation then passed
+with no warnings/errors, validating 95 external references, three declared Harmony
+targets and 91 shim members against the adopted metadata. No game code was executed.
+The prerelease diff is limited to package text, VERSION and documentation.
 
 ## Configurability — 2026-10-13
 
