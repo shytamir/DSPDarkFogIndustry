@@ -10,9 +10,13 @@ and remaining proofs are in the [investigation](../implementation/CONFIGURATION-
 - Each recipe has one output item type, with an editable item ID and integer
   count. Ingredient item IDs/counts, unlock technology, machine and output rate
   are also configurable. Settings use IDs rather than localized names as identity.
-- The integer output rate means products per minute in the selected machine,
-  without proliferation and at full power/supply. Other compatible tiers retain
-  their normal speed differences. Hand replication keeps its own native timing.
+- Only smelters, chemical plants and assemblers are selectable production
+  machines. Labs, refineries, particle colliders and all other families are excluded.
+- The integer output rate means products per minute in the selected family's
+  basic machine, without proliferation and at full power/supply: Arc Smelter,
+  Chemical Plant or Assembling Machine Mk.I. Selecting an upgraded tier's ID does
+  not change the rate baseline. Compatible tiers retain their normal speed
+  differences. Hand replication keeps its own native timing.
 - Assembler-family recipes permit hand replication; all other families are
   machine-only. This retains the mod's rule; it is not a claim that every vanilla
   recipe follows it. There is no independent handcraft toggle.
@@ -39,9 +43,9 @@ short generated descriptions, not JSON, an external recipe file or a custom UI.
 | Field | Meaning |
 | --- | --- |
 | `TechnologyId` | An existing technology record. The recipe unlocks when that record is fully completed under native research rules. Multiple recipes may use the same ID. No zero/no-research sentinel is proposed. |
-| `MachineId` | A manufacturing building's item ID. It selects its native recipe family and supplies the baseline speed. It does not exclude other compatible tiers. |
+| `MachineId` | A smelter, chemical plant or assembler item ID. It selects the native recipe family. Rates always use that family's basic machine, regardless of the selected tier; other compatible tiers remain usable. |
 | `OutputItemId`, `OutputCount` | One existing output item and its positive integer quantity per completed batch. |
-| `OutputPerMinute` | Positive integer products/minute in the selected machine; count and rate are distinct. Native timing may make an entered rate unattainable; the correction rule below covers that case. |
+| `OutputPerMinute` | Positive integer products/minute in the selected family's basic machine, before proliferation; count and rate are distinct. Native timing may make an entered rate unattainable; the correction rule below covers that case. |
 | `Input1ItemId`, `Input1Count` through `Input6ItemId`, `Input6Count` | Up to six ordered ingredient rows. An unused row has both values zero. Active rows use an existing item ID and a positive integer count. |
 
 Six rows reflect native input demand positions. CFG-I01 must establish the
@@ -49,18 +53,32 @@ consumer behavior of empty inputs, duplicate rows and input/output overlap befor
 calling those shapes valid or invalid. Do not infer invalidity from unconventional
 balance. There is no separate recipe-disable switch in this proposal.
 
-The standard timed families are smelting, assembly, chemical production, refining
-and particle production. Both lab tiers must be considered against their actual
-consumer constraints in CFG-I02; their validity may depend on the chosen output
-and quantities. Fractionation probability, ray-receiver energy production and
-accumulator exchange are not fixed-rate crafting under this contract. Adding
-those production models would require a different owner-approved scope.
+### Allowed machines and rate baselines
+
+| Family | Basic machine used for `OutputPerMinute` | Eligible native machine item IDs, in tier order |
+| --- | --- | --- |
+| Smelting | Arc Smelter — 2302 | 2302, 2315, 2319 |
+| Chemical production | Chemical Plant — 2309 | 2309, 2317 |
+| Assembly | Assembling Machine Mk.I — 2303 | 2303, 2304, 2305, 2318 |
+
+These IDs are backed by the inspected native catalogue; they are not a manually
+maintained substitute for the implementation's validated catalogue. Every allowed
+tier selects its family, not an exclusive building requirement or a different
+rate baseline. For example, setting an assembly recipe to 60/min yields 60/min in
+Mk.I and 80/min in Mk.II before proliferation, even if `MachineId` names Mk.II.
+The Mk.I's native 0.75 speed must not be mistaken for a 1× baseline.
+
+Only these three families are in scope. Do not investigate or implement labs,
+refineries, particle colliders, fractionators, ray receivers, exchangers or other
+production families for this roadmap. Their building items may still be eligible
+ingredients or outputs; exclusion applies to the `MachineId` setting.
 
 An item/technology record is not rejected merely because it is hidden, obsolete,
-late-game, hard to obtain or creates an inconvenient progression route. Apply only
-proven native constraints. Eligible content supplied by another mod is usable if
-present at the registration point and satisfies the same constraints; this does
-not promise arbitrary load-order or mod-combination compatibility.
+late-game, hard to obtain or creates an inconvenient progression route. Within
+the agreed product scope, apply only proven native constraints. Eligible content
+supplied by another mod is usable if present at the registration point and satisfies
+the same constraints; a machine must belong to one of the three allowed families.
+This does not promise arbitrary load-order or mod-combination compatibility.
 
 ### Readability example
 
@@ -74,13 +92,13 @@ BepInEx metadata; this is not an installable config or a completed file-format t
 ## Technology required to unlock this recipe. See the technology reference below.
 TechnologyId = 1133
 
-## Baseline machine: Arc Smelter. Compatible tiers keep their native speeds.
+## Machine family: smelting. Rates use Arc Smelter even if an upgraded ID is selected.
 MachineId = 2302
 
 OutputItemId = 5206
 OutputCount = 2
 
-## Products per minute in the selected machine, before proliferation.
+## Products per minute in this family's basic machine, before proliferation.
 OutputPerMinute = 120
 
 Input1ItemId = 1013
@@ -112,7 +130,7 @@ one pass and leave an already valid configuration unchanged.
 | Integer text larger than the parser's ordinary integer range | Correct by numeric magnitude to the nearest valid boundary. Do not silently treat overflow as a request for the default. |
 | Fractional numeric value in an integer field | Choose the nearest valid integer, with the same lower-value tie rule. |
 | Empty or nonnumeric value in a required numeric field | Use that field's documented default and explain that no numeric distance exists. Optional unused ingredient rows still have their explicit zero representation. |
-| Rate not exactly attainable | Choose the closest attainable integer products/minute value for the selected machine and output count; choose the lower rate on a tie. Report requested and effective rates. Do not silently change output or ingredient counts to force a rate. |
+| Rate not exactly attainable | Choose the closest attainable integer products/minute value in the selected family's basic machine for the output count; choose the lower rate on a tie. Report requested and effective rates. Do not silently change output or ingredient counts to force a rate. |
 | Conflicting fields or ingredient rows | Preserve an eligible selected machine first; choose output/input IDs within its eligible domain, then repair row shape and quantities, then rate. An intentional unused row keeps item ID zero and receives count zero. Define duplicate/empty-row treatment from CFG-I01 before coding, with an example for each repair; avoid repeatedly correcting one field back and forth. |
 | Lookup/reference edit | Never use lookup names or values to define recipes. Regenerate native labels on the next ordinary mod save. |
 
@@ -140,7 +158,10 @@ Append ordinary sections named so they sort after recipe settings:
 and a native readable name as value. Each group explains that it is lookup data,
 not editable recipe settings. Where relevant, include family/speed, maximum-level
 or eligibility notes without presenting obsolete or hidden records as ordinary
-research progression. Do not invent true subgroups that BepInEx does not provide.
+research progression. The machine group contains only eligible smelters, chemical
+plants and assemblers; identify each family's basic rate baseline and each tier's
+speed relative to it. Keep the wider item reference distinct from machine eligibility.
+Do not invent true subgroups that BepInEx does not provide.
 
 Generate the reference from the same native snapshot used for validation, using
 the game's active language for names. IDs remain stable when language changes.

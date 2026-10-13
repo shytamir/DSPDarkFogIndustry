@@ -15,19 +15,24 @@ rate. Keep the six recipe identities/positions, the existing recipes as defaults
 native proliferation and ordinary facility bonuses. Provide a readable configuration
 and a grouped ID reference usable in Notepad and Thunderstore Mod Manager.
 
-The owner has selected the chosen machine as the unproliferated rate baseline,
-retained assembler-only hand replication, and retained native save loading with
-preparation instructions instead of resource migration. Remaining proposals and
-correction semantics are explicit in the contract; approval must not be inferred
-from these definitions. No product implementation is authorized by drafting them.
+Only smelters, chemical plants and assemblers are selectable production machines.
+Rates use each family's basic machine before proliferation: Arc Smelter, Chemical
+Plant or Assembling Machine Mk.I. Selecting an upgraded machine ID in the same
+family does not change that baseline; compatible tiers keep their native speed
+differences. The owner retained assembler-only hand replication and native save
+loading with preparation instructions instead of resource migration. Remaining
+proposals and correction semantics are explicit in the contract; approval must not
+be inferred from these definitions. No product implementation is authorized by
+drafting them.
 
 Agents may inspect native/dependency files read-only, edit repository-owned files
 when implementation is authorized, compile against references, test mod-owned logic,
 and build/inspect packages. They must not launch DSP or a substitute game harness,
 execute game assemblies, deploy the mod, alter installed files/manager profiles,
 or read or modify player saves. The owner performs the final runtime observations.
-No new recipe slots, vanilla recipe editor, custom production loop, resource
-migration, new UI, publication, tagging or version promotion is included.
+No labs, refineries, particle colliders or other production families, new recipe
+slots, vanilla recipe editor, custom production loop, resource migration, new UI,
+publication, tagging or version promotion are included.
 
 ## Work structure and weight
 
@@ -45,12 +50,12 @@ this plan, recording the scope decision in PROJECT.
 | Epic | Outcome | Stories and weights | Total |
 | --- | --- | --- | ---: |
 | E1 — Editable, valid recipes | Readable settings, specific corrections and a trustworthy ID reference | I01: 5; C01: 3; C02: 5; C03: 2 | 15 |
-| E2 — Native production and progression | Settings apply consistently to machines, research and saves | I02: 3; N01: 3; N02: 3; N03: 3 | 12 |
+| E2 — Native production and progression | Settings apply consistently to machines, research and saves | N01: 3; N02: 3; N03: 3 | 9 |
 | E3 — Candidate and owner handoff | An inspected CI package and a concise acceptance procedure | D01: 3; D02: 2 | 5 |
-| **Total** | Ten stories; IDs below use the `CFG-` prefix | | **32** |
+| **Total** | Nine stories; IDs below use the `CFG-` prefix | | **29** |
 
-The two investigation stories remain because the brief checks reached a concrete
-complexity boundary: coupled numeric limits and the lab's specialized consumer.
+One investigation remains because the brief checks reached a concrete complexity
+boundary: coupled numeric and recipe-shape limits in the three allowed families.
 Routine questions already answered by inspection are not separate work items.
 
 ## Phases, gates and milestones
@@ -58,7 +63,7 @@ Routine questions already answered by inspection are not separate work items.
 | Phase | Work | Exit gate and required evidence | Milestone / validator |
 | --- | --- | --- | --- |
 | 0. Owner review | Review this plan and the contract | **G0:** owner approves the product proposals and authorizes roadmap execution, including implementation and story closeout pushes. Record the exact authority in PROJECT. | Execution authorized / owner |
-| 1. Finish the bounded native questions | CFG-I01 and CFG-I02 | **G1:** valid-domain tables, rate interpretation and correction examples are complete; no native premise required by later work remains guessed. Any conflict with the approved contract has been resolved with the owner. | **M1:** implementation evidence ready / agent |
+| 1. Finish the bounded native questions | CFG-I01 | **G1:** valid-domain tables for the three allowed families, basic-machine rate conversion and correction examples are complete; no native premise required by later work remains guessed. Any conflict with the approved contract has been resolved with the owner. | **M1:** implementation evidence ready / agent |
 | 2. Implement | CFG-C01–C03 and CFG-N01–N03, in dependency order | **G2:** each story meets its offline definition; default and custom settings form a coherent product; the real baseline and all external references are reviewed; affected tests pass; story closeouts are on main. | **M2:** technically complete / agent |
 | 3. Deliver | CFG-D01 and CFG-D02 | **G3:** exact source, successful CI run, independently checked downloaded artifact, player instructions and owner procedure agree; no known contract defect remains. | **M3:** ready for owner acceptance / agent |
 | 4. Owner acceptance | Owner observations and disposition | **G4:** explicit owner acceptance identifies the candidate and any accepted limitations. Reported defects are repaired and affected gates rechecked before a replacement handoff. | **M4:** accepted and archived / owner decision, agent records |
@@ -72,7 +77,7 @@ requires broader access, stop the affected work and request that specific decisi
 
 1. Read AGENTS, PROJECT, this roadmap, the contract and the findings. Check Git
    status and preserve unrelated changes. Confirm G0 before implementation.
-2. Use existing inspection results. Complete I02, then I01, close G1, then follow
+2. Use existing inspection results. Complete I01, close G1, then follow
    this order: **N01 → C01 → C02 → N02 → N03 → C03 → D01 → D02**. N01 adopts the
    reviewed reference baseline before later stories require real-library builds.
    The dependencies below govern if a different sequence is more useful.
@@ -120,14 +125,14 @@ blocker and continue independent work rather than looping.
 ### CFG-I01 — Bound numeric and recipe validity · weight 5
 
 **Outcome:** Every accepted value has a native basis, and invalid numeric choices
-have a well-defined nearest correction. **Depends on:** G0 and I02's lab findings;
+have a well-defined nearest correction. **Depends on:** G0;
 use the completed brief inspection rather than restarting a general survey.
 
 **Scope:** Trace the demonstrated duration scaling, input demand, output buffers,
 per-update production limit, handcraft/raw-material count arithmetic and persisted
 ID widths. Resolve empty inputs, duplicate rows and same input/output items. Cover
-ordinary compatible tiers and native proliferation. Include I02's lab findings
-when deriving that family's domain.
+smelting, chemical production and assembly, their compatible tiers and native
+proliferation. Derive rates from each family's basic machine.
 
 **Done/evidence:** A compact table states each actual bound or coupled constraint,
 its native consumers, and boundary examples. Prove how integer rates map to native
@@ -136,9 +141,12 @@ valid batch. Identify wider-mod assumptions explicitly. Document the conclusions
 in the technical record and reconcile the contract's examples; no arbitrary
 universal cap or balance-based rejection is acceptable.
 
-**Stop/exclusions:** Stop a dependent case when its proof needs a new consumer or
-runtime evidence beyond this bounded trace; name and split that case. No game
-emulator, arithmetic rewrite of DSP, default rebalance or agent game execution.
+**Stop:** Stop a dependent case when its proof needs a new consumer or runtime
+evidence beyond this bounded trace; name and split that case.
+
+**Out of scope:** Labs and all other excluded machine families; product code,
+a game emulator, arithmetic rewrites of DSP, default rebalancing or agent game
+execution. This story establishes constraints; C02 and N03 implement them.
 
 ### CFG-C01 — Read and write the editable recipe settings · weight 3
 
@@ -157,9 +165,12 @@ ordering and the approved comment/unknown-key treatment. Changes during a sessio
 remain pending until restart. File errors are reported according to the contract;
 they do not silently reset every recipe. Update external references with the code.
 
-**Stop/exclusions:** A schema that cannot survive BepInEx serialization is a
-contract issue to resolve before continuing. No game/profile writes or manager
-installation; actual manager presentation remains a final owner observation.
+**Stop:** A schema that cannot survive BepInEx serialization is a contract issue
+to resolve before continuing.
+
+**Out of scope:** Nearest-value correction (C02), the ID reference (C03), recipe
+registration (N02), custom config frameworks, live reload, installed game/profile
+writes or manager installation. Actual manager presentation is an owner observation.
 
 ### CFG-C02 — Correct invalid values precisely · weight 5
 
@@ -173,15 +184,20 @@ corrections consistently with what production will use.
 
 **Done/evidence:** Tests cover valid extremes, nearest-ID ties, negative and very
 large integer text, nonnumeric values, missing/default fields, unused/duplicate
-rows, machine-specific constraints and rate quantization. Valid unrelated fields
-survive; a second load makes no further correction; reports identify section/key,
+rows, allowed-family constraints and rate quantization. Verify that excluded
+machine IDs receive the specified nearest-eligible correction while valid tier
+IDs remain unchanged. Valid unrelated fields survive; a second load makes no
+further correction; reports identify section/key,
 original value, effective value and reason. Verify BepInEx round trips rather than
 only a test double. Count changes cannot quietly compensate for a rate error.
 
-**Stop/exclusions:** No fallback to an entire default recipe for a one-field error.
-If the native domain or correction precedence remains ambiguous, stop that path;
-no global converter replacement or reflective access to BepInEx internals without
-an evidenced need and review of the narrower alternatives.
+**Stop:** If the native domain or correction precedence remains ambiguous, stop
+that path. Any need for BepInEx internals or a global converter change requires
+review of narrower alternatives before proceeding.
+
+**Out of scope:** Whole-recipe resets for one-field errors, balance restrictions,
+support for excluded machines, damaged-file reconstruction, save repair or changes
+to native production. Do not replace BepInEx's global conversion behavior as a shortcut.
 
 ### CFG-C03 — Generate the grouped ID reference · weight 2
 
@@ -191,6 +207,8 @@ an evidenced need and review of the narrower alternatives.
 **Scope:** Append ordinary BepInEx reference sections for items, technologies and
 machines, using stable numeric IDs and native readable names. Include applicable
 eligibility/level/family information and regeneration behavior from the contract.
+The machine group lists only the three allowed families and identifies their
+basic rate baselines separately from each tier's speed.
 
 **Done/evidence:** The reference and validator use the same catalogue snapshot.
 Generated data agrees with that snapshot; editing lookup names cannot affect
@@ -199,30 +217,15 @@ normal mod saves. Review the actual file in a text editor and exercise its norma
 BepInEx save cycle. Supply the same file for the final Thunderstore Mod Manager
 check; do not claim that app was tested through a substitute.
 
-**Stop/exclusions:** Missing metadata is reported and resolved, not supplied from
-an invented list. No custom manager extension, true nested-group promise, static
-copy of game assets, or separate lookup website.
+**Stop:** Missing metadata must be resolved or reported as a blocker, not supplied
+from an invented list.
+
+**Out of scope:** Excluded machines in the machine-choice group, custom manager
+extensions, true nested groups, static copies of game assets or a lookup website.
+Item lookup may still include those buildings as ingredients/outputs; that does
+not make them production-machine choices.
 
 ## E2 — Native production and progression
-
-### CFG-I02 — Resolve the lab consumer constraints · weight 3
-
-**Outcome:** Lab choices are accepted or corrected on specific native evidence.
-**Entry:** G0; bounded follow-up to the matrix-specific behavior already found.
-
-**Scope:** Trace the lab's input/output limits and the consumers of its
-matrix-derived production-state value, including stacked operation. Determine
-which product IDs/counts can use each lab tier without replacing native behavior.
-
-**Done/evidence:** List supported combinations and counterexamples with exact
-methods and asset identities. Feed numeric limits into I01 and machine/reference
-eligibility into the contract. A native limitation explains a correction; the mere
-fact that vanilla uses matrices does not prove every other product is invalid.
-
-**Stop/exclusions:** If establishing an advertised combination requires executing
-DSP or modifying native lab behavior, record that boundary and return the smallest
-scope decision. Do not research all special machines: fractionation and energy
-conversion already fail the fixed-rate recipe contract for identified reasons.
 
 ### CFG-N01 — Supply machine data before recipe caches · weight 3
 
@@ -231,20 +234,25 @@ at the correct startup point. **Depends on:** G1.
 
 **Scope:** Deliberately adopt the reviewed game-reference identity, update the
 existing evidence baseline, and integrate the narrow Harmony lifecycle point
-identified by inspection. Resolve item/machine/tech catalogues and machine speeds
-before publishing recipes, without rebuilding unrelated native caches. Keep the
+identified by inspection. Resolve item/tech catalogues and eligible machine IDs,
+family membership, basic-machine baselines and compatible tier speeds before
+publishing recipes, without rebuilding unrelated native caches. Keep the
 current fixed definitions working at this stage; configurable loading follows in C01.
 
 **Done/evidence:** Real-reference checks cover the changed hook and every new
 member. Targeted ordering/repeat-call tests show model data is available before
 configuration-dependent registration and before item/recipe links are constructed.
 The catalogue accepts eligible content present at that point, including other
-mods' data when the same requirements are met. Registration conflicts still name
-the conflict; existing recipe IDs are never silently reassigned.
+mods' data when the same requirements are met; machine choices remain limited to
+the three allowed families. Registration conflicts still name the conflict;
+existing recipe IDs are never silently reassigned.
 
-**Stop/exclusions:** If initialization order differs from the source finding, stop
-registration work and resolve the specific seam. No broad load-order framework,
-late hot reload, new dependency package or changes to the abnormality hotfix.
+**Stop:** If initialization order differs from the source finding, stop
+registration work and resolve the specific seam.
+
+**Out of scope:** Other machine families, configured recipe contents/research
+awards (N02), broad load-order frameworks, late hot reload, new dependency packages
+or changes to the abnormality hotfix.
 
 ### CFG-N02 — Apply recipe contents and research gates · weight 3
 
@@ -264,16 +272,19 @@ and existing-save behavior agree with the contract; unusual hidden/high-level
 tech choices are not rejected merely for being inconvenient. Source review confirms
 native buffers/queues are not rewritten. Record remaining game observations for D02.
 
-**Stop/exclusions:** No replaying entire research rewards, relocking saved recipes,
-resource refunds or save editor. A mismatch with the approved native-transition
-policy returns to the owning decision, not an improvised migration.
+**Stop:** A mismatch with the approved native-transition policy returns to the
+owning decision; do not improvise a migration.
+
+**Out of scope:** Timing conversion (N03), replaying entire research rewards,
+relocking saved recipes, rewriting factory buffers/queues, resource refunds or a
+save editor. Research gates remain configurable; labs remain excluded as machines.
 
 ### CFG-N03 — Verify native production semantics · weight 3
 
 **Outcome:** The emitted recipes deliver the configured rates and native behavior.
 **Depends on:** N02.
 
-**Scope:** Integrate the proven timing conversion, selected-tier baseline,
+**Scope:** Integrate the proven timing conversion, family basic-machine baseline,
 assembler-only handcraft rule and input-derived proliferation. Preserve ordinary
 speed differences on other compatible tiers and the original six defaults.
 
@@ -281,12 +292,17 @@ speed differences on other compatible tiers and the original six defaults.
 speeds for default/custom batches, attainable and corrected rates, supported
 families, and acceleration/extra-product eligibility. Native source traces cover
 consumer constraints; tests do not merely compare copied constant tables. Prepare
-measurable owner expectations for baseline and upgraded production and the agreed
-lab cases. Changing a machine must not introduce an extra production multiplier.
+measurable owner expectations for basic and upgraded production in all three
+families. Verify that selecting another tier's ID within a family leaves the
+emitted timing unchanged. Changing families uses the new family's basic machine;
+changing a machine must not introduce an extra production multiplier.
 
-**Stop/exclusions:** A demonstrated valid choice that cannot run is a defect to
-resolve, not permission to reject it. No replacement production loop, changed
-item productivity, balance checks or assumed runtime pass.
+**Stop:** A demonstrated valid choice that cannot run is a defect to resolve,
+not permission to reject it.
+
+**Out of scope:** Selected-tier rate baselines, production in excluded families,
+replacement production loops, changed item productivity, balance checks or agent
+runtime tests. Source and offline checks do not establish a gameplay pass.
 
 ## E3 — Candidate and owner handoff
 
@@ -307,9 +323,12 @@ DLL against real references. Record the chosen source, run/attempt, version and
 hashes in PROJECT. The docs explain restart behavior, file location in the chosen
 profile, corrections, the ID appendix and preparation before recipe changes.
 
-**Stop/exclusions:** A green run without inspecting its artifact does not close
-this story. Do not hand off an older artifact after a failed build. No release
-tag, Thunderstore publication, version promotion, new installer or dependency binaries.
+**Stop:** A failed build or unverified downloaded artifact leaves this story open.
+Do not hand off an older artifact to work around that failure.
+
+**Out of scope:** Feature expansion, owner acceptance, release tags, Thunderstore
+publication, version promotion, new installers, shipping active player configs or
+dependency binaries.
 
 ### CFG-D02 — Prepare and deliver owner acceptance · weight 2
 
@@ -323,13 +342,17 @@ is not asked to repeat the same setup for each story.
 
 **Done/evidence:** Cover Notepad and Thunderstore Mod Manager edit/search/save,
 defaults and custom IDs/counts, a shared gate, corrections, native production and
-proliferation, handcraft restriction, restart and the prepared save-transition
-cases. Include clearing selected recipes for family changes and cancelling queued
+proliferation in the three allowed families using basic-machine rate expectations,
+upgraded-tier speed differences, handcraft restriction, restart and the prepared
+save-transition cases. Include clearing selected recipes for family changes and cancelling queued
 handcrafts before saving under the old settings. Supply expected rates/counts;
 keep runtime result fields blank. G3 records technical readiness and awaiting
 owner acceptance, with no known contract defect hidden as an untested claim.
 
-**Stop/exclusions:** Stop agent execution at the delivered handoff. Do not infer
-acceptance from silence, partial unreported checks or CI success. The owner may
-explicitly accept with stated limitations. At that decision follow G4 and the
-closeout procedure above; publication still requires separate authority.
+**Stop:** Stop agent execution at the delivered handoff. The owner may explicitly
+accept with stated limitations; at that decision follow G4 and the closeout
+procedure above.
+
+**Out of scope:** Agent game execution, save/profile access, excluded-family test
+campaigns, publication or inferred acceptance from silence, unreported checks or
+CI success. The owner's observations and decision remain separate from delivery.

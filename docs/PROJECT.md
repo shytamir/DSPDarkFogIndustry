@@ -55,22 +55,27 @@ be accepted; invalid values must receive specific nearest-valid corrections.
 | CFG-D01: Reopen planning | Owner-directed | Supersedes maintenance deferral for this feature. Documentation delivery to main is authorized; product implementation is not. |
 | Initial investigation and roadmap skeleton | Delivered; draft definitions superseded by refinement | Main `fa42c40bf1315d6a3e2268b9dee6160b1eda4ab9`; [CI run 38388888854](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/38388888854) passed. Current definitions are in the [roadmap](planning/ROADMAP.md). |
 | CFG-D02: Existing defaults and recipe identity | Proposed | Preserve the accepted recipes as defaults and retain the six registered recipe IDs/selector positions while exposing their contents. Confirm at the planning review. |
-| CFG-D03: Remaining configuration proposals | Awaiting owner review | [Contract](planning/CONFIGURATION.md): file/ingredient layout, native completed-tech meaning, correction distance/ties/precedence, startup application, reference presentation and malformed-file boundary. Numeric proofs and lab constraints remain CFG-I01/I02; neither may invent balance restrictions. |
-| CFG-D04: Rate baseline | Owner-selected, 2026-10-13 | Products/minute in the selected machine before proliferation; other compatible tiers retain native speed differences. |
+| CFG-D03: Remaining configuration proposals | Awaiting owner review | [Contract](planning/CONFIGURATION.md): file/ingredient layout, native completed-tech meaning, correction distance/ties/precedence, startup application, reference presentation and malformed-file boundary. Numeric/shape proofs remain CFG-I01 within the three allowed machine families; no invented balance restrictions. |
+| CFG-D04: Selected-machine rate baseline | Superseded by CFG-D11, 2026-10-13 | The earlier selection used the chosen machine's speed. The owner now requires each family's basic-machine baseline, regardless of the configured tier ID. |
 | CFG-D05: Hand replication | Owner-selected, 2026-10-13 | Retain the current family rule: assembler recipes allow handcrafting; other families do not. No independent handcraft toggle. |
 | CFG-D06: Configuration changes and saves | Owner-selected, 2026-10-13 | Keep native loading behavior and document preparation, including emptying/clearing affected machines and cancelling queued handcrafts. No resource-preserving migration. |
 | CFG-D07: Output shape | Owner-selected, 2026-10-13 | One output item type per recipe, with editable ID and count. |
 | CFG-D08: Config editor target | Owner-selected, 2026-10-13 | Thunderstore Mod Manager, alongside Notepad. Actual manager presentation remains an owner observation; no substitute editor establishes it. |
 | CFG-D09: Roadmap refinement | Owner-directed, 2026-10-13 | Investigate routine uncertainties now within the existing envelope; retain bounded investigation stories only for questions that exceed it or become rabbit holes. Add relative work weights, epic/story separation, explicit phase gates and executable closeout/handoff instructions. |
-| Revised roadmap and contract | Prepared for owner review; G0 not passed | Three epics, ten stories, 32 relative work units. Only CFG-I01 (coupled numeric/shape bounds) and CFG-I02 (lab-specific validity) remain investigation stories. Implementation and later gates have not begun. |
+| First roadmap refinement | Delivered; scope superseded by CFG-D10/D11 | Main `4c69b1eb5a33ea715fa135448c26f2647e66aabb`; [CI run 38393118772](https://github.com/shytamir/DSPDarkFogIndustry/actions/runs/38393118772) passed. The prior draft had ten stories and 32 relative work units. |
+| CFG-D10: Allowed production machines | Owner-directed, 2026-10-13 | Only smelters, chemical plants and assemblers. Labs and all other families are outside this roadmap. Remove CFG-I02 and its dependent lab work; this is a scope decision, not a native incompatibility finding. |
+| CFG-D11: Basic-machine rate baseline | Owner-directed, 2026-10-13 | Products/minute before proliferation in Arc Smelter, Chemical Plant or Assembling Machine Mk.I. A configured higher-tier ID in the same family does not change this baseline; native tier speed differences remain. Supersedes CFG-D04. |
+| CFG-D12: Explicit story exclusions | Owner-directed, 2026-10-13 | Every story must state its out-of-scope work separately from its stop condition before the final draft is resubmitted. |
+| Revised roadmap and contract | Prepared for owner review; G0 not passed | Three epics, nine stories, 29 relative work units. Only CFG-I01 (coupled numeric/shape bounds in the three allowed families) remains an investigation story. Implementation and later gates have not begun. |
 | Current native reference | Drift identified; not adopted | Installed build identifies itself as 0.10.35.29131; recorded baseline is 0.10.35.29104. Activation stopped once. Selected new-build types/assets were inspected statically; baseline refresh and compatibility validation remain outstanding. |
 | Implementation, gameplay acceptance and publication | Not authorized by this planning request | Owner review of the completed contract and implementation plan precedes a separate implementation instruction. HF-01 acceptance and the published baseline are unchanged. |
 
 The [investigation](implementation/CONFIGURATION-INVESTIGATION.md) now maps machine
 IDs/speeds, family filtering, startup timing, technology completion, bounded
-handcraft recursion and native save/queue transitions. The brief numeric and lab
-checks exposed further coupled consumers; those two questions were bounded and
-deferred instead of assigning guessed limits. Native extracts remain ignored.
+handcraft recursion and native save/queue transitions. The brief numeric checks
+exposed coupled consumers that remain CFG-I01. The earlier lab findings are retained
+as evidence, but CFG-D10 removes the need for further lab investigation. Native
+extracts remain ignored.
 No complete valid-value domain, current-game compatibility or configurable
 runtime behavior has been established.
 
@@ -83,16 +88,26 @@ Initial draft validation passed: PowerShell syntax, 158 local links, retained
 concept hashes, source hygiene and diff whitespace. No local product build or
 runtime test was performed for this documentation change.
 
-Refinement review checked the new facts against their native consumers, then
+The first refinement review checked the new facts against their native consumers, then
 scope, dependencies, weights and handoff instructions against the completed MVP's
 delivery standard. It removed routine investigation stories, put reference adoption
 before the first configuration build, made C02's catalogue dependency explicit,
 distinguished value correction from damaged
 file syntax, and kept pending native bounds out of assumed implementation facts.
-The epic totals agree with the ten story weights (32); gates add no work weight.
+That draft's epic totals agreed with its ten story weights (32); gates added no work weight.
 Repository validation passed with 162 local links, retained concept hashes,
 PowerShell syntax, source hygiene and diff whitespace. Only planning/management
 and evidence documents changed; product code, installed files and saves were untouched.
+
+The scope revision removed the lab story and its dependencies, restricted the
+machine reference and correction domain to the three allowed families, and applied
+the basic-machine rate rule throughout the contract, implementation stories and
+owner handoff. Each of the nine remaining stories now has a separate out-of-scope
+statement and stop condition. Review checked the remaining dependencies, the
+15 + 9 + 5 weight totals, unchanged default rates and the distinction between
+machine choices and building items used as ingredients/outputs. No additional
+native investigation or product change was needed for this revision.
+Repository checks passed, including all 162 local links and diff whitespace.
 
 ## HF-01 maintenance hotfix — 2026-10-08
 

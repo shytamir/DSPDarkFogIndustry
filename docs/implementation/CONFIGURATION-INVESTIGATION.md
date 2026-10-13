@@ -76,8 +76,8 @@ smelting, chemical, refining, assembly, particle, exchange, photon storage,
 fractionation and research. Merely naming an enum value does not prove a machine
 accepts arbitrary recipes of that family. This inspection has not completed the
 machine-prefab capability/speed map or specialized consumer checks in the initial
-pass. The follow-up below supplies the ordinary-machine map and identifies the
-remaining lab-specific question.
+pass. The follow-up below supplies the ordinary-machine map and records the
+lab-specific uncertainty found before the owner excluded labs from scope.
 
 **Integer fields still have native constraints.** `RecipeProto.Preload` requires
 matching item/count arrays and, for fractionation, one input and one output. It
@@ -169,11 +169,19 @@ The ignored probe is `.local/configurability/inspect-facilities.py`; its result 
 | 2310 | Particle | 1 |
 | 2901, 2902 | Research, lab manufacturing mode | 1, 3; arbitrary product/count support is not established |
 
+The table records inspected native facts, not the allowed configuration domain.
+The owner subsequently limited machine choices to Smelt, Assemble and Chemical;
+Refine, Particle and Research entries do not authorize further work.
+
 `PrefabDesc` converts assembler and lab production speeds to native integer
 speed units. `UIAssemblerWindow.OnSelectRecipeClick` passes the building's recipe family
 to `UIRecipePicker.Popup`; the picker filters by that family and unlock state,
-not an individual machine ID. Thus selecting one tier can provide a rate baseline
-while other compatible tiers continue to accept the same recipe natively.
+not an individual machine ID. Compatible tiers therefore accept the same recipe
+natively. Under the revised contract, the selected ID supplies family membership;
+rate conversion uses that family's basic machine: 2302 at 1, 2303 at 0.75 or 2309
+at 1. A higher-tier selection must not replace that baseline. Tier output scales
+by its native speed divided by the basic machine's speed; for example, Mk.II
+assembly runs at 1 / 0.75 of the Mk.I rate before proliferation.
 
 `VFPreload.PreloadThread` calls `InvokeOnLoad` before model preloads. The current
 plugin hook therefore cannot simply start reading initialized machine prefab
@@ -247,14 +255,20 @@ plugin is not a substitute for validating the selected app. Keep its actual edit
 search and save round trip in the final owner procedure, without an agent changing
 the owner's manager profile or launching the game.
 
-### Investigations stopped at the brief-check boundary
+### Remaining numeric investigation and excluded lab work
 
-Only these questions need separate follow-up investigations in the revised plan:
+Only CFG-I01 needs a separate follow-up investigation under the revised scope:
 
 | Story | What the brief check established | Remaining bounded question |
 | --- | --- | --- |
-| CFG-I01 | Duration scaling can overflow; assembler demand multiplies input counts by a speed/time-dependent buffer factor; smelters stop when a batch would exceed 100 output items; handcraft and raw-material calculations multiply counts; production finishes at most one normal cycle per update. | Establish the supported input shapes and exact count/rate/ID bounds across those consumers, including ordinary higher-tier speeds and proliferation. Define nearest attainable integer-rate behavior without quietly changing a valid batch count. This grew beyond a simple range check, so no universal cap or formula was adopted. |
-| CFG-I02 | Labs use count-independent input demand thresholds, a speed-dependent output buffer, and return a production-state value derived from `productId - firstMatrixId + 1`. | Trace that state's consumers and lab feeding/output paths to determine which non-default item/count combinations are natively valid. Do not assume every existing item works or exclude every lab recipe without that evidence. |
+| CFG-I01 | Duration scaling can overflow; assembler demand multiplies input counts by a speed/time-dependent buffer factor; smelters stop when a batch would exceed 100 output items; handcraft and raw-material calculations multiply counts; production finishes at most one normal cycle per update. | Establish the supported input shapes and exact count/rate/ID bounds for smelting, chemical production and assembly, including their higher-tier speeds and proliferation. Define nearest attainable integer-rate behavior at the basic-machine baseline without quietly changing a valid batch count. This grew beyond a simple range check, so no universal cap or formula was adopted. |
+
+The earlier lab check found count-independent input demand thresholds, a
+speed-dependent output buffer and a production-state value derived from
+`productId - firstMatrixId + 1`. Its consumers were not fully traced. The owner
+excluded labs, so CFG-I02 is removed rather than completed: no further lab tracing,
+lab validity rules, shims or validation cases belong to this roadmap. These retained
+observations are not a claim that arbitrary lab recipes are invalid.
 
 The other questions now have source findings, owner decisions, concrete proposals
 for review, or a named final runtime observation. They do not justify retaining
